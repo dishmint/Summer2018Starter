@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       161,          7]
-NotebookDataLength[     17754,        411]
-NotebookOptionsPosition[     16111,        367]
-NotebookOutlinePosition[     16674,        389]
-CellTagsIndexPosition[     16588,        384]
+NotebookDataLength[      9151,        236]
+NotebookOptionsPosition[      7514,        192]
+NotebookOutlinePosition[      8077,        214]
+CellTagsIndexPosition[      7992,        209]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -133,202 +133,27 @@ Cell["What can I extract from the file on Import?", "Subsubsection",
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"Import", "[", 
+ RowBox[{
+  RowBox[{"Import", "[", 
+   RowBox[{
+   "\"\<~/Documents/Twine/Stories/TwineBridge_Test.html\>\"", ",", " ", 
+    "\"\<Rules\>\""}], "]"}], "/.", " ", 
   RowBox[{
-  "\"\<~/Documents/Twine/Stories/TwineBridge_Test.html\>\"", ",", " ", 
-   "\"\<Rules\>\""}], "]"}]], "Input",
- CellChangeTimes->{{3.739372884557888*^9, 3.73937288501027*^9}},
- CellLabel->"In[12]:=",ExpressionUUID->"7339f7fb-5e63-421c-b3e2-11b1bf77c496"],
+   RowBox[{"Rule", "[", 
+    RowBox[{"key_", ",", " ", "_"}], "]"}], "\[Rule]", " ", 
+   "key"}]}]], "Input",
+ CellChangeTimes->{{3.739372884557888*^9, 3.73937288501027*^9}, {
+  3.7393739702806396`*^9, 3.73937400470301*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"7339f7fb-5e63-421c-b3e2-11b1bf77c496"],
 
 Cell[BoxData[
  RowBox[{"{", 
-  RowBox[{
-   RowBox[{"\<\"Data\"\>", "\[Rule]", 
-    RowBox[{"{", "}"}]}], ",", 
-   RowBox[{"\<\"FullData\"\>", "\[Rule]", 
-    RowBox[{"{", "}"}]}], ",", 
-   RowBox[{"\<\"Hyperlinks\"\>", "\[Rule]", 
-    RowBox[{"{", "}"}]}], ",", 
-   RowBox[{"\<\"ImageLinks\"\>", "\[Rule]", 
-    RowBox[{"{", "}"}]}], ",", 
-   RowBox[{"\<\"Images\"\>", "\[Rule]", 
-    RowBox[{"{", "}"}]}], ",", 
-   RowBox[{"\<\"Plaintext\"\>", 
-    "\[Rule]", "\<\"This is my first passage. Now I'll go to one of two \
-second passages [[Second Passage A]] [[Second Passage B]]  Go to the \
-[[third]] passage  Go to the [[third]] passage  Double-click this passage to \
-edit it.\"\>"}], ",", 
-   RowBox[{"\<\"Source\"\>", 
-    "\[Rule]", "\<\"<tw-storydata name=\\\"TwineBridge_Test\\\" \
-startnode=\\\"1\\\" creator=\\\"Twine\\\" creator-version=\\\"2.2.1\\\" ifid=\
-\\\"579B2F48-823C-46E0-9C6C-AC01FFDA9A56\\\" zoom=\\\"1\\\" \
-format=\\\"Harlowe\\\" format-version=\\\"2.1.0\\\" options=\\\"\\\" \
-hidden>\\n  <style role=\\\"stylesheet\\\" id=\\\"twine-user-stylesheet\\\" \
-type=\\\"text/twine-css\\\">\\n\\n\\n  </style>\\n  <script role=\\\"script\\\
-\" id=\\\"twine-user-script\\\" type=\\\"text/twine-javascript\\\">\\n\\n\\n  \
-</script>\\n  <tw-passagedata pid=\\\"1\\\" name=\\\"First Passage\\\" \
-tags=\\\"\\\" position=\\\"320,377\\\" size=\\\"100,100\\\">This is my first \
-passage. Now I&#39;ll go to one of two second passages [[Second Passage A]] \
-[[Second Passage B]]</tw-passagedata>\\n  <tw-passagedata pid=\\\"2\\\" name=\
-\\\"Second Passage A\\\" tags=\\\"\\\" position=\\\"210,527\\\" \
-size=\\\"100,100\\\">Go to the [[third]] passage</tw-passagedata>\\n  \
-<tw-passagedata pid=\\\"3\\\" name=\\\"Second Passage B\\\" tags=\\\"\\\" \
-position=\\\"450,527\\\" size=\\\"100,100\\\">Go to the [[third]] \
-passage</tw-passagedata>\\n  <tw-passagedata pid=\\\"4\\\" name=\\\"third\\\" \
-tags=\\\"\\\" position=\\\"318,686\\\" size=\\\"100,100\\\">Double-click this \
-passage to edit it.</tw-passagedata>\\n</tw-storydata>\"\>"}], ",", 
-   RowBox[{"\<\"Title\"\>", "\[Rule]", "None"}], ",", 
-   RowBox[{"\<\"XMLObject\"\>", "\[Rule]", 
-    RowBox[{
-     RowBox[{"XMLObject", "[", "\<\"Document\"\>", "]"}], "[", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"XMLObject", "[", "\<\"Declaration\"\>", "]"}], "[", 
-        RowBox[{
-         RowBox[{"\<\"Version\"\>", "\[Rule]", "\<\"1.0\"\>"}], ",", 
-         RowBox[{"\<\"Standalone\"\>", "\[Rule]", "\<\"yes\"\>"}]}], "]"}], 
-       "}"}], ",", 
-      RowBox[{"XMLElement", "[", 
-       RowBox[{"\<\"tw-storydata\"\>", ",", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"\<\"name\"\>", "\[Rule]", "\<\"TwineBridge_Test\"\>"}], 
-          ",", 
-          RowBox[{"\<\"startnode\"\>", "\[Rule]", "\<\"1\"\>"}], ",", 
-          RowBox[{"\<\"creator\"\>", "\[Rule]", "\<\"Twine\"\>"}], ",", 
-          RowBox[{"\<\"creator-version\"\>", "\[Rule]", "\<\"2.2.1\"\>"}], 
-          ",", 
-          
-          RowBox[{"\<\"ifid\"\>", 
-           "\[Rule]", "\<\"579B2F48-823C-46E0-9C6C-AC01FFDA9A56\"\>"}], ",", 
-          RowBox[{"\<\"zoom\"\>", "\[Rule]", "\<\"1\"\>"}], ",", 
-          RowBox[{"\<\"format\"\>", "\[Rule]", "\<\"Harlowe\"\>"}], ",", 
-          RowBox[{"\<\"format-version\"\>", "\[Rule]", "\<\"2.1.0\"\>"}], ",", 
-          RowBox[{"\<\"options\"\>", "\[Rule]", "\<\"\"\>"}], ",", 
-          RowBox[{"\<\"hidden\"\>", "\[Rule]", "\<\"hidden\"\>"}], ",", 
-          RowBox[{
-           RowBox[{"{", 
-            
-            RowBox[{"\<\"http://www.w3.org/2000/xmlns/\"\>", 
-             ",", "\<\"xmlns\"\>"}], "}"}], 
-           "\[Rule]", "\<\"http://www.w3.org/1999/xhtml\"\>"}]}], "}"}], ",", 
-        
-        RowBox[{"{", 
-         RowBox[{"XMLElement", "[", 
-          RowBox[{"\<\"html\"\>", ",", 
-           RowBox[{"{", 
-            
-            RowBox[{"\<\"version\"\>", 
-             "\[Rule]", "\<\"-//W3C//DTD HTML 4.01 Transitional//EN\"\>"}], 
-            "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"XMLElement", "[", 
-              RowBox[{"\<\"head\"\>", ",", 
-               RowBox[{"{", "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{
-                 RowBox[{"XMLElement", "[", 
-                  RowBox[{"\<\"style\"\>", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    
-                    RowBox[{"\<\"id\"\>", 
-                    "\[Rule]", "\<\"twine-user-stylesheet\"\>"}], ",", 
-                    RowBox[{"\<\"role\"\>", "\[Rule]", "\<\"stylesheet\"\>"}],
-                     ",", 
-                    
-                    RowBox[{"\<\"type\"\>", 
-                    "\[Rule]", "\<\"text/twine-css\"\>"}]}], "}"}], ",", 
-                   RowBox[{"{", "\<\"\\n\\n\\n  \"\>", "}"}]}], "]"}], ",", 
-                 RowBox[{"XMLElement", "[", 
-                  RowBox[{"\<\"script\"\>", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    
-                    RowBox[{"\<\"id\"\>", 
-                    "\[Rule]", "\<\"twine-user-script\"\>"}], ",", 
-                    RowBox[{"\<\"role\"\>", "\[Rule]", "\<\"script\"\>"}], 
-                    ",", 
-                    
-                    RowBox[{"\<\"type\"\>", 
-                    "\[Rule]", "\<\"text/twine-javascript\"\>"}]}], "}"}], 
-                   ",", 
-                   RowBox[{"{", "\<\"\\n\\n\\n  \"\>", "}"}]}], "]"}], ",", 
-                 RowBox[{"XMLElement", "[", 
-                  RowBox[{"\<\"tw-passagedata\"\>", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"\<\"pid\"\>", "\[Rule]", "\<\"1\"\>"}], ",", 
-                    
-                    RowBox[{"\<\"name\"\>", 
-                    "\[Rule]", "\<\"First Passage\"\>"}], ",", 
-                    RowBox[{"\<\"tags\"\>", "\[Rule]", "\<\"\"\>"}], ",", 
-                    
-                    RowBox[{"\<\"position\"\>", 
-                    "\[Rule]", "\<\"320,377\"\>"}], ",", 
-                    RowBox[{"\<\"size\"\>", "\[Rule]", "\<\"100,100\"\>"}]}], 
-                    "}"}], ",", 
-                   RowBox[{"{", "}"}]}], "]"}]}], "}"}]}], "]"}], ",", 
-             RowBox[{"XMLElement", "[", 
-              RowBox[{"\<\"body\"\>", ",", 
-               RowBox[{"{", "}"}], ",", 
-               RowBox[{"{", 
-                
-                RowBox[{"\<\"This is my first passage. Now I'll go to one of \
-two second passages [[Second Passage A]] [[Second Passage B]]\\n  \"\>", ",", 
-                 
-                 RowBox[{"XMLElement", "[", 
-                  RowBox[{"\<\"tw-passagedata\"\>", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"\<\"pid\"\>", "\[Rule]", "\<\"2\"\>"}], ",", 
-                    
-                    RowBox[{"\<\"name\"\>", 
-                    "\[Rule]", "\<\"Second Passage A\"\>"}], ",", 
-                    RowBox[{"\<\"tags\"\>", "\[Rule]", "\<\"\"\>"}], ",", 
-                    
-                    RowBox[{"\<\"position\"\>", 
-                    "\[Rule]", "\<\"210,527\"\>"}], ",", 
-                    RowBox[{"\<\"size\"\>", "\[Rule]", "\<\"100,100\"\>"}]}], 
-                    "}"}], ",", 
-                   RowBox[{"{", "}"}]}], "]"}], 
-                 ",", "\<\"Go to the [[third]] passage\\n  \"\>", ",", 
-                 RowBox[{"XMLElement", "[", 
-                  RowBox[{"\<\"tw-passagedata\"\>", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"\<\"pid\"\>", "\[Rule]", "\<\"3\"\>"}], ",", 
-                    
-                    RowBox[{"\<\"name\"\>", 
-                    "\[Rule]", "\<\"Second Passage B\"\>"}], ",", 
-                    RowBox[{"\<\"tags\"\>", "\[Rule]", "\<\"\"\>"}], ",", 
-                    
-                    RowBox[{"\<\"position\"\>", 
-                    "\[Rule]", "\<\"450,527\"\>"}], ",", 
-                    RowBox[{"\<\"size\"\>", "\[Rule]", "\<\"100,100\"\>"}]}], 
-                    "}"}], ",", 
-                   RowBox[{"{", "}"}]}], "]"}], 
-                 ",", "\<\"Go to the [[third]] passage\\n  \"\>", ",", 
-                 RowBox[{"XMLElement", "[", 
-                  RowBox[{"\<\"tw-passagedata\"\>", ",", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    RowBox[{"\<\"pid\"\>", "\[Rule]", "\<\"4\"\>"}], ",", 
-                    RowBox[{"\<\"name\"\>", "\[Rule]", "\<\"third\"\>"}], ",", 
-                    RowBox[{"\<\"tags\"\>", "\[Rule]", "\<\"\"\>"}], ",", 
-                    
-                    RowBox[{"\<\"position\"\>", 
-                    "\[Rule]", "\<\"318,686\"\>"}], ",", 
-                    RowBox[{"\<\"size\"\>", "\[Rule]", "\<\"100,100\"\>"}]}], 
-                    "}"}], ",", 
-                   RowBox[{"{", "}"}]}], "]"}], 
-                 ",", "\<\"Double-click this passage to edit it.\\n\"\>"}], 
-                "}"}]}], "]"}]}], "}"}]}], "]"}], "}"}]}], "]"}], ",", 
-      RowBox[{"{", "}"}]}], "]"}]}]}], "}"}]], "Output",
- CellChangeTimes->{3.739372885850165*^9},
- CellLabel->"Out[12]=",ExpressionUUID->"1759e03f-41ca-4560-8dc7-9999afb2b2ee"]
+  RowBox[{"\<\"Data\"\>", ",", "\<\"FullData\"\>", ",", "\<\"Hyperlinks\"\>", 
+   ",", "\<\"ImageLinks\"\>", ",", "\<\"Images\"\>", ",", "\<\"Plaintext\"\>",
+    ",", "\<\"Source\"\>", ",", "\<\"Title\"\>", ",", "\<\"XMLObject\"\>"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.739372885850165*^9, 3.73937400712416*^9},
+ CellLabel->"Out[13]=",ExpressionUUID->"0d7b0d5d-460c-45c6-8aaf-e4ffabd3c81d"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -366,7 +191,7 @@ passage to edit it.</tw-passagedata>\\n</tw-storydata>\"\>"], "Output",
 }, Open  ]]
 },
 WindowSize->{840, 467},
-WindowMargins->{{0, Automatic}, {0, Automatic}},
+WindowMargins->{{-1, Automatic}, {0, Automatic}},
 FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 7, \
 2018)",
 StyleDefinitions->"Default.nb"
@@ -383,7 +208,7 @@ CellTagsIndex->{
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Info23739358299-9884682", 16428, 378}
+ {"Info23739358299-9884682", 7832, 203}
  }
 *)
 (*NotebookFileOutline
@@ -404,12 +229,12 @@ Cell[3087, 96, 1310, 23, 92, "Print",ExpressionUUID->"f513bbed-1f32-4ced-987a-83
 Cell[CellGroupData[{
 Cell[4458, 126, 245, 4, 45, "Subsubsection",ExpressionUUID->"e6baa028-b6ac-44fc-af4a-3e6bd99a74e5"],
 Cell[CellGroupData[{
-Cell[4728, 134, 304, 6, 30, "Input",ExpressionUUID->"7339f7fb-5e63-421c-b3e2-11b1bf77c496"],
-Cell[5035, 142, 9210, 188, 1085, "Output",ExpressionUUID->"1759e03f-41ca-4560-8dc7-9999afb2b2ee"]
+Cell[4728, 134, 491, 12, 52, "Input",ExpressionUUID->"7339f7fb-5e63-421c-b3e2-11b1bf77c496"],
+Cell[5222, 148, 426, 7, 34, "Output",ExpressionUUID->"0d7b0d5d-460c-45c6-8aaf-e4ffabd3c81d"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[14282, 335, 306, 6, 30, "Input",ExpressionUUID->"c9b10bc9-e9b8-4fc1-9898-2e96d4381ecb"],
-Cell[14591, 343, 1480, 19, 455, "Output",ExpressionUUID->"d46c21d5-4613-4c5d-be8c-a23056c9b987"]
+Cell[5685, 160, 306, 6, 30, "Input",ExpressionUUID->"c9b10bc9-e9b8-4fc1-9898-2e96d4381ecb"],
+Cell[5994, 168, 1480, 19, 455, "Output",ExpressionUUID->"d46c21d5-4613-4c5d-be8c-a23056c9b987"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
