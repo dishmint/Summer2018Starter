@@ -3,20 +3,20 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[     41965,        889]
+NotebookDataLength[     41964,        889]
 NotebookOptionsPosition[     32284,        700]
-NotebookOutlinePosition[     37386,        819]
-CellTagsIndexPosition[     37181,        810]
+NotebookOutlinePosition[     37385,        819]
+CellTagsIndexPosition[     37180,        810]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
-Cell["Last modified on: Friday, June 29, 2018 at 11:57", \
+Cell["Last modified on: Friday, June 29, 2018 at 21:04", \
 "TemplateInstructions",
  Deployed->True,
  Background->RGBColor[0.75, 0.75, 0.75],
  CellTags->
-  "LastModified",ExpressionUUID->"c1d0cd4a-cc7d-4882-874e-b50978cfd2e2"],
+  "LastModified",ExpressionUUID->"9ad4fbb8-43ab-48cd-8e1e-1a456449e922"],
 
 Cell[CellGroupData[{
 
@@ -714,7 +714,7 @@ NotebookEventActions:>{
        "LastModified", Deployed -> True, Background -> 
        Lighter[Gray, 0.5]]]]},
 WindowSize->{812, 752},
-WindowMargins->{{194, Automatic}, {Automatic, 74}},
+WindowMargins->{{69, Automatic}, {Automatic, 73}},
 WindowFrameElements->{"CloseBox"},
 DockedCells->Cell[
  "Wolfram Summer School 2018", FontFamily -> "Source Sans Pro", FontSize -> 
@@ -791,7 +791,7 @@ StyleDefinitions->Notebook[{
 (*CellTagsOutline
 CellTagsIndex->{
  "LastModified"->{
-  Cell[400, 13, 225, 5, 52, "TemplateInstructions",ExpressionUUID->"c1d0cd4a-cc7d-4882-874e-b50978cfd2e2",
+  Cell[400, 13, 225, 5, 52, "TemplateInstructions",ExpressionUUID->"9ad4fbb8-43ab-48cd-8e1e-1a456449e922",
    CellTags->"LastModified"]},
  "AuthorInfo"->{
   Cell[650, 22, 176, 4, 67, "TemplateSectionHeaders",ExpressionUUID->"47541fce-e5a1-4793-b8e1-e1340b437ca6",
@@ -809,16 +809,16 @@ CellTagsIndex->{
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"LastModified", 36365, 792},
- {"AuthorInfo", 36520, 795},
- {"PosterContent", 36678, 798},
- {"PresentationContent", 36846, 801},
- {"ProjectNotes", 37015, 804}
+ {"LastModified", 36364, 792},
+ {"AuthorInfo", 36519, 795},
+ {"PosterContent", 36677, 798},
+ {"PresentationContent", 36845, 801},
+ {"ProjectNotes", 37014, 804}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[400, 13, 225, 5, 52, "TemplateInstructions",ExpressionUUID->"c1d0cd4a-cc7d-4882-874e-b50978cfd2e2",
+Cell[400, 13, 225, 5, 52, "TemplateInstructions",ExpressionUUID->"9ad4fbb8-43ab-48cd-8e1e-1a456449e922",
  CellTags->"LastModified"],
 Cell[CellGroupData[{
 Cell[650, 22, 176, 4, 67, "TemplateSectionHeaders",ExpressionUUID->"47541fce-e5a1-4793-b8e1-e1340b437ca6",
