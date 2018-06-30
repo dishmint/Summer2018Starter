@@ -1,0 +1,1153 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[     47496,       1145]
+NotebookOptionsPosition[     42362,       1048]
+NotebookOutlinePosition[     42936,       1070]
+CellTagsIndexPosition[     42847,       1065]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Twine HTML Parser", "Title",
+ CellChangeTimes->{{3.739374767977881*^9, 
+  3.739374775377944*^9}},ExpressionUUID->"97dc47f0-1fff-4f61-8863-\
+1dbeeaa83d8a"],
+
+Cell[BoxData[
+ RowBox[{"Clear", "[", "twineParser", "]"}]], "Input",
+ CellChangeTimes->{{3.739375985157879*^9, 3.739375991616947*^9}},
+ CellLabel->"In[62]:=",ExpressionUUID->"6bc27310-b533-415e-9ab9-4221c151c3f2"],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "extractLinks", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"extractLinks", "[", "passageContent_", "]"}], ":=", 
+  RowBox[{"DeleteCases", "[", 
+   RowBox[{
+    RowBox[{"StringCases", "[", 
+     RowBox[{"passageContent", ",", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"\"\<[[\>\"", "~~", 
+         RowBox[{"ShortestMatch", "[", "p___", "]"}], "~~", "\"\<]]\>\""}], 
+        ")"}], "\[RuleDelayed]", " ", "p"}]}], "]"}], ",", " ", 
+    RowBox[{"{", "}"}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.7393874384684*^9, 3.739387443224778*^9}},
+ CellLabel->
+  "In[315]:=",ExpressionUUID->"f352a41f-8685-42c5-b054-e616897120ef"],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "generateEdges", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"generateEdges", "[", 
+   RowBox[{"parentName_", ",", " ", "links_"}], "]"}], ":=", " ", 
+  RowBox[{"Thread", "[", 
+   RowBox[{"DirectedEdge", "[", 
+    RowBox[{"parentName", ",", " ", "links"}], "]"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.739380048376957*^9, 3.739380083705665*^9}, {
+   3.7393802475686483`*^9, 3.739380385130546*^9}, {3.739380729978265*^9, 
+   3.739380773794074*^9}, {3.739380864427796*^9, 3.7393808743482323`*^9}, {
+   3.739380904776142*^9, 3.739380927110754*^9}, {3.739381007931707*^9, 
+   3.739381033328981*^9}, {3.7393811458629436`*^9, 3.73938127851131*^9}, {
+   3.739381395972126*^9, 3.739381484292981*^9}, {3.739381515280521*^9, 
+   3.739381565185861*^9}, {3.7393816029753942`*^9, 3.739381653095702*^9}, {
+   3.739381764764572*^9, 3.739381767522216*^9}, {3.739381885650511*^9, 
+   3.7393819098266573`*^9}, {3.739382045614414*^9, 3.739382063020794*^9}, {
+   3.739382484138977*^9, 3.739382490519216*^9}, {3.739382528568766*^9, 
+   3.739382546519128*^9}, 3.7393868613090467`*^9, {3.73938720520955*^9, 
+   3.739387267711919*^9}, 3.739387852892541*^9},
+ CellLabel->
+  "In[331]:=",ExpressionUUID->"873d0267-68d9-4fd9-ada2-4138d75a6703"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"twineParser", "[", "absoluteFilePath_String", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "fileAsString", ",", "xmlObject", ",", " ", "rootNode", ",", 
+      "rootNodeName", ",", " ", "passages", ",", "edges", ",", "alledges"}], 
+     "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{
+     "Import", " ", "Twine", " ", "Project", " ", "as", " ", "string"}], 
+     "*)"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"fileAsString", " ", "=", " ", 
+      RowBox[{"Import", "[", 
+       RowBox[{"absoluteFilePath", ",", " ", "\"\<String\>\""}], "]"}]}], ";",
+      "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Explicitly", " ", "Parse", " ", "XML"}], " ", "|", " ", 
+       RowBox[{
+        RowBox[{"Riccardo", "'"}], "s", " ", "Algorithm"}]}], "*)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{"xmlObject", " ", "=", " ", 
+      RowBox[{"parseXML", "[", "fileAsString", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"Get", " ", "the", " ", "root", " ", "node"}], "*)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{"rootNode", " ", "=", " ", 
+      RowBox[{"Cases", "[", 
+       RowBox[{"xmlObject", ",", " ", 
+        RowBox[{"XMLElement", "[", 
+         RowBox[{"\"\<tw-storydata\>\"", ",", " ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Rule", "[", 
+             RowBox[{"\"\<name\>\"", ",", " ", "name_"}], "]"}], ",", "___"}],
+            "}"}], ",", " ", "_"}], "]"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"Extract", " ", "the", " ", "Story", " ", "name"}], "*)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{"rootNodeName", " ", "=", 
+      RowBox[{
+       RowBox[{"Cases", "[", 
+        RowBox[{"xmlObject", ",", " ", 
+         RowBox[{
+          RowBox[{"XMLElement", "[", 
+           RowBox[{"\"\<tw-storydata\>\"", ",", " ", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Rule", "[", 
+               RowBox[{"\"\<name\>\"", ",", " ", "name_"}], "]"}], ",", 
+              "___"}], "}"}], ",", " ", "_"}], "]"}], "\[RuleDelayed]", " ", 
+          "name"}]}], "]"}], "/.", 
+       RowBox[{
+        RowBox[{"{", "storytitle_", "}"}], "\[Rule]", "storytitle"}]}]}], ";",
+      "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+      "Extract", " ", "the", " ", "passages", " ", "in", " ", "the", " ", 
+       "form", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"passage", "-", "name"}], ",", " ", "content"}], "}"}]}], 
+      "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"passages", " ", "=", " ", 
+      RowBox[{"Cases", "[", 
+       RowBox[{"rootNode", ",", " ", 
+        RowBox[{
+         RowBox[{"XMLElement", "[", 
+          RowBox[{"\"\<tw-passagedata\>\"", ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"___", ",", 
+             RowBox[{"Rule", "[", 
+              RowBox[{"\"\<name\>\"", ",", " ", "name_"}], "]"}], ",", 
+             "___"}], "}"}], ",", " ", "content_"}], "]"}], "\[RuleDelayed]", 
+         " ", 
+         RowBox[{"{", 
+          RowBox[{"name", ",", "content"}], "}"}]}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "Infinity"}], "}"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"Extract", " ", "Links"}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"links", "=", " ", 
+      RowBox[{"DeleteCases", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"extractLinks", "[", 
+           RowBox[{
+           "#", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], "]"}],
+           "&"}], "/@", "passages"}], ",", " ", 
+        RowBox[{"{", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"generate", " ", "edges"}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"edges", " ", "=", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"generatedEdges", "[", 
+         RowBox[{
+          RowBox[{"#", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}],
+           ",", " ", 
+          RowBox[{"extractLinks", "[", 
+           RowBox[{
+           "#", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+           "]"}]}], "]"}], "&"}], "/@", "passages"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+      "create", " ", "complete", " ", "list", " ", "of", " ", "edges", " ", 
+       "for", " ", "graph"}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"alledges", "=", " ", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"rootNodeName", " ", "\[DirectedEdge]", " ", 
+           RowBox[{
+            RowBox[{"First", "[", "passages", "]"}], "\[LeftDoubleBracket]", 
+            "1", "\[RightDoubleBracket]"}]}], "}"}], ",", 
+         RowBox[{"DeleteCases", "[", 
+          RowBox[{"edges", ",", " ", 
+           RowBox[{"{", "}"}]}], "]"}]}], "}"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"Generate", " ", "Graph"}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"Graph", "[", 
+      RowBox[{"alledges", ",", " ", 
+       RowBox[{"VertexLabels", "\[Rule]", "\"\<Name\>\""}], ",", " ", 
+       RowBox[{"GraphLayout", " ", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<LayeredDigraphEmbedding\>\"", ",", " ", 
+          RowBox[{"\"\<RootVertex\>\"", "\[Rule]", "rootNodeName"}]}], 
+         "}"}]}]}], "]"}]}]}], "\[IndentingNewLine]", 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"test", "=", 
+  RowBox[{
+  "twineParser", "[", 
+   "\"\<~/Documents/Twine/Stories/TwineBridge_Test.html\>\"", 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"test2", " ", "=", " ", 
+    RowBox[{
+    "twineParser", "[", 
+     "\"\<~/Documents/Twine/Stories/isc405 _ Assignment 3.html\>\"", "]"}]}], 
+   "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.739374806182001*^9, 3.739374894915627*^9}, {
+   3.739374973653462*^9, 3.7393749809473133`*^9}, {3.739375095761365*^9, 
+   3.7393751548860683`*^9}, {3.7393752212792892`*^9, 3.739375305676365*^9}, {
+   3.7393753461019993`*^9, 3.739375575989257*^9}, {3.7393756598157167`*^9, 
+   3.739375736053009*^9}, {3.739375769919919*^9, 3.7393758252633133`*^9}, {
+   3.739375872696203*^9, 3.739375978975349*^9}, {3.739376009923346*^9, 
+   3.7393760554598494`*^9}, {3.7393761215874853`*^9, 
+   3.7393761237153473`*^9}, {3.739376185546053*^9, 3.739376272012074*^9}, {
+   3.7393763029738817`*^9, 3.7393763357201777`*^9}, {3.739376373626107*^9, 
+   3.739376384990261*^9}, {3.739376432591305*^9, 3.739376434130669*^9}, {
+   3.739376514906032*^9, 3.739376531490026*^9}, {3.7393766935572243`*^9, 
+   3.739376746799467*^9}, {3.7393768505008307`*^9, 3.7393768842530947`*^9}, {
+   3.739377103138013*^9, 3.7393771262512302`*^9}, {3.739377266058628*^9, 
+   3.739377439383081*^9}, {3.7393775093269873`*^9, 3.739377516346964*^9}, 
+   3.739377566948168*^9, {3.739378180736663*^9, 3.73937820348002*^9}, {
+   3.739378918456716*^9, 3.7393789405068617`*^9}, {3.739379071639071*^9, 
+   3.739379115966123*^9}, 3.739379178850214*^9, {3.739379281196218*^9, 
+   3.7393793099518023`*^9}, {3.7393797662698708`*^9, 3.739379771896049*^9}, {
+   3.739379810320086*^9, 3.739379811659005*^9}, {3.739381786960001*^9, 
+   3.739381809742724*^9}, 3.7393818789683037`*^9, {3.739386534492612*^9, 
+   3.73938653811033*^9}, {3.73938657687955*^9, 3.739386578161581*^9}, 
+   3.7393872193706713`*^9, {3.7393873109014063`*^9, 3.739387368062011*^9}, {
+   3.739387402805298*^9, 3.739387420190893*^9}, 3.739387454331543*^9, {
+   3.7393877423826838`*^9, 3.739387771708704*^9}, {3.7393878137385063`*^9, 
+   3.7393878181677923`*^9}, {3.739387873633975*^9, 3.739387976621653*^9}, {
+   3.739388132771656*^9, 3.7393882238791523`*^9}, {3.7393882612600317`*^9, 
+   3.7393882634561977`*^9}, {3.739388387786929*^9, 3.739388396146327*^9}, {
+   3.739388539865389*^9, 3.739388565194478*^9}, {3.739388646468009*^9, 
+   3.7393887080846786`*^9}, {3.739388739770355*^9, 3.739388742837929*^9}, {
+   3.7393887920895643`*^9, 3.7393888911699467`*^9}, {3.739388927660988*^9, 
+   3.739389009498231*^9}, {3.739389075689187*^9, 3.739389076779163*^9}, {
+   3.739389117461875*^9, 3.739389136265101*^9}, 3.739389227648139*^9, {
+   3.739389409194173*^9, 
+   3.739389490816245*^9}},ExpressionUUID->"da602560-148f-47f9-a9a2-\
+21cde112da72"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{
+      "TwineBridge_Test", "First Passage", "Second Passage A", 
+       "Second Passage B", "third"}, {{{1, 2}, {2, 3}, {2, 4}, {3, 5}, {4, 
+       5}}, Null}, {
+      GraphLayout -> {
+        "LayeredDigraphEmbedding", "RootVertex" -> "TwineBridge_Test"}, 
+       VertexLabels -> {"Name"}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[{{0., 3.}, {0., 2.}}, 0.030239520958083826`], 
+        ArrowBox[{{0., 2.}, {-1., 1.}}, 0.030239520958083826`], 
+        ArrowBox[{{0., 2.}, {0., 1.}}, 0.030239520958083826`], 
+        ArrowBox[{{-1., 1.}, {-1., 0.}}, 0.030239520958083826`], 
+        ArrowBox[{{0., 1.}, {-1., 0.}}, 0.030239520958083826`]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {DiskBox[{0., 3.}, 0.030239520958083826], 
+         InsetBox["\<\"TwineBridge_Test\"\>", 
+          Offset[{2, 2}, {0.030239520958083826, 3.0302395209580837}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{0., 2.}, 0.030239520958083826], 
+         InsetBox["\<\"First Passage\"\>", 
+          Offset[{2, 2}, {0.030239520958083826, 2.0302395209580837}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{-1., 1.}, 0.030239520958083826], 
+         InsetBox["\<\"Second Passage A\"\>", 
+          Offset[{2, 2}, {-0.9697604790419162, 1.030239520958084}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{0., 1.}, 0.030239520958083826], 
+         InsetBox["\<\"Second Passage B\"\>", 
+          Offset[{2, 2}, {0.030239520958083826, 1.030239520958084}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {DiskBox[{-1., 0.}, 0.030239520958083826], 
+         InsetBox["\<\"third\"\>", 
+          Offset[{2, 2}, {-0.9697604790419162, 0.030239520958083826}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Output",
+ CellChangeTimes->{3.739389138277278*^9, 3.739389229492958*^9, 
+  3.739389480741476*^9},
+ CellLabel->
+  "Out[393]=",ExpressionUUID->"79d78e9f-a4e0-47b3-83a3-5d305a02b688"]
+}, Open  ]],
+
+Cell["Make each node be a cell with the passage content", "Text",
+ CellChangeTimes->{{3.739389389575645*^9, 
+  3.739389403015205*^9}},ExpressionUUID->"799dbbc3-5fec-454f-9e1c-\
+7e42c256ea4c"],
+
+Cell[CellGroupData[{
+
+Cell["With Echo Statements", "Subsubsection",
+ CellChangeTimes->{{3.7393890817900248`*^9, 
+  3.739389085288301*^9}},ExpressionUUID->"59ce19c9-6126-47c6-939c-\
+f2209602a180"],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "twineParser2", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"twineParser2", "[", "absoluteFilePath_String", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "fileAsString", ",", "xmlObject", ",", " ", "rootNode", ",", 
+      "rootNodeName", ",", " ", "passages", ",", "edges", ",", "rules"}], 
+     "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{
+     "Import", " ", "Twine", " ", "Project", " ", "as", " ", "string"}], 
+     "*)"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"fileAsString", " ", "=", " ", 
+      RowBox[{"Import", "[", 
+       RowBox[{"absoluteFilePath", ",", " ", "\"\<String\>\""}], "]"}]}], ";",
+      "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Explicitly", " ", "Parse", " ", "XML"}], " ", "|", " ", 
+       RowBox[{
+        RowBox[{"Riccardo", "'"}], "s", " ", "Algorithm"}]}], "*)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{"xmlObject", " ", "=", " ", 
+      RowBox[{"parseXML", "[", "fileAsString", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"Get", " ", "the", " ", "root", " ", "node"}], "*)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{"rootNode", " ", "=", " ", 
+      RowBox[{"Cases", "[", 
+       RowBox[{"xmlObject", ",", " ", 
+        RowBox[{"XMLElement", "[", 
+         RowBox[{"\"\<tw-storydata\>\"", ",", " ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Rule", "[", 
+             RowBox[{"\"\<name\>\"", ",", " ", "name_"}], "]"}], ",", "___"}],
+            "}"}], ",", " ", "_"}], "]"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"Extract", " ", "the", " ", "Story", " ", "name"}], "*)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{"rootNodeName", " ", "=", 
+      RowBox[{
+       RowBox[{"Cases", "[", 
+        RowBox[{"xmlObject", ",", " ", 
+         RowBox[{
+          RowBox[{"XMLElement", "[", 
+           RowBox[{"\"\<tw-storydata\>\"", ",", " ", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Rule", "[", 
+               RowBox[{"\"\<name\>\"", ",", " ", "name_"}], "]"}], ",", 
+              "___"}], "}"}], ",", " ", "_"}], "]"}], "\[RuleDelayed]", " ", 
+          "name"}]}], "]"}], "/.", 
+       RowBox[{
+        RowBox[{"{", "storytitle_", "}"}], "\[Rule]", "storytitle"}]}]}], ";",
+      "\[IndentingNewLine]", 
+     RowBox[{"Echo", "[", 
+      RowBox[{"rootNodeName", ",", " ", "\"\<STORY NAME: \>\""}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+      "Extract", " ", "the", " ", "passages", " ", "in", " ", "the", " ", 
+       "form", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"passage", "-", "name"}], ",", " ", "content"}], "}"}]}], 
+      "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"passages", " ", "=", " ", 
+      RowBox[{"Cases", "[", 
+       RowBox[{"rootNode", ",", " ", 
+        RowBox[{
+         RowBox[{"XMLElement", "[", 
+          RowBox[{"\"\<tw-passagedata\>\"", ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"___", ",", 
+             RowBox[{"Rule", "[", 
+              RowBox[{"\"\<name\>\"", ",", " ", "name_"}], "]"}], ",", 
+             "___"}], "}"}], ",", " ", "content_"}], "]"}], "\[RuleDelayed]", 
+         " ", 
+         RowBox[{"{", 
+          RowBox[{"name", ",", 
+           RowBox[{"Echo", "[", 
+            RowBox[{"content", ",", "\"\<CONTENT: \>\""}], "]"}]}], "}"}]}], 
+        ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "Infinity"}], "}"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"Extract", " ", "Links"}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"links", "=", " ", 
+      RowBox[{"DeleteCases", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"extractLinks", "[", 
+           RowBox[{
+           "#", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], "]"}],
+           "&"}], "/@", "passages"}], ",", " ", 
+        RowBox[{"{", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"edges", " ", "=", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"generatedEdges", "[", 
+         RowBox[{
+          RowBox[{"Echo", "[", 
+           RowBox[{
+            RowBox[{
+            "#", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], ",", 
+            " ", "\"\<Passage Names : \>\""}], "]"}], ",", " ", 
+          RowBox[{"extractLinks", "[", 
+           RowBox[{
+           "#", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+           "]"}]}], "]"}], "&"}], "/@", "passages"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"rules", "=", " ", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"rootNodeName", " ", "\[DirectedEdge]", " ", 
+           RowBox[{
+            RowBox[{"First", "[", "passages", "]"}], "\[LeftDoubleBracket]", 
+            "1", "\[RightDoubleBracket]"}]}], "}"}], ",", 
+         RowBox[{"DeleteCases", "[", 
+          RowBox[{"edges", ",", " ", 
+           RowBox[{"{", "}"}]}], "]"}]}], "}"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Graph", "[", 
+      RowBox[{"rules", ",", " ", 
+       RowBox[{"VertexLabels", "\[Rule]", "\"\<Name\>\""}], ",", " ", 
+       RowBox[{"GraphLayout", " ", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"\"\<LayeredDigraphEmbedding\>\"", ",", " ", 
+          RowBox[{"\"\<RootVertex\>\"", "\[Rule]", "rootNodeName"}]}], 
+         "}"}]}]}], "]"}]}]}], "\[IndentingNewLine]", 
+   "]"}]}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.739374806182001*^9, 3.739374894915627*^9}, {
+   3.739374973653462*^9, 3.7393749809473133`*^9}, {3.739375095761365*^9, 
+   3.7393751548860683`*^9}, {3.7393752212792892`*^9, 3.739375305676365*^9}, {
+   3.7393753461019993`*^9, 3.739375575989257*^9}, {3.7393756598157167`*^9, 
+   3.739375736053009*^9}, {3.739375769919919*^9, 3.7393758252633133`*^9}, {
+   3.739375872696203*^9, 3.739375978975349*^9}, {3.739376009923346*^9, 
+   3.7393760554598494`*^9}, {3.7393761215874853`*^9, 
+   3.7393761237153473`*^9}, {3.739376185546053*^9, 3.739376272012074*^9}, {
+   3.7393763029738817`*^9, 3.7393763357201777`*^9}, {3.739376373626107*^9, 
+   3.739376384990261*^9}, {3.739376432591305*^9, 3.739376434130669*^9}, {
+   3.739376514906032*^9, 3.739376531490026*^9}, {3.7393766935572243`*^9, 
+   3.739376746799467*^9}, {3.7393768505008307`*^9, 3.7393768842530947`*^9}, {
+   3.739377103138013*^9, 3.7393771262512302`*^9}, {3.739377266058628*^9, 
+   3.739377439383081*^9}, {3.7393775093269873`*^9, 3.739377516346964*^9}, 
+   3.739377566948168*^9, {3.739378180736663*^9, 3.73937820348002*^9}, {
+   3.739378918456716*^9, 3.7393789405068617`*^9}, {3.739379071639071*^9, 
+   3.739379115966123*^9}, 3.739379178850214*^9, {3.739379281196218*^9, 
+   3.7393793099518023`*^9}, {3.7393797662698708`*^9, 3.739379771896049*^9}, {
+   3.739379810320086*^9, 3.739379811659005*^9}, {3.739381786960001*^9, 
+   3.739381809742724*^9}, 3.7393818789683037`*^9, {3.739386534492612*^9, 
+   3.73938653811033*^9}, {3.73938657687955*^9, 3.739386578161581*^9}, 
+   3.7393872193706713`*^9, {3.7393873109014063`*^9, 3.739387368062011*^9}, {
+   3.739387402805298*^9, 3.739387420190893*^9}, 3.739387454331543*^9, {
+   3.7393877423826838`*^9, 3.739387771708704*^9}, {3.7393878137385063`*^9, 
+   3.7393878181677923`*^9}, {3.739387873633975*^9, 3.739387976621653*^9}, {
+   3.739388132771656*^9, 3.7393882238791523`*^9}, {3.7393882612600317`*^9, 
+   3.7393882634561977`*^9}, {3.739388387786929*^9, 3.739388396146327*^9}, {
+   3.739388539865389*^9, 3.739388565194478*^9}, {3.739388646468009*^9, 
+   3.7393887080846786`*^9}, {3.739388739770355*^9, 3.739388742837929*^9}, {
+   3.7393887920895643`*^9, 3.7393888911699467`*^9}, {3.739388927660988*^9, 
+   3.739389009498231*^9}, {3.739389075689187*^9, 3.739389099314095*^9}},
+ CellLabel->
+  "In[385]:=",ExpressionUUID->"fe2133ea-b9e4-4261-b349-1ef40b4b421e"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["XML Parser | Riccardo", "Subsubsection",
+ CellChangeTimes->{{3.739378813996182*^9, 
+  3.739378818199276*^9}},ExpressionUUID->"0e96bf32-6b53-4d67-99cf-\
+1b42c50b5824"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"$tag", " ", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"WordCharacter", "|", "\"\<-\>\""}], ")"}], ".."}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"parseAttrs", "[", "expr_String", "]"}], " ", ":=", " ", 
+   RowBox[{"Cases", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"StringReplace", "[", "\[IndentingNewLine]", 
+      RowBox[{"expr", ",", 
+       RowBox[{"{", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"k", ":", "$tag"}], "~~", "\"\<=\\\"\>\"", " ", "~~", " ", 
+           
+           RowBox[{"v", ":", 
+            RowBox[{"Shortest", "[", "___", "]"}]}], " ", "~~", " ", 
+           "\"\<\\\"\>\""}], " ", "\[RuleDelayed]", " ", 
+          RowBox[{"{", 
+           RowBox[{"k", " ", "\[Rule]", " ", "v"}], "}"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"k", ":", "$tag"}], "~~", "\"\<='\>\"", " ", "~~", " ", 
+           RowBox[{"v", ":", 
+            RowBox[{"Shortest", "[", "___", "]"}]}], " ", "~~", " ", 
+           "\"\<'\>\""}], " ", "\[RuleDelayed]", " ", 
+          RowBox[{"{", 
+           RowBox[{"k", " ", "\[Rule]", " ", "v"}], "}"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"k", ":", "$tag"}], "~~", "\"\<=\>\"", " ", "~~", " ", 
+           RowBox[{"v", ":", "$tag"}]}], " ", "\[RuleDelayed]", " ", 
+          RowBox[{"{", 
+           RowBox[{"k", " ", "\[Rule]", " ", "v"}], "}"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"k", ":", "$tag"}], " ", "\[RuleDelayed]", " ", 
+          RowBox[{"{", 
+           RowBox[{"k", " ", "\[Rule]", " ", "\"\<\>\""}], "}"}]}]}], 
+        "\[IndentingNewLine]", "}"}]}], "\[IndentingNewLine]", "]"}], ",", 
+     "\[IndentingNewLine]", "_Rule", ",", "\[IndentingNewLine]", "All"}], 
+    "\[IndentingNewLine]", "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"parseXML", "[", "expr_String", "]"}], " ", ":=", " ", 
+  RowBox[{"Quiet", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"List", " ", "@@", " ", 
+     RowBox[{"StringReplace", "[", "\[IndentingNewLine]", 
+      RowBox[{"expr", ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"\"\<<\>\"", " ", "~~", " ", 
+           RowBox[{"tag", ":", "$tag"}], " ", "~~", " ", 
+           RowBox[{"attrs", ":", 
+            RowBox[{"Shortest", "[", "___", "]"}]}], " ", "~~", " ", 
+           "\"\<>\>\"", " ", "~~", " ", 
+           RowBox[{"body", ":", 
+            RowBox[{"Shortest", "[", "___", "]"}]}], " ", "~~", " ", 
+           "\"\<</\>\"", " ", "~~", " ", 
+           RowBox[{"tag", ":", "$tag"}], " ", "~~", " ", "\"\<>\>\""}], " ", 
+          "\[RuleDelayed]", " ", 
+          RowBox[{"XMLElement", "[", 
+           RowBox[{"tag", ",", " ", 
+            RowBox[{"parseAttrs", " ", "@", " ", "attrs"}], ",", " ", 
+            RowBox[{"parseXML", "@", "body"}]}], "]"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"\"\<<\>\"", " ", "~~", " ", 
+           RowBox[{"tag", ":", "$tag"}], " ", "~~", " ", 
+           RowBox[{"attrs", ":", 
+            RowBox[{"Shortest", "[", "___", "]"}]}], " ", "~~", " ", 
+           "\"\</>\>\""}], " ", "\[RuleDelayed]", " ", 
+          RowBox[{"XMLElement", "[", 
+           RowBox[{"tag", ",", " ", 
+            RowBox[{"parseAttrs", " ", "@", " ", "attrs"}], ",", " ", 
+            RowBox[{"{", "}"}]}], "]"}]}]}], "\[IndentingNewLine]", "}"}]}], 
+      "\[IndentingNewLine]", "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"StringExpression", "::", "cond"}]}], "\[IndentingNewLine]", 
+   "]"}]}]}], "Input",
+ CellLabel->
+  "In[136]:=",ExpressionUUID->"44c11e13-ed39-4e5d-8ab4-b9727529720b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{"WordCharacter", "|", "\<\"-\"\>"}], ")"}], ".."}]], "Output",
+ CellChangeTimes->{3.739378428127429*^9},
+ CellLabel->
+  "Out[136]=",ExpressionUUID->"d53208e9-4034-4312-a4f7-0d62c8321f89"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"xml", " ", "=", 
+  RowBox[{"Import", "[", 
+   RowBox[{
+   "\"\<~/Documents/Twine/Stories/TwineBridge_Test.html\>\"", ",", " ", 
+    "\"\<String\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.739378452012244*^9, 3.739378471412249*^9}},
+ CellLabel->
+  "In[139]:=",ExpressionUUID->"9f4810e7-da1d-4c05-9153-1633da851d41"],
+
+Cell[BoxData["\<\"<tw-storydata name=\\\"TwineBridge_Test\\\" startnode=\\\"1\
+\\\" creator=\\\"Twine\\\" creator-version=\\\"2.2.1\\\" \
+ifid=\\\"579B2F48-823C-46E0-9C6C-AC01FFDA9A56\\\" zoom=\\\"1\\\" \
+format=\\\"Harlowe\\\" format-version=\\\"2.1.0\\\" options=\\\"\\\">\\n  \
+<tw-passagedata pid=\\\"1\\\" name=\\\"First Passage\\\" tags=\\\"\\\" \
+position=\\\"320,377\\\" size=\\\"100,100\\\">\\n    This is my first \
+passage. Now I&#39;ll go to one of two second passages [[Second Passage A]] \
+[[Second Passage B]]</tw-passagedata>\\n  <tw-passagedata pid=\\\"2\\\" name=\
+\\\"Second Passage A\\\" tags=\\\"\\\" position=\\\"210,527\\\" \
+size=\\\"100,100\\\">Go to the [[third]] passage</tw-passagedata>\\n  \
+<tw-passagedata pid=\\\"3\\\" name=\\\"Second Passage B\\\" tags=\\\"\\\" \
+position=\\\"450,527\\\" size=\\\"100,100\\\">Go to the [[third]] \
+passage</tw-passagedata>\\n  <tw-passagedata pid=\\\"4\\\" name=\\\"third\\\" \
+tags=\\\"\\\" position=\\\"318,686\\\" size=\\\"100,100\\\">Double-click this \
+passage to edit it.</tw-passagedata>\\n</tw-storydata>\\n\"\>"], "Output",
+ CellChangeTimes->{3.739378472120481*^9},
+ CellLabel->
+  "Out[139]=",ExpressionUUID->"18963cc2-6563-4711-9ea3-9f2d07be3223"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Separate Test", "Subsubsection",
+ CellChangeTimes->{{3.73937925645934*^9, 
+  3.739379258045624*^9}},ExpressionUUID->"5dec732e-07c7-4093-acfa-\
+fbcdf0019745"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"pxml", " ", "=", 
+   RowBox[{"parseXML", "[", "xml", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7393784300386553`*^9, 3.739378431865917*^9}, {
+  3.739378474873213*^9, 3.7393784752239447`*^9}, {3.739379134704554*^9, 
+  3.739379138395501*^9}},
+ CellLabel->
+  "In[146]:=",ExpressionUUID->"9851d2d9-f11a-4be5-b803-f2347a4a3023"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"rNode", " ", "=", " ", 
+   RowBox[{"Cases", "[", 
+    RowBox[{"pxml", ",", " ", 
+     RowBox[{"XMLElement", "[", 
+      RowBox[{"\"\<tw-storydata\>\"", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Rule", "[", 
+          RowBox[{"\"\<name\>\"", ",", " ", "name_"}], "]"}], ",", "___"}], 
+        "}"}], ",", " ", "_"}], "]"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.739379144211491*^9, 3.739379169777495*^9}},
+ CellLabel->
+  "In[148]:=",ExpressionUUID->"214e24a5-0890-4ae8-9e95-a62dcdefaf3d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"psgs", " ", "=", " ", 
+  RowBox[{"Cases", "[", 
+   RowBox[{"rNode", ",", " ", 
+    RowBox[{
+     RowBox[{"XMLElement", "[", 
+      RowBox[{"\"\<tw-passagedata\>\"", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"___", ",", 
+         RowBox[{"Rule", "[", 
+          RowBox[{"\"\<name\>\"", ",", " ", "name_"}], "]"}], ",", "___"}], 
+        "}"}], ",", " ", "content_"}], "]"}], "\[RuleDelayed]", " ", 
+     RowBox[{"{", 
+      RowBox[{"name", ",", 
+       RowBox[{"Echo", "[", 
+        RowBox[{"content", ",", "\"\<CONTENT: \>\""}], "]"}]}], "}"}]}], ",", 
+    " ", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", " ", "Infinity"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7393791882172422`*^9, 3.739379192714284*^9}},
+ CellLabel->
+  "In[149]:=",ExpressionUUID->"81f9be4d-76f3-4f7d-8d13-7b73b08d865b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  TagBox["\<\"CONTENT: \"\>",
+   "EchoLabel"], 
+  " ", "\<\"\\n    This is my first passage. Now I&#39;ll go to one of two \
+second passages [[Second Passage A]] [[Second Passage B]]\"\>"}]], "Echo",
+ CellChangeTimes->{
+  3.73937919483398*^9},ExpressionUUID->"bdb7e9c9-5dfa-48af-9e2e-8d7c8ce7bc87"],
+
+Cell[BoxData[
+ RowBox[{
+  TagBox["\<\"CONTENT: \"\>",
+   "EchoLabel"], " ", "\<\"Go to the [[third]] passage\"\>"}]], "Echo",
+ CellChangeTimes->{
+  3.7393791948437634`*^9},ExpressionUUID->"5c359468-ded8-4a45-b440-\
+ee7f37f7d6df"],
+
+Cell[BoxData[
+ RowBox[{
+  TagBox["\<\"CONTENT: \"\>",
+   "EchoLabel"], " ", "\<\"Go to the [[third]] passage\"\>"}]], "Echo",
+ CellChangeTimes->{
+  3.739379194907679*^9},ExpressionUUID->"517cc309-d628-4e8f-9927-\
+edf887fa937b"],
+
+Cell[BoxData[
+ RowBox[{
+  TagBox["\<\"CONTENT: \"\>",
+   "EchoLabel"], 
+  " ", "\<\"Double-click this passage to edit it.\"\>"}]], "Echo",
+ CellChangeTimes->{
+  3.739379194937394*^9},ExpressionUUID->"879022a0-46bd-4f6e-a7b3-\
+1f1afe74955b"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"First Passage\"\>", 
+     ",", "\<\"\\n    This is my first passage. Now I&#39;ll go to one of two \
+second passages [[Second Passage A]] [[Second Passage B]]\"\>"}], "}"}], ",", 
+   
+   RowBox[{"{", 
+    RowBox[{"\<\"Second Passage A\"\>", 
+     ",", "\<\"Go to the [[third]] passage\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"Second Passage B\"\>", 
+     ",", "\<\"Go to the [[third]] passage\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"third\"\>", 
+     ",", "\<\"Double-click this passage to edit it.\"\>"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.73937919501858*^9},
+ CellLabel->
+  "Out[149]=",ExpressionUUID->"2de3ad7a-7d87-4134-94cc-a379ebba2371"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Generate Edges Test", "Subsubsection",
+ CellChangeTimes->{{3.739380037433771*^9, 
+  3.739380058061946*^9}},ExpressionUUID->"65e5e580-9157-4a66-badd-\
+a4b214e2acb5"],
+
+Cell[TextData[{
+ "From ",
+ StyleBox["{ PassageName , PassageContent } ", "Input"],
+ "To ",
+ StyleBox["Parent ", "Input"],
+ "\[Rule] ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    SubscriptBox["Link", "1"], "Input"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "023256a6-fc1c-4800-b34f-fc20dfc28d1b"],
+ ", ... ",
+ StyleBox["Parent", "Input"],
+ " \[Rule] ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["Link", "n"], TraditionalForm]], "Input",
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "6bbbcbbb-5c4a-4550-9c53-e5a282f1f88a"]
+}], "Text",
+ CellChangeTimes->{{3.739386723834352*^9, 
+  3.7393868381793957`*^9}},ExpressionUUID->"0707e7a3-30e2-4991-be60-\
+48a2bd74642b"],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "generateEdges", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"generatedEdges", "[", 
+   RowBox[{"parentName_", ",", " ", "links_"}], "]"}], ":=", " ", 
+  RowBox[{"Thread", "[", 
+   RowBox[{"DirectedEdge", "[", 
+    RowBox[{"parentName", ",", " ", "links"}], "]"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.739380048376957*^9, 3.739380083705665*^9}, {
+   3.7393802475686483`*^9, 3.739380385130546*^9}, {3.739380729978265*^9, 
+   3.739380773794074*^9}, {3.739380864427796*^9, 3.7393808743482323`*^9}, {
+   3.739380904776142*^9, 3.739380927110754*^9}, {3.739381007931707*^9, 
+   3.739381033328981*^9}, {3.7393811458629436`*^9, 3.73938127851131*^9}, {
+   3.739381395972126*^9, 3.739381484292981*^9}, {3.739381515280521*^9, 
+   3.739381565185861*^9}, {3.7393816029753942`*^9, 3.739381653095702*^9}, {
+   3.739381764764572*^9, 3.739381767522216*^9}, {3.739381885650511*^9, 
+   3.7393819098266573`*^9}, {3.739382045614414*^9, 3.739382063020794*^9}, {
+   3.739382484138977*^9, 3.739382490519216*^9}, {3.739382528568766*^9, 
+   3.739382546519128*^9}, 3.7393868613090467`*^9, {3.73938720520955*^9, 
+   3.739387267711919*^9}},
+ CellLabel->
+  "In[309]:=",ExpressionUUID->"924e9a49-3de7-4552-9238-27b2ce37d6b2"],
+
+Cell[BoxData[" "], "Input",
+ CellChangeTimes->{
+  3.7393809307186317`*^9},ExpressionUUID->"aeacc88f-c7fc-46fe-997d-\
+0e8e835ec558"],
+
+Cell[TextData[{
+ "Use ",
+ StyleBox["StringContainsQ", "Input"],
+ " or ",
+ StyleBox["SringCases", "Input"]
+}], "Text",
+ CellChangeTimes->{{3.7393820988286467`*^9, 
+  3.739382114717292*^9}},ExpressionUUID->"ff17faf2-664b-47eb-8370-\
+17a669560a63"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"StringCases", "[", 
+  RowBox[{"\"\<string [[link]]\>\"", ",", " ", 
+   RowBox[{
+    RowBox[{
+    "StartOfString", " ", "~~", " ", "___", " ", "~~", "\"\<[[\>\"", "~~", 
+     "passageName___", "~~", "\"\<]]\>\"", "~~", "___", "~~", "EndOfString"}],
+     "\[RuleDelayed]", " ", "passageName"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.739382369789218*^9, 3.739382467274901*^9}, {
+  3.739382505800823*^9, 3.739382515676128*^9}},
+ CellLabel->
+  "In[253]:=",ExpressionUUID->"3ed7d291-1984-4984-bd63-935bd36f9030"],
+
+Cell[BoxData[
+ RowBox[{"{", "\<\"link\"\>", "}"}]], "Output",
+ CellChangeTimes->{{3.739382442760751*^9, 3.739382459102601*^9}, 
+   3.7393825166378403`*^9},
+ CellLabel->
+  "Out[253]=",ExpressionUUID->"e1439a3e-afac-49c6-9df0-f85409ddd0f5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DeleteCases", "[", 
+  RowBox[{
+   RowBox[{"StringCases", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<string [[link]]\>\"", ",", "\"\<other string [[other link]]\>\"", 
+       ",", " ", "\"\<hello [[this]] [[that]]\>\"", ",", " ", 
+       "\"\<there\>\""}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"\"\<[[\>\"", "~~", 
+        RowBox[{"ShortestMatch", "[", "p___", "]"}], "~~", "\"\<]]\>\""}], 
+       ")"}], "\[RuleDelayed]", " ", "p"}]}], "]"}], ",", " ", 
+   RowBox[{"{", "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.739382578712174*^9, 3.739382612698119*^9}, {
+   3.739382755612432*^9, 3.739382783206049*^9}, {3.739382919552013*^9, 
+   3.739382956443737*^9}, {3.7393829926417294`*^9, 3.739383004191401*^9}, {
+   3.7393830461844873`*^9, 3.7393830511957417`*^9}, {3.739385554107101*^9, 
+   3.739385565877921*^9}, 3.739386381456378*^9, 3.7393865098497458`*^9},
+ CellLabel->
+  "In[298]:=",ExpressionUUID->"0a641d88-eaae-42d5-964b-032a1c7b70c0"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", "\<\"link\"\>", "}"}], ",", 
+   RowBox[{"{", "\<\"other link\"\>", "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"this\"\>", ",", "\<\"that\"\>"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.7393825795308657`*^9, 3.73938261312358*^9}, {
+   3.739382758420314*^9, 3.739382783947365*^9}, 3.739382924851718*^9, {
+   3.7393829932406893`*^9, 3.7393830047108707`*^9}, {3.739383047250786*^9, 
+   3.739383051735092*^9}, 3.7393855583740187`*^9, 3.739386511457781*^9},
+ CellLabel->
+  "Out[298]=",ExpressionUUID->"283bc3b2-a7cc-411f-a8c8-35a90f1201a2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"StringCases", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<string [[link]]\>\"", ",", "\"\<other string [[other link]]\>\"", 
+     ",", " ", "\"\<hello [[this]] [[that]]\>\"", ",", " ", "\"\<there\>\""}],
+     "}"}], ",", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"\"\<[[\>\"", "~~", 
+      RowBox[{"ShortestMatch", "[", "p___", "]"}], "~~", "\"\<]]\>\""}], 
+     ")"}], "\[RuleDelayed]", " ", "p"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.739386395766713*^9, 3.739386411720338*^9}, {
+  3.73938649637107*^9, 3.739386498871047*^9}},
+ CellLabel->
+  "In[297]:=",ExpressionUUID->"3834bf23-3ba7-4eee-b869-57ef633171e7"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", "\<\"link\"\>", "}"}], ",", 
+   RowBox[{"{", "\<\"other link\"\>", "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"this\"\>", ",", "\<\"that\"\>"}], "}"}], ",", 
+   RowBox[{"{", "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.7393863900348988`*^9, 3.7393864122967587`*^9}, 
+   3.739386501507349*^9},
+ CellLabel->
+  "Out[297]=",ExpressionUUID->"19108365-086e-4e6b-b5a4-830f25867284"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"extractLinks", "[", "passageContent_", "]"}], ":=", 
+  RowBox[{"DeleteCases", "[", 
+   RowBox[{
+    RowBox[{"StringCases", "[", 
+     RowBox[{"passageContent", ",", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"\"\<[[\>\"", "~~", 
+         RowBox[{"ShortestMatch", "[", "p___", "]"}], "~~", "\"\<]]\>\""}], 
+        ")"}], "\[RuleDelayed]", " ", "p"}]}], "]"}], ",", " ", 
+    RowBox[{"{", "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7393869234242563`*^9, 3.739386964417478*^9}},
+ CellLabel->
+  "In[301]:=",ExpressionUUID->"065ab361-29db-4f0f-ae69-8b75ae15e358"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"extractLinks", "[", 
+  "\"\<this is my passage. Here is link [[one]] and here is link [[two]]\>\"",
+   "]"}]], "Input",
+ CellChangeTimes->{{3.739386969434229*^9, 3.739386992561096*^9}},
+ CellLabel->
+  "In[302]:=",ExpressionUUID->"1a31c670-1f7c-4dae-ae14-4582357810d7"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"one\"\>", ",", "\<\"two\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{3.739386994716401*^9},
+ CellLabel->
+  "Out[302]=",ExpressionUUID->"3f9334bf-8b6a-44e7-871a-d4ef24397e3d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Thread", "[", 
+  RowBox[{"Rule", "[", 
+   RowBox[{"root", ",", " ", "%302"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.739387042045377*^9, 3.7393870667963943`*^9}},
+ CellLabel->
+  "In[304]:=",ExpressionUUID->"1b93fcca-280b-402f-9811-cf7f98cbbe2c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"root", "\[Rule]", "\<\"one\"\>"}], ",", 
+   RowBox[{"root", "\[Rule]", "\<\"two\"\>"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.739387061525468*^9, 3.739387067221609*^9}},
+ CellLabel->
+  "Out[304]=",ExpressionUUID->"3bb5f7fa-7f2d-4115-b055-be6e431a4337"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Thread", "[", 
+  RowBox[{"DirectedEdge", "[", 
+   RowBox[{"root", ",", " ", "%302"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7393871747839737`*^9, 3.739387176992639*^9}},
+ CellLabel->
+  "In[308]:=",ExpressionUUID->"15b25ed8-f289-414c-8db2-5ed18d09eb1e"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"root", "\[DirectedEdge]", "\<\"one\"\>"}], ",", 
+   RowBox[{"root", "\[DirectedEdge]", "\<\"two\"\>"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.739387177366543*^9},
+ CellLabel->
+  "Out[308]=",ExpressionUUID->"115f569a-08a0-4adc-9e47-7618000bbbfd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "StringContainsQ"}]], "Input",
+ CellChangeTimes->{{3.73938807146568*^9, 3.739388075716845*^9}},
+ CellLabel->
+  "In[341]:=",ExpressionUUID->"c7a8d2f7-0744-4e39-8c1c-b70c9708712e"],
+
+Cell[BoxData[
+ RowBox[{"\<\"\\!\\(\\*RowBox[{\\\"StringContainsQ\\\", \\\"[\\\", \
+RowBox[{StyleBox[\\\"\\\\\\\"\\\\!\\\\(\\\\*StyleBox[\\\\\\\"string\\\\\\\",\\\
+\\\\\"TI\\\\\\\"]\\\\)\\\\\\\"\\\", ShowStringCharacters->True], \\\",\\\", \
+StyleBox[\\\"patt\\\", \\\"TI\\\"]}], \\\"]\\\"}]\\) yields True if any part \
+of \\!\\(\\*StyleBox[\\\"string\\\", \\\"TI\\\"]\\) matches the string \
+pattern \\!\\(\\*StyleBox[\\\"patt\\\", \\\"TI\\\"]\\), and yields False \
+otherwise.\\n\\!\\(\\*RowBox[{\\\"StringContainsQ\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{SubscriptBox[StyleBox[\\\"string\\\", \
+\\\"TI\\\"], StyleBox[\\\"1\\\", \\\"TR\\\"]], \\\",\\\", \
+SubscriptBox[StyleBox[\\\"string\\\", \\\"TI\\\"], StyleBox[\\\"2\\\", \\\"TR\
+\\\"]], \\\",\\\", StyleBox[\\\"\[Ellipsis]\\\", \\\"TR\\\"]}], \\\"}\\\"}], \
+\\\",\\\", StyleBox[\\\"patt\\\", \\\"TI\\\"]}], \\\"]\\\"}]\\) gives a list \
+of the results for each of the \\!\\(\\*SubscriptBox[StyleBox[\\\"string\\\", \
+\\\"TI\\\"], StyleBox[\\\"i\\\", \
+\\\"TI\\\"]]\\).\\n\\!\\(\\*RowBox[{\\\"StringContainsQ\\\", \\\"[\\\", \
+StyleBox[\\\"patt\\\", \\\"TI\\\"], \\\"]\\\"}]\\) represents an operator \
+form of StringContainsQ that can be applied to an expression.\"\>", 
+  "\[NonBreakingSpace]", 
+  ButtonBox[
+   StyleBox["\[RightSkeleton]", "SR"],
+   Active->True,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/StringContainsQ"]}]], "Print", "PrintUsage",
+ CellChangeTimes->{3.739388076130731*^9},
+ CellTags->
+  "Info3413739373676-9884682",ExpressionUUID->"eff44e3a-1d93-45f6-a4be-\
+354fce11e4c4"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{840, 955},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 7, \
+2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info3413739373676-9884682"->{
+  Cell[40750, 1016, 1572, 27, 115, "Print",ExpressionUUID->"eff44e3a-1d93-45f6-a4be-354fce11e4c4",
+   CellTags->"Info3413739373676-9884682"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info3413739373676-9884682", 42681, 1059}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[583, 22, 160, 3, 98, "Title",ExpressionUUID->"97dc47f0-1fff-4f61-8863-1dbeeaa83d8a"],
+Cell[746, 27, 213, 3, 30, "Input",ExpressionUUID->"6bc27310-b533-415e-9ab9-4221c151c3f2"],
+Cell[962, 32, 679, 16, 73, "Input",ExpressionUUID->"f352a41f-8685-42c5-b054-e616897120ef"],
+Cell[1644, 50, 1265, 21, 52, "Input",ExpressionUUID->"873d0267-68d9-4fd9-ada2-4138d75a6703"],
+Cell[CellGroupData[{
+Cell[2934, 75, 8389, 186, 619, "Input",ExpressionUUID->"da602560-148f-47f9-a9a2-21cde112da72"],
+Cell[11326, 263, 2458, 49, 449, "Output",ExpressionUUID->"79d78e9f-a4e0-47b3-83a3-5d305a02b688"]
+}, Open  ]],
+Cell[13799, 315, 191, 3, 35, "Text",ExpressionUUID->"799dbbc3-5fec-454f-9e1c-7e42c256ea4c"],
+Cell[CellGroupData[{
+Cell[14015, 322, 173, 3, 45, "Subsubsection",ExpressionUUID->"59ce19c9-6126-47c6-939c-f2209602a180"],
+Cell[14191, 327, 7988, 174, 430, "Input",ExpressionUUID->"fe2133ea-b9e4-4261-b349-1ef40b4b421e"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[22216, 506, 172, 3, 37, "Subsubsection",ExpressionUUID->"0e96bf32-6b53-4d67-99cf-1b42c50b5824"],
+Cell[CellGroupData[{
+Cell[22413, 513, 3874, 89, 556, "Input",ExpressionUUID->"44c11e13-ed39-4e5d-8ab4-b9727529720b"],
+Cell[26290, 604, 238, 6, 36, "Output",ExpressionUUID->"d53208e9-4034-4312-a4f7-0d62c8321f89"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26565, 615, 343, 8, 30, "Input",ExpressionUUID->"9f4810e7-da1d-4c05-9153-1633da851d41"],
+Cell[26911, 625, 1224, 17, 308, "Output",ExpressionUUID->"18963cc2-6563-4711-9ea3-9f2d07be3223"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[28184, 648, 163, 3, 37, "Subsubsection",ExpressionUUID->"5dec732e-07c7-4093-acfa-fbcdf0019745"],
+Cell[28350, 653, 364, 8, 30, "Input",ExpressionUUID->"9851d2d9-f11a-4be5-b803-f2347a4a3023"],
+Cell[28717, 663, 559, 14, 30, "Input",ExpressionUUID->"214e24a5-0890-4ae8-9e95-a62dcdefaf3d"],
+Cell[CellGroupData[{
+Cell[29301, 681, 831, 21, 73, "Input",ExpressionUUID->"81f9be4d-76f3-4f7d-8d13-7b73b08d865b"],
+Cell[CellGroupData[{
+Cell[30157, 706, 322, 7, 63, "Echo",ExpressionUUID->"bdb7e9c9-5dfa-48af-9e2e-8d7c8ce7bc87"],
+Cell[30482, 715, 229, 6, 25, "Echo",ExpressionUUID->"5c359468-ded8-4a45-b440-ee7f37f7d6df"],
+Cell[30714, 723, 227, 6, 25, "Echo",ExpressionUUID->"517cc309-d628-4e8f-9927-edf887fa937b"],
+Cell[30944, 731, 240, 7, 25, "Echo",ExpressionUUID->"879022a0-46bd-4f6e-a7b3-1f1afe74955b"]
+}, Open  ]],
+Cell[31199, 741, 763, 20, 140, "Output",ExpressionUUID->"2de3ad7a-7d87-4134-94cc-a379ebba2371"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[32011, 767, 170, 3, 37, "Subsubsection",ExpressionUUID->"65e5e580-9157-4a66-badd-a4b214e2acb5"],
+Cell[32184, 772, 695, 23, 35, "Text",ExpressionUUID->"0707e7a3-30e2-4991-be60-48a2bd74642b"],
+Cell[32882, 797, 1244, 21, 52, "Input",ExpressionUUID->"924e9a49-3de7-4552-9238-27b2ce37d6b2"],
+Cell[34129, 820, 131, 3, 30, "Input",ExpressionUUID->"aeacc88f-c7fc-46fe-997d-0e8e835ec558"],
+Cell[34263, 825, 245, 8, 35, "Text",ExpressionUUID->"ff17faf2-664b-47eb-8370-17a669560a63"],
+Cell[CellGroupData[{
+Cell[34533, 837, 533, 11, 52, "Input",ExpressionUUID->"3ed7d291-1984-4984-bd63-935bd36f9030"],
+Cell[35069, 850, 238, 5, 34, "Output",ExpressionUUID->"e1439a3e-afac-49c6-9df0-f85409ddd0f5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[35344, 860, 1012, 22, 94, "Input",ExpressionUUID->"0a641d88-eaae-42d5-964b-032a1c7b70c0"],
+Cell[36359, 884, 602, 12, 34, "Output",ExpressionUUID->"283bc3b2-a7cc-411f-a8c8-35a90f1201a2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36998, 901, 653, 16, 52, "Input",ExpressionUUID->"3834bf23-3ba7-4eee-b869-57ef633171e7"],
+Cell[37654, 919, 438, 11, 34, "Output",ExpressionUUID->"19108365-086e-4e6b-b5a4-830f25867284"]
+}, Open  ]],
+Cell[38107, 933, 611, 15, 52, "Input",ExpressionUUID->"065ab361-29db-4f0f-ae69-8b75ae15e358"],
+Cell[CellGroupData[{
+Cell[38743, 952, 292, 6, 30, "Input",ExpressionUUID->"1a31c670-1f7c-4dae-ae14-4582357810d7"],
+Cell[39038, 960, 218, 5, 34, "Output",ExpressionUUID->"3f9334bf-8b6a-44e7-871a-d4ef24397e3d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39293, 970, 276, 6, 30, "Input",ExpressionUUID->"1b93fcca-280b-402f-9811-cf7f98cbbe2c"],
+Cell[39572, 978, 308, 7, 34, "Output",ExpressionUUID->"3bb5f7fa-7f2d-4115-b055-be6e431a4337"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39917, 990, 284, 6, 30, "Input",ExpressionUUID->"15b25ed8-f289-414c-8db2-5ed18d09eb1e"],
+Cell[40204, 998, 300, 7, 34, "Output",ExpressionUUID->"115f569a-08a0-4adc-9e47-7618000bbbfd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[40541, 1010, 206, 4, 30, "Input",ExpressionUUID->"c7a8d2f7-0744-4e39-8c1c-b70c9708712e"],
+Cell[40750, 1016, 1572, 27, 115, "Print",ExpressionUUID->"eff44e3a-1d93-45f6-a4be-354fce11e4c4",
+ CellTags->"Info3413739373676-9884682"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
