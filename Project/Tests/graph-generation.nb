@@ -1,0 +1,314 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[     10765,        306]
+NotebookOptionsPosition[      8997,        260]
+NotebookOutlinePosition[      9780,        286]
+CellTagsIndexPosition[      9650,        280]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+
+PseudoStructure\
+\>", "Subsection",
+ CellChangeTimes->{{3.739475197299718*^9, 
+  3.739475217411602*^9}},ExpressionUUID->"097ad5a5-3ea2-463f-ac9a-\
+6de9a6f3e049"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"randomStory", "[", 
+   RowBox[{"maximumDepth_", ",", " ", "complexity_"}], "]"}], ":="}]], "Input",\
+
+ CellChangeTimes->{{3.739475219128356*^9, 
+  3.739475246596611*^9}},ExpressionUUID->"9d7887ff-cf7d-4d2a-b5bb-\
+e23baedf89c1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Generate random things", "Subsection",
+ CellChangeTimes->{{3.739475263132065*^9, 
+  3.739475266326455*^9}},ExpressionUUID->"16951d5c-8563-4599-8354-\
+18dd3f6d6867"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "RandomGraph"}]], "Input",
+ CellChangeTimes->{{3.7394752699634523`*^9, 3.739475306840044*^9}},
+ CellLabel->
+  "In[712]:=",ExpressionUUID->"076459e6-ca73-4406-8ff2-a20c2a410adb"],
+
+Cell[BoxData[
+ RowBox[{"\<\"\\!\\(\\*RowBox[{\\\"RandomGraph\\\", \\\"[\\\", \
+RowBox[{\\\"{\\\", RowBox[{StyleBox[\\\"n\\\", \\\"TI\\\"], \\\",\\\", \
+StyleBox[\\\"m\\\", \\\"TI\\\"]}], \\\"}\\\"}], \\\"]\\\"}]\\) gives a \
+pseudorandom graph with \\!\\(\\*StyleBox[\\\"n\\\", \\\"TI\\\"]\\) vertices \
+and \\!\\(\\*StyleBox[\\\"m\\\", \\\"TI\\\"]\\) \
+edges.\\n\\!\\(\\*RowBox[{\\\"RandomGraph\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{StyleBox[\\\"n\\\", \\\"TI\\\"], \
+\\\",\\\", StyleBox[\\\"m\\\", \\\"TI\\\"]}], \\\"}\\\"}], \\\",\\\", \
+StyleBox[\\\"k\\\", \\\"TI\\\"]}], \\\"]\\\"}]\\) gives a list of \
+\\!\\(\\*StyleBox[\\\"k\\\", \\\"TI\\\"]\\) pseudorandom \
+graphs.\\n\\!\\(\\*RowBox[{\\\"RandomGraph\\\", \\\"[\\\", \
+RowBox[{StyleBox[\\\"gdist\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"\
+\[Ellipsis]\\\", \\\"TR\\\"]}], \\\"]\\\"}]\\) samples from the random graph \
+distribution \\!\\(\\*StyleBox[\\\"gdist\\\", \\\"TI\\\"]\\).\"\>", 
+  "\[NonBreakingSpace]", 
+  ButtonBox[
+   StyleBox["\[RightSkeleton]", "SR"],
+   Active->True,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/RandomGraph"]}]], "Print", "PrintUsage",
+ CellChangeTimes->{3.739475307759557*^9},
+ CellTags->
+  "Info7123739460907-6860315",ExpressionUUID->"1363416a-83ad-4d8f-8b85-\
+4b5a003efeed"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Grab some small data from Text and Literature Data Repo", "Subsection",
+ CellChangeTimes->{{3.73947577425278*^9, 
+  3.739475789263674*^9}},ExpressionUUID->"41dcd822-c433-4b75-addd-\
+9e06ea2e2388"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "Resource*"}]], "Input",
+ CellChangeTimes->{{3.739475792475761*^9, 3.739475825542741*^9}},
+ CellLabel->
+  "In[720]:=",ExpressionUUID->"1070a2cc-38de-425e-9c7c-7119844ba11f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ DynamicModuleBox[{Typeset`open$$ = True}, 
+  PaneSelectorBox[{False->
+   RowBox[{
+    OpenerBox[Dynamic[Typeset`open$$],
+     ImageSize->Small], 
+    StyleBox["System`", "InfoHeading"]}], True->GridBox[{
+     {
+      RowBox[{
+       OpenerBox[Dynamic[Typeset`open$$],
+        ImageSize->Small], 
+       StyleBox["System`", "InfoHeading"]}]},
+     {GridBox[{
+        {
+         ButtonBox["ResourceAcquire",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info7203739461426-8266218", {"ResourceAcquire", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["ResourceObject",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info7203739461426-8266218", {"ResourceObject", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["ResourceSubmissionObject",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info7203739461426-8266218", {
+            "ResourceSubmissionObject", "System`"}},
+          ButtonNote->"System`"]},
+        {
+         ButtonBox["ResourceData",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info7203739461426-8266218", {"ResourceData", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["ResourceRegister",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info7203739461426-8266218", {"ResourceRegister", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["ResourceSubmit",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info7203739461426-8266218", {"ResourceSubmit", "System`"}},
+          ButtonNote->"System`"]},
+        {
+         ButtonBox["ResourceFunction",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info7203739461426-8266218", {"ResourceFunction", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["ResourceRemove",
+          BaseStyle->"InformationLink",
+          ButtonData:>{
+           "Info7203739461426-8266218", {"ResourceRemove", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["ResourceSystemBase",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info7203739461426-8266218", {"ResourceSystemBase", "System`"}},
+          ButtonNote->"System`"]},
+        {
+         ButtonBox["ResourceFunctionInformation",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info7203739461426-8266218", {
+            "ResourceFunctionInformation", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["ResourceSearch",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info7203739461426-8266218", {"ResourceSearch", "System`"}},
+          ButtonNote->"System`"], 
+         ButtonBox["ResourceUpdate",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info7203739461426-8266218", {"ResourceUpdate", "System`"}},
+          ButtonNote->"System`"]}
+       },
+       DefaultBaseStyle->"InfoGrid",
+       GridBoxItemSize->{"Columns" -> {{
+            Scaled[0.31666666666666665`]}}}]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}}]}, 
+   Dynamic[Typeset`open$$],
+   ImageSize->Automatic]], "\n", 
+ DynamicModuleBox[{Typeset`open$$ = True}, 
+  PaneSelectorBox[{False->
+   RowBox[{
+    OpenerBox[Dynamic[Typeset`open$$],
+     ImageSize->Small], 
+    StyleBox["ResourceLocator`", "InfoHeading"]}], True->GridBox[{
+     {
+      RowBox[{
+       OpenerBox[Dynamic[Typeset`open$$],
+        ImageSize->Small], 
+       StyleBox["ResourceLocator`", "InfoHeading"]}]},
+     {GridBox[{
+        {
+         ButtonBox["ResourceAdd",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info7203739461426-8266218", {"ResourceAdd", "ResourceLocator`"}},
+          ButtonNote->"ResourceLocator`"], 
+         ButtonBox["ResourcesLocate",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info7203739461426-8266218", {
+            "ResourcesLocate", "ResourceLocator`"}},
+          ButtonNote->"ResourceLocator`"]}
+       },
+       DefaultBaseStyle->"InfoGrid",
+       GridBoxItemSize->{"Columns" -> {{
+            Scaled[0.475]}}}]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}}]}, 
+   Dynamic[Typeset`open$$],
+   ImageSize->Automatic]]}], "Print", "InfoCell",
+ CellChangeTimes->{
+  3.739475826089634*^9},ExpressionUUID->"5a41e431-159c-4e68-a196-\
+24ec6fbf07f1"],
+
+Cell[BoxData[
+ RowBox[{"\<\"\\!\\(\\*RowBox[{\\\"ResourceObject\\\", \\\"[\\\", StyleBox[\\\
+\"\\\\\\\"\\\\!\\\\(\\\\*StyleBox[\\\\\\\"name\\\\\\\",\\\\\\\"TI\\\\\\\"]\\\\\
+)\\\\\\\"\\\", ShowStringCharacters->True], \\\"]\\\"}]\\) represents a \
+resource with the specified name.\\n\\!\\(\\*RowBox[{\\\"ResourceObject\\\", \
+\\\"[\\\", StyleBox[\\\"\\\\\\\"\\\\!\\\\(\\\\*StyleBox[\\\\\\\"uuid\\\\\\\",\
+\\\\\\\"TI\\\\\\\"]\\\\)\\\\\\\"\\\", ShowStringCharacters->True], \
+\\\"]\\\"}]\\) represents a resource with the specified \
+UUID.\\n\\!\\(\\*RowBox[{\\\"ResourceObject\\\", \\\"[\\\", \
+StyleBox[\\\"assoc\\\", \\\"TI\\\"], \\\"]\\\"}]\\) gives a resource with \
+content and metadata specified by the association \\!\\(\\*StyleBox[\\\"assoc\
+\\\", \\\"TI\\\"]\\).\"\>", "\[NonBreakingSpace]", 
+  ButtonBox[
+   StyleBox["\[RightSkeleton]", "SR"],
+   Active->True,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/ResourceObject"]}]], "Print", "PrintUsage",
+ CellTags->
+  "Info7203739461426-8266218",ExpressionUUID->"ec0fcd15-3c8c-426f-b41e-\
+2819871fb7b6"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{840, 956},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 7, \
+2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info7123739460907-6860315"->{
+  Cell[1460, 55, 1289, 24, 92, "Print",ExpressionUUID->"1363416a-83ad-4d8f-8b85-4b5a003efeed",
+   CellTags->"Info7123739460907-6860315"]},
+ "Info7203739461426-8266218"->{
+  Cell[7895, 236, 1062, 19, 92, "Print",ExpressionUUID->"ec0fcd15-3c8c-426f-b41e-2819871fb7b6",
+   CellTags->"Info7203739461426-8266218"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info7123739460907-6860315", 9316, 271},
+ {"Info7203739461426-8266218", 9487, 274}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[583, 22, 172, 6, 81, "Subsection",ExpressionUUID->"097ad5a5-3ea2-463f-ac9a-6de9a6f3e049"],
+Cell[758, 30, 262, 7, 30, "Input",ExpressionUUID->"9d7887ff-cf7d-4d2a-b5bb-e23baedf89c1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1057, 42, 170, 3, 54, "Subsection",ExpressionUUID->"16951d5c-8563-4599-8354-18dd3f6d6867"],
+Cell[CellGroupData[{
+Cell[1252, 49, 205, 4, 30, "Input",ExpressionUUID->"076459e6-ca73-4406-8ff2-a20c2a410adb"],
+Cell[1460, 55, 1289, 24, 92, "Print",ExpressionUUID->"1363416a-83ad-4d8f-8b85-4b5a003efeed",
+ CellTags->"Info7123739460907-6860315"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2798, 85, 202, 3, 54, "Subsection",ExpressionUUID->"41dcd822-c433-4b75-addd-9e06ea2e2388"],
+Cell[CellGroupData[{
+Cell[3025, 92, 201, 4, 30, "Input",ExpressionUUID->"1070a2cc-38de-425e-9c7c-7119844ba11f"],
+Cell[CellGroupData[{
+Cell[3251, 100, 4641, 134, 191, "Print",ExpressionUUID->"5a41e431-159c-4e68-a196-24ec6fbf07f1"],
+Cell[7895, 236, 1062, 19, 92, "Print",ExpressionUUID->"ec0fcd15-3c8c-426f-b41e-2819871fb7b6",
+ CellTags->"Info7203739461426-8266218"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
