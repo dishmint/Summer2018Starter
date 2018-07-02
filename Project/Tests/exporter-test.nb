@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       161,          7]
-NotebookDataLength[     84708,       1755]
-NotebookOptionsPosition[     80909,       1675]
-NotebookOutlinePosition[     81699,       1701]
-CellTagsIndexPosition[     81565,       1695]
+NotebookDataLength[     99766,       2070]
+NotebookOptionsPosition[     94280,       1962]
+NotebookOutlinePosition[     95293,       1992]
+CellTagsIndexPosition[     95113,       1985]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1397,7 +1397,7 @@ Cell[BoxData[{
   RowBox[{"Module", "[", 
    RowBox[{
     RowBox[{"{", 
-     RowBox[{"fullFormGraph", ",", " ", "graphString", ",", " ", "matches"}], 
+     RowBox[{"fullFormGraph", ",", " ", "graphString", ",", " ", "content"}], 
      "}"}], ",", "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{"fullFormGraph", " ", "=", " ", 
@@ -1405,7 +1405,7 @@ Cell[BoxData[{
      RowBox[{"graphString", " ", "=", 
       RowBox[{"ToString", "[", "fullFormGraph", "]"}]}], ";", 
      "\[IndentingNewLine]", 
-     RowBox[{"matches", " ", "=", " ", 
+     RowBox[{"content", " ", "=", " ", 
       RowBox[{"StringCases", "[", 
        RowBox[{"graphString", ",", 
         RowBox[{
@@ -1422,7 +1422,7 @@ Cell[BoxData[{
 \>\"", ",", " ", 
          RowBox[{
           RowBox[{
-           RowBox[{"Framed", "[", "#", "]"}], "&"}], "/@", "matches"}]}], 
+           RowBox[{"Framed", "[", "#", "]"}], "&"}], "/@", "content"}]}], 
         "}"}], "]"}]}]}]}], "\[IndentingNewLine]", 
    "]"}]}], "\[IndentingNewLine]", 
  RowBox[{"graphExplode", "[", "graph1", "]"}]}], "Input",
@@ -1436,8 +1436,9 @@ Cell[BoxData[{
   3.739488442001966*^9, 3.739488448569076*^9}, {3.739491074853148*^9, 
   3.739491110414*^9}, {3.7394913388966208`*^9, 3.7394913746722116`*^9}, {
   3.739491431549019*^9, 3.739491432583332*^9}, {3.7394915229509583`*^9, 
-  3.739491523326166*^9}},ExpressionUUID->"93de6073-aa5a-4143-8e4a-\
-4bc9fd4226c9"],
+  3.739491523326166*^9}, {3.7394924407315187`*^9, 3.739492448923723*^9}},
+ CellLabel->
+  "In[1001]:=",ExpressionUUID->"93de6073-aa5a-4143-8e4a-4bc9fd4226c9"],
 
 Cell[BoxData[
  TagBox[GridBox[{
@@ -1471,9 +1472,10 @@ passages Second Passage A Second Passage B\"\>",
    3.739480537540517*^9, 3.7394806968670387`*^9, 3.739480742409853*^9, {
    3.739488315424849*^9, 3.739488335224024*^9}, {3.7394884444060698`*^9, 
    3.739488450681271*^9}, {3.73949109300008*^9, 3.739491111377689*^9}, {
-   3.739491351251645*^9, 3.7394913753652763`*^9}, 3.739491433336412*^9},
+   3.739491351251645*^9, 3.7394913753652763`*^9}, 3.739491433336412*^9, 
+   3.73949245080593*^9},
  CellLabel->
-  "Out[998]=",ExpressionUUID->"7b81a74d-c531-4ad2-8a4c-50ae4c093223"]
+  "Out[1002]=",ExpressionUUID->"8e35916d-2ce9-4292-b6b4-0f196222da28"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1615,7 +1617,7 @@ says. The Walk\"\>",
  CellChangeTimes->{3.7394914381782837`*^9},
  CellLabel->
   "Out[999]=",ExpressionUUID->"18eb3619-9383-4eeb-8eef-062e16438986"]
-}, Open  ]],
+}, Closed]],
 
 Cell[CellGroupData[{
 
@@ -1668,12 +1670,297 @@ Up or Down\"\>",
  CellChangeTimes->{3.739491482035227*^9},
  CellLabel->
   "Out[1000]=",ExpressionUUID->"3d28562f-f747-4d4c-9393-d0d668ca6b84"]
+}, Closed]]
 }, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Potential Procedure", "Subsection",
+ CellChangeTimes->{{3.739539291041877*^9, 
+  3.739539294043206*^9}},ExpressionUUID->"e1a8fd93-d1b1-4de0-a83e-\
+d273223ee92c"],
+
+Cell["\<\
+From | Graph \[Rule] Association \[Rule] HTML
+
+\tLet\[CloseCurlyQuote]s look at the overall graph structure to see what \
+patterns we need to pay attention to.
+\t
+\tWhat we need are the passage names and their content.
+\t
+\tWe are also going to need to wrap anything in content that is a \
+PassageName, that way the links to those passages will be created.\
+\>", "Text",
+ CellChangeTimes->{{3.7395392956049957`*^9, 3.7395393110407333`*^9}, {
+   3.7395393913810663`*^9, 3.739539405491774*^9}, {3.739539473047365*^9, 
+   3.739539579482277*^9}, 
+   3.7395396140810432`*^9},ExpressionUUID->"3bff7387-c2e7-4311-aaa9-\
+bb504a860582"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"testGraph", " ", "=", 
+   RowBox[{"FullForm", "[", "graph1", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.739539424757025*^9, 3.7395394485340643`*^9}},
+ CellLabel->
+  "In[1003]:=",ExpressionUUID->"7cfb13da-3b47-420f-879f-6c4dd29dab24"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "Cases"}]], "Input",
+ CellChangeTimes->{{3.739554788215242*^9, 3.739554791807763*^9}},
+ CellLabel->
+  "In[1040]:=",ExpressionUUID->"72fab979-0663-4377-9728-9c1f4b1dcd37"],
+
+Cell[BoxData[
+ RowBox[{"\<\"\\!\\(\\*RowBox[{\\\"Cases\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"{\\\", RowBox[{SubscriptBox[StyleBox[\\\"e\\\", \
+\\\"TI\\\"], StyleBox[\\\"1\\\", \\\"TR\\\"]], \\\",\\\", \
+SubscriptBox[StyleBox[\\\"e\\\", \\\"TI\\\"], StyleBox[\\\"2\\\", \
+\\\"TR\\\"]], \\\",\\\", StyleBox[\\\"\[Ellipsis]\\\", \\\"TR\\\"]}], \\\"}\\\
+\"}], \\\",\\\", StyleBox[\\\"pattern\\\", \\\"TI\\\"]}], \\\"]\\\"}]\\) \
+gives a list of the \\!\\(\\*SubscriptBox[StyleBox[\\\"e\\\", \\\"TI\\\"], \
+StyleBox[\\\"i\\\", \\\"TI\\\"]]\\) that match the pattern. \
+\\n\\!\\(\\*RowBox[{\\\"Cases\\\", \\\"[\\\", RowBox[{RowBox[{\\\"{\\\", \
+RowBox[{SubscriptBox[StyleBox[\\\"e\\\", \\\"TI\\\"], StyleBox[\\\"1\\\", \
+\\\"TR\\\"]], \\\",\\\", StyleBox[\\\"\[Ellipsis]\\\", \\\"TR\\\"]}], \\\"}\\\
+\"}], \\\",\\\", RowBox[{StyleBox[\\\"pattern\\\", \\\"TI\\\"], \\\"\[Rule]\\\
+\", StyleBox[\\\"rhs\\\", \\\"TI\\\"]}]}], \\\"]\\\"}]\\) gives a list of the \
+values of \\!\\(\\*StyleBox[\\\"rhs\\\", \\\"TI\\\"]\\) corresponding to the \
+\\!\\(\\*SubscriptBox[StyleBox[\\\"e\\\", \\\"TI\\\"], StyleBox[\\\"i\\\", \\\
+\"TI\\\"]]\\) that match the pattern. \\n\\!\\(\\*RowBox[{\\\"Cases\\\", \
+\\\"[\\\", RowBox[{StyleBox[\\\"expr\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\
+\"pattern\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"levelspec\\\", \
+\\\"TI\\\"]}], \\\"]\\\"}]\\) gives a list of all parts of \\!\\(\\*StyleBox[\
+\\\"expr\\\", \\\"TI\\\"]\\) on levels specified by \
+\\!\\(\\*StyleBox[\\\"levelspec\\\", \\\"TI\\\"]\\) that match the pattern. \
+\\n\\!\\(\\*RowBox[{\\\"Cases\\\", \\\"[\\\", RowBox[{StyleBox[\\\"expr\\\", \
+\\\"TI\\\"], \\\",\\\", RowBox[{StyleBox[\\\"pattern\\\", \\\"TI\\\"], \\\"\
+\[Rule]\\\", StyleBox[\\\"rhs\\\", \\\"TI\\\"]}], \\\",\\\", \
+StyleBox[\\\"levelspec\\\", \\\"TI\\\"]}], \\\"]\\\"}]\\) gives the values of \
+\\!\\(\\*StyleBox[\\\"rhs\\\", \\\"TI\\\"]\\) that match the pattern. \
+\\n\\!\\(\\*RowBox[{\\\"Cases\\\", \\\"[\\\", RowBox[{StyleBox[\\\"expr\\\", \
+\\\"TI\\\"], \\\",\\\", StyleBox[\\\"pattern\\\", \\\"TI\\\"], \\\",\\\", \
+StyleBox[\\\"levelspec\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"n\\\", \
+\\\"TI\\\"]}], \\\"]\\\"}]\\) gives the first \\!\\(\\*StyleBox[\\\"n\\\", \\\
+\"TI\\\"]\\) parts in \\!\\(\\*StyleBox[\\\"expr\\\", \\\"TI\\\"]\\) that \
+match the pattern. \\n\\!\\(\\*RowBox[{\\\"Cases\\\", \\\"[\\\", \
+StyleBox[\\\"pattern\\\", \\\"TI\\\"], \\\"]\\\"}]\\) represents an operator \
+form of Cases that can be applied to an expression.\"\>", 
+  "\[NonBreakingSpace]", 
+  ButtonBox[
+   StyleBox["\[RightSkeleton]", "SR"],
+   Active->True,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Cases"]}]], "Print", "PrintUsage",
+ CellChangeTimes->{3.7395547948657084`*^9},
+ CellTags->
+  "Info10403739540394-7865153",ExpressionUUID->"208322d9-f189-413f-9e38-\
+befc321bef6e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ToString", "[", "testGraph", "]"}]], "Input",
+ CellChangeTimes->{{3.739539454808217*^9, 3.739539460778153*^9}},
+ CellLabel->
+  "In[1004]:=",ExpressionUUID->"c673ea03-ec6e-484b-9d82-cca1168f7f63"],
+
+Cell[BoxData["\<\"Graph[List[\\\"TwineBridge_Test\\\", \\\"First Passage\\\", \
+\\\"Second Passage A\\\", \\\"Second Passage B\\\", \\\"third\\\"], \
+List[DirectedEdge[\\\"TwineBridge_Test\\\", \\\"First Passage\\\"], \
+DirectedEdge[\\\"First Passage\\\", \\\"Second Passage A\\\"], \
+DirectedEdge[\\\"First Passage\\\", \\\"Second Passage B\\\"], \
+DirectedEdge[\\\"Second Passage A\\\", \\\"third\\\"], \
+DirectedEdge[\\\"Second Passage B\\\", \\\"third\\\"]], \
+List[Rule[GraphLayout, List[\\\"LayeredDigraphEmbedding\\\", \
+Rule[\\\"RootVertex\\\", \\\"TwineBridge_Test\\\"]]], Rule[Properties, \
+List[Rule[\\\"third\\\", List[Rule[Tooltip, \\\"Welcome to the third passage.\
+\\\"]]], Rule[\\\"First Passage\\\", List[Rule[Tooltip, \\\"This is my first \
+passage. Now I'll go to one of two second passages Second Passage A Second \
+Passage B\\\"]]], Rule[\\\"Second Passage A\\\", List[Rule[Tooltip, \\\"Go to \
+the third passage\\\"]]], Rule[\\\"Second Passage B\\\", List[Rule[Tooltip, \
+\\\"Go to the third passage\\\"]]], Rule[\\\"TwineBridge_Test\\\", \
+List[Rule[Tooltip, \\\"Start Here\\\"]]]]], Rule[VertexLabels, \
+List[\\\"Name\\\"]]]]\"\>"], "Output",
+ CellChangeTimes->{3.7395394611612663`*^9},
+ CellLabel->
+  "Out[1004]=",ExpressionUUID->"ec8fd7a2-41c3-4baf-9396-9cd877002a1b"]
+}, Open  ]],
+
+Cell["\<\
+\[LongDash] Rule[\[OpenCurlyDoubleQuote]RootVertex\[CloseCurlyDoubleQuote], \
+<story-name>]
+<tw-storydata name=\[CloseCurlyDoubleQuote]<story-name>\
+\[CloseCurlyDoubleQuote] startnode=\[CloseCurlyDoubleQuote]1\
+\[CloseCurlyDoubleQuote] creator=\[CloseCurlyDoubleQuote]WL-TwineBridge\
+\[CloseCurlyDoubleQuote] creator-version=\[CloseCurlyDoubleQuote]0.01\
+\[CloseCurlyDoubleQuote] zoom=\[CloseCurlyDoubleQuote]1\
+\[CloseCurlyDoubleQuote] format=\[CloseCurlyDoubleQuote]Harlowe\
+\[CloseCurlyDoubleQuote] format-version=\[CloseCurlyDoubleQuote]2.1.0\
+\[CloseCurlyDoubleQuote] options=\[CloseCurlyDoubleQuote]\
+\[CloseCurlyDoubleQuote] hidden>
+
+\[LongDash]\
+\>", "Text",
+ CellChangeTimes->{{3.739539717959197*^9, 3.7395397484104977`*^9}, {
+  3.739539783192666*^9, 3.73953992248895*^9}, {3.739547812845986*^9, 
+  3.739547814430051*^9}, {3.739554628008675*^9, 
+  3.7395546354194307`*^9}},ExpressionUUID->"9310032a-fcc7-4655-bf1d-\
+b39388f34303"],
+
+Cell[BoxData[
+ RowBox[{"StringTemplate", "[", 
+  "\"\<\n<tw-storydata name=\\\"`StoryTitle`\\\" startnode=\\\"1\\\" creator=\
+\\\"WL-T\\\" creator-version=\\\"2.2.1\\\" zoom=\\\"1\\\" \
+format=\\\"Harlowe\\\" format-version=\\\"2.1.0\\\" options=\\\"\\\" hidden>\n\
+  <style role=\\\"stylesheet\\\" id=\\\"twine-user-stylesheet\\\" \
+type=\\\"text/twine-css\\\">\n\n\n\n  </style>\n  <script role=\\\"script\\\" \
+id=\\\"twine-user-script\\\" type=\\\"text/twine-javascript\\\">\n\n\n\n  \
+</script>\n  <tw-passagedata pid=\\\"1\\\" name=\\\"First Passage\\\" tags=\\\
+\"\\\" position=\\\"320,377\\\" size=\\\"100,100\\\">This is my first \
+passage. Now I'll go to one of two second passages [[Second Passage A]] \
+[[Second Passage B]]</tw-passagedata>\n  <tw-passagedata pid=\\\"2\\\" \
+name=\\\"Second Passage A\\\" tags=\\\"\\\" position=\\\"210,527\\\" \
+size=\\\"100,100\\\">Go to the [[third]] passage</tw-passagedata>\n  \
+<tw-passagedata pid=\\\"3\\\" name=\\\"Second Passage B\\\" tags=\\\"\\\" \
+position=\\\"450,527\\\" size=\\\"100,100\\\">Go to the [[third]] \
+passage</tw-passagedata>\n  <tw-passagedata pid=\\\"4\\\" name=\\\"third\\\" \
+tags=\\\"\\\" position=\\\"318,686\\\" size=\\\"100,100\\\">Welcome to the \
+third passage.</tw-passagedata>\n</tw-storydata>\n\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.7395546376097727`*^9, 3.739554740456531*^9}, {
+  3.7395551544792*^9, 
+  3.739555156902287*^9}},ExpressionUUID->"790ed5d2-ec74-4ec4-ad95-\
+a9125b8c376c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["graph1"], "Input",
+ CellChangeTimes->{{3.739554896232134*^9, 3.739554896748776*^9}},
+ CellLabel->
+  "In[1041]:=",ExpressionUUID->"4bf2fedf-9b89-4944-9939-65458af8e13b"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{
+      "TwineBridge_Test", "First Passage", "Second Passage A", 
+       "Second Passage B", "third"}, {{{1, 2}, {2, 3}, {2, 4}, {3, 5}, {4, 
+       5}}, Null}, {
+      GraphLayout -> {
+        "LayeredDigraphEmbedding", "RootVertex" -> "TwineBridge_Test"}, 
+       Properties -> {
+        "third" -> {Tooltip -> "Welcome to the third passage."}, 
+         "First Passage" -> {
+          Tooltip -> 
+           "This is my first passage. Now I'll go to one of two second \
+passages Second Passage A Second Passage B"}, 
+         "Second Passage A" -> {Tooltip -> "Go to the third passage"}, 
+         "Second Passage B" -> {Tooltip -> "Go to the third passage"}, 
+         "TwineBridge_Test" -> {Tooltip -> "Start Here"}}, 
+       VertexLabels -> {"Name"}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[{{0., 3.}, {0., 2.}}, 0.030239520958083826`], 
+        ArrowBox[{{0., 2.}, {-1., 1.}}, 0.030239520958083826`], 
+        ArrowBox[{{0., 2.}, {0., 1.}}, 0.030239520958083826`], 
+        ArrowBox[{{-1., 1.}, {-1., 0.}}, 0.030239520958083826`], 
+        ArrowBox[{{0., 1.}, {-1., 0.}}, 0.030239520958083826`]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], {
+         TagBox[
+          TooltipBox[DiskBox[{0., 3.}, 0.030239520958083826],
+           "\"Start Here\"",
+           TooltipStyle->"TextStyling"],
+          Annotation[#, "Start Here", "Tooltip"]& ], 
+         InsetBox["\<\"TwineBridge_Test\"\>", 
+          Offset[{2, 2}, {0.030239520958083826, 3.0302395209580837}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          TooltipBox[DiskBox[{0., 2.}, 0.030239520958083826],
+           
+           "\"This is my first passage. Now I'll go to one of two second \
+passages Second Passage A Second Passage B\"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, 
+           "This is my first passage. Now I'll go to one of two second \
+passages Second Passage A Second Passage B", "Tooltip"]& ], 
+         InsetBox["\<\"First Passage\"\>", 
+          Offset[{2, 2}, {0.030239520958083826, 2.0302395209580837}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          TooltipBox[DiskBox[{-1., 1.}, 0.030239520958083826],
+           "\"Go to the third passage\"",
+           TooltipStyle->"TextStyling"],
+          Annotation[#, "Go to the third passage", "Tooltip"]& ], 
+         InsetBox["\<\"Second Passage A\"\>", 
+          Offset[{2, 2}, {-0.9697604790419162, 1.030239520958084}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          TooltipBox[DiskBox[{0., 1.}, 0.030239520958083826],
+           "\"Go to the third passage\"",
+           TooltipStyle->"TextStyling"],
+          Annotation[#, "Go to the third passage", "Tooltip"]& ], 
+         InsetBox["\<\"Second Passage B\"\>", 
+          Offset[{2, 2}, {0.030239520958083826, 1.030239520958084}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          TooltipBox[DiskBox[{-1., 0.}, 0.030239520958083826],
+           "\"Welcome to the third passage.\"",
+           TooltipStyle->"TextStyling"],
+          Annotation[#, "Welcome to the third passage.", "Tooltip"]& ], 
+         InsetBox["\<\"third\"\>", 
+          Offset[{2, 2}, {-0.9697604790419162, 0.030239520958083826}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Output",
+ CellChangeTimes->{3.739554897141159*^9},
+ CellLabel->
+  "Out[1041]=",ExpressionUUID->"6af9ba69-972d-4a5d-81a6-1d544abed797"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Cases", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"List", "[", 
+     RowBox[{
+      RowBox[{"Rule", "[", 
+       RowBox[{"Tooltip", ",", " ", "x__String"}], "]"}], ",", "___"}], "]"}],
+     "\[RuleDelayed]", "  ", "x"}], ",", " ", "All"}], "]"}]], "Input",
+ CellChangeTimes->{{3.739554883927393*^9, 3.7395549864309483`*^9}, 
+   3.739555040706962*^9, {3.739555108998508*^9, 3.739555124727092*^9}, {
+   3.739555199461331*^9, 3.739555250732771*^9}, {3.739555285319797*^9, 
+   3.739555290896043*^9}},
+ CellLabel->
+  "In[1064]:=",ExpressionUUID->"ca2ebcdd-95e3-4fd2-b42a-e3c99a4e5965"],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{{3.7395552116458673`*^9, 3.739555234249469*^9}, {
+  3.73955528767302*^9, 3.73955529122711*^9}},
+ CellLabel->
+  "Out[1064]=",ExpressionUUID->"37041f79-3028-4ffc-8648-6df5fe771af2"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{840, 956},
+WindowSize->{840, 955},
 WindowMargins->{{Automatic, 0}, {Automatic, 0}},
 FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 7, \
 2018)",
@@ -1689,13 +1976,17 @@ CellTagsIndex->{
    CellTags->"Info7323739462206-8266218"]},
  "Info7423739463329-8266218"->{
   Cell[61144, 1214, 1400, 24, 136, "Print",ExpressionUUID->"80936cf0-a31b-46bb-bd3b-9ffa4bcc301f",
-   CellTags->"Info7423739463329-8266218"]}
+   CellTags->"Info7423739463329-8266218"]},
+ "Info10403739540394-7865153"->{
+  Cell[82328, 1716, 2828, 44, 158, "Print",ExpressionUUID->"208322d9-f189-413f-9e38-befc321bef6e",
+   CellTags->"Info10403739540394-7865153"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Info7323739462206-8266218", 81228, 1686},
- {"Info7423739463329-8266218", 81399, 1689}
+ {"Info7323739462206-8266218", 94599, 1973},
+ {"Info7423739463329-8266218", 94770, 1976},
+ {"Info10403739540394-7865153", 94946, 1979}
  }
 *)
 (*NotebookFileOutline
@@ -1743,17 +2034,41 @@ Cell[67779, 1367, 215, 4, 30, "Input",ExpressionUUID->"23332a00-a996-4fc2-83a9-6
 Cell[67997, 1373, 641, 15, 56, "Output",ExpressionUUID->"80cd4da9-d62f-4e35-aa48-bbfe37d34691"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[68675, 1393, 2159, 46, 157, "Input",ExpressionUUID->"93de6073-aa5a-4143-8e4a-4bc9fd4226c9"],
-Cell[70837, 1441, 1403, 34, 213, "Output",ExpressionUUID->"7b81a74d-c531-4ad2-8a4c-50ae4c093223"]
+Cell[68675, 1393, 2234, 47, 157, "Input",ExpressionUUID->"93de6073-aa5a-4143-8e4a-4bc9fd4226c9"],
+Cell[70912, 1442, 1429, 35, 213, "Output",ExpressionUUID->"8e35916d-2ce9-4292-b6b4-0f196222da28"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[72277, 1480, 219, 4, 30, "Input",ExpressionUUID->"7f2607d9-8741-474c-a748-69125319ffc2"],
-Cell[72499, 1486, 6680, 130, 1635, "Output",ExpressionUUID->"18eb3619-9383-4eeb-8eef-062e16438986"]
-}, Open  ]],
+Cell[72378, 1482, 219, 4, 30, "Input",ExpressionUUID->"7f2607d9-8741-474c-a748-69125319ffc2"],
+Cell[72600, 1488, 6680, 130, 1425, "Output",ExpressionUUID->"18eb3619-9383-4eeb-8eef-062e16438986"]
+}, Closed]],
 Cell[CellGroupData[{
-Cell[79216, 1621, 224, 4, 30, "Input",ExpressionUUID->"a8d0cc16-2f9d-4ede-824e-b0235be77605"],
-Cell[79443, 1627, 1414, 42, 319, "Output",ExpressionUUID->"3d28562f-f747-4d4c-9393-d0d668ca6b84"]
+Cell[79317, 1623, 224, 4, 26, "Input",ExpressionUUID->"a8d0cc16-2f9d-4ede-824e-b0235be77605"],
+Cell[79544, 1629, 1414, 42, 319, "Output",ExpressionUUID->"3d28562f-f747-4d4c-9393-d0d668ca6b84"]
+}, Closed]]
 }, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[81019, 1678, 167, 3, 54, "Subsection",ExpressionUUID->"e1a8fd93-d1b1-4de0-a83e-d273223ee92c"],
+Cell[81189, 1683, 637, 15, 196, "Text",ExpressionUUID->"3bff7387-c2e7-4311-aaa9-bb504a860582"],
+Cell[81829, 1700, 273, 6, 30, "Input",ExpressionUUID->"7cfb13da-3b47-420f-879f-6c4dd29dab24"],
+Cell[CellGroupData[{
+Cell[82127, 1710, 198, 4, 30, "Input",ExpressionUUID->"72fab979-0663-4377-9728-9c1f4b1dcd37"],
+Cell[82328, 1716, 2828, 44, 158, "Print",ExpressionUUID->"208322d9-f189-413f-9e38-befc321bef6e",
+ CellTags->"Info10403739540394-7865153"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[85193, 1765, 219, 4, 30, "Input",ExpressionUUID->"c673ea03-ec6e-484b-9d82-cca1168f7f63"],
+Cell[85415, 1771, 1294, 19, 266, "Output",ExpressionUUID->"ec8fd7a2-41c3-4baf-9396-9cd877002a1b"]
+}, Open  ]],
+Cell[86724, 1793, 949, 19, 127, "Text",ExpressionUUID->"9310032a-fcc7-4655-bf1d-b39388f34303"],
+Cell[87676, 1814, 1478, 22, 619, "Input",ExpressionUUID->"790ed5d2-ec74-4ec4-ad95-a9125b8c376c"],
+Cell[CellGroupData[{
+Cell[89179, 1840, 182, 3, 30, "Input",ExpressionUUID->"4bf2fedf-9b89-4944-9939-65458af8e13b"],
+Cell[89364, 1845, 3989, 86, 449, "Output",ExpressionUUID->"6af9ba69-972d-4a5d-81a6-1d544abed797"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[93390, 1936, 603, 14, 30, "Input",ExpressionUUID->"ca2ebcdd-95e3-4fd2-b42a-e3c99a4e5965"],
+Cell[93996, 1952, 244, 5, 34, "Output",ExpressionUUID->"37041f79-3028-4ffc-8648-6df5fe771af2"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
