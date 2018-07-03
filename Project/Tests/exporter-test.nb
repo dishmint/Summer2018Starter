@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       161,          7]
-NotebookDataLength[    102186,       2099]
-NotebookOptionsPosition[     96434,       1986]
-NotebookOutlinePosition[     97666,       2020]
-CellTagsIndexPosition[     97440,       2012]
+NotebookDataLength[     69972,       1535]
+NotebookOptionsPosition[     63901,       1417]
+NotebookOutlinePosition[     65132,       1451]
+CellTagsIndexPosition[     64906,       1443]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -63,7 +63,7 @@ Cell[BoxData[{
     RowBox[{"{", "}"}]}], "]"}]}]}], "Code",
  CellChangeTimes->{3.739397134446692*^9},
  CellLabel->
-  "In[1261]:=",ExpressionUUID->"46904399-9fa0-482b-bfa6-78336f9ccb5a"],
+  "In[1322]:=",ExpressionUUID->"46904399-9fa0-482b-bfa6-78336f9ccb5a"],
 
 Cell[BoxData[{
  RowBox[{"Clear", "[", "twineParser", "]"}], "\[IndentingNewLine]", 
@@ -75,8 +75,8 @@ Cell[BoxData[{
      RowBox[{
      "fileAsString", ",", "xmlObject", ",", " ", "rootNode", ",", 
       "rootNodeName", ",", " ", "passages", ",", "passageContentThread", ",", 
-      "passageAssociation", ",", "edges", ",", "alledges", ",", " ", "g", ",",
-       " ", "v"}], "}"}], ",", "\[IndentingNewLine]", 
+      "passageAssociation", ",", "assocForm", ",", "edges", ",", "alledges", 
+      ",", " ", "g", ",", " ", "v"}], "}"}], ",", "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{"fileAsString", " ", "=", " ", 
       RowBox[{"Import", "[", 
@@ -214,7 +214,8 @@ Cell[BoxData[{
           RowBox[{"\"\<LayeredDigraphEmbedding\>\"", ",", " ", 
            RowBox[{"\"\<RootVertex\>\"", "\[Rule]", "rootNodeName"}]}], 
           "}"}]}]}], "\[IndentingNewLine]", "]"}]}]}]}], 
-   "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "]"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"twineParser", "::", "usage"}], " ", "=", " ", 
@@ -286,15 +287,18 @@ project\>\""}], ";"}]}], "Input",
    3.739479640178238*^9}, {3.739479680761251*^9, 3.7394797129307404`*^9}, {
    3.739479757624714*^9, 3.739479772346043*^9}, {3.73947980644901*^9, 
    3.739479810785808*^9}, 3.739479844526219*^9, {3.7394798932962713`*^9, 
-   3.7394799246607447`*^9}, {3.739479960309442*^9, 3.739479960908112*^9}},
+   3.7394799246607447`*^9}, {3.739479960309442*^9, 3.739479960908112*^9}, {
+   3.739571388055563*^9, 3.739571419416292*^9}, {3.7395714618550367`*^9, 
+   3.739571617695286*^9}, {3.7395716485188913`*^9, 3.7395716537558804`*^9}},
  CellLabel->
-  "In[869]:=",ExpressionUUID->"2c8c6397-1c6a-42a9-9877-e4851a6fb364"],
+  "In[1337]:=",ExpressionUUID->"2c8c6397-1c6a-42a9-9877-e4851a6fb364"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"?", "twineParser"}]], "Input",
- CellChangeTimes->{{3.739397338399507*^9, 3.7393973397909117`*^9}},
+ CellChangeTimes->{{3.739397338399507*^9, 3.7393973397909117`*^9}, {
+  3.739571655778576*^9, 3.739571656101519*^9}},
  CellLabel->
   "In[732]:=",ExpressionUUID->"330bfd4e-4856-4057-9cef-a1ec3557d7e7"],
 
@@ -305,7 +309,7 @@ project\"\>"], "Print", "PrintUsage",
   "Info7323739462206-8266218",ExpressionUUID->"25efbd1c-7e05-486d-ba8a-\
 b25ac47ff667"]
 }, Open  ]]
-}, Closed]],
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -325,8 +329,8 @@ Cell[BoxData[{
      RowBox[{
      "fileAsString", ",", "xmlObject", ",", " ", "rootNode", ",", 
       "rootNodeName", ",", " ", "passages", ",", "passageContentThread", ",", 
-      "passageAssociation", ",", "edges", ",", "alledges", ",", " ", "g", ",",
-       " ", "v"}], "}"}], ",", "\[IndentingNewLine]", 
+      "completeAssociation", ",", "edges", ",", "alledges", ",", " ", "g", 
+      ",", " ", "v"}], "}"}], ",", "\[IndentingNewLine]", 
     RowBox[{"(*", 
      RowBox[{
      "Import", " ", "Twine", " ", "Project", " ", "as", " ", "string"}], 
@@ -430,10 +434,10 @@ Cell[BoxData[{
       RowBox[{
       "Add", " ", "rootnode", " ", "pair", " ", "to", " ", "association"}], 
       "*)"}], "\[IndentingNewLine]", 
-     RowBox[{"passageAssociation", " ", "=", 
+     RowBox[{"completeAssociation", " ", "=", 
       RowBox[{"AssociateTo", "[", 
-       RowBox[{"rootAssociation", ",", "passageContentThread"}], "]"}]}]}]}], 
-   "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+       RowBox[{"rootAssociation", ",", "passageContentThread"}], "]"}]}], 
+     ";"}]}], "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"twineToAssociation", "::", "usage"}], " ", "=", " ", 
@@ -507,9 +511,10 @@ Twine 2 project\>\""}], ";"}]}], "Input",
    3.739557162114482*^9, 3.7395571650047607`*^9}, {3.739557415778988*^9, 
    3.7395574451568317`*^9}, {3.739557486453435*^9, 3.739557516091655*^9}, {
    3.739557548019476*^9, 3.739557614499137*^9}, {3.7395577168187637`*^9, 
-   3.739557721264097*^9}},
- CellLabel->
-  "In[1162]:=",ExpressionUUID->"74220585-a9da-42a5-ad22-ded7558f63ef"],
+   3.739557721264097*^9}, {3.739570991254694*^9, 3.739571037875053*^9}, {
+   3.73957110199529*^9, 
+   3.7395711023616753`*^9}},ExpressionUUID->"74220585-a9da-42a5-ad22-\
+ded7558f63ef"],
 
 Cell[CellGroupData[{
 
@@ -543,10 +548,10 @@ Cell[BoxData[
    3.739557010843112*^9, 3.73955704061122*^9}, {3.7395573036100473`*^9, 
    3.7395573039855833`*^9}, 3.7395574366606913`*^9},
  CellLabel->
-  "In[1161]:=",ExpressionUUID->"0293367e-d075-4107-9255-8af2880dd7d4"],
+  "In[1320]:=",ExpressionUUID->"0293367e-d075-4107-9255-8af2880dd7d4"],
 
 Cell[BoxData[
- RowBox[{"\[LeftAssociation]", 
+ RowBox[{"{", 
   RowBox[{
    RowBox[{"\<\"TwineBridge_Test\"\>", "\[Rule]", "\<\"Start Here\"\>"}], ",", 
    RowBox[{"\<\"First Passage\"\>", 
@@ -571,14 +576,87 @@ something]]\"\>"}], ",",
     "\[Rule]", "\<\" Hi, I&#39;m doing something, why don&#39;t [[you do \
 something]]?\"\>"}], ",", 
    RowBox[{"\<\"you do something\"\>", 
-    "\[Rule]", "\<\" Go, Get out of here! \"\>"}]}], 
-  "\[RightAssociation]"}]], "Output",
+    "\[Rule]", "\<\" Go, Get out of here! \"\>"}]}], "}"}]], "Output",
  CellChangeTimes->{
   3.7395570410585012`*^9, 3.739557109521734*^9, 3.739557170054141*^9, 
    3.7395573051493187`*^9, 3.739557450832432*^9, 3.739557499879798*^9, {
-   3.739557554176043*^9, 3.739557564450618*^9}},
+   3.739557554176043*^9, 3.739557564450618*^9}, 3.7395710425422363`*^9},
  CellLabel->
-  "Out[1161]=",ExpressionUUID->"8d09cf41-35c7-4a25-a591-2881aec1877e"]
+  "Out[1320]=",ExpressionUUID->"99c1c3d1-d975-421b-9981-173d6578ecba"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Graph", "[", "test", "]"}]], "Input",
+ CellChangeTimes->{{3.739571051729868*^9, 3.7395710548239183`*^9}},
+ CellLabel->
+  "In[1321]:=",ExpressionUUID->"78027ca7-c037-4aec-b78a-98b18b9db85f"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{
+      "TwineBridge_Test", "Start Here", "First Passage", 
+       "This is my first passage. Where can I go from here? How about \
+[[Left]] , or [[Right]]?", "Left", 
+       "From here, there are still other places to go. We can go [[Up]] or \
+[[Down]]", "Right", "Up", 
+       "Now that we are up why don&#39;t we [[get going]]?", "Down", 
+       "Now that we are down, why don&#39;t we get [[Up]]?", "get going", 
+       "Now that we are going, how about we [[do something]]", "do something",
+        " Hi, I&#39;m doing something, why don&#39;t [[you do something]]?", 
+       "you do something", " Go, Get out of here! "}, {{{1, 2}, {3, 4}, {5, 
+       6}, {7, 6}, {8, 9}, {10, 11}, {12, 13}, {14, 15}, {16, 17}}, Null}]]}, 
+    
+    TagBox[
+     GraphicsGroupBox[
+      GraphicsComplexBox[{{0.9427516666666658, -1.4219050000000002`}, {
+       0.9427516666666658, -2.421905}, {
+       1.4219050000000002`, -0.14063500000000007`}, {
+       1.4219050000000002`, -1.140635}, {
+       0.14063500000000007`, -0.14063500000000007`}, {1.140635, -1.140635}, {
+       1.140635, -0.14063500000000007`}, {
+       1.7031749999999999`, -0.14063500000000007`}, {
+       1.7031749999999999`, -1.140635}, {
+       1.9844449999999996`, -0.14063500000000007`}, {
+       1.9844449999999996`, -1.140635}, {
+       2.265714999999999, -0.14063500000000007`}, {
+       2.265714999999999, -1.140635}, {
+       0.14063499999999962`, -1.4219050000000002`}, {
+       0.14063499999999962`, -2.421905}, {
+       1.744868333333332, -1.4219050000000002`}, {
+       1.744868333333332, -2.421905}}, {
+        {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+         ArrowBox[{1, 2}, 0.02485350037888101], 
+         ArrowBox[{3, 4}, 0.02485350037888101], 
+         ArrowBox[{5, 6}, 0.02485350037888101], 
+         ArrowBox[{7, 6}, 0.02485350037888101], 
+         ArrowBox[{8, 9}, 0.02485350037888101], 
+         ArrowBox[{10, 11}, 0.02485350037888101], 
+         ArrowBox[{12, 13}, 0.02485350037888101], 
+         ArrowBox[{14, 15}, 0.02485350037888101], 
+         ArrowBox[{16, 17}, 0.02485350037888101]}, 
+        {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+         DiskBox[1, 0.02485350037888101], DiskBox[2, 0.02485350037888101], 
+         DiskBox[3, 0.02485350037888101], DiskBox[4, 0.02485350037888101], 
+         DiskBox[5, 0.02485350037888101], DiskBox[6, 0.02485350037888101], 
+         DiskBox[7, 0.02485350037888101], DiskBox[8, 0.02485350037888101], 
+         DiskBox[9, 0.02485350037888101], DiskBox[10, 0.02485350037888101], 
+         DiskBox[11, 0.02485350037888101], DiskBox[12, 0.02485350037888101], 
+         DiskBox[13, 0.02485350037888101], DiskBox[14, 0.02485350037888101], 
+         DiskBox[15, 0.02485350037888101], DiskBox[16, 0.02485350037888101], 
+         DiskBox[17, 0.02485350037888101]}}]],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Output",
+ CellChangeTimes->{3.73957105518813*^9},
+ CellLabel->
+  "Out[1321]=",ExpressionUUID->"213efeb4-4533-4e5e-a646-de6d9f5777d8"]
 }, Open  ]]
 }, Closed]],
 
@@ -592,12 +670,11 @@ Cell["Graphs", "Subsubsection",
 Cell[CellGroupData[{
 
 Cell[BoxData[{
- RowBox[{
-  RowBox[{"graph1", "=", 
-   RowBox[{
-   "twineParser", "[", 
-    "\"\<~/Documents/Twine/Stories/TwineBridge_Test.html\>\"", "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"graph1", "=", 
+  RowBox[{
+  "twineParser", "[", 
+   "\"\<~/Documents/Twine/Stories/TwineBridge_Test.html\>\"", 
+   "]"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"graph2", " ", "=", " ", 
    RowBox[{
@@ -615,846 +692,193 @@ Cell[BoxData[{
    RowBox[{"graph1", ",", " ", "graph2", ",", " ", "graph3"}], "}"}], 
   "]"}]}], "Input",
  CellChangeTimes->{{3.739397391565716*^9, 3.739397441595962*^9}, {
-  3.7394764932689447`*^9, 3.739476510048822*^9}},
+   3.7394764932689447`*^9, 3.739476510048822*^9}, 3.739571611320456*^9},
  CellLabel->
-  "In[733]:=",ExpressionUUID->"7e8d6b30-9587-4f23-8296-ad303f8b8696"],
+  "In[1340]:=",ExpressionUUID->"7e8d6b30-9587-4f23-8296-ad303f8b8696"],
 
 Cell[BoxData[
- GraphicsBox[{{}, {InsetBox[
-     FormBox[
-      GraphicsBox[
-       NamespaceBox["NetworkGraphics",
-        DynamicModuleBox[{Typeset`graph = HoldComplete[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{
+      "TwineBridge_Test", "First Passage", "Left", "Right", "Up", "Down", 
+       "get going", "do something", "you do something"}, {{{1, 2}, {2, 3}, {2,
+        4}, {3, 5}, {3, 6}, {4, 5}, {4, 6}, {5, 7}, {6, 5}, {7, 8}, {8, 9}}, 
+       Null}, {GraphLayout -> {
+        "LayeredDigraphEmbedding", "RootVertex" -> "TwineBridge_Test"}, 
+       Properties -> {
+        "get going" -> {
+          Tooltip -> "Now that we are going, how about we do something"}, 
+         "Left" -> {
+          Tooltip -> 
+           "From here, there are still other places to go. We can go Up or \
+Down"}, "First Passage" -> {
+          Tooltip -> 
+           "This is my first passage. Where can I go from here? How about \
+Left , or Right?"}, 
+         "you do something" -> {Tooltip -> " Go, Get out of here! "}, 
+         "Right" -> {
+          Tooltip -> 
+           "From here, there are still other places to go. We can go Up or \
+Down"}, "do something" -> {
+          Tooltip -> 
+           " Hi, I&#39;m doing something, why don&#39;t you do something?"}, 
+         "TwineBridge_Test" -> {Tooltip -> "Start Here"}, 
+         "Up" -> {
+          Tooltip -> "Now that we are up why don&#39;t we get going?"}, 
+         "Down" -> {
+          Tooltip -> "Now that we are down, why don&#39;t we get Up?"}}, 
+       VertexLabels -> {"Name"}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[{{0., 7.}, {0., 6.}}, 0.05338164251207729], 
+        ArrowBox[{{0., 6.}, {-1., 5.}}, 0.05338164251207729], 
+        ArrowBox[{{0., 6.}, {0., 5.}}, 0.05338164251207729], 
+        ArrowBox[BezierCurveBox[CompressedData["
+1:eJxTTMoPSmViYGCQAWIQDQEf9kNoEYfwRL8SjQMf9q9Mf/Po63lhh3l5Z/m7
+p3zcH7GEx+buLGGHy+q1l9RrP+3n2ZbAvS1B2OFrT+yef5Wf9x+e8yKgQVHY
+gQ2s4cv+OrAGIQe26A2s0Ru+7rd/Odnu5WQhhy+HlVIfvPy2n8V/+7N2VyGH
+CzeOvp5v/mP/mU4+VolPgg6zZoLAz/0QWtABYs6v/a9A2u0EHVaB3fV7v2Xf
+Y4u+xwIOcscLZY4X/tnf1QECAg5Xy0x2rj/0Z/+NJl0gEnC4BuUH/Fri/2sJ
+P1z9h3cgwAc3D2ycBZ9DPdQ+PbABvHD3nD0DAjwO56HuBWuT5nH4DPXPr8SJ
+Rh9KuB3Yof5tAVl/g8uBHRoeEP9ywcOr+phe3P89nA6XoOEJ8R8nPLzByk9x
+OERA42ONgbqVSAKHA2p8cTgAAIwM5dI=
+         "]], 0.05338164251207729], 
+        ArrowBox[{{-1., 5.}, {-1., 4.}}, 0.05338164251207729], 
+        ArrowBox[BezierCurveBox[CompressedData["
+1:eJxTTMoPSmViYGCQAWIQjQpEHGCslelvHn09LwznRyzhsbk7C8Hn2ZbAvS0B
+wT8850VAgyKCXwfWIATn27+cbPdyMoLP4r/9Wbsrgn+mk49V4pMgnD9rJggI
+OizctHIV8+yc/eszpwrxO8D4Pfv9ntrdq3op4FBV8p/fSHzB/kqeaX/uTBWA
+yq/Zr3N/Vq6pq4BD/+SQu1KR2/Zf2zUrieM9P1T9gf1ZfNH9kyL5HY68WXlu
+3bOj+wV2liVynuKD6j+z/9yutzdyHPgcuJL/B0pIXdo/X/jA1z17eB2OtU/8
+esvk5n62874LU27yOCi6tF30P39/f435eVYxNh4HvjPvinZ/ebT/n4+L8kUn
+bodbB70lVxx8ur+Lf+3Pqf1cDmXMt27n+r3Yr1zP2ZnyhtPh0YSZu3hmv9p/
+YnbkRZtITgeZrK6tLcvf7K9MnXtJ7hqHg3r/mjNXi9/tN79zpYcrmQMaPh/2
+Q2gOBwC5t6oJ
+         "]], 0.05338164251207729], 
+        ArrowBox[{{0., 5.}, {-1., 4.}}, 0.05338164251207729], 
+        ArrowBox[{{-1., 3.}, {-1., 2.}}, 0.05338164251207729], 
+        ArrowBox[{{-1., 4.}, {-1., 3.}}, 0.05338164251207729], 
+        ArrowBox[{{-1., 2.}, {-1., 1.}}, 0.05338164251207729], 
+        ArrowBox[{{-1., 1.}, {-1., 0.}}, 0.05338164251207729]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], {
+         TagBox[
+          TooltipBox[DiskBox[{0., 7.}, 0.05338164251207729],
+           "\"Start Here\"",
+           TooltipStyle->"TextStyling"],
+          Annotation[#, "Start Here", "Tooltip"]& ], 
+         InsetBox["\<\"TwineBridge_Test\"\>", 
+          Offset[{2, 2}, {0.05338164251207729, 7.053381642512077}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          TooltipBox[DiskBox[{0., 6.}, 0.05338164251207729],
+           
+           "\"This is my first passage. Where can I go from here? How about \
+Left , or Right?\"",
+           TooltipStyle->"TextStyling"],
           
-          Graph[{"TwineBridge_Test", "First Passage", "Second Passage A", 
-            "Second Passage B", "third"}, {{{1, 2}, {2, 3}, {2, 4}, {3, 5}, {
-            4, 5}}, Null}, {
-           GraphLayout -> {
-             "LayeredDigraphEmbedding", "RootVertex" -> "TwineBridge_Test"}, 
-            Properties -> {
-             "third" -> {Tooltip -> "Welcome to the third passage."}, 
-              "First Passage" -> {
-               Tooltip -> 
-                "This is my first passage. Now I'll go to one of two second \
-passages Second Passage A Second Passage B"}, 
-              "Second Passage A" -> {Tooltip -> "Go to the third passage"}, 
-              "Second Passage B" -> {Tooltip -> "Go to the third passage"}, 
-              "TwineBridge_Test" -> {Tooltip -> "Start Here"}}, 
-            VertexLabels -> {"Name"}}]]}, 
-         TagBox[GraphicsGroupBox[{
-            {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
-             ArrowBox[{{0., 3.}, {0., 2.}}, 0.030239520958083826`], 
-             ArrowBox[{{0., 2.}, {-1., 1.}}, 0.030239520958083826`], 
-             ArrowBox[{{0., 2.}, {0., 1.}}, 0.030239520958083826`], 
-             ArrowBox[{{-1., 1.}, {-1., 0.}}, 0.030239520958083826`], 
-             ArrowBox[{{0., 1.}, {-1., 0.}}, 0.030239520958083826`]}, 
-            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], {
-              TagBox[
-               TooltipBox[DiskBox[{0., 3.}, 0.030239520958083826],
-                "\"Start Here\"",
-                TooltipStyle->"TextStyling"],
-               Annotation[#, "Start Here", "Tooltip"]& ], 
-              InsetBox["\<\"TwineBridge_Test\"\>", 
-               Offset[{2, 2}, {0.030239520958083826, 3.0302395209580837}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{0., 2.}, 0.030239520958083826],
-                
-                "\"This is my first passage. Now I'll go to one of two second \
-passages Second Passage A Second Passage B\"",
-                TooltipStyle->"TextStyling"],
-               
-               Annotation[#, 
-                "This is my first passage. Now I'll go to one of two second \
-passages Second Passage A Second Passage B", "Tooltip"]& ], 
-              InsetBox["\<\"First Passage\"\>", 
-               Offset[{2, 2}, {0.030239520958083826, 2.0302395209580837}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{-1., 1.}, 0.030239520958083826],
-                "\"Go to the third passage\"",
-                TooltipStyle->"TextStyling"],
-               Annotation[#, "Go to the third passage", "Tooltip"]& ], 
-              InsetBox["\<\"Second Passage A\"\>", 
-               Offset[{2, 2}, {-0.9697604790419162, 1.030239520958084}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{0., 1.}, 0.030239520958083826],
-                "\"Go to the third passage\"",
-                TooltipStyle->"TextStyling"],
-               Annotation[#, "Go to the third passage", "Tooltip"]& ], 
-              InsetBox["\<\"Second Passage B\"\>", 
-               Offset[{2, 2}, {0.030239520958083826, 1.030239520958084}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{-1., 0.}, 0.030239520958083826],
-                "\"Welcome to the third passage.\"",
-                TooltipStyle->"TextStyling"],
-               Annotation[#, "Welcome to the third passage.", "Tooltip"]& ], 
-              InsetBox["\<\"third\"\>", 
-               Offset[{2, 2}, {-0.9697604790419162, 0.030239520958083826}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}}}],
-          MouseAppearanceTag["NetworkGraphics"]],
-         AllowKernelInitialization->False]],
-       DefaultBaseStyle->{
-        "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
-         Hue[0.8, 1., 0.6]},
-       FormatType->TraditionalForm,
-       FrameTicks->None],
-      TraditionalForm], {193.5, -189.}, {Center, Center}, {360., 360.}], 
-    InsetBox[
-     FormBox[
-      GraphicsBox[
-       NamespaceBox["NetworkGraphics",
-        DynamicModuleBox[{Typeset`graph = HoldComplete[
+          Annotation[#, 
+           "This is my first passage. Where can I go from here? How about \
+Left , or Right?", "Tooltip"]& ], 
+         InsetBox["\<\"First Passage\"\>", 
+          Offset[{2, 2}, {0.05338164251207729, 6.053381642512077}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          TooltipBox[DiskBox[{-1., 5.}, 0.05338164251207729],
+           
+           "\"From here, there are still other places to go. We can go Up or \
+Down\"",
+           TooltipStyle->"TextStyling"],
           
-          Graph[{"isc405 \[AHat]\.80\.94 Assignment 3", "Meet MAWX", 
-            "Ask Mawx", " Systems Check", "Set Launch", "Getting Started", 
-            "Mission Porotocol", "Ground Ops Facilities", "LAUNCH", 
-            "The Journey Has Begun...", "Report for Suit-Up", 
-            "Who Are You, Really?", "The Walk", "Walk Project Hallway", 
-            "Talk to Manager Caine", "State Black Conduct Set | SBCS", 
-            "0012B | Conduct Set 1", "IGCS Global | Conduct Set 2", 
-            "Project Hallway"}, {{{1, 2}, {2, 3}, {4, 5}, {3, 6}, {3, 7}, {3, 
-            8}, {5, 9}, {9, 3}, {10, 11}, {10, 12}, {11, 13}, {13, 14}, {13, 
-            15}, {7, 16}, {7, 17}, {7, 18}, {8, 19}, {14, 2}, {12, 10}}, 
-            Null}, {GraphLayout -> {
-             "LayeredDigraphEmbedding", "RootVertex" -> 
-              "isc405 \[AHat]\.80\.94 Assignment 3"}, 
-            Properties -> {
-             "The Journey Has Begun..." -> {
-               Tooltip -> 
-                "May 23rd \[AHat]\.80\.94 1958. A different Earth, a \
-different time. You are an intergalactic transport pilot. Today you embark on \
-your first state black mission : covert transport operations. Report for \
-Suit-Up Who Are You, Really?"}, 
-              "State Black Conduct Set | SBCS" -> {
-               Tooltip -> 
-                Missing["KeyAbsent", "State Black Conduct Set | SBCS"]}, 
-              "LAUNCH" -> {
-               Tooltip -> 
-                "Seryph 6 Launch is go. The ship makes it to Orbit. Mawx \
-performs a post launch check. --- MAWX \
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: Confirming \
-Mission Trajectory to -- --- Star Cluster. Ready-up for FTL Travel. Ask Mawx\n\
-\t\t"}, "Ground Ops Facilities" -> {Tooltip -> "Project Hallway"}, 
-              "Project Hallway" -> {
-               Tooltip -> "Double-click this passage to edit it."}, 
-              "Mission Porotocol" -> {
-               Tooltip -> 
-                "STATE\[AHat]\.80\.94BLACK CS State Black Conduct Set | SBCS \
-P1 \[AHat]\.80\.94 Adhere to Conduct Set 0012B | Conduct Set 1 P2 \[AHat]\.80\
-\.94 Adhere to IGCS Global IGCS Global | Conduct Set 2 "}, 
-              "Set Launch" -> {
-               Tooltip -> 
-                "# 10 ... # 9 &amp;nbsp;&amp;nbsp;... # 8 \
-&amp;nbsp;&amp;nbsp;... # 7 &amp;nbsp;&amp;nbsp;... # 6 \
-&amp;nbsp;&amp;nbsp;... # 5 &amp;nbsp;&amp;nbsp;... # 4 \
-&amp;nbsp;&amp;nbsp;... # 3 &amp;nbsp;&amp;nbsp;... # 2 \
-&amp;nbsp;&amp;nbsp;... # 1 &amp;nbsp;&amp;nbsp;...\n\t\t# LAUNCH"}, 
-              "isc405 \[AHat]\.80\.94 Assignment 3" -> {
-               Tooltip -> "Start Here"}, 
-              "IGCS Global | Conduct Set 2" -> {
-               Tooltip -> 
-                Missing["KeyAbsent", "IGCS Global | Conduct Set 2"]}, 
-              "Who Are You, Really?" -> {
-               Tooltip -> 
-                "Piloting Transport Planes since you graduated from College, \
-you joind DeepTransit in 1938. They had just started their Far Reach \
-Initiative to get their Heavy class ships further into space. You worked to \
-transport resources to and from constructs and\n\t\t\tMajor Event Locations. \
-Back To The Story ===&gt; The Journey Has Begun..."}, 
-              "Walk Project Hallway" -> {
-               Tooltip -> 
-                "The walls are white \[AHat]\.80\.94 the tunnel is well-lit, \
-there are no corridors, all rooms branch from this hallway. \
-||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| \
-Manager Caine: &quot;C46, You heard of it?&quot; You Respond: &quot;Yeah,\n\t\
-\t\tuhh... construction transport, near Aegis-Nine?&quot; Manager Caine: \
-&quot;Yeah, it went offline a few weeks ago and we don&#39;t know why... No \
-spikes prior to target switch, nor emergency telegrams. Surrounding field has \
-no effects, no phsyical abnormalities\n\t\t\tobserved. We need a team to \
-search the construct: there were two other constructs, C35 and C74 \
-\[AHat]\.80\.94 their systems entered docking procedures without manual \
-control. &quot; You: &quot;Isn&#39;t that what they&#39;re supposed to do? \
-Manager Caine: &quot;When\n\t\t\tthey&#39;re docking, yeah, but they&#39;re \
-hundreds of miles apart&quot; You: &quot;Couldn&#39;t it be a software \
-problem, did you switch it on and off?&quot; Manager Caine: &quot;Ha, yeah I \
-wish, We&#39;ve had our engineers on it since 46 went offline,\n\t\t\tnothing \
-extraordinary in the programs, the behavior persists.&quot; There&#39;s a \
-strange noise coming from further down Project Hallway. You shift your \
-attention back to the mission. You: &quot;Where&#39;s the team?&quot; Manager \
-Caine: &quot;Right,\n\t\t\twe&#39;ll introduce you after equipment \
-breifing&quot; You: &quot;\[AHat]\.80\.94That&#39;s usually a full crew \
-procedure&quot; Manager Caine: &quot;Not with this crew..&quot; Meet MAWX"}, 
-              "Meet MAWX" -> {
-               Tooltip -> 
-                "Good morning ... I am Mawx (Master\[CapitalAHat]\
-\[NonBreakingSpace]\[AHat]\.80\.94 Artifiical World Crosser), your galactic \
-transit AI. You may know my siblings... Pawx \[AHat]\.80\.94 Private \
-Artifical World Crosser Fawx \[AHat]\.80\.94 First Artificial World Crosser \
-Slawx \[AHat]\.80\.94 Sub Lane Artifical World Crosser If you do not\n\t\t\
-have a paper manual, you can ask me questions directly... Ask Mawx Let&#39;s \
-get to know eachother :::::::::::::::::::::::::::::::::::::::::::::::\n\n\n\n\
-\n\t"}, "Ask Mawx" -> {
-               Tooltip -> 
-                "Getting Started Mission Porotocol Ground Ops Facilities"}, 
-              "The Walk" -> {
-               Tooltip -> 
-                "You both leave the suit-up room and head towards the project \
-hallway. |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\
-|||||| The excitement is building in you; Project Hallway is a mile long \
-underground tunnel, all pre-flight ground\n\t\t\tops happen here. More \
-importantly, the crew is finally informed of their mission. \
-||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| \
-Walk Project Hallway Talk to Manager Caine"}, 
-              "0012B | Conduct Set 1" -> {
-               Tooltip -> Missing["KeyAbsent", "0012B | Conduct Set 1"]}, 
-              " Systems Check" -> {
-               Tooltip -> 
-                "# SYSTEMS CHECK Confiming Route: Earth ..=&gt; // ..=&gt; \
-Aegis-Nine Star Cluster Confirming Mission: Rescue and Retreival Hardware \
-|&gt; :... check Life Support :... check Setup Scripts:... check Set Launch"},
-               "Getting Started" -> {
-               Tooltip -> 
-                "Welcome to your MAWX series A system. Here you will find \
-information on startup, maintenance and initial usage."}, 
-              "Talk to Manager Caine" -> {
-               Tooltip -> "He Says nothing for now..."}, 
-              "Report for Suit-Up" -> {
-               Tooltip -> 
-                "## A-Deck. 9:30am Manager Caine is at the front of the room \
-\[AHat]\.80\.94 he has your suit in hand. A neat package, with all the air \
-sucked out. It&#39;s shiny , with a DeepTransit Logo on top. You walk up to \
-him. He looks at you and nods. You have the okay to open\n\t\tyour suit \
-package. *This is it, there&#39;s no turning back.* You take out your \
-DeepTransit pocket knife and carefully slit the package straight down the \
-middle. You feel good. You&#39;re on your way to fulfilling your life-long \
-dream. You let out a\n\t\tsmile, but try to conceal it. Manager Caine catches \
-the slip, &quot;You&#39;re going to do great&quot;, He says. The Walk"}}, 
-            VertexLabels -> {"Name"}}]]}, 
-         TagBox[GraphicsGroupBox[{
-            {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
-             ArrowBox[BezierCurveBox[CompressedData["
-1:eJxTTMoPSmViYGDQA2IQjQpkHGCslelvHn09Lw3nRy7hsbk7C8Hn2ZbAvS0B
-wT8850VAgyKC3xAB0iAF5zu8nGz3cjKCz+K//Vm7K4J/tpOPVeKTJJw/ayYI
-IPhg7XYIvkXfYyCSgPM7O0AAwb/ZpHujSRfB16i9pF57SRzOrygHAQT/eKEM
-ECH44jkHxYAIzT2iaO5B8C3B7hFBcw+CD3EPgg9xjzCaexB8iHsQfIh7hNDc
-IwjnvwK7B8GHuEcAzu8CuwfBvwF2D4If8GuJ/68l/HD+h3cgwAfng42zQPD1
-wAbwwvlnz4AAD5wPST4I/q/EiUYfSrjh/BaQ9Te44HxIekDwq4/pxf3fw4nm
-PwQfrPwUB5y/xkDdSiQBwYcADgcACfWesA==
-              "]], 0.05338164251207729], 
-             ArrowBox[{{0., 3.}, {1., 2.}}, 0.05338164251207729], 
-             ArrowBox[{{1., 2.}, {0., 1.}}, 0.05338164251207729], 
-             ArrowBox[{{1., 2.}, {1., 1.}}, 0.05338164251207729], 
-             ArrowBox[{{1., 2.}, {2., 1.}}, 0.05338164251207729], 
-             ArrowBox[{{1., 5.}, {1., 4.}}, 0.05338164251207729], 
-             ArrowBox[{{1., 4.}, {1., 3.}}, 0.05338164251207729], 
-             ArrowBox[{{1., 1.}, {-1., 0.}}, 0.05338164251207729], 
-             ArrowBox[{{1., 1.}, {0., 0.}}, 0.05338164251207729], 
-             ArrowBox[{{1., 1.}, {1., 0.}}, 0.05338164251207729], 
-             ArrowBox[{{2., 1.}, {2., 0.}}, 0.05338164251207729], 
-             ArrowBox[{{1., 3.}, {1., 2.}}, 0.05338164251207729], 
-             ArrowBox[{{-2., 7.}, {-2., 6.}}, 0.05338164251207729], 
-             ArrowBox[BezierCurveBox[{{-2., 7.}, {-1.4999999999999825`, 
-              7.164440747244908}, {-1., 7.}}], 0.05338164251207729], 
-             ArrowBox[{{-2., 6.}, {-2., 5.}}, 0.05338164251207729], 
-             ArrowBox[BezierCurveBox[{{-1., 7.}, {-1.5000000000000169`, 
-              6.835559252772459}, {-2., 7.}}], 0.05338164251207729], 
-             ArrowBox[{{-2., 5.}, {-2., 4.}}, 0.05338164251207729], 
-             ArrowBox[{{-2., 5.}, {-1., 4.}}, 0.05338164251207729], 
-             ArrowBox[{{-2., 4.}, {0., 3.}}, 0.05338164251207729]}, 
-            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], {
-              TagBox[
-               TooltipBox[DiskBox[{0., 7.}, 0.05338164251207729],
-                "\"Start Here\"",
-                TooltipStyle->"TextStyling"],
-               Annotation[#, "Start Here", "Tooltip"]& ], 
-              InsetBox["\<\"isc405 \[AHat]\.80\.94 Assignment 3\"\>", 
-               Offset[{2, 2}, {0.05338164251207729, 7.053381642512077}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{0., 3.}, 0.05338164251207729],
-                
-                "\"Good morning ... I am Mawx (Master\[CapitalAHat]\
-\[NonBreakingSpace]\[AHat]\.80\.94 Artifiical World Crosser), your galactic \
-transit AI. You may know my siblings... Pawx \[AHat]\.80\.94 Private \
-Artifical World Crosser Fawx \[AHat]\.80\.94 First Artificial World Crosser \
-Slawx \[AHat]\.80\.94 Sub Lane Artifical World Crosser If you do \
-not\\n\\t\\thave a paper manual, you can ask me questions directly... Ask \
-Mawx Let&#39;s get to know eachother \
-:::::::::::::::::::::::::::::::::::::::::::::::\\n\\n\\n\\n\\n\\t\"",
-                TooltipStyle->"TextStyling"],
-               
-               Annotation[#, 
-                "Good morning ... I am Mawx (Master\[CapitalAHat]\
-\[NonBreakingSpace]\[AHat]\.80\.94 Artifiical World Crosser), your galactic \
-transit AI. You may know my siblings... Pawx \[AHat]\.80\.94 Private \
-Artifical World Crosser Fawx \[AHat]\.80\.94 First Artificial World Crosser \
-Slawx \[AHat]\.80\.94 Sub Lane Artifical World Crosser If you do not\n\t\t\
-have a paper manual, you can ask me questions directly... Ask Mawx Let&#39;s \
-get to know eachother :::::::::::::::::::::::::::::::::::::::::::::::\n\n\n\n\
-\n\t", "Tooltip"]& ], 
-              InsetBox["\<\"Meet MAWX\"\>", 
-               Offset[{2, 2}, {0.05338164251207729, 3.053381642512077}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{1., 2.}, 0.05338164251207729],
-                "\"Getting Started Mission Porotocol Ground Ops Facilities\"",
-                
-                TooltipStyle->"TextStyling"],
-               
-               Annotation[#, 
-                "Getting Started Mission Porotocol Ground Ops Facilities", 
-                "Tooltip"]& ], 
-              InsetBox["\<\"Ask Mawx\"\>", 
-               Offset[{2, 2}, {1.0533816425120772, 2.053381642512077}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{1., 5.}, 0.05338164251207729],
-                
-                "\"# SYSTEMS CHECK Confiming Route: Earth ..=&gt; // ..=&gt; \
-Aegis-Nine Star Cluster Confirming Mission: Rescue and Retreival Hardware \
-|&gt; :... check Life Support :... check Setup Scripts:... check Set Launch\"",
-                TooltipStyle->"TextStyling"],
-               
-               Annotation[#, 
-                "# SYSTEMS CHECK Confiming Route: Earth ..=&gt; // ..=&gt; \
-Aegis-Nine Star Cluster Confirming Mission: Rescue and Retreival Hardware \
-|&gt; :... check Life Support :... check Setup Scripts:... check Set Launch", 
-                "Tooltip"]& ], 
-              InsetBox["\<\" Systems Check\"\>", 
-               Offset[{2, 2}, {1.0533816425120772, 5.053381642512077}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{1., 4.}, 0.05338164251207729],
-                
-                "\"# 10 ... # 9 &amp;nbsp;&amp;nbsp;... # 8 \
-&amp;nbsp;&amp;nbsp;... # 7 &amp;nbsp;&amp;nbsp;... # 6 \
-&amp;nbsp;&amp;nbsp;... # 5 &amp;nbsp;&amp;nbsp;... # 4 \
-&amp;nbsp;&amp;nbsp;... # 3 &amp;nbsp;&amp;nbsp;... # 2 \
-&amp;nbsp;&amp;nbsp;... # 1 &amp;nbsp;&amp;nbsp;...\\n\\t\\t# LAUNCH\"",
-                TooltipStyle->"TextStyling"],
-               
-               Annotation[#, 
-                "# 10 ... # 9 &amp;nbsp;&amp;nbsp;... # 8 \
-&amp;nbsp;&amp;nbsp;... # 7 &amp;nbsp;&amp;nbsp;... # 6 \
-&amp;nbsp;&amp;nbsp;... # 5 &amp;nbsp;&amp;nbsp;... # 4 \
-&amp;nbsp;&amp;nbsp;... # 3 &amp;nbsp;&amp;nbsp;... # 2 \
-&amp;nbsp;&amp;nbsp;... # 1 &amp;nbsp;&amp;nbsp;...\n\t\t# LAUNCH", 
-                "Tooltip"]& ], 
-              InsetBox["\<\"Set Launch\"\>", 
-               Offset[{2, 2}, {1.0533816425120772, 4.053381642512077}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{0., 1.}, 0.05338164251207729],
-                
-                "\"Welcome to your MAWX series A system. Here you will find \
-information on startup, maintenance and initial usage.\"",
-                TooltipStyle->"TextStyling"],
-               
-               Annotation[#, 
-                "Welcome to your MAWX series A system. Here you will find \
-information on startup, maintenance and initial usage.", "Tooltip"]& ], 
-              InsetBox["\<\"Getting Started\"\>", 
-               Offset[{2, 2}, {0.05338164251207729, 1.0533816425120772}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{1., 1.}, 0.05338164251207729],
-                
-                "\"STATE\[AHat]\.80\.94BLACK CS State Black Conduct Set | \
-SBCS P1 \[AHat]\.80\.94 Adhere to Conduct Set 0012B | Conduct Set 1 P2 \
-\[AHat]\.80\.94 Adhere to IGCS Global IGCS Global | Conduct Set 2 \"",
-                TooltipStyle->"TextStyling"],
-               
-               Annotation[#, 
-                "STATE\[AHat]\.80\.94BLACK CS State Black Conduct Set | SBCS \
-P1 \[AHat]\.80\.94 Adhere to Conduct Set 0012B | Conduct Set 1 P2 \[AHat]\.80\
-\.94 Adhere to IGCS Global IGCS Global | Conduct Set 2 ", "Tooltip"]& ], 
-              InsetBox["\<\"Mission Porotocol\"\>", 
-               Offset[{2, 2}, {1.0533816425120772, 1.0533816425120772}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{2., 1.}, 0.05338164251207729],
-                "\"Project Hallway\"",
-                TooltipStyle->"TextStyling"],
-               Annotation[#, "Project Hallway", "Tooltip"]& ], 
-              InsetBox["\<\"Ground Ops Facilities\"\>", 
-               Offset[{2, 2}, {2.053381642512077, 1.0533816425120772}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{1., 3.}, 0.05338164251207729],
-                
-                "\"Seryph 6 Launch is go. The ship makes it to Orbit. Mawx \
-performs a post launch check. --- MAWX \
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: Confirming \
-Mission Trajectory to -- --- Star Cluster. Ready-up for FTL Travel. Ask \
-Mawx\\n\\t\\t\"",
-                TooltipStyle->"TextStyling"],
-               
-               Annotation[#, 
-                "Seryph 6 Launch is go. The ship makes it to Orbit. Mawx \
-performs a post launch check. --- MAWX \
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: Confirming \
-Mission Trajectory to -- --- Star Cluster. Ready-up for FTL Travel. Ask Mawx\n\
-\t\t", "Tooltip"]& ], 
-              InsetBox["\<\"LAUNCH\"\>", 
-               Offset[{2, 2}, {1.0533816425120772, 3.053381642512077}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{-2., 7.}, 0.05338164251207729],
-                
-                "\"May 23rd \[AHat]\.80\.94 1958. A different Earth, a \
-different time. You are an intergalactic transport pilot. Today you embark on \
-your first state black mission : covert transport operations. Report for \
-Suit-Up Who Are You, Really?\"",
-                TooltipStyle->"TextStyling"],
-               
-               Annotation[#, 
-                "May 23rd \[AHat]\.80\.94 1958. A different Earth, a \
-different time. You are an intergalactic transport pilot. Today you embark on \
-your first state black mission : covert transport operations. Report for \
-Suit-Up Who Are You, Really?", "Tooltip"]& ], 
-              InsetBox["\<\"The Journey Has Begun...\"\>", 
-               Offset[{2, 2}, {-1.9466183574879228, 7.053381642512077}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{-2., 6.}, 0.05338164251207729],
-                
-                "\"## A-Deck. 9:30am Manager Caine is at the front of the \
-room \[AHat]\.80\.94 he has your suit in hand. A neat package, with all the \
-air sucked out. It&#39;s shiny , with a DeepTransit Logo on top. You walk up \
-to him. He looks at you and nods. You have the okay to open\\n\\t\\tyour suit \
-package. *This is it, there&#39;s no turning back.* You take out your \
-DeepTransit pocket knife and carefully slit the package straight down the \
-middle. You feel good. You&#39;re on your way to fulfilling your life-long \
-dream. You let out a\\n\\t\\tsmile, but try to conceal it. Manager Caine \
-catches the slip, &quot;You&#39;re going to do great&quot;, He says. The Walk\
-\"",
-                TooltipStyle->"TextStyling"],
-               
-               Annotation[#, 
-                "## A-Deck. 9:30am Manager Caine is at the front of the room \
-\[AHat]\.80\.94 he has your suit in hand. A neat package, with all the air \
-sucked out. It&#39;s shiny , with a DeepTransit Logo on top. You walk up to \
-him. He looks at you and nods. You have the okay to open\n\t\tyour suit \
-package. *This is it, there&#39;s no turning back.* You take out your \
-DeepTransit pocket knife and carefully slit the package straight down the \
-middle. You feel good. You&#39;re on your way to fulfilling your life-long \
-dream. You let out a\n\t\tsmile, but try to conceal it. Manager Caine catches \
-the slip, &quot;You&#39;re going to do great&quot;, He says. The Walk", 
-                "Tooltip"]& ], 
-              InsetBox["\<\"Report for Suit-Up\"\>", 
-               Offset[{2, 2}, {-1.9466183574879228, 6.053381642512077}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{-1., 7.}, 0.05338164251207729],
-                
-                "\"Piloting Transport Planes since you graduated from \
-College, you joind DeepTransit in 1938. They had just started their Far Reach \
-Initiative to get their Heavy class ships further into space. You worked to \
-transport resources to and from constructs and\\n\\t\\t\\tMajor Event \
-Locations. Back To The Story ===&gt; The Journey Has Begun...\"",
-                TooltipStyle->"TextStyling"],
-               
-               Annotation[#, 
-                "Piloting Transport Planes since you graduated from College, \
-you joind DeepTransit in 1938. They had just started their Far Reach \
-Initiative to get their Heavy class ships further into space. You worked to \
-transport resources to and from constructs and\n\t\t\tMajor Event Locations. \
-Back To The Story ===&gt; The Journey Has Begun...", "Tooltip"]& ], 
-              InsetBox["\<\"Who Are You, Really?\"\>", 
-               Offset[{2, 2}, {-0.9466183574879227, 7.053381642512077}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{-2., 5.}, 0.05338164251207729],
-                
-                "\"You both leave the suit-up room and head towards the \
-project hallway. \
-||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| \
-The excitement is building in you; Project Hallway is a mile long underground \
-tunnel, all pre-flight ground\\n\\t\\t\\tops happen here. More importantly, \
-the crew is finally informed of their mission. \
-||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| \
-Walk Project Hallway Talk to Manager Caine\"",
-                TooltipStyle->"TextStyling"],
-               
-               Annotation[#, 
-                "You both leave the suit-up room and head towards the project \
-hallway. |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\
-|||||| The excitement is building in you; Project Hallway is a mile long \
-underground tunnel, all pre-flight ground\n\t\t\tops happen here. More \
-importantly, the crew is finally informed of their mission. \
-||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| \
-Walk Project Hallway Talk to Manager Caine", "Tooltip"]& ], 
-              InsetBox["\<\"The Walk\"\>", 
-               Offset[{2, 2}, {-1.9466183574879228, 5.053381642512077}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{-2., 4.}, 0.05338164251207729],
-                
-                "\"The walls are white \[AHat]\.80\.94 the tunnel is \
-well-lit, there are no corridors, all rooms branch from this hallway. \
-||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| \
-Manager Caine: &quot;C46, You heard of it?&quot; You Respond: \
-&quot;Yeah,\\n\\t\\t\\tuhh... construction transport, near Aegis-Nine?&quot; \
-Manager Caine: &quot;Yeah, it went offline a few weeks ago and we don&#39;t \
-know why... No spikes prior to target switch, nor emergency telegrams. \
-Surrounding field has no effects, no phsyical \
-abnormalities\\n\\t\\t\\tobserved. We need a team to search the construct: \
-there were two other constructs, C35 and C74 \[AHat]\.80\.94 their systems \
-entered docking procedures without manual control. &quot; You: \
-&quot;Isn&#39;t that what they&#39;re supposed to do? Manager Caine: \
-&quot;When\\n\\t\\t\\tthey&#39;re docking, yeah, but they&#39;re hundreds of \
-miles apart&quot; You: &quot;Couldn&#39;t it be a software problem, did you \
-switch it on and off?&quot; Manager Caine: &quot;Ha, yeah I wish, We&#39;ve \
-had our engineers on it since 46 went offline,\\n\\t\\t\\tnothing \
-extraordinary in the programs, the behavior persists.&quot; There&#39;s a \
-strange noise coming from further down Project Hallway. You shift your \
-attention back to the mission. You: &quot;Where&#39;s the team?&quot; Manager \
-Caine: &quot;Right,\\n\\t\\t\\twe&#39;ll introduce you after equipment \
-breifing&quot; You: &quot;\[AHat]\.80\.94That&#39;s usually a full crew \
-procedure&quot; Manager Caine: &quot;Not with this crew..&quot; Meet MAWX\"",
-                TooltipStyle->"TextStyling"],
-               
-               Annotation[#, 
-                "The walls are white \[AHat]\.80\.94 the tunnel is well-lit, \
-there are no corridors, all rooms branch from this hallway. \
-||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| \
-Manager Caine: &quot;C46, You heard of it?&quot; You Respond: &quot;Yeah,\n\t\
-\t\tuhh... construction transport, near Aegis-Nine?&quot; Manager Caine: \
-&quot;Yeah, it went offline a few weeks ago and we don&#39;t know why... No \
-spikes prior to target switch, nor emergency telegrams. Surrounding field has \
-no effects, no phsyical abnormalities\n\t\t\tobserved. We need a team to \
-search the construct: there were two other constructs, C35 and C74 \
-\[AHat]\.80\.94 their systems entered docking procedures without manual \
-control. &quot; You: &quot;Isn&#39;t that what they&#39;re supposed to do? \
-Manager Caine: &quot;When\n\t\t\tthey&#39;re docking, yeah, but they&#39;re \
-hundreds of miles apart&quot; You: &quot;Couldn&#39;t it be a software \
-problem, did you switch it on and off?&quot; Manager Caine: &quot;Ha, yeah I \
-wish, We&#39;ve had our engineers on it since 46 went offline,\n\t\t\tnothing \
-extraordinary in the programs, the behavior persists.&quot; There&#39;s a \
-strange noise coming from further down Project Hallway. You shift your \
-attention back to the mission. You: &quot;Where&#39;s the team?&quot; Manager \
-Caine: &quot;Right,\n\t\t\twe&#39;ll introduce you after equipment \
-breifing&quot; You: &quot;\[AHat]\.80\.94That&#39;s usually a full crew \
-procedure&quot; Manager Caine: &quot;Not with this crew..&quot; Meet MAWX", 
-                "Tooltip"]& ], 
-              InsetBox["\<\"Walk Project Hallway\"\>", 
-               Offset[{2, 2}, {-1.9466183574879228, 4.053381642512077}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{-1., 4.}, 0.05338164251207729],
-                "\"He Says nothing for now...\"",
-                TooltipStyle->"TextStyling"],
-               Annotation[#, "He Says nothing for now...", "Tooltip"]& ], 
-              InsetBox["\<\"Talk to Manager Caine\"\>", 
-               Offset[{2, 2}, {-0.9466183574879227, 4.053381642512077}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{-1., 0.}, 0.05338164251207729],
-                RowBox[{"Missing", "[", 
-                  
-                  RowBox[{
-                   "\"KeyAbsent\"", ",", 
-                    "\"State Black Conduct Set | SBCS\""}], "]"}]],
-               Annotation[#, 
-                Missing["KeyAbsent", "State Black Conduct Set | SBCS"], 
-                "Tooltip"]& ], 
-              InsetBox["\<\"State Black Conduct Set | SBCS\"\>", 
-               Offset[{2, 2}, {-0.9466183574879227, 0.05338164251207729}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{0., 0.}, 0.05338164251207729],
-                RowBox[{"Missing", "[", 
-                  RowBox[{"\"KeyAbsent\"", ",", "\"0012B | Conduct Set 1\""}],
-                   "]"}]],
-               Annotation[#, 
-                Missing["KeyAbsent", "0012B | Conduct Set 1"], "Tooltip"]& ], 
-              InsetBox["\<\"0012B | Conduct Set 1\"\>", 
-               Offset[{2, 2}, {0.05338164251207729, 0.05338164251207729}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{1., 0.}, 0.05338164251207729],
-                RowBox[{"Missing", "[", 
-                  
-                  RowBox[{
-                   "\"KeyAbsent\"", ",", "\"IGCS Global | Conduct Set 2\""}], 
-                  "]"}]],
-               Annotation[#, 
-                Missing["KeyAbsent", "IGCS Global | Conduct Set 2"], 
-                "Tooltip"]& ], 
-              InsetBox["\<\"IGCS Global | Conduct Set 2\"\>", 
-               Offset[{2, 2}, {1.0533816425120772, 0.05338164251207729}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{2., 0.}, 0.05338164251207729],
-                "\"Double-click this passage to edit it.\"",
-                TooltipStyle->"TextStyling"],
-               
-               Annotation[#, "Double-click this passage to edit it.", 
-                "Tooltip"]& ], 
-              InsetBox["\<\"Project Hallway\"\>", 
-               Offset[{2, 2}, {2.053381642512077, 0.05338164251207729}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}}}],
-          MouseAppearanceTag["NetworkGraphics"]],
-         AllowKernelInitialization->False]],
-       DefaultBaseStyle->{
-        "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
-         Hue[0.8, 1., 0.6]},
-       FormatType->TraditionalForm,
-       FrameTicks->None],
-      TraditionalForm], {580.5, -189.}, {Center, Center}, {360., 360.}], 
-    InsetBox[
-     FormBox[
-      GraphicsBox[
-       NamespaceBox["NetworkGraphics",
-        DynamicModuleBox[{Typeset`graph = HoldComplete[
+          Annotation[#, 
+           "From here, there are still other places to go. We can go Up or \
+Down", "Tooltip"]& ], 
+         InsetBox["\<\"Left\"\>", 
+          Offset[{2, 2}, {-0.9466183574879227, 5.053381642512077}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          TooltipBox[DiskBox[{0., 5.}, 0.05338164251207729],
+           
+           "\"From here, there are still other places to go. We can go Up or \
+Down\"",
+           TooltipStyle->"TextStyling"],
           
-          Graph[{"TwineBridge_Test", "First Passage", "Left", "Right", "Up", 
-            "Down", "get going", "do something", "you do something"}, {{{1, 
-            2}, {2, 3}, {2, 4}, {3, 5}, {3, 6}, {4, 5}, {4, 6}, {5, 7}, {6, 
-            5}, {7, 8}, {8, 9}, {9, 2}, {9, 3}, {9, 4}}, Null}, {
-           GraphLayout -> {
-             "LayeredDigraphEmbedding", "RootVertex" -> "TwineBridge_Test"}, 
-            Properties -> {
-             "get going" -> {
-               Tooltip -> "Now that we are going, how about we do something"},
-               "Left" -> {
-               Tooltip -> 
-                "From here, there are still other places to go. We can go Up \
-or Down"}, "First Passage" -> {
-               Tooltip -> 
-                "This is my first passage. Where can I go from here? How \
-about Left , or Right?"}, 
-              "you do something" -> {Tooltip -> " Go, Get out of here! "}, 
-              "Right" -> {
-               Tooltip -> 
-                "From here, there are still other places to go. We can go Up \
-or Down"}, "do something" -> {
-               Tooltip -> 
-                " Hi, I'm doing something, why don't you do something?"}, 
-              "TwineBridge_Test" -> {Tooltip -> "Start Here"}, 
-              "Up" -> {
-               Tooltip -> "Now that we are up why don't we get going?"}, 
-              "Down" -> {
-               Tooltip -> "Now that we are down, why don't we get Up?"}}, 
-            VertexLabels -> {"Name"}}]]}, 
-         TagBox[GraphicsGroupBox[{
-            {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
-             ArrowBox[{{0., 6.}, {0., 5.}}, 0.04847715736040609], 
-             ArrowBox[{{0., 5.}, {0., 4.}}, 0.04847715736040609], 
-             ArrowBox[{{0., 5.}, {2., 4.}}, 0.04847715736040609], 
-             ArrowBox[BezierCurveBox[CompressedData["
-1:eJxTTMoPSmViYGCQAWIQjQoEHGCs4PM3jr6ezw/nb/SQrNhliuBL5BwUyznI
-B+e3Wl5cyOCM4P/ZANLAC+fXXVKvvaSO4LPNyzvL380D588QluUyeMIN5xuD
-AbfDwk0rVzHPzrGPuaylKtfABeX32M85Vbvn6yVOh6qS//xG4gvsP0no/Nyp
-zQmVX2Mfsc/0dlYXh0P/5JC7UpHb7K/tmpXE8Z4dqv6AfSZfdP+kSHaHI29W
-nlv37Ki9wM6yRM5TbFD9Z+zP7Hp7I8eBzYEr+X+ghNQl+3nCB77u2cPqcKx9
-4tdbJjft2c77Lky5yeKg6NJ20f/8ffsa8/OsYmwsDnxn3hXt/vLI/q+Pi/JF
-J2aHWwe9JVccfGrfxb/259R+Jocy5lu3c/1e2CvVc3amvGF0eDRh5i6e2a/s
-T8yOvGgTyeggk9W1tWX5G/vK1LmX5K4xOKj3rzlztfidvfmdKz1cyQzQ8Plg
-Dw0mBwCgopzo
-              "]], 0.04847715736040609], 
-             ArrowBox[{{0., 4.}, {1., 3.}}, 0.04847715736040609], 
-             ArrowBox[BezierCurveBox[CompressedData["
-1:eJxTTMoPSmViYGCQAWIQDQUOEErAAcYPPn/j6Ov5/HD+Rg/Jil2m/A6MUL5E
-zkGxnIN8cPlWy4sLGZwR/D8bQBp44fy6S+q1l9QRfLZ5eWf5u3ng/BnCslwG
-T7jhfGMw4HZQW61Vt+njf/uYy1qqcg1cDnPWrPpx8th/+zmnavd8vcTpEMfS
-kO9W/9/+k4TOz53anA7Zm1Y9Upf+bx+xz/R2VheHw/FtWkF5s/7ZX9s1K4nj
-PbtDoSDDPsm/f+0z+aL7J0WyO2Qc0lLTcv5rL7CzLJHzFJvDmpOruubn/LE/
-s+vtjRwHNgc79YbXlZW/7ecJH/i6Zw+rA9+82U4nN/20ZzvvuzDlJovDz7x5
-3Do8P+xrzM+zirGxOPye2eG2qPWb/V8fF+WLTswOwvJRn7Xlv9p38a/9ObWf
-ycH1n5DQyRuf7ZXqOTtT3jA6TDDfvKhy0yf7E7MjL9pEMjp8OmW11HbNR/vK
-1LmX5K4xOOTuWCkpeuyDvfmdKz1cybB4+mAPCycACv2eWg==
-              "]], 
-              0.04847715736040609], 
-             ArrowBox[{{2., 4.}, {1., 3.}}, 0.04847715736040609], 
-             ArrowBox[{{1., 2.}, {1., 1.}}, 0.04847715736040609], 
-             ArrowBox[{{1., 3.}, {1., 2.}}, 0.04847715736040609], 
-             ArrowBox[{{1., 1.}, {3., 0.}}, 0.04847715736040609], 
-             ArrowBox[BezierCurveBox[CompressedData["
-1:eJxTTMoPSmViYGBwAGIQDQEcDjDWfzBgd/ipdaaTj3WFPUz+/strfzZ47LRn
-hPKn2L2cbPfyMFx+ZfqbR1/Pn4bzJSt2mdrrXILzxXIOAtE1OP8cf/eUxuW3
-4fx5G7uv2+c/gPONweCxPcw9WxO4tyVwP4PLW/Q9BqIXcPfs2Q0Cr+HyYOdN
-fgfng7Vv+wDnK4HBJzj/MdjAz3D+Uv9fS/x/fYHzZ80EgZ9w90RvYAWi33B5
-meOFQPQH7p4Hd0HgL1x+/hdPIPoP528EaY9mcIDxhQRBgBHOLwIbiOBfVq+9
-pF7LBOefAQMWB5h7dG406d5oYoXLg4PHgs0B5p4P70CADS4P9t4Sdjgf7J1o
-Djgf4h5ONPcg+JfA7uGC88+C3cMDd48u2D28aO7hQ3MPH1w+AOwefjgfrF1X
-AM7v7AABBN8SbCCC/woU3XaCcH4aGAg5TAoVtb/5g90hYFrW2w/7hRz8wkL/
-pDxmd9gkdVCxVUzYQZ/pgPni/ewOnZ8zmZWzhB1MI0M/Tu5ld7iikDrp1C5h
-h+RoUU1zX3aHqYs2navmEHHYwcFwv+cfm8OZiqAdZsEiDiaJosJTF7I5VCx2
-8f89S8ThakroUX8zNodZSp2TT94XcZgnfODrnj2sDobf5FsXKoo6sJ33XZhy
-k8WhRiJyve9kUYca8/OsYmwsDi4pEn+//BF1+OvjonzRidmh5WZs3vQ4MYcu
-/rU/p/YzOdhUaDKb7hBzUKrn7Ex5w+hQ4FC9+yynuMOJ2ZEXbSIZHWSNgqcn
-Bos7VKbOvSR3jcHBxXfjtA9TxB3M71zp4UpmcHg6cerOqnPi0PCBpTsJBwDe
-ZkaK
-              "]], 0.04847715736040609], 
-             ArrowBox[{{2., 6.}, {0., 5.}}, 0.04847715736040609], 
-             ArrowBox[BezierCurveBox[CompressedData["
-1:eJxTTMoPSmViYGCQAWIQDQUOEErCYfm8jd3X7f/br0x/8+jreXGHpIlGH0qy
-/9lHLuGxuTtL3EHvRpPujaa/9jzbEri3JYg78BQvcmZs+2N/eM6LgAZFcYdf
-iSANv+3rI0AaxBx+LfEHIXv7l5PtXk4WcwCZIi/2057Ff/uzdlcxB0N1K5GE
-E9/tz3bysUp8EnVIA4Nv9rNmgoCow2Kw9i8Q7XaiDo8t+oDos70liHos4qCs
-BAKf7Ds7QEDEIZEb5LAP9jdBztQVcYBofGevUXtJvfaSsMOe3SDw2r6iHASE
-HSDmvLA/XigDRMIOYG9xP7MXzzkolnNQyMEYDB7bQ9wl5AAOnvwH9iZlH389
-5xVyOMffPaVx+W37vxs8JCt2CTpA9F2zPyQGYgg6AAVN7XUu2Tctj/58WEnQ
-YQU4XE/b2yWLr6+/J+AwBeStl4ftv3jOByIBhwcvr/3Z4LHTfgVIeaqAwz+t
-M8CQWWEfNkNYlstAwIEBBQg4AACWCMLe
-              "]], 0.04847715736040609], 
-             ArrowBox[BezierCurveBox[CompressedData["
-1:eJxTTMoPSmViYGCQAWIQDQUOEErCAcZfmf7m0dfz4nB+5BIem7uzxB0YoXye
-bQnc2xIQ8ofnvAhoUETw6yNAGsTgfPuXk+1eTkbwWfy3P2t3RfDPdvKxSnwS
-hfNnzQQBBB+s3Q7Bt+x7bNH3WATuns4OEBCBy99s0r3RpIvga9ReUq+9JAzn
-V5SDAIJ/vFAGiBB88ZyDYjkHheD8NDBA8E3KPv56zovg/93gIVmxSxDunkNi
-IAME4fJNy6M/H1ZC8O2SxdfX3xOA8794zgciBH8FSHkqgh82Q1iWywDBh1AC
-DgBCw1+2
-              "]], 0.04847715736040609]}, 
-            {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], {
-              TagBox[
-               TooltipBox[DiskBox[{0., 6.}, 0.04847715736040609],
-                "\"Start Here\"",
-                TooltipStyle->"TextStyling"],
-               Annotation[#, "Start Here", "Tooltip"]& ], 
-              InsetBox["\<\"TwineBridge_Test\"\>", 
-               Offset[{2, 2}, {0.04847715736040609, 6.048477157360406}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{0., 5.}, 0.04847715736040609],
-                
-                "\"This is my first passage. Where can I go from here? How \
-about Left , or Right?\"",
-                TooltipStyle->"TextStyling"],
-               
-               Annotation[#, 
-                "This is my first passage. Where can I go from here? How \
-about Left , or Right?", "Tooltip"]& ], 
-              InsetBox["\<\"First Passage\"\>", 
-               Offset[{2, 2}, {0.04847715736040609, 5.048477157360406}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{0., 4.}, 0.04847715736040609],
-                
-                "\"From here, there are still other places to go. We can go \
-Up or Down\"",
-                TooltipStyle->"TextStyling"],
-               
-               Annotation[#, 
-                "From here, there are still other places to go. We can go Up \
-or Down", "Tooltip"]& ], 
-              InsetBox["\<\"Left\"\>", 
-               Offset[{2, 2}, {0.04847715736040609, 4.048477157360406}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{2., 4.}, 0.04847715736040609],
-                
-                "\"From here, there are still other places to go. We can go \
-Up or Down\"",
-                TooltipStyle->"TextStyling"],
-               
-               Annotation[#, 
-                "From here, there are still other places to go. We can go Up \
-or Down", "Tooltip"]& ], 
-              InsetBox["\<\"Right\"\>", 
-               Offset[{2, 2}, {2.048477157360406, 4.048477157360406}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{1., 2.}, 0.04847715736040609],
-                "\"Now that we are up why don't we get going?\"",
-                TooltipStyle->"TextStyling"],
-               
-               Annotation[#, "Now that we are up why don't we get going?", 
-                "Tooltip"]& ], 
-              InsetBox["\<\"Up\"\>", 
-               Offset[{2, 2}, {1.0484771573604061, 2.048477157360406}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{1., 3.}, 0.04847715736040609],
-                "\"Now that we are down, why don't we get Up?\"",
-                TooltipStyle->"TextStyling"],
-               
-               Annotation[#, "Now that we are down, why don't we get Up?", 
-                "Tooltip"]& ], 
-              InsetBox["\<\"Down\"\>", 
-               Offset[{2, 2}, {1.0484771573604061, 3.048477157360406}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{1., 1.}, 0.04847715736040609],
-                "\"Now that we are going, how about we do something\"",
-                TooltipStyle->"TextStyling"],
-               Annotation[#, 
-                "Now that we are going, how about we do something", 
-                "Tooltip"]& ], 
-              InsetBox["\<\"get going\"\>", 
-               Offset[{2, 2}, {1.0484771573604061, 1.0484771573604061}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{3., 0.}, 0.04847715736040609],
-                "\" Hi, I'm doing something, why don't you do something?\"",
-                TooltipStyle->"TextStyling"],
-               
-               Annotation[#, 
-                " Hi, I'm doing something, why don't you do something?", 
-                "Tooltip"]& ], 
-              InsetBox["\<\"do something\"\>", 
-               Offset[{2, 2}, {3.048477157360406, 0.04847715736040609}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}, {
-              TagBox[
-               TooltipBox[DiskBox[{2., 6.}, 0.04847715736040609],
-                "\" Go, Get out of here! \"",
-                TooltipStyle->"TextStyling"],
-               Annotation[#, " Go, Get out of here! ", "Tooltip"]& ], 
-              InsetBox["\<\"you do something\"\>", 
-               Offset[{2, 2}, {2.048477157360406, 6.048477157360406}], 
-               ImageScaled[{0, 0}],
-               BaseStyle->"Graphics"]}}}],
-          MouseAppearanceTag["NetworkGraphics"]],
-         AllowKernelInitialization->False]],
-       DefaultBaseStyle->{
-        "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
-         Hue[0.8, 1., 0.6]},
-       FormatType->TraditionalForm,
-       FrameTicks->None],
-      TraditionalForm], {967.5, -189.}, {Center, Center}, {360., 360.}]}, {}},
-  
-  ContentSelectable->True,
-  ImageSize->{Automatic, 535.3634672619052},
-  PlotRangePadding->{6, 5}]], "Output",
- CellChangeTimes->{3.7393974526565037`*^9, 3.739476606562929*^9},
+          Annotation[#, 
+           "From here, there are still other places to go. We can go Up or \
+Down", "Tooltip"]& ], 
+         InsetBox["\<\"Right\"\>", 
+          Offset[{2, 2}, {0.05338164251207729, 5.053381642512077}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          TooltipBox[DiskBox[{-1., 3.}, 0.05338164251207729],
+           "\"Now that we are up why don&#39;t we get going?\"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, "Now that we are up why don&#39;t we get going?", 
+           "Tooltip"]& ], 
+         InsetBox["\<\"Up\"\>", 
+          Offset[{2, 2}, {-0.9466183574879227, 3.053381642512077}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          TooltipBox[DiskBox[{-1., 4.}, 0.05338164251207729],
+           "\"Now that we are down, why don&#39;t we get Up?\"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, "Now that we are down, why don&#39;t we get Up?", 
+           "Tooltip"]& ], 
+         InsetBox["\<\"Down\"\>", 
+          Offset[{2, 2}, {-0.9466183574879227, 4.053381642512077}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          TooltipBox[DiskBox[{-1., 2.}, 0.05338164251207729],
+           "\"Now that we are going, how about we do something\"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, "Now that we are going, how about we do something", 
+           "Tooltip"]& ], 
+         InsetBox["\<\"get going\"\>", 
+          Offset[{2, 2}, {-0.9466183574879227, 2.053381642512077}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          TooltipBox[DiskBox[{-1., 1.}, 0.05338164251207729],
+           "\" Hi, I&#39;m doing something, why don&#39;t you do something?\"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, 
+           " Hi, I&#39;m doing something, why don&#39;t you do something?", 
+           "Tooltip"]& ], 
+         InsetBox["\<\"do something\"\>", 
+          Offset[{2, 2}, {-0.9466183574879227, 1.0533816425120772}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          TooltipBox[DiskBox[{-1., 0.}, 0.05338164251207729],
+           "\" Go, Get out of here! \"",
+           TooltipStyle->"TextStyling"],
+          Annotation[#, " Go, Get out of here! ", "Tooltip"]& ], 
+         InsetBox["\<\"you do something\"\>", 
+          Offset[{2, 2}, {-0.9466183574879227, 0.05338164251207729}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None,
+  ImageSize->{Automatic, 535.3634672619052}]], "Output",
+ CellChangeTimes->{
+  3.7393974526565037`*^9, 3.739476606562929*^9, {3.739571611877379*^9, 
+   3.7395716196989737`*^9}},
  CellLabel->
-  "Out[736]=",ExpressionUUID->"a2d66412-9c01-4766-957d-a2a4fa296a7f"]
+  "Out[1340]=",ExpressionUUID->"7c8fb021-7b58-4275-a445-1f8422ccbb2e"]
 }, Open  ]],
 
 Cell["\<\
@@ -1980,7 +1404,14 @@ Cell[BoxData["\<\"~/Desktop/fifthExport.html\"\>"], "Output",
  CellLabel->
   "Out[1316]=",ExpressionUUID->"2e045da4-379f-4f23-8392-d1b76b1dc618"]
 }, Open  ]]
-}, Open  ]]
+}, Open  ]],
+
+Cell["\<\
+exportTwineProject[] needs to take in a graph as the first argument\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.739571162897512*^9, 
+  3.739571187443885*^9}},ExpressionUUID->"f1b47939-e6e4-4fa6-b2a4-\
+9fa4e527df75"]
 }, Open  ]]
 }, Open  ]]
 },
@@ -1996,25 +1427,25 @@ StyleDefinitions->"Default.nb"
 (*CellTagsOutline
 CellTagsIndex->{
  "Info7323739462206-8266218"->{
-  Cell[13857, 300, 256, 5, 46, "Print",ExpressionUUID->"25efbd1c-7e05-486d-ba8a-b25ac47ff667",
+  Cell[14104, 304, 256, 5, 46, "Print",ExpressionUUID->"25efbd1c-7e05-486d-ba8a-b25ac47ff667",
    CellTags->"Info7323739462206-8266218"]},
  "Info11463739543048-7865153"->{
-  Cell[25166, 523, 270, 5, 46, "Print",ExpressionUUID->"71a66200-b419-4d1f-941c-d1a86111fc2a",
+  Cell[25496, 528, 270, 5, 46, "Print",ExpressionUUID->"71a66200-b419-4d1f-941c-d1a86111fc2a",
    CellTags->"Info11463739543048-7865153"]},
  "Info7423739463329-8266218"->{
-  Cell[74590, 1489, 1400, 24, 136, "Print",ExpressionUUID->"80936cf0-a31b-46bb-bd3b-9ffa4bcc301f",
+  Cell[41828, 913, 1400, 24, 136, "Print",ExpressionUUID->"80936cf0-a31b-46bb-bd3b-9ffa4bcc301f",
    CellTags->"Info7423739463329-8266218"]},
  "Info10403739540394-7865153"->{
-  Cell[83679, 1705, 2828, 44, 158, "Print",ExpressionUUID->"208322d9-f189-413f-9e38-befc321bef6e",
+  Cell[50917, 1129, 2828, 44, 158, "Print",ExpressionUUID->"208322d9-f189-413f-9e38-befc321bef6e",
    CellTags->"Info10403739540394-7865153"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Info7323739462206-8266218", 96753, 1997},
- {"Info11463739543048-7865153", 96925, 2000},
- {"Info7423739463329-8266218", 97097, 2003},
- {"Info10403739540394-7865153", 97273, 2006}
+ {"Info7323739462206-8266218", 64220, 1428},
+ {"Info11463739543048-7865153", 64392, 1431},
+ {"Info7423739463329-8266218", 64564, 1434},
+ {"Info10403739540394-7865153", 64739, 1437}
  }
 *)
 (*NotebookFileOutline
@@ -2026,79 +1457,84 @@ Cell[764, 29, 175, 3, 54, "Subsection",ExpressionUUID->"f33f2278-c878-4b0b-9db0-
 Cell[CellGroupData[{
 Cell[964, 36, 168, 3, 45, "Subsubsection",ExpressionUUID->"7720763d-6de6-4376-888f-32c0288c4b41"],
 Cell[1135, 41, 988, 24, 110, "Code",ExpressionUUID->"46904399-9fa0-482b-bfa6-78336f9ccb5a"],
-Cell[2126, 67, 11498, 223, 619, "Input",ExpressionUUID->"2c8c6397-1c6a-42a9-9877-e4851a6fb364"],
+Cell[2126, 67, 11696, 226, 640, "Input",ExpressionUUID->"2c8c6397-1c6a-42a9-9877-e4851a6fb364"],
 Cell[CellGroupData[{
-Cell[13649, 294, 205, 4, 30, "Input",ExpressionUUID->"330bfd4e-4856-4057-9cef-a1ec3557d7e7"],
-Cell[13857, 300, 256, 5, 46, "Print",ExpressionUUID->"25efbd1c-7e05-486d-ba8a-b25ac47ff667",
+Cell[13847, 297, 254, 5, 30, "Input",ExpressionUUID->"330bfd4e-4856-4057-9cef-a1ec3557d7e7"],
+Cell[14104, 304, 256, 5, 46, "Print",ExpressionUUID->"25efbd1c-7e05-486d-ba8a-b25ac47ff667",
  CellTags->"Info7323739462206-8266218"]
 }, Open  ]]
-}, Closed]],
+}, Open  ]],
 Cell[CellGroupData[{
-Cell[14162, 311, 264, 4, 37, "Subsubsection",ExpressionUUID->"9ebc3696-143b-4dd4-b562-d09ba392200c"],
-Cell[14429, 317, 10371, 194, 745, "Input",ExpressionUUID->"74220585-a9da-42a5-ad22-ded7558f63ef"],
+Cell[14409, 315, 264, 4, 45, "Subsubsection",ExpressionUUID->"9ebc3696-143b-4dd4-b562-d09ba392200c"],
+Cell[14676, 321, 10454, 195, 745, "Input",ExpressionUUID->"74220585-a9da-42a5-ad22-ded7558f63ef"],
 Cell[CellGroupData[{
-Cell[24825, 515, 338, 6, 30, "Input",ExpressionUUID->"d09893bb-6964-4e00-85ed-e93911867785"],
-Cell[25166, 523, 270, 5, 46, "Print",ExpressionUUID->"71a66200-b419-4d1f-941c-d1a86111fc2a",
+Cell[25155, 520, 338, 6, 30, "Input",ExpressionUUID->"d09893bb-6964-4e00-85ed-e93911867785"],
+Cell[25496, 528, 270, 5, 46, "Print",ExpressionUUID->"71a66200-b419-4d1f-941c-d1a86111fc2a",
  CellTags->"Info11463739543048-7865153"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[25473, 533, 584, 12, 30, "Input",ExpressionUUID->"0293367e-d075-4107-9255-8af2880dd7d4"],
-Cell[26060, 547, 1498, 33, 206, "Output",ExpressionUUID->"8d09cf41-35c7-4a25-a591-2881aec1877e"]
+Cell[25803, 538, 584, 12, 30, "Input",ExpressionUUID->"0293367e-d075-4107-9255-8af2880dd7d4"],
+Cell[26390, 552, 1484, 32, 203, "Output",ExpressionUUID->"99c1c3d1-d975-421b-9981-173d6578ecba"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27911, 589, 213, 4, 30, "Input",ExpressionUUID->"78027ca7-c037-4aec-b78a-98b18b9db85f"],
+Cell[28127, 595, 3314, 63, 401, "Output",ExpressionUUID->"213efeb4-4533-4e5e-a646-de6d9f5777d8"]
 }, Open  ]]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[27607, 586, 159, 3, 37, "Subsubsection",ExpressionUUID->"87385359-c7c7-4b93-8cfa-5483f2de3c86"],
+Cell[31490, 664, 159, 3, 37, "Subsubsection",ExpressionUUID->"87385359-c7c7-4b93-8cfa-5483f2de3c86"],
 Cell[CellGroupData[{
-Cell[27791, 593, 917, 26, 94, "Input",ExpressionUUID->"7e8d6b30-9587-4f23-8296-ad303f8b8696"],
-Cell[28711, 621, 44826, 835, 552, "Output",ExpressionUUID->"a2d66412-9c01-4766-957d-a2a4fa296a7f"]
+Cell[31674, 671, 921, 25, 94, "Input",ExpressionUUID->"7e8d6b30-9587-4f23-8296-ad303f8b8696"],
+Cell[32598, 698, 8177, 182, 552, "Output",ExpressionUUID->"7c8fb021-7b58-4275-a445-1f8422ccbb2e"]
 }, Open  ]],
-Cell[73552, 1459, 591, 13, 127, "Text",ExpressionUUID->"d40dfadb-6123-4dba-934a-5c7031a9c59a"]
+Cell[40790, 883, 591, 13, 127, "Text",ExpressionUUID->"d40dfadb-6123-4dba-934a-5c7031a9c59a"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[74180, 1477, 176, 2, 45, "Subsubsection",ExpressionUUID->"a2cd4819-fc08-4a4f-b167-22f8cc6d5e29"],
+Cell[41418, 901, 176, 2, 45, "Subsubsection",ExpressionUUID->"a2cd4819-fc08-4a4f-b167-22f8cc6d5e29"],
 Cell[CellGroupData[{
-Cell[74381, 1483, 206, 4, 30, "Input",ExpressionUUID->"7297d038-278a-4918-8db0-29cdbf284ad3"],
-Cell[74590, 1489, 1400, 24, 136, "Print",ExpressionUUID->"80936cf0-a31b-46bb-bd3b-9ffa4bcc301f",
+Cell[41619, 907, 206, 4, 30, "Input",ExpressionUUID->"7297d038-278a-4918-8db0-29cdbf284ad3"],
+Cell[41828, 913, 1400, 24, 136, "Print",ExpressionUUID->"80936cf0-a31b-46bb-bd3b-9ffa4bcc301f",
  CellTags->"Info7423739463329-8266218"]
 }, Open  ]],
-Cell[76005, 1516, 371, 8, 81, "Text",ExpressionUUID->"c529d0ea-1b14-4c48-a04c-769dafbc1fe2"],
+Cell[43243, 940, 371, 8, 81, "Text",ExpressionUUID->"c529d0ea-1b14-4c48-a04c-769dafbc1fe2"],
 Cell[CellGroupData[{
-Cell[76401, 1528, 181, 3, 30, "Input",ExpressionUUID->"8283b801-ac27-49e0-a5f9-d53c9694d5ce"],
-Cell[76585, 1533, 4010, 86, 449, "Output",ExpressionUUID->"e3efc126-f854-425e-9156-cd425cfcb941"]
+Cell[43639, 952, 181, 3, 30, "Input",ExpressionUUID->"8283b801-ac27-49e0-a5f9-d53c9694d5ce"],
+Cell[43823, 957, 4010, 86, 449, "Output",ExpressionUUID->"e3efc126-f854-425e-9156-cd425cfcb941"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[80656, 1626, 167, 3, 54, "Subsection",ExpressionUUID->"e1a8fd93-d1b1-4de0-a83e-d273223ee92c"],
-Cell[80826, 1631, 605, 15, 196, "Text",ExpressionUUID->"3bff7387-c2e7-4311-aaa9-bb504a860582"],
+Cell[47894, 1050, 167, 3, 54, "Subsection",ExpressionUUID->"e1a8fd93-d1b1-4de0-a83e-d273223ee92c"],
+Cell[48064, 1055, 605, 15, 196, "Text",ExpressionUUID->"3bff7387-c2e7-4311-aaa9-bb504a860582"],
 Cell[CellGroupData[{
-Cell[81456, 1650, 629, 12, 30, "Input",ExpressionUUID->"7cfb13da-3b47-420f-879f-6c4dd29dab24"],
-Cell[82088, 1664, 1353, 30, 206, "Output",ExpressionUUID->"228dc02e-bf36-44c6-9e2f-d6b6180d5608"]
+Cell[48694, 1074, 629, 12, 30, "Input",ExpressionUUID->"7cfb13da-3b47-420f-879f-6c4dd29dab24"],
+Cell[49326, 1088, 1353, 30, 206, "Output",ExpressionUUID->"228dc02e-bf36-44c6-9e2f-d6b6180d5608"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[83478, 1699, 198, 4, 30, "Input",ExpressionUUID->"72fab979-0663-4377-9728-9c1f4b1dcd37"],
-Cell[83679, 1705, 2828, 44, 158, "Print",ExpressionUUID->"208322d9-f189-413f-9e38-befc321bef6e",
+Cell[50716, 1123, 198, 4, 30, "Input",ExpressionUUID->"72fab979-0663-4377-9728-9c1f4b1dcd37"],
+Cell[50917, 1129, 2828, 44, 158, "Print",ExpressionUUID->"208322d9-f189-413f-9e38-befc321bef6e",
  CellTags->"Info10403739540394-7865153"]
 }, Open  ]],
-Cell[86522, 1752, 949, 19, 127, "Text",ExpressionUUID->"9310032a-fcc7-4655-bf1d-b39388f34303"],
-Cell[87474, 1773, 289, 6, 58, "Text",ExpressionUUID->"afa75ec9-75d4-4ca3-ba26-c8c47a305eec"],
+Cell[53760, 1176, 949, 19, 127, "Text",ExpressionUUID->"9310032a-fcc7-4655-bf1d-b39388f34303"],
+Cell[54712, 1197, 289, 6, 58, "Text",ExpressionUUID->"afa75ec9-75d4-4ca3-ba26-c8c47a305eec"],
 Cell[CellGroupData[{
-Cell[87788, 1783, 165, 3, 45, "Subsubsection",ExpressionUUID->"032eb45c-6fca-4f4c-a796-dc8e462b90c3"],
-Cell[87956, 1788, 1037, 20, 283, "Input",ExpressionUUID->"8e3e0cd4-0a91-4bbd-8ea2-87fbb02b50db"],
+Cell[55026, 1207, 165, 3, 45, "Subsubsection",ExpressionUUID->"032eb45c-6fca-4f4c-a796-dc8e462b90c3"],
+Cell[55194, 1212, 1037, 20, 283, "Input",ExpressionUUID->"8e3e0cd4-0a91-4bbd-8ea2-87fbb02b50db"],
 Cell[CellGroupData[{
-Cell[89018, 1812, 231, 4, 30, "Input",ExpressionUUID->"c372ac93-bf75-4125-802d-45d610174338"],
-Cell[89252, 1818, 665, 10, 308, "Output",ExpressionUUID->"5ebc6c11-5812-423b-9bcc-55d1e78aee4a"]
+Cell[56256, 1236, 231, 4, 30, "Input",ExpressionUUID->"c372ac93-bf75-4125-802d-45d610174338"],
+Cell[56490, 1242, 665, 10, 308, "Output",ExpressionUUID->"5ebc6c11-5812-423b-9bcc-55d1e78aee4a"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[89954, 1833, 125, 2, 30, "Input",ExpressionUUID->"655208a0-d99c-467d-b8be-4448e8e15574"],
-Cell[90082, 1837, 1329, 30, 206, "Output",ExpressionUUID->"0c799db0-ec78-4ca1-957e-6def2776401f"]
+Cell[57192, 1257, 125, 2, 30, "Input",ExpressionUUID->"655208a0-d99c-467d-b8be-4448e8e15574"],
+Cell[57320, 1261, 1329, 30, 206, "Output",ExpressionUUID->"0c799db0-ec78-4ca1-957e-6def2776401f"]
 }, Open  ]],
-Cell[91426, 1870, 4106, 89, 598, "Input",ExpressionUUID->"f111229e-fff9-4e39-b9bc-e9731f7921fb"],
+Cell[58664, 1294, 4106, 89, 598, "Input",ExpressionUUID->"f111229e-fff9-4e39-b9bc-e9731f7921fb"],
 Cell[CellGroupData[{
-Cell[95557, 1963, 559, 11, 30, "Input",ExpressionUUID->"2fe889b5-04e5-4e17-8679-343cd7f24c01"],
-Cell[96119, 1976, 263, 4, 34, "Output",ExpressionUUID->"2e045da4-379f-4f23-8392-d1b76b1dc618"]
+Cell[62795, 1387, 559, 11, 30, "Input",ExpressionUUID->"2fe889b5-04e5-4e17-8679-343cd7f24c01"],
+Cell[63357, 1400, 263, 4, 34, "Output",ExpressionUUID->"2e045da4-379f-4f23-8392-d1b76b1dc618"]
 }, Open  ]]
-}, Open  ]]
+}, Open  ]],
+Cell[63647, 1408, 226, 5, 45, "Subsubsection",ExpressionUUID->"f1b47939-e6e4-4fa6-b2a4-9fa4e527df75"]
 }, Open  ]]
 }, Open  ]]
 }
