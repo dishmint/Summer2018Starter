@@ -1,0 +1,220 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[      7317,        212]
+NotebookOptionsPosition[      5703,        174]
+NotebookOutlinePosition[      6055,        190]
+CellTagsIndexPosition[      6012,        187]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Dynamic Tests", "Title",
+ CellChangeTimes->{{3.739896346505969*^9, 
+  3.739896348832594*^9}},ExpressionUUID->"f0738929-3358-4890-ab7e-\
+2499600420ba"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DynamicModule", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"x", " ", "=", " ", "\"\<hello\>\""}], "}"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Dynamic", "[", "x", "]"}], ",", " ", 
+     RowBox[{"Button", "[", 
+      RowBox[{"x", ",", " ", 
+       RowBox[{"x", " ", "=", "\"\<Bye\>\""}]}], "]"}]}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.739896379985771*^9, 3.739896428002803*^9}, {
+  3.739896463952259*^9, 3.7398964741021347`*^9}},
+ CellLabel->
+  "In[2778]:=",ExpressionUUID->"e4892065-ba28-43ef-b40f-9cb341973edc"],
+
+Cell[BoxData[
+ DynamicModuleBox[{$CellContext`x$$ = "Bye"}, 
+  RowBox[{"{", 
+   RowBox[{
+    DynamicBox[ToBoxes[$CellContext`x$$, StandardForm],
+     ImageSizeCache->{23., {3., 9.}}], ",", 
+    ButtonBox["\<\"hello\"\>",
+     Appearance->Automatic,
+     ButtonFunction:>($CellContext`x$$ = "Bye"),
+     Evaluator->Automatic,
+     Method->"Preemptive"]}], "}"}],
+  DynamicModuleValues:>{}]], "Output",
+ CellChangeTimes->{
+  3.7398964292346773`*^9, {3.739896465451672*^9, 3.739896475157729*^9}, 
+   3.7398965065540123`*^9},
+ CellLabel->
+  "Out[2778]=",ExpressionUUID->"9ca9f77c-13f7-45ab-a769-ad050e3a1d78"]
+}, Open  ]],
+
+Cell[TextData[{
+ "If i generalize this:\n\n",
+ StyleBox["DynamicModule[{activePassage = <storyTitle>}, \n\n\t\
+{Dynamic[activePassage], Button[<passageNode>, activePassage = \
+<passageNodeContent>]}\n\n]", "Input"]
+}], "Text",
+ CellChangeTimes->{{3.7398967328668823`*^9, 
+  3.739896892728243*^9}},ExpressionUUID->"97f0b6a6-897f-4d9a-a892-\
+ea5a448462cd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"actvPsg", " ", "=", " ", "\"\<Hello There\>\""}]], "Input",
+ CellChangeTimes->{{3.739896899834587*^9, 3.739896910714633*^9}},
+ CellLabel->
+  "In[2789]:=",ExpressionUUID->"a7a48601-52f5-4a6a-9223-34ca141f0b91"],
+
+Cell[BoxData["\<\"Hello There\"\>"], "Output",
+ CellChangeTimes->{3.73989691316348*^9},
+ CellLabel->
+  "Out[2789]=",ExpressionUUID->"08f30950-bef6-446d-ae9d-14a2fcfaf26e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"psgNode", " ", "=", " ", "\"\<Node 1\>\""}]], "Input",
+ CellChangeTimes->{{3.7398969163668756`*^9, 3.739896940230817*^9}},
+ CellLabel->
+  "In[2792]:=",ExpressionUUID->"d4237025-448a-4478-8821-23ddc3c498e9"],
+
+Cell[BoxData["\<\"Node 1\"\>"], "Output",
+ CellChangeTimes->{{3.739896925715341*^9, 3.739896941682131*^9}},
+ CellLabel->
+  "Out[2792]=",ExpressionUUID->"91577fa3-51fc-4c47-8b2a-751c9abb0a91"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"psgNodeContent", " ", "=", " ", 
+  "\"\<This is the first node\>\""}]], "Input",
+ CellChangeTimes->{{3.739896928457322*^9, 3.739896952714373*^9}},
+ CellLabel->
+  "In[2793]:=",ExpressionUUID->"2c27ad0f-1831-409d-9938-f9a3b26c9809"],
+
+Cell[BoxData["\<\"This is the first node\"\>"], "Output",
+ CellChangeTimes->{3.7398969563773823`*^9},
+ CellLabel->
+  "Out[2793]=",ExpressionUUID->"833219d8-5158-43a8-a8bd-f662a5371795"]
+}, Open  ]],
+
+Cell[TextData[{
+ "All i want is for ",
+ StyleBox["actvPsg ", "Input"],
+ "to be defined locally"
+}], "Text",
+ CellChangeTimes->{{3.739897108866749*^9, 
+  3.739897121108673*^9}},ExpressionUUID->"a5033c19-8a00-4266-919a-\
+f888cdf12db7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"DynamicModule", "[", 
+   RowBox[{
+    RowBox[{"{", "activePassage", " ", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"activePassage", " ", "=", " ", "\"\<Hello There\>\""}], " ", 
+     ";", "\n", 
+     RowBox[{"GraphicsRow", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Dynamic", "[", "activePassage", "]"}], ",", " ", 
+        RowBox[{"Button", "[", 
+         RowBox[{"psgNode", ",", " ", 
+          RowBox[{"activePassage", " ", "=", " ", "psgNodeContent"}]}], 
+         "]"}]}], "}"}], "]"}]}]}], "\n", "]"}], "Input"]], "Input",
+ CellChangeTimes->{{3.7398969684993563`*^9, 3.739897003736376*^9}, {
+  3.739897279898518*^9, 3.739897282996434*^9}, {3.739897549438422*^9, 
+  3.739897550673718*^9}, {3.739898133085717*^9, 
+  3.7398981576708508`*^9}},ExpressionUUID->"3c99cbc1-d8ec-4957-9cf5-\
+c51526f0dc24"],
+
+Cell[BoxData[
+ DynamicModuleBox[{$CellContext`activePassage$$ = "This is the first node"}, 
+  GraphicsBox[{{}, {InsetBox[
+      DynamicBox[ToBoxes[$CellContext`activePassage$$, TraditionalForm],
+       ImageSizeCache->{90., {0., 8.}}], {192., -189.}, {
+      Center, Center}, {360., 360.}], InsetBox[
+      ButtonBox["\<\"Node 1\"\>",
+       Appearance->Automatic,
+       ButtonFunction:>($CellContext`activePassage$$ = \
+$CellContext`psgNodeContent),
+       Evaluator->Automatic,
+       Method->"Preemptive"], {576., -189.}, {
+      Center, Center}, {360., 360.}]}, {}},
+   ContentSelectable->True,
+   PlotRangePadding->{6, 5}],
+  DynamicModuleValues:>{}]], "Output",
+ CellChangeTimes->{3.739897005159914*^9, 3.739897283435858*^9, 
+  3.739897531090275*^9},
+ CellLabel->
+  "Out[2806]=",ExpressionUUID->"c37fcd20-59e8-4e56-ae43-8b0b2a4ddf89"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{840, 955},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 7, \
+2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[583, 22, 156, 3, 98, "Title",ExpressionUUID->"f0738929-3358-4890-ab7e-2499600420ba"],
+Cell[CellGroupData[{
+Cell[764, 29, 571, 15, 30, "Input",ExpressionUUID->"e4892065-ba28-43ef-b40f-9cb341973edc"],
+Cell[1338, 46, 605, 16, 45, "Output",ExpressionUUID->"9ca9f77c-13f7-45ab-a769-ad050e3a1d78"]
+}, Open  ]],
+Cell[1958, 65, 354, 8, 158, "Text",ExpressionUUID->"97f0b6a6-897f-4d9a-a892-ea5a448462cd"],
+Cell[CellGroupData[{
+Cell[2337, 77, 233, 4, 30, "Input",ExpressionUUID->"a7a48601-52f5-4a6a-9223-34ca141f0b91"],
+Cell[2573, 83, 171, 3, 34, "Output",ExpressionUUID->"08f30950-bef6-446d-ae9d-14a2fcfaf26e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2781, 91, 230, 4, 30, "Input",ExpressionUUID->"d4237025-448a-4478-8821-23ddc3c498e9"],
+Cell[3014, 97, 191, 3, 34, "Output",ExpressionUUID->"91577fa3-51fc-4c47-8b2a-751c9abb0a91"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3242, 105, 254, 5, 30, "Input",ExpressionUUID->"2c27ad0f-1831-409d-9938-f9a3b26c9809"],
+Cell[3499, 112, 185, 3, 34, "Output",ExpressionUUID->"833219d8-5158-43a8-a8bd-f662a5371795"]
+}, Open  ]],
+Cell[3699, 118, 233, 7, 35, "Text",ExpressionUUID->"a5033c19-8a00-4266-919a-f888cdf12db7"],
+Cell[CellGroupData[{
+Cell[3957, 129, 874, 20, 94, "Input",ExpressionUUID->"3c99cbc1-d8ec-4957-9cf5-c51526f0dc24"],
+Cell[4834, 151, 841, 19, 205, "Output",ExpressionUUID->"c37fcd20-59e8-4e56-ae43-8b0b2a4ddf89"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
