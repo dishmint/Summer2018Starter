@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[    114093,       2073]
-NotebookOptionsPosition[    104223,       1881]
-NotebookOutlinePosition[    109337,       2000]
-CellTagsIndexPosition[    109122,       1991]
+NotebookDataLength[    114326,       2074]
+NotebookOptionsPosition[    104456,       1882]
+NotebookOutlinePosition[    109570,       2001]
+CellTagsIndexPosition[    109355,       1992]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1447,14 +1447,13 @@ a912cfc9ecd6"],
 
 Cell["\<\
 Import support for Twine Stories made using the Harlowe markup language. The \
-importer can parse any link syntax not in a macro. Importing a story \
-generates an Association form and  Graph form. The Association form is used \
-when generating a Summary. The summary will generate a Button Graph alongside \
-a dynamic passage viewer.
-
-Export support for Association Forms of Twine Stories, custom made, or from \
-the Importer. A folder is generated in the notebook directory for storing the \
-exported stories. These can then be imported into Twine.
+importer can generate a Graph and Association form for any html file with the \
+Twine  format. The Twine Link syntax is supported as long as it is not in a \
+macro (commands for changing states of story elements). Using the Association \
+form,  a Twine Summary can be generated to explore the passages via a \
+Clickable Graph. Association Forms  can be exported to the Twine HTML format. \
+A folder is generated in the notebook directory where the story will be \
+stored. These can then be imported into Twine.
 \
 \>", "TemplateEditableContent",
  CellFrameLabels->{{
@@ -1464,8 +1463,10 @@ exported stories. These can then be imported into Twine.
   3.740065319297982*^9, 3.740065329527135*^9}, {3.740065365501939*^9, 
   3.740065496525758*^9}, {3.740065530799367*^9, 3.7400655439805117`*^9}, {
   3.7400656284384727`*^9, 3.74006576756306*^9}, {3.740065802527179*^9, 
-  3.74006584220862*^9}, {3.740065874478228*^9, 
-  3.740065948964616*^9}},ExpressionUUID->"ba2205bf-d701-4ef5-aa12-\
+  3.74006584220862*^9}, {3.740065874478228*^9, 3.740065948964616*^9}, {
+  3.740066682155341*^9, 3.740066691498955*^9}, {3.740066751167626*^9, 
+  3.7400668703171167`*^9}, {3.7400669402529593`*^9, 
+  3.740067066827633*^9}},ExpressionUUID->"ba2205bf-d701-4ef5-aa12-\
 c7a7f1002441"],
 
 Cell["\<\
@@ -1475,15 +1476,15 @@ conditional, printing, data and output macros. Some macros include Links to \
 other passages, which I can\[CloseCurlyQuote]t support yet as they are \
 effectively hidden from my parser. The next step is to gradually implement \
 these macros and continually increase the number of stories I am testing on. \
-For each pares or macro error in each story, I can implement a fix.
+For each parsing or macro error in a story, I can implement a fix.
 \
 \>", "TemplateEditableContent",
  CellFrameLabels->{{
     Cell["Future \nwork: ", "TemplateLabel"], None}, {None, None}},
  CellFrameLabelMargins->{{20, 0}, {0, 0}},
  CellChangeTimes->{{3.740066083148407*^9, 3.740066314549921*^9}, {
-  3.740066355197777*^9, 
-  3.740066507182369*^9}},ExpressionUUID->"e44105f6-e95a-4d28-9e4d-\
+  3.740066355197777*^9, 3.740066507182369*^9}, {3.740067093544229*^9, 
+  3.740067106413804*^9}},ExpressionUUID->"e44105f6-e95a-4d28-9e4d-\
 8a40b3d4e596"],
 
 Cell[BoxData[""], "Input",
@@ -1981,20 +1982,20 @@ CellTagsIndex->{
   Cell[1609, 52, 190, 4, 67, "TemplateSectionHeaders",ExpressionUUID->"e3c11918-b62c-4e4f-bc19-a4aa32cba637",
    CellTags->"PosterContent"]},
  "PresentationContent"->{
-  Cell[89777, 1548, 210, 5, 67, "TemplateSectionHeaders",ExpressionUUID->"8e028c0c-7cb5-4cea-9aaf-57044e03e425",
+  Cell[90010, 1549, 210, 5, 67, "TemplateSectionHeaders",ExpressionUUID->"8e028c0c-7cb5-4cea-9aaf-57044e03e425",
    CellTags->"PresentationContent"]},
  "ProjectNotes"->{
-  Cell[101876, 1817, 189, 4, 67, "TemplateSectionHeaders",ExpressionUUID->"d0702cda-4649-4987-a5e2-607be4aa4f6e",
+  Cell[102109, 1818, 189, 4, 67, "TemplateSectionHeaders",ExpressionUUID->"d0702cda-4649-4987-a5e2-607be4aa4f6e",
    CellTags->"ProjectNotes"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"AuthorInfo", 108301, 1973},
- {"LastModified", 108458, 1976},
- {"PosterContent", 108616, 1979},
- {"PresentationContent", 108784, 1982},
- {"ProjectNotes", 108954, 1985}
+ {"AuthorInfo", 108534, 1974},
+ {"LastModified", 108691, 1977},
+ {"PosterContent", 108849, 1980},
+ {"PresentationContent", 109017, 1983},
+ {"ProjectNotes", 109187, 1986}
  }
 *)
 (*NotebookFileOutline
@@ -2015,58 +2016,58 @@ Cell[1802, 58, 318, 6, 49, "TemplateEditableContent",ExpressionUUID->"16215b85-c
 Cell[2123, 66, 1162, 19, 163, "TemplateEditableContent",ExpressionUUID->"c662dd0a-9849-40e8-bc89-a9f688107475"],
 Cell[3288, 87, 287, 6, 60, "TemplateInstructions",ExpressionUUID->"ec924e65-f9fc-4678-8fe3-95cd292f053c"],
 Cell[3578, 95, 81999, 1350, 337, "TemplateEditableContent",ExpressionUUID->"32f16ef4-646e-45ed-a15a-a912cfc9ecd6"],
-Cell[85580, 1447, 1147, 21, 232, "TemplateEditableContent",ExpressionUUID->"ba2205bf-d701-4ef5-aa12-c7a7f1002441"],
-Cell[86730, 1470, 882, 16, 163, "TemplateEditableContent",ExpressionUUID->"e44105f6-e95a-4d28-9e4d-8a40b3d4e596"],
-Cell[87615, 1488, 99, 1, 19, "Input",ExpressionUUID->"4a721f19-623c-47ad-bb58-c6de867557f0",
+Cell[85580, 1447, 1335, 22, 186, "TemplateEditableContent",ExpressionUUID->"ba2205bf-d701-4ef5-aa12-c7a7f1002441"],
+Cell[86918, 1471, 927, 16, 163, "TemplateEditableContent",ExpressionUUID->"e44105f6-e95a-4d28-9e4d-8a40b3d4e596"],
+Cell[87848, 1489, 99, 1, 19, "Input",ExpressionUUID->"4a721f19-623c-47ad-bb58-c6de867557f0",
  CellOpen->False],
-Cell[87717, 1491, 2023, 52, 38, "TemplateDivider",ExpressionUUID->"f97819d1-7e79-4a5e-9921-90745ea05a94"]
+Cell[87950, 1492, 2023, 52, 38, "TemplateDivider",ExpressionUUID->"f97819d1-7e79-4a5e-9921-90745ea05a94"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[89777, 1548, 210, 5, 67, "TemplateSectionHeaders",ExpressionUUID->"8e028c0c-7cb5-4cea-9aaf-57044e03e425",
+Cell[90010, 1549, 210, 5, 67, "TemplateSectionHeaders",ExpressionUUID->"8e028c0c-7cb5-4cea-9aaf-57044e03e425",
  CellTags->"PresentationContent"],
-Cell[89990, 1555, 1351, 27, 90, "TemplateInstructions",ExpressionUUID->"a415c0fc-f692-474a-a3a1-95fb4df9ef20"],
+Cell[90223, 1556, 1351, 27, 90, "TemplateInstructions",ExpressionUUID->"a415c0fc-f692-474a-a3a1-95fb4df9ef20"],
 Cell[CellGroupData[{
-Cell[91366, 1586, 103, 0, 45, "TemplateEditableHeader",ExpressionUUID->"a82eb68b-c55f-495d-ac5a-d97167784e73"],
-Cell[91472, 1588, 167, 3, 58, "TemplateEditableContent",ExpressionUUID->"c93624b0-8e9f-452c-9c74-674d9e990fed"]
+Cell[91599, 1587, 103, 0, 45, "TemplateEditableHeader",ExpressionUUID->"a82eb68b-c55f-495d-ac5a-d97167784e73"],
+Cell[91705, 1589, 167, 3, 58, "TemplateEditableContent",ExpressionUUID->"c93624b0-8e9f-452c-9c74-674d9e990fed"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[91676, 1596, 103, 0, 45, "TemplateEditableHeader",ExpressionUUID->"d81a2f92-5f84-4614-aee9-dcb6b7eeac79"],
-Cell[91782, 1598, 6888, 134, 256, "TemplateEditableInput",ExpressionUUID->"20197eb1-0a2c-4e3a-a068-01939f0a01f0"],
-Cell[98673, 1734, 99, 1, 19, "Input",ExpressionUUID->"5ddaca3b-16c4-4ddd-a510-a603177f7695",
+Cell[91909, 1597, 103, 0, 45, "TemplateEditableHeader",ExpressionUUID->"d81a2f92-5f84-4614-aee9-dcb6b7eeac79"],
+Cell[92015, 1599, 6888, 134, 256, "TemplateEditableInput",ExpressionUUID->"20197eb1-0a2c-4e3a-a068-01939f0a01f0"],
+Cell[98906, 1735, 99, 1, 19, "Input",ExpressionUUID->"5ddaca3b-16c4-4ddd-a510-a603177f7695",
  CellOpen->False],
-Cell[98775, 1737, 3052, 74, 38, "TemplateDivider",ExpressionUUID->"076ddf5c-307b-4320-9bc6-9a3254f2388c"]
+Cell[99008, 1738, 3052, 74, 38, "TemplateDivider",ExpressionUUID->"076ddf5c-307b-4320-9bc6-9a3254f2388c"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[101876, 1817, 189, 4, 67, "TemplateSectionHeaders",ExpressionUUID->"d0702cda-4649-4987-a5e2-607be4aa4f6e",
+Cell[102109, 1818, 189, 4, 67, "TemplateSectionHeaders",ExpressionUUID->"d0702cda-4649-4987-a5e2-607be4aa4f6e",
  CellTags->"ProjectNotes"],
-Cell[102068, 1823, 102, 0, 45, "Subsubsection",ExpressionUUID->"c1b785be-a60a-40fe-b1f1-2d83590b38cd"],
+Cell[102301, 1824, 102, 0, 45, "Subsubsection",ExpressionUUID->"c1b785be-a60a-40fe-b1f1-2d83590b38cd"],
 Cell[CellGroupData[{
-Cell[102195, 1827, 84, 0, 37, "Subsubsection",ExpressionUUID->"6ebeefbd-4857-42fb-a308-27aaa279c47f"],
-Cell[102282, 1829, 86, 0, 35, "Text",ExpressionUUID->"14e3781a-a52e-4548-bf74-c0aba980dad1"],
+Cell[102428, 1828, 84, 0, 37, "Subsubsection",ExpressionUUID->"6ebeefbd-4857-42fb-a308-27aaa279c47f"],
+Cell[102515, 1830, 86, 0, 35, "Text",ExpressionUUID->"14e3781a-a52e-4548-bf74-c0aba980dad1"],
 Cell[CellGroupData[{
-Cell[102393, 1833, 89, 0, 32, "Item",ExpressionUUID->"d164cdc3-c8cc-4779-b201-e2e8541cd2b4"],
-Cell[102485, 1835, 84, 0, 32, "Item",ExpressionUUID->"3cb4354c-c176-4459-9588-4c9083cd2123"]
+Cell[102626, 1834, 89, 0, 32, "Item",ExpressionUUID->"d164cdc3-c8cc-4779-b201-e2e8541cd2b4"],
+Cell[102718, 1836, 84, 0, 32, "Item",ExpressionUUID->"3cb4354c-c176-4459-9588-4c9083cd2123"]
 }, Open  ]]
 }, Open  ]],
-Cell[102596, 1839, 110, 0, 45, "Subsubsection",ExpressionUUID->"ba68b18e-0118-4694-9cc8-e616df451654"],
-Cell[102709, 1841, 101, 0, 37, "Subsubsection",ExpressionUUID->"405e0fe7-2022-4d50-b275-5f85c6659f37"],
-Cell[102813, 1843, 98, 0, 37, "Subsubsection",ExpressionUUID->"aa59b7ca-7848-48f1-96cf-6286c1fabb09"],
-Cell[102914, 1845, 109, 0, 37, "Subsubsection",ExpressionUUID->"8d03133e-d036-4673-985c-415dd5ec88bb"],
+Cell[102829, 1840, 110, 0, 45, "Subsubsection",ExpressionUUID->"ba68b18e-0118-4694-9cc8-e616df451654"],
+Cell[102942, 1842, 101, 0, 37, "Subsubsection",ExpressionUUID->"405e0fe7-2022-4d50-b275-5f85c6659f37"],
+Cell[103046, 1844, 98, 0, 37, "Subsubsection",ExpressionUUID->"aa59b7ca-7848-48f1-96cf-6286c1fabb09"],
+Cell[103147, 1846, 109, 0, 37, "Subsubsection",ExpressionUUID->"8d03133e-d036-4673-985c-415dd5ec88bb"],
 Cell[CellGroupData[{
-Cell[103048, 1849, 97, 0, 37, "Subsubsection",ExpressionUUID->"9afe7952-52cb-49e5-812a-edf95df8c363"],
-Cell[103148, 1851, 400, 8, 81, "Text",ExpressionUUID->"ab20175a-7ef0-4707-9029-6836dfeb4464"]
+Cell[103281, 1850, 97, 0, 37, "Subsubsection",ExpressionUUID->"9afe7952-52cb-49e5-812a-edf95df8c363"],
+Cell[103381, 1852, 400, 8, 81, "Text",ExpressionUUID->"ab20175a-7ef0-4707-9029-6836dfeb4464"]
 }, Open  ]],
-Cell[103563, 1862, 112, 0, 45, "Subsubsection",ExpressionUUID->"19b709dc-5a9b-4a0e-8d93-1058844be4dd"],
+Cell[103796, 1863, 112, 0, 45, "Subsubsection",ExpressionUUID->"19b709dc-5a9b-4a0e-8d93-1058844be4dd"],
 Cell[CellGroupData[{
-Cell[103700, 1866, 88, 0, 37, "Subsubsection",ExpressionUUID->"6668b03b-4180-4966-b673-b20f85cb5927"],
-Cell[103791, 1868, 96, 0, 35, "Text",ExpressionUUID->"a5e5e177-980c-46c4-8f4b-7804400a13ff"],
+Cell[103933, 1867, 88, 0, 37, "Subsubsection",ExpressionUUID->"6668b03b-4180-4966-b673-b20f85cb5927"],
+Cell[104024, 1869, 96, 0, 35, "Text",ExpressionUUID->"a5e5e177-980c-46c4-8f4b-7804400a13ff"],
 Cell[CellGroupData[{
-Cell[103912, 1872, 84, 0, 32, "Item",ExpressionUUID->"a0f68604-8bfc-4c6d-afb6-b6a38b6de7d0"],
-Cell[103999, 1874, 84, 0, 32, "Item",ExpressionUUID->"d4791c55-e7db-46a0-8162-0eebcfa1df4d"]
+Cell[104145, 1873, 84, 0, 32, "Item",ExpressionUUID->"a0f68604-8bfc-4c6d-afb6-b6a38b6de7d0"],
+Cell[104232, 1875, 84, 0, 32, "Item",ExpressionUUID->"d4791c55-e7db-46a0-8162-0eebcfa1df4d"]
 }, Open  ]]
 }, Open  ]],
-Cell[104110, 1878, 97, 0, 45, "Subsubsection",ExpressionUUID->"5f589531-3a9b-47cd-a487-fcf2f80aa83f"]
+Cell[104343, 1879, 97, 0, 45, "Subsubsection",ExpressionUUID->"5f589531-3a9b-47cd-a487-fcf2f80aa83f"]
 }, Open  ]]
 }
 ]
