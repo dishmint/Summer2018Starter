@@ -1,0 +1,2694 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[    132852,       2686]
+NotebookOptionsPosition[    130869,       2643]
+NotebookOutlinePosition[    131222,       2659]
+CellTagsIndexPosition[    131179,       2656]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["First Run Package Code", "Subsection",
+ CellChangeTimes->{{3.740160558587976*^9, 
+  3.740160569068426*^9}},ExpressionUUID->"63359b4f-495d-410d-9cdc-\
+34265d4058d9"],
+
+Cell["Open Twine.m  and click Run All Code", "Text",
+ CellChangeTimes->{{3.740160571139349*^9, 
+  3.740160582676116*^9}},ExpressionUUID->"be55f055-642c-4bb4-8230-\
+8ac1c19e80d4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{"twG", ",", " ", "twA"}], "}"}], " ", "=", " ", 
+  RowBox[{
+  "twineImport", "[", 
+   "\"\<~/Documents/Twine/Stories/TwineBridge_Test.html\>\"", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.7401599561749573`*^9, 3.74015996225343*^9}, {
+  3.740160010880681*^9, 3.740160042099739*^9}},
+ CellLabel->"In[64]:=",ExpressionUUID->"1903ad13-bf6b-4012-b429-561dfd05474b"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   GraphicsBox[
+    NamespaceBox["NetworkGraphics",
+     DynamicModuleBox[{Typeset`graph = HoldComplete[
+       Graph[{
+        "TwineBridge_Test", "First Passage", "Left", "Right", "Up", "Down", 
+         "get going", "do something", "you do something"}, {{{1, 2}, {2, 3}, {
+         2, 4}, {3, 5}, {3, 6}, {4, 5}, {4, 6}, {5, 7}, {6, 5}, {7, 8}, {8, 
+         9}}, Null}, {
+        GraphLayout -> {
+          "LayeredDigraphEmbedding", "RootVertex" -> "TwineBridge_Test"}, 
+         Properties -> {
+          "get going" -> {
+            Tooltip -> "Now that we are going, how about we do something"}, 
+           "Left" -> {
+            Tooltip -> 
+             "From here, there are still other places to go. We can go Up or \
+Down"}, "First Passage" -> {
+            Tooltip -> 
+             "This is my first passage. Where can I go from here? How about \
+Left , or Right?"}, 
+           "you do something" -> {Tooltip -> " Go, Get out of here! "}, 
+           "Right" -> {
+            Tooltip -> 
+             "From here, there are still other places to go. We can go Up or \
+Down"}, "do something" -> {
+            Tooltip -> 
+             " Hi, I&#39;m doing something, why don&#39;t you do something?"},
+            "TwineBridge_Test" -> {Tooltip -> "Start Here"}, 
+           "Up" -> {
+            Tooltip -> "Now that we are up why don&#39;t we get going?"}, 
+           "Down" -> {
+            Tooltip -> "Now that we are down, why don&#39;t we get Up?"}}, 
+         VertexLabels -> {"Name"}}]]}, 
+      TagBox[GraphicsGroupBox[{
+         {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+          ArrowBox[{{0., 7.}, {0., 6.}}, 0.05338164251207729], 
+          ArrowBox[{{0., 6.}, {-1., 5.}}, 0.05338164251207729], 
+          ArrowBox[{{0., 6.}, {0., 5.}}, 0.05338164251207729], 
+          ArrowBox[BezierCurveBox[CompressedData["
+1:eJxTTMoPSmViYGCQAWIQDQEf9kNoEYfwRL8SjQMf9q9Mf/Po63lhh3l5Z/m7
+p3zcH7GEx+buLGGHy+q1l9RrP+3n2ZbAvS1B2OFrT+yef5Wf9x+e8yKgQVHY
+gQ2s4cv+OrAGIQe26A2s0Ru+7rd/Odnu5WQhhy+HlVIfvPy2n8V/+7N2VyGH
+CzeOvp5v/mP/mU4+VolPgg6zZoLAz/0QWtABYs6v/a9A2u0EHVaB3fV7v2Xf
+Y4u+xwIOcscLZY4X/tnf1QECAg5Xy0x2rj/0Z/+NJl0gEnC4BuUH/Fri/2sJ
+P1z9h3cgwAc3D2ycBZ9DPdQ+PbABvHD3nD0DAjwO56HuBWuT5nH4DPXPr8SJ
+Rh9KuB3Yof5tAVl/g8uBHRoeEP9ywcOr+phe3P89nA6XoOEJ8R8nPLzByk9x
+OERA42ONgbqVSAKHA2p8cTgAAIwM5dI=
+           "]], 0.05338164251207729], 
+          ArrowBox[{{-1., 5.}, {-1., 4.}}, 0.05338164251207729], 
+          ArrowBox[BezierCurveBox[CompressedData["
+1:eJxTTMoPSmViYGCQAWIQjQpEHGCslelvHn09LwznRyzhsbk7C8Hn2ZbAvS0B
+wT8850VAgyKCXwfWIATn27+cbPdyMoLP4r/9Wbsrgn+mk49V4pMgnD9rJggI
+OizctHIV8+yc/eszpwrxO8D4Pfv9ntrdq3op4FBV8p/fSHzB/kqeaX/uTBWA
+yq/Zr3N/Vq6pq4BD/+SQu1KR2/Zf2zUrieM9P1T9gf1ZfNH9kyL5HY68WXlu
+3bOj+wV2liVynuKD6j+z/9yutzdyHPgcuJL/B0pIXdo/X/jA1z17eB2OtU/8
+esvk5n62874LU27yOCi6tF30P39/f435eVYxNh4HvjPvinZ/ebT/n4+L8kUn
+bodbB70lVxx8ur+Lf+3Pqf1cDmXMt27n+r3Yr1zP2ZnyhtPh0YSZu3hmv9p/
+YnbkRZtITgeZrK6tLcvf7K9MnXtJ7hqHg3r/mjNXi9/tN79zpYcrmQMaPh/2
+Q2gOBwC5t6oJ
+           "]], 0.05338164251207729], 
+          ArrowBox[{{0., 5.}, {-1., 4.}}, 0.05338164251207729], 
+          ArrowBox[{{-1., 3.}, {-1., 2.}}, 0.05338164251207729], 
+          ArrowBox[{{-1., 4.}, {-1., 3.}}, 0.05338164251207729], 
+          ArrowBox[{{-1., 2.}, {-1., 1.}}, 0.05338164251207729], 
+          ArrowBox[{{-1., 1.}, {-1., 0.}}, 0.05338164251207729]}, 
+         {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], {
+           TagBox[
+            TooltipBox[DiskBox[{0., 7.}, 0.05338164251207729],
+             "\"Start Here\"",
+             TooltipStyle->"TextStyling"],
+            Annotation[#, "Start Here", "Tooltip"]& ], 
+           InsetBox["\<\"TwineBridge_Test\"\>", 
+            Offset[{2, 2}, {0.05338164251207729, 7.053381642512077}], 
+            ImageScaled[{0, 0}],
+            BaseStyle->"Graphics"]}, {
+           TagBox[
+            TooltipBox[DiskBox[{0., 6.}, 0.05338164251207729],
+             
+             "\"This is my first passage. Where can I go from here? How about \
+Left , or Right?\"",
+             TooltipStyle->"TextStyling"],
+            
+            Annotation[#, 
+             "This is my first passage. Where can I go from here? How about \
+Left , or Right?", "Tooltip"]& ], 
+           InsetBox["\<\"First Passage\"\>", 
+            Offset[{2, 2}, {0.05338164251207729, 6.053381642512077}], 
+            ImageScaled[{0, 0}],
+            BaseStyle->"Graphics"]}, {
+           TagBox[
+            TooltipBox[DiskBox[{-1., 5.}, 0.05338164251207729],
+             
+             "\"From here, there are still other places to go. We can go Up \
+or Down\"",
+             TooltipStyle->"TextStyling"],
+            
+            Annotation[#, 
+             "From here, there are still other places to go. We can go Up or \
+Down", "Tooltip"]& ], 
+           InsetBox["\<\"Left\"\>", 
+            Offset[{2, 2}, {-0.9466183574879227, 5.053381642512077}], 
+            ImageScaled[{0, 0}],
+            BaseStyle->"Graphics"]}, {
+           TagBox[
+            TooltipBox[DiskBox[{0., 5.}, 0.05338164251207729],
+             
+             "\"From here, there are still other places to go. We can go Up \
+or Down\"",
+             TooltipStyle->"TextStyling"],
+            
+            Annotation[#, 
+             "From here, there are still other places to go. We can go Up or \
+Down", "Tooltip"]& ], 
+           InsetBox["\<\"Right\"\>", 
+            Offset[{2, 2}, {0.05338164251207729, 5.053381642512077}], 
+            ImageScaled[{0, 0}],
+            BaseStyle->"Graphics"]}, {
+           TagBox[
+            TooltipBox[DiskBox[{-1., 3.}, 0.05338164251207729],
+             "\"Now that we are up why don&#39;t we get going?\"",
+             TooltipStyle->"TextStyling"],
+            
+            Annotation[#, "Now that we are up why don&#39;t we get going?", 
+             "Tooltip"]& ], 
+           InsetBox["\<\"Up\"\>", 
+            Offset[{2, 2}, {-0.9466183574879227, 3.053381642512077}], 
+            ImageScaled[{0, 0}],
+            BaseStyle->"Graphics"]}, {
+           TagBox[
+            TooltipBox[DiskBox[{-1., 4.}, 0.05338164251207729],
+             "\"Now that we are down, why don&#39;t we get Up?\"",
+             TooltipStyle->"TextStyling"],
+            
+            Annotation[#, "Now that we are down, why don&#39;t we get Up?", 
+             "Tooltip"]& ], 
+           InsetBox["\<\"Down\"\>", 
+            Offset[{2, 2}, {-0.9466183574879227, 4.053381642512077}], 
+            ImageScaled[{0, 0}],
+            BaseStyle->"Graphics"]}, {
+           TagBox[
+            TooltipBox[DiskBox[{-1., 2.}, 0.05338164251207729],
+             "\"Now that we are going, how about we do something\"",
+             TooltipStyle->"TextStyling"],
+            
+            Annotation[#, "Now that we are going, how about we do something", 
+             "Tooltip"]& ], 
+           InsetBox["\<\"get going\"\>", 
+            Offset[{2, 2}, {-0.9466183574879227, 2.053381642512077}], 
+            ImageScaled[{0, 0}],
+            BaseStyle->"Graphics"]}, {
+           TagBox[
+            TooltipBox[DiskBox[{-1., 1.}, 0.05338164251207729],
+             
+             "\" Hi, I&#39;m doing something, why don&#39;t you do something?\
+\"",
+             TooltipStyle->"TextStyling"],
+            
+            Annotation[#, 
+             " Hi, I&#39;m doing something, why don&#39;t you do something?", 
+             "Tooltip"]& ], 
+           InsetBox["\<\"do something\"\>", 
+            Offset[{2, 2}, {-0.9466183574879227, 1.0533816425120772}], 
+            ImageScaled[{0, 0}],
+            BaseStyle->"Graphics"]}, {
+           TagBox[
+            TooltipBox[DiskBox[{-1., 0.}, 0.05338164251207729],
+             "\" Go, Get out of here! \"",
+             TooltipStyle->"TextStyling"],
+            Annotation[#, " Go, Get out of here! ", "Tooltip"]& ], 
+           InsetBox["\<\"you do something\"\>", 
+            Offset[{2, 2}, {-0.9466183574879227, 0.05338164251207729}], 
+            ImageScaled[{0, 0}],
+            BaseStyle->"Graphics"]}}}],
+       MouseAppearanceTag["NetworkGraphics"]],
+      AllowKernelInitialization->False]],
+    DefaultBaseStyle->{
+     "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+    
+    FormatType->TraditionalForm,
+    FrameTicks->None], ",", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{"\<\"TwineBridge_Test\"\>", "\[Rule]", 
+     RowBox[{"\[LeftAssociation]", 
+      RowBox[{
+       RowBox[{"\<\"First Passage\"\>", 
+        "\[Rule]", "\<\"This is my first passage. Where can I go from here? \
+How about [[Left]] , or [[Right]]?\"\>"}], ",", 
+       RowBox[{"\<\"Left\"\>", 
+        "\[Rule]", "\<\"From here, there are still other places to go. We can \
+go [[Up]] or [[Down]]\"\>"}], ",", 
+       RowBox[{"\<\"Right\"\>", 
+        "\[Rule]", "\<\"From here, there are still other places to go. We can \
+go [[Up]] or [[Down]]\"\>"}], ",", 
+       RowBox[{"\<\"Up\"\>", 
+        "\[Rule]", "\<\"Now that we are up why don&#39;t we [[get \
+going]]?\"\>"}], ",", 
+       RowBox[{"\<\"Down\"\>", 
+        "\[Rule]", "\<\"Now that we are down, why don&#39;t we get \
+[[Up]]?\"\>"}], ",", 
+       RowBox[{"\<\"get going\"\>", 
+        "\[Rule]", "\<\"Now that we are going, how about we [[do \
+something]]\"\>"}], ",", 
+       RowBox[{"\<\"do something\"\>", 
+        "\[Rule]", "\<\" Hi, I&#39;m doing something, why don&#39;t [[you do \
+something]]?\"\>"}], ",", 
+       RowBox[{"\<\"you do something\"\>", 
+        "\[Rule]", "\<\" Go, Get out of here! \"\>"}]}], 
+      "\[RightAssociation]"}]}], "\[RightAssociation]"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.740160024782795*^9, 3.740160042739049*^9}},
+ CellLabel->"Out[64]=",ExpressionUUID->"63438266-933e-4454-8731-523b6be54c3b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"twineSummary", "[", "twA", "]"}]], "Input",
+ CellChangeTimes->{{3.740160091478805*^9, 3.74016010076399*^9}},
+ CellLabel->"In[66]:=",ExpressionUUID->"ec653ae5-0c34-4218-9811-50882649bb68"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {InsetBox[
+     DynamicBox[ToBoxes[
+       Framed[Twine`activePassage$6597], TraditionalForm],
+      ImageSizeCache->{106., {9., 14.}}], {192., -189.}, {
+     Center, Center}, {360., 360.}], InsetBox[
+     FormBox[
+      GraphicsBox[
+       NamespaceBox["NetworkGraphics",
+        DynamicModuleBox[{Typeset`graph = HoldComplete[
+          Graph[{"TwineBridge_Test", 
+            Button[
+            "First Passage", Twine`activePassage$6597 = 
+             "This is my first passage. Where can I go from here? How about \
+Left , or Right?"], 
+            Button[
+            "Left", Twine`activePassage$6597 = 
+             "From here, there are still other places to go. We can go Up or \
+Down"], 
+            Button[
+            "Right", Twine`activePassage$6597 = 
+             "From here, there are still other places to go. We can go Up or \
+Down"], 
+            Button[
+            "Up", Twine`activePassage$6597 = 
+             "Now that we are up why don't we get going?"], 
+            Button[
+            "Down", Twine`activePassage$6597 = 
+             "Now that we are down, why don't we get Up?"], 
+            Button[
+            "get going", Twine`activePassage$6597 = 
+             "Now that we are going, how about we do something"], 
+            Button[
+            "do something", Twine`activePassage$6597 = 
+             " Hi, I'm doing something, why don't you do something?"], 
+            Button[
+            "you do something", Twine`activePassage$6597 = 
+             " Go, Get out of here! "]}, {{{1, 2}, {2, 3}, {2, 4}, {3, 5}, {3,
+             6}, {4, 5}, {4, 6}, {5, 7}, {6, 5}, {7, 8}, {8, 9}}, Null}, {
+           GraphLayout -> {
+             "LayeredDigraphEmbedding", "RootVertex" -> "TwineBridge_Test"}, 
+            VertexShapeFunction -> {"Name"}}]]}, 
+         TagBox[GraphicsGroupBox[GraphicsComplexBox[CompressedData["
+1:eJxdkW9IU2EUxkfm3Ob13usmZSaC+WF9KAkxtBB3CP1UqUWQQwrnHyLRwhJB
+y4yQTBOXrQXOygShFEsRMrTBmZkaMl2ulGmaoSjOli11kUs07919B+7hXg4/
+znvO+57zRGZdPZu7SyQSqbZ/Lu5UOOzkUIGd6IkhPvkQn7zEh1kfFvmwU+WT
+JzLtrCdi4bwmpeigyYktlxyzLosCnl0ZZu4/+o3pzVTCtEEBn5VlVmXZClJd
+mYFdmQpw1VwwbpasYt+TxbTbkQoQ8wVreIsvkIM4o8M/o8OFKrsu0a6Tw1rf
+gdzv9j+4O/XtQmWyHD7Z+n80xv1FcxXtH7oSDIZ6TuvoicHg6ePGJa48MRha
++Xf9w2O1c/G1cyxEDBaGDxZuYPU9TiyMFcd2t7/fQNudw9sfC+MCp7mbU93N
+jPe8c5kT7e3Ht4unoVy4L5pvEOR9z7CZEwUW4b182X4KVoV53Jq6GGdRIAQI
+81Zw19tkECDswzOvzLuvGwPRF7eMUrAK+/TMJ/Xumz8+JIF0wY+2I8rjIZkS
+r1/EH8LEH8LEH8LEH8LEH8LEH8LEH8LEH8LEn6bOlla/hnxsv6yXM0C4BlPm
+E7+V2lkoLdpiYvY+xxLq8caUnhXybXhoxlBwNJkFre7cdJi6C8d7DFmSX4xw
+3oR5dIb2oZqBD46WkdcL/ch2F2ukQ7RQb8aRnp+2fKBBlr11JjTMio0Kk8to
+DIKByjrXZOwEii2nm3ImKIhMujuaapnBm3EW/z1iCmjz8rV3a7O4eSopavRE
+IEz2ntz3snceq5lX63qtDIr9Jr8WpCxiVLm0KschhdkH9T1UwxJ+bFCPJqil
+EJ5X/abihQNLcp9aI8YloNS2mceuL2Pc1JcaWbYE/gMdcJbb
+            "], {
+             {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+              ArrowBox[{1, 2}, 0.10676328502415458`], 
+              ArrowBox[{2, 3}, 0.10676328502415458`], 
+              ArrowBox[{2, 4}, 0.10676328502415458`], 
+              ArrowBox[BezierCurveBox[{3, 12, 13, 14, 15, 16, 17, 18, 19, 20, 
+               21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36,
+                37, 5}], 0.10676328502415458`], 
+              ArrowBox[{3, 6}, 0.10676328502415458`], 
+              ArrowBox[BezierCurveBox[{4, 38, 39, 40, 41, 42, 43, 44, 45, 46, 
+               47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62,
+                63, 5}], 0.10676328502415458`], 
+              ArrowBox[{4, 6}, 0.10676328502415458`], 
+              ArrowBox[{5, 7}, 0.10676328502415458`], 
+              ArrowBox[{6, 5}, 0.10676328502415458`], 
+              ArrowBox[{7, 8}, 0.10676328502415458`], 
+              ArrowBox[{8, 9}, 0.10676328502415458`]}, 
+             {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+              InsetBox[
+               PaneBox["\<\"TwineBridge_Test\"\>",
+                Alignment->Center,
+                ImageMargins->2], 1,
+               BaseStyle->"Graphics"], InsetBox[
+               PaneBox[
+                ButtonBox["\<\"First Passage\"\>",
+                 Appearance->Automatic,
+                 
+                 ButtonFunction:>(Twine`activePassage$6597 = 
+                  "This is my first passage. Where can I go from here? How \
+about Left , or Right?"),
+                 Evaluator->Automatic,
+                 Method->"Preemptive"],
+                Alignment->Center,
+                ImageMargins->2], 2,
+               BaseStyle->"Graphics"], InsetBox[
+               PaneBox[
+                ButtonBox["\<\"Left\"\>",
+                 Appearance->Automatic,
+                 
+                 ButtonFunction:>(Twine`activePassage$6597 = 
+                  "From here, there are still other places to go. We can go \
+Up or Down"),
+                 Evaluator->Automatic,
+                 Method->"Preemptive"],
+                Alignment->Center,
+                ImageMargins->2], 3,
+               BaseStyle->"Graphics"], InsetBox[
+               PaneBox[
+                ButtonBox["\<\"Right\"\>",
+                 Appearance->Automatic,
+                 
+                 ButtonFunction:>(Twine`activePassage$6597 = 
+                  "From here, there are still other places to go. We can go \
+Up or Down"),
+                 Evaluator->Automatic,
+                 Method->"Preemptive"],
+                Alignment->Center,
+                ImageMargins->2], 4,
+               BaseStyle->"Graphics"], InsetBox[
+               PaneBox[
+                ButtonBox["\<\"Up\"\>",
+                 Appearance->Automatic,
+                 
+                 ButtonFunction:>(Twine`activePassage$6597 = 
+                  "Now that we are up why don't we get going?"),
+                 Evaluator->Automatic,
+                 Method->"Preemptive"],
+                Alignment->Center,
+                ImageMargins->2], 5,
+               BaseStyle->"Graphics"], InsetBox[
+               PaneBox[
+                ButtonBox["\<\"Down\"\>",
+                 Appearance->Automatic,
+                 
+                 ButtonFunction:>(Twine`activePassage$6597 = 
+                  "Now that we are down, why don't we get Up?"),
+                 Evaluator->Automatic,
+                 Method->"Preemptive"],
+                Alignment->Center,
+                ImageMargins->2], 6,
+               BaseStyle->"Graphics"], InsetBox[
+               PaneBox[
+                ButtonBox["\<\"get going\"\>",
+                 Appearance->Automatic,
+                 
+                 ButtonFunction:>(Twine`activePassage$6597 = 
+                  "Now that we are going, how about we do something"),
+                 Evaluator->Automatic,
+                 Method->"Preemptive"],
+                Alignment->Center,
+                ImageMargins->2], 7,
+               BaseStyle->"Graphics"], InsetBox[
+               PaneBox[
+                ButtonBox["\<\"do something\"\>",
+                 Appearance->Automatic,
+                 
+                 ButtonFunction:>(Twine`activePassage$6597 = 
+                  " Hi, I'm doing something, why don't you do something?"),
+                 Evaluator->Automatic,
+                 Method->"Preemptive"],
+                Alignment->Center,
+                ImageMargins->2], 8,
+               BaseStyle->"Graphics"], InsetBox[
+               PaneBox[
+                ButtonBox["\<\"you do something\"\>",
+                 Appearance->Automatic,
+                 
+                 ButtonFunction:>(Twine`activePassage$6597 = 
+                  " Go, Get out of here! "),
+                 Evaluator->Automatic,
+                 Method->"Preemptive"],
+                Alignment->Center,
+                ImageMargins->2], 9,
+               BaseStyle->"Graphics"]}}]],
+          MouseAppearanceTag["NetworkGraphics"]],
+         AllowKernelInitialization->False]],
+       DefaultBaseStyle->{
+        "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+         Hue[0.8, 1., 0.6]},
+       FormatType->TraditionalForm,
+       FrameTicks->None],
+      TraditionalForm], {576., -189.}, {Center, Center}, {360., 360.}]}, {}},
+  ContentSelectable->True,
+  ImageSize->{1098.4375, Automatic},
+  PlotRangePadding->{6, 5}]], "Output",
+ CellChangeTimes->{3.740160102013789*^9},
+ CellLabel->"Out[66]=",ExpressionUUID->"5db959d1-046a-44b4-bc07-1ce633a500f7"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"twGr", ",", " ", "twAs"}], "}"}], "=", 
+   RowBox[{
+   "twineImport", "[", 
+    "\"\<~/Documents/Twine/Stories/DepthsOfSarcasmV17.html\>\"", "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.740160316324624*^9, 3.740160346879036*^9}},
+ CellLabel->"In[69]:=",ExpressionUUID->"ad08f259-16fe-46c8-83e1-56b5fc921001"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["twGr"], "Input",
+ CellChangeTimes->{{3.740160348706048*^9, 3.7401603540887203`*^9}},
+ CellLabel->"In[70]:=",ExpressionUUID->"57ae8dce-e0d2-431a-bc11-28e980bb0f35"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{
+      "DepthsOfSarcasmV17", "start", "Enter the cave->newroom", "newroom", 
+       "Fight the monster->newmonster", "Open the chest->chest", 
+       "Continue exploring->newroom", "Go to the market->market", 
+       "Drink a potion->drink a potion", "drink a potion", 
+       "Drink another potion->drink a potion", "hit", "Defend->defend", 
+       "Run away->runaway", "Bribe->bribe", "Loot the room->win", "bribe", 
+       "runaway", "Game over->gameover", "newmonster", "Hit the monster->hit",
+        "Bribe the monster->bribe", "Drink a potion->battledrink", 
+       "Throw a\n      poison->battlepoison", "defend", "Hit it again->hit", 
+       "Throw a poison->battlepoison", "win", "Game Over->gameover", 
+       "battledrink", "Drink another->battledrink", "Fight->defend", "market",
+        "Sell a potion for 5 gold->sell potion", 
+       "Sell a poison for 10 gold->sell poison", 
+       "Buy a cardboard shield for 25 gold->buy\n      shield", 
+       "Buy a wooden sword for 50 gold->buy sword", 
+       "Buy a wooden shield for 75 gold->buy shield2", 
+       "Buy a tin sword for 100 gold->buy sword2", 
+       "Buy a\n      potion for 10 gold->buy potion", 
+       "Buy a poison for 20 gold->buy poison", "buy potion", 
+       "Continue shopping->market", "Drink the potion->drink a potion", 
+       "buy shield", "buy sword", "sell potion", "chest", 
+       "Drink a potion->drink\n      a potion", "buy shield2", "buy sword2", 
+       "buy poison", "Drink\n      the potion->drink a potion", "sell poison",
+        "battlepoison", "Nice aim, jackass->hit", "gameover", 
+       "Play again->start"}, {{{1, 2}, {2, 3}, {4, 5}, {4, 6}, {4, 7}, {4, 
+       8}, {4, 7}, {4, 8}, {4, 9}, {10, 11}, {10, 7}, {12, 13}, {12, 14}, {12,
+        15}, {12, 16}, {17, 7}, {18, 7}, {18, 9}, {18, 19}, {20, 21}, {20, 
+       14}, {20, 22}, {20, 23}, {20, 24}, {25, 19}, {25, 26}, {25, 14}, {25, 
+       17}, {25, 23}, {25, 27}, {28, 7}, {28, 8}, {28, 9}, {28, 29}, {30, 
+       31}, {30, 32}, {33, 34}, {33, 35}, {33, 36}, {33, 37}, {33, 38}, {33, 
+       39}, {33, 40}, {33, 41}, {33, 7}, {42, 43}, {42, 44}, {42, 7}, {45, 
+       43}, {45, 7}, {46, 43}, {46, 7}, {47, 43}, {47, 7}, {47, 29}, {48, 
+       5}, {48, 7}, {48, 8}, {48, 29}, {48, 49}, {50, 43}, {50, 7}, {51, 
+       43}, {51, 7}, {52, 43}, {52, 53}, {52, 7}, {54, 43}, {54, 7}, {54, 
+       29}, {55, 56}, {55, 21}, {57, 58}}, Null}, {
+      GraphLayout -> {
+        "LayeredDigraphEmbedding", "RootVertex" -> "DepthsOfSarcasmV17"}, 
+       Properties -> {
+        "Hit the monster->hit" -> {
+          Tooltip -> Missing["KeyAbsent", "Hit the monster->hit"]}, 
+         "battledrink" -> {
+          Tooltip -> 
+           "\n      (set: $potions to $potions-1)You are healed by 10 hit \
+points.\n      (if: $hp is $maxhp)[But you were already at maximum health. So \
+that was a potion well-spent. Just so we&#39;re on the same page here:]\n     \
+ (set: $hp to it+10)\n      (if: $hp&gt;=$maxhp)[(set: $hp to $maxhp) \
+You&#39;re at maximum health.]\n  (if: $potions &gt; 0)[ Drink \
+another-&gt;battledrink ]\n  Fight-&gt;defend\n    "}, 
+         "Defend->defend" -> {
+          Tooltip -> Missing["KeyAbsent", "Defend->defend"]}, 
+         "Go to the market->market" -> {
+          Tooltip -> Missing["KeyAbsent", "Go to the market->market"]}, 
+         "Play again->start" -> {
+          Tooltip -> Missing["KeyAbsent", "Play again->start"]}, 
+         "gameover" -> {
+          Tooltip -> 
+           "(text-style: &quot;bold&quot;)[THANK YOU FOR PLAYING THE DEPTHS \
+OF SARCASM (either:&quot;HAVE A WONDERFUL DAY&quot;,&quot;WHAT AN AMAZING \
+PERFORMANCE&quot;,&quot;YOU MUST BE SO PROUD&quot;,&quot;GREAT JOB ALL \
+ROUND&quot;,&quot;DON&#39;T FORGET TO\n      TIP THE \
+MONSTERS&quot;,&quot;CLOSE THE DOOR ON YOUR WAY OUT&quot;,&quot;YOU WERE AN \
+AMAZING PLAYER&quot;)] You collected $gold gold coins and defeated \
+$monsterkills monsters. Play again-&gt;start"}, 
+         "Buy a wooden shield for 75 gold->buy shield2" -> {
+          Tooltip -> Missing[
+            "KeyAbsent", "Buy a wooden shield for 75 gold->buy shield2"]}, 
+         "Drink a potion->drink\n      a potion" -> {
+          Tooltip -> Missing[
+            "KeyAbsent", "Drink a potion->drink\n      a potion"]}, 
+         "buy sword" -> {
+          Tooltip -> 
+           "(set: $gold to it-50)(if: $sword is 0)[Wood. The substance with \
+amazing slicing properties. Hence the well known expression &quot;As sharp as \
+wood.&quot;](if: $sword is 10)[You already have one of those, but fine. You \
+throw it away and take this one.\n      Because clearly the old one \
+wasn&#39;t exactly as good in every way. This new one is one beautiful wooden \
+sword.](if: $sword is 20)[You... you had a better sword. You just threw it \
+away for this sword. Made of wood. Masterful. We&#39;re in awe.]\n      (set: \
+$sword to 10)Continue shopping-&gt;market Continue exploring-&gt;newroom"}, 
+         "Drink a potion->battledrink" -> {
+          Tooltip -> Missing["KeyAbsent", "Drink a potion->battledrink"]}, 
+         "Fight->defend" -> {
+          Tooltip -> Missing["KeyAbsent", "Fight->defend"]}, 
+         "newmonster" -> {
+          Tooltip -> 
+           "(set: $monsterid to (random: 1,10))(set: $monstername to \
+$monsterid of $monsterarray)(set: $monsterlevel to (random: $xp, $xp+2))(set: \
+$imonsterhealth to $monsterlevel*3)(set: $monsterhealth to \
+$imonsterhealth+7)(set: $bribeammount to $monsterlevel*10)You\n      are \
+fighing a level $monsterlevel $monstername. (either: &quot;What an ugly \
+bastard.&quot;,&quot;It&#39;s quite the looker.&quot;,&quot;You can tell \
+you&#39;re going to be besties.&quot;,&quot;Sigh.&quot;,&quot;Let&#39;s get \
+this over with.&quot;,&quot;Oh\n      joy.&quot;) It has $monsterhealth \
+health. Hit the monster-&gt;hit Run away-&gt;runaway (if: \
+$bribeammount&lt;$gold)[ Bribe the monster-&gt;bribe ](if: $potions&gt;0)[ \
+Drink a potion-&gt;battledrink ](if: $poisons&gt;0)[ Throw a\n      \
+poison-&gt;battlepoison ]\n    "}, 
+         "Buy a poison for 20 gold->buy poison" -> {
+          Tooltip -> Missing[
+            "KeyAbsent", "Buy a poison for 20 gold->buy poison"]}, 
+         "sell potion" -> {
+          Tooltip -> 
+           "(set: $gold to it+5)(set: $potions to it-1)(if: \
+$gold&lt;1000)[Five gold? (either: &quot;What a \
+rip-off.&quot;,&quot;You&#39;re a real entrepreneur.&quot;) Continue \
+shopping-&gt;market Continue exploring-&gt;newroom] (if: $gold&gt;999)[So\n   \
+   you just won the game. By selling a potion. What a climax. Game \
+Over-&gt;gameover ]\n\n    "}, 
+         "buy potion" -> {
+          Tooltip -> 
+           "(set: $gold to it-10)(set: $potions to it+1)Magic potion. A \
+totally real thing. Continue shopping-&gt;market Drink the potion-&gt;drink a \
+potion Continue exploring-&gt;newroom"}, 
+         "Drink a potion->drink a potion" -> {
+          Tooltip -> Missing["KeyAbsent", "Drink a potion->drink a potion"]}, 
+         "buy shield" -> {
+          Tooltip -> 
+           "(set: $gold to it-25)(if: $shield is 0)[You pick up your new \
+cardboard shield. You&#39;re safe now. This game is as good as won.](if: \
+$shield is 5)[Yeah, you can never waste enough gold coins on identical \
+cardboard shields.](if: $shield is 10)[You\n      had a wooden shield that \
+was capable of protecting you against double the damage, but no, whatever you \
+want. You toss your significantly better shield aside and take your new \
+cardboard shield.](set: $shield to 5) Continue shopping-&gt;market\n      \
+Continue exploring-&gt;newroom"}, 
+         "Enter the cave->newroom" -> {
+          Tooltip -> Missing["KeyAbsent", "Enter the cave->newroom"]}, 
+         "Hit it again->hit" -> {
+          Tooltip -> Missing["KeyAbsent", "Hit it again->hit"]}, 
+         "sell poison" -> {
+          Tooltip -> 
+           "(set: $gold to it+10)(set: $poisons to it-1)(if: \
+$gold&lt;1000)[(either: &quot;You sell it for half the price you normally buy \
+it for. Way to go.&quot;,&quot;Yeah, that probably wouldn&#39;t have been \
+useful in that in EVERY SINGLE BATTLE.&quot;)\n      Continue \
+shopping-&gt;market Continue exploring-&gt;newroom ](if: $gold&gt;999)[You \
+just won the game by selling a poison. What a satisfying ending. Game \
+Over-&gt;gameover ]"}, 
+         "Throw a poison->battlepoison" -> {
+          Tooltip -> Missing["KeyAbsent", "Throw a poison->battlepoison"]}, 
+         "Throw a\n      poison->battlepoison" -> {
+          Tooltip -> Missing[
+            "KeyAbsent", "Throw a\n      poison->battlepoison"]}, 
+         "Drink another->battledrink" -> {
+          Tooltip -> Missing["KeyAbsent", "Drink another->battledrink"]}, 
+         "win" -> {
+          Tooltip -> 
+           "You go up a level. (either: &quot;Because levels are real \
+things.&quot;,&quot;Don&#39;t break anything with your amazing new \
+powers.&quot;,&quot;Hail the conquering hero.&quot;,&quot;So, yay, \
+progress.&quot;,&quot;It looks like you needed it.&quot;)\n      (set: \
+$cashammount to (random: $monsterlevel, $monsterlevel*10))(set: $gold to \
+$gold+$cashammount)(set: $xp to $xp+1)(set: $monsterkills to \
+it+1)(either:&quot;You found $cashammount gold coins in the dead \
+$monstername&#39;s pockets. A $monstername\n      with pockets. \
+Yeah.&quot;,&quot;You pick up $cashammount gold coins that are scattered \
+across the floor.&quot;,&quot;You drag the $monstername&#39;s corpse to the \
+village taxidermist and collect a bounty of $cashammount gold \
+coins.&quot;,&quot;You\n      find $cashammount gold coins on one of the \
+corpses scattered around the room.&quot;,&quot;You cut the $monstername&#39;s \
+body open and $cashammount gold coins fall out. What a believable thing to \
+happen.&quot;) (if: $gold&lt;1000)[ Continue exploring-&gt;newroom\n      Go \
+to the market-&gt;market (if: $potions&gt;0)[ Drink a potion-&gt;drink a \
+potion ] ](if: $gold&gt;999)[ You know what that means? You just won the \
+game. Game Over-&gt;gameover ]\n\n    "}, 
+         "Game Over->gameover" -> {
+          Tooltip -> Missing["KeyAbsent", "Game Over->gameover"]}, 
+         "Drink\n      the potion->drink a potion" -> {
+          Tooltip -> Missing[
+            "KeyAbsent", "Drink\n      the potion->drink a potion"]}, 
+         "drink a potion" -> {
+          Tooltip -> 
+           "(set: $potions to $potions-1)(if: $hp is \
+$maxhp)[(either:&quot;You were already at full health, \
+genius.&quot;,&quot;Yeah. You really needed to do that.&quot;,&quot;Oh boy, \
+what a great use of a potion.&quot;,&quot;Some people would consider that a\n \
+     spectacular waste.&quot;,&quot;Drinking a potion when you&#39;re already \
+at full health? Well done.&quot;) ](if: $hp &lt; $maxhp)[(set: $hp to \
+it+10)You are healed by 10 hit points. ](if: $hp&gt;$maxhp)[(set: $hp to \
+$maxhp)You&#39;re at maximum\n      health. ](if: $potions&gt;0)[ Drink \
+another potion-&gt;drink a potion ]Continue exploring-&gt;newroom"}, 
+         "newroom" -> {
+          Tooltip -> 
+           "You enter a (either: &quot;dingy&quot;, &quot;dank&quot;, \
+&quot;miserable&quot;, &quot;poorly-lit&quot;, \
+&quot;gross&quot;,&quot;slimy&quot;,&quot;gloomy&quot;,&quot;depressing&quot;,\
+&quot;musty-smelling&quot;,&quot;fetid&quot;,&quot;reeking&quot;)\n      \
+(either: &quot;chamber&quot;, &quot;cavern&quot;, &quot;room&quot;, \
+&quot;tunnel&quot;, &quot;nook&quot;, \
+&quot;vault&quot;,&quot;crypt&quot;,&quot;passage&quot;). (set: $coinflip to \
+(random: 1, 5))(if: $coinflip is 1)[(either:&quot;A monster leaps\n      out \
+at you.&quot;,&quot;A monster drops down on you.&quot;,&quot;A monster crawls \
+out of the shadows.&quot;,&quot;You walk straight into a \
+monster.&quot;,&quot;Oh look. A monster. What a surprise.&quot;,&quot;And is \
+that a monster over there? Of\n      course it is.&quot;) Fight the \
+monster-&gt;newmonster ](if: $coinflip is 2)[You find a treasure chest. \
+(either: &quot;Because everyone leaves treasure chests lying around.&quot;, \
+&quot;Like you do.&quot;, &quot;Great.&quot;) Open the chest-&gt;chest\n      \
+Continue exploring-&gt;newroom Go to the market-&gt;market ](if: \
+$coinflip&gt;2)[(either: &quot;This place is brimming with excitement.&quot;, \
+&quot;This place is just the best.&quot;, &quot;You can&#39;t get over how \
+awesome it is.&quot;,\n      &quot;Fantastic.&quot;, &quot;Just \
+wow.&quot;,&quot;Lovely.&quot;,&quot;Epic.&quot;,&quot;You seriously consider \
+settling down here and picking out curtains.&quot;) Continue \
+exploring-&gt;newroom Go to the market-&gt;market ] (if: $coinflip&gt;1\n     \
+ and $potions&gt;0)[ Drink a potion-&gt;drink a potion ]\n\n    "}, 
+         "Buy a cardboard shield for 25 gold->buy\n      shield" -> {
+          Tooltip -> Missing[
+            "KeyAbsent", 
+             "Buy a cardboard shield for 25 gold->buy\n      shield"]}, 
+         "Game over->gameover" -> {
+          Tooltip -> Missing["KeyAbsent", "Game over->gameover"]}, 
+         "battlepoison" -> {
+          Tooltip -> 
+           "Poison. The heroic way to win a fight. You throw a bottle at the \
+$monstername. (set: $coinflip to (random:1,2))(if: $coinflip is 1)[It misses. \
+Nice aim, jackass-&gt;hit ](if: $coinflip is 2)[(set: $monsterhealth to \
+it-10)It goes into its mouth.\n      The monster is distracted. And poisoned. \
+Obviously. Hit the monster-&gt;hit ]"}, 
+         "Open the chest->chest" -> {
+          Tooltip -> Missing["KeyAbsent", "Open the chest->chest"]}, 
+         "Sell a potion for 5 gold->sell potion" -> {
+          Tooltip -> Missing[
+            "KeyAbsent", "Sell a potion for 5 gold->sell potion"]}, 
+         "market" -> {
+          Tooltip -> 
+           "(if: $visitedmarket is false)[You head out of the caves and back \
+to the local village, which is a bustling metropolis called \
+&quot;Pigswill&quot;. The storekeeper greets you with a belch.(set: \
+$visitedmarket to true) ]You look at the wares on sale.(if:\n      \
+$gold&lt;10)[ There&#39;s nothing you can afford.] (if: $potions&gt;0)[ Sell \
+a potion for 5 gold-&gt;sell potion ](if: $poisons&gt;0)[ Sell a poison for \
+10 gold-&gt;sell poison ](if: $gold&gt;24)[ Buy a cardboard shield for 25 \
+gold-&gt;buy\n      shield ](if: $gold&gt;49)[ Buy a wooden sword for 50 \
+gold-&gt;buy sword ](if: $gold&gt;74)[ Buy a wooden shield for 75 \
+gold-&gt;buy shield2 ](if: $gold&gt;99)[ Buy a tin sword for 100 gold-&gt;buy \
+sword2 ](if: $gold&gt;9)[ Buy a\n      potion for 10 gold-&gt;buy potion \
+](if: $gold&gt;19)[ Buy a poison for 20 gold-&gt;buy poison ]Continue \
+exploring-&gt;newroom"}, 
+         "Loot the room->win" -> {
+          Tooltip -> Missing["KeyAbsent", "Loot the room->win"]}, 
+         "Sell a poison for 10 gold->sell poison" -> {
+          Tooltip -> Missing[
+            "KeyAbsent", "Sell a poison for 10 gold->sell poison"]}, 
+         "Run away->runaway" -> {
+          Tooltip -> Missing["KeyAbsent", "Run away->runaway"]}, 
+         "buy sword2" -> {
+          Tooltip -> 
+           "(set: $gold to it-100)(if: $sword &lt; 20)[Tin. A tin sword. \
+Worth every one of the hundred coins of actual gold that you&#39;ve just \
+given away for it.](if: $sword is 20)[Another identical tin sword. No, you go \
+ahead, buy it. You evidently know what\n      you&#39;re doing.](set: $sword \
+to 20) Continue shopping-&gt;market Continue exploring-&gt;newroom"}, 
+         "runaway" -> {
+          Tooltip -> 
+           "(set: $damage to (random: $monsterlevel, $monsterlevel*3))(set: \
+$hp to $hp-$damage)(either: &quot;Truely you are the hero that the world \
+needs.&quot;,&quot;So inspiring.&quot;,&quot;A picture of \
+bravery.&quot;,&quot;Lion-hearted. Really.&quot;,&quot;Gallant.&quot;)\n      \
+As you run away the $monstername hits you for $damage damage. (if: $hp &gt; \
+0)[ Continue exploring-&gt;newroom ] (if: $potions&gt;0 and $hp &gt; 0)[ \
+Drink a potion-&gt;drink a potion ] (if: $hp &lt; 1)[ You are so dead. Game \
+over-&gt;gameover\n      ]\n\n    "}, 
+         "chest" -> {
+          Tooltip -> 
+           "(set: $coinflip to (random: 1,4))(either:&quot;You pry open the \
+chest with your (if:$sword is 0)[stick.](if:$sword is 10)[wooden \
+sword.](if:$sword is 20)[tin sword.]&quot;,&quot;You open the chest with one \
+of the keys lying around. Yeah, any key can\n      open any chest around \
+here. That&#39;s just basic security.&quot;) (if: $coinflip is 1)[A monster \
+leaps out. (either: &quot;It was hiding in there. Curled up real \
+small.&quot;,&quot;It&#39;s been hiding in there for a while. It&#39;s \
+obviously a\n      busy creature with a lot going on in its \
+life.&quot;,&quot;Boo.&quot;,&quot;And you thought the day couldn&#39;t get \
+better.&quot;) Fight the monster-&gt;newmonster ](if: $coinflip &gt; 1)[(set: \
+$newgold to (random: $xp, $maxhp))(set: $gold\n      to it+$newgold)(if: \
+$gold&lt;1000)[You find $newgold gold coins. (either:&quot;What a \
+bounty.&quot;,&quot;Whoop dee doo.&quot;,&quot;Go you.&quot;)] ] (if: \
+$coinflip &gt; 2 and $gold&lt;1000)[(set: $potions to it+1) And you also find \
+a potion. (either:&quot;So\n      there&#39;s \
+that.&quot;,&quot;Yay.&quot;,&quot;Hurrah.&quot;) ](if: $coinflip &gt; 3 and \
+$gold&lt;1000)[(set: $poisons to it+1) And a poison. (either:&quot;Look at \
+you go.&quot;,&quot;You&#39;re on such a roll.&quot;) ](if: $coinflip&gt;1 \
+and $gold&lt;1000)[\n      Continue exploring-&gt;newroom Go to the \
+market-&gt;market ](if: $gold&gt;999)[You have more than a thousand gold \
+coins. So you&#39;ve won. Game Over-&gt;gameover ] (if: $coinflip&gt;1 and \
+$potions&gt;0 and $gold&gt;999)[ Drink a potion-&gt;drink\n      a potion ]"},
+          "DepthsOfSarcasmV17" -> {Tooltip -> "Start Here"}, 
+         "start" -> {
+          Tooltip -> 
+           "(text-style: &quot;superscript&quot;)[(align: \
+&quot;==&gt;&quot;)[(c) 2016 Sam Wilson Version 1.7.3] ] (display: \
+&quot;startup&quot;)(set: $goldtogo to 1000-$gold)Journey into... \
+(text-style: &quot;bold&quot;)[THE DEPTHS OF SARCASM] (either: &quot;Great\n  \
+    title.&quot;,&quot;A legitimate way to spend your time.&quot;,&quot;A \
+thrilling adventure.&quot;) You&#39;re on a quest to collect 1000 gold pieces \
+because you&#39;re really imaginative. The entrance of a cave in front of \
+you. Enter the cave-&gt;newroom\n\n\n\n\n\n\n\n\n\n    "}, 
+         "hit" -> {
+          Tooltip -> 
+           "(set: $attackpower to (random: $xp,$xp*5)+$sword)(set: \
+$monsterhealth to it-$attackpower)(if: $monsterhealth&lt;1)[(set: \
+$monsterhealth to 0)](either: \
+&quot;Thwack.&quot;,&quot;Crunch.&quot;,&quot;Flam.&quot;,&quot;Kapow.&quot;,&\
+quot;Kablooie.&quot;,&quot;Thump.&quot;,&quot;Bloof.&quot;,&quot;Paf.&quot;)\n\
+      You hit the $monstername for $attackpower damage. The \
+$monstername&#39;s health is $monsterhealth. (if: $monsterhealth&gt;0)[It \
+attacks. Defend-&gt;defend Run away-&gt;runaway ](if: $bribeammount&lt;$gold \
+and $hp&gt;0 and $monsterhealth&gt;0)[\n      Bribe-&gt;bribe ](if: \
+$monsterhealth&lt;1)[You won. (either: \
+&quot;Woo.&quot;,&quot;Whoopee.&quot;,&quot;Go you.&quot;,&quot;What a \
+champ.&quot;,&quot;Staggering.&quot;,&quot;Inspiring.&quot;,&quot;You&#39;re \
+amazing.&quot;,&quot;You probably\n      deserve a \
+parade.&quot;,&quot;We&#39;re all so proud.&quot;) Loot the room-&gt;win ]\n\n\
+    "}, "Drink the potion->drink a potion" -> {
+          Tooltip -> Missing[
+            "KeyAbsent", "Drink the potion->drink a potion"]}, 
+         "Buy a wooden sword for 50 gold->buy sword" -> {
+          Tooltip -> Missing[
+            "KeyAbsent", "Buy a wooden sword for 50 gold->buy sword"]}, 
+         "Bribe the monster->bribe" -> {
+          Tooltip -> Missing["KeyAbsent", "Bribe the monster->bribe"]}, 
+         "Continue exploring->newroom" -> {
+          Tooltip -> Missing["KeyAbsent", "Continue exploring->newroom"]}, 
+         "Fight the monster->newmonster" -> {
+          Tooltip -> Missing["KeyAbsent", "Fight the monster->newmonster"]}, 
+         "bribe" -> {
+          Tooltip -> 
+           "(set: $gold to $gold-$bribeammount)The $monstername takes \
+$bribeammount gold coins from you and kicks you out the door. Because (print: \
+$monstername+&quot;s&quot;) need gold, I guess. Yeah, authentic. Continue \
+exploring-&gt;newroom "}, 
+         "Buy a tin sword for 100 gold->buy sword2" -> {
+          Tooltip -> Missing[
+            "KeyAbsent", "Buy a tin sword for 100 gold->buy sword2"]}, 
+         "Drink another potion->drink a potion" -> {
+          Tooltip -> Missing[
+            "KeyAbsent", "Drink another potion->drink a potion"]}, 
+         "Buy a\n      potion for 10 gold->buy potion" -> {
+          Tooltip -> Missing[
+            "KeyAbsent", "Buy a\n      potion for 10 gold->buy potion"]}, 
+         "Continue shopping->market" -> {
+          Tooltip -> Missing["KeyAbsent", "Continue shopping->market"]}, 
+         "Nice aim, jackass->hit" -> {
+          Tooltip -> Missing["KeyAbsent", "Nice aim, jackass->hit"]}, 
+         "defend" -> {
+          Tooltip -> 
+           "(set: $damage to (random: $monsterlevel, $monsterlevel*3))(set: \
+$damage to $damage-$shield)(if: $damage&lt;0)[(set: $damage to 0)](set: $hp \
+to $hp-$damage)(either: \
+&quot;Thwack.&quot;,&quot;Crunch.&quot;,&quot;Flam.&quot;,&quot;Kapow.&quot;,&\
+quot;Kablooie.&quot;,&quot;Thump.&quot;,&quot;Bloof.&quot;,&quot;Paf.&quot;)\n\
+      The $monstername hits you for $damage damage. (if: $hp&lt;1)[ You are \
+so dead. Game over-&gt;gameover ](if: $hp&gt;0)[The $monstername has \
+$monsterhealth health. ](if: $hp&gt;0)[ Hit it again-&gt;hit Run \
+away-&gt;runaway ](if: $bribeammount&lt;$gold\n      and $hp&gt;0)[ bribe \
+](if: $potions&gt;0 and $hp&gt;0)[ Drink a potion-&gt;battledrink ](if: \
+$poisons&gt;0 and $hp&gt;0)[ Throw a poison-&gt;battlepoison ]\n    "}, 
+         "Bribe->bribe" -> {Tooltip -> Missing["KeyAbsent", "Bribe->bribe"]}, 
+         "buy shield2" -> {
+          Tooltip -> 
+           "(set: $gold to it-75)(if: $shield &lt; 10)[A wooden shield. \
+You&#39;re now completely and totally invulnerable, assuming that you \
+don&#39;t encounter fire, acid, arrows, swords, fast-moving rocks, clubs, \
+maces, magic bolts, rays of frost, enemies\n      of any kind, or \
+woodworms.](if: $shield is 10)[You can never have enough of these. \
+Apparently.](set: $shield to 10) Continue shopping-&gt;market Continue \
+exploring-&gt;newroom"}, 
+         "buy poison" -> {
+          Tooltip -> 
+           "(set: $gold to it-20)(set: $poisons to it+1)(if: $poisons is 1)[A \
+deadly liquid that looks almost identical to all the other potions that \
+you&#39;re drinking. This will end well. ]You take a bottle of poison. \
+Continue shopping-&gt;market Drink\n      the potion-&gt;drink a potion \
+Continue exploring-&gt;newroom"}}, VertexLabels -> {"Name"}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[0.00889324072901089], 
+        ArrowBox[{{12.593766674408547`, -5.468780002084838}, {
+         12.593766675504929`, -6.468780002084838}}, 0.10316159252784705`], 
+        ArrowBox[{{12.593766675504929`, -6.468780002084838}, {
+         12.593766675028503`, -7.468780002084838}}, 0.10316159252784705`], 
+        ArrowBox[{{2.1562600044401705`, -2.156260000694946}, {
+         2.1562600025709457`, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{2.1562600044401705`, -2.156260000694946}, {
+         1.1562600006949424`, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[BezierCurveBox[{{2.1562600044401705`, -2.156260000694946}, {
+         5.820700752449175, -1.5051747701415867`}, {
+         9.156260006091912, -3.156260000694946}}], 0.10316159252784705`], 
+        ArrowBox[BezierCurveBox[{{2.1562600044401705`, -2.156260000694946}, {
+         5.491819258082923, -3.8073452312473894`}, {
+         9.156260006091912, -3.156260000694946}}], 0.10316159252784705`], 
+        ArrowBox[BezierCurveBox[{{2.1562600044401705`, -2.156260000694946}, {
+         2.8207007510548108`, -2.4918192536959936`}, {
+         3.156260003303217, -3.156260000694946}}], 0.10316159252784705`], 
+        ArrowBox[BezierCurveBox[{{2.1562600044401705`, -2.156260000694946}, {
+         2.491819256688581, -2.820700747693773}, {
+         3.156260003303217, -3.156260000694946}}], 0.10316159252784705`], 
+        ArrowBox[{{2.1562600044401705`, -2.156260000694946}, {
+         5.156260004621473, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{5.156260008080352, -2.156260000694946}, {
+         9.156260006091912, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{5.156260008080352, -2.156260000694946}, {
+         7.156260007148177, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{18.743279143432297`, -1.156260000694946}, {
+         17.156260016268824`, -2.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{18.743279143432297`, -1.156260000694946}, {
+         22.156260018050666`, -2.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{18.743279143432297`, -1.156260000694946}, {
+         18.15626001656799, -2.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{18.743279143432297`, -1.156260000694946}, {
+         19.156260016909876`, -2.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{30.156260020744078`, -2.156260000694946}, {
+         9.156260006091912, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{8.156260008861608, -2.156260000694946}, {
+         9.156260006091912, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{8.156260008861608, -2.156260000694946}, {
+         5.156260004621473, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{8.156260008861608, -2.156260000694946}, {
+         11.156260012476935`, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{22.15626001848458, -1.156260000694946}, {
+         22.156260018050666`, -2.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{22.15626001848458, -1.156260000694946}, {
+         23.156260018492397`, -2.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{22.15626001848458, -1.156260000694946}, {
+         20.156260017319376`, -2.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{22.15626001848458, -1.156260000694946}, {
+         24.15626001901027, -2.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{22.15626001848458, -1.156260000694946}, {
+         21.156260017730126`, -2.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{28.581722495806567`, -1.156260000694946}, {
+         22.156260018050666`, -2.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{28.581722495806567`, -1.156260000694946}, {
+         30.156260020744078`, -2.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[BezierCurveBox[CompressedData["
+1:eJwB0QEu/iFib1JlAgAAABwAAAACAAAAMtb2w+uUPEAQhop8CoDyv/MGFEHX
+szxAZufY8DJA8782gMjzA9Y8QK70V4yVFPS/+0EU3HH7PEDjrQdPMv30vzxM
+9/kgJD1ABRPoOAn69b//nnFNEVA9QBYk+UkaC/e/QjqD1kJ/PUAV4TqCZTD4
+vwYeLJW1sT1AAkqt4epp+b9KSmyJaec9QN9eUGiqt/q/Dr9Ds14gPkCpHyQW
+pBn8vw8Z4IQ2VD5Ah32F4Up0/b8Q9W5wkno+QKBp0cARrP6/DVPwdXKTPkD1
+4we0+MD/vwQzZJXWnj5AQHaU3X9ZAMD6lMrOvpw+QKRBGmsTwQDA7HgjIiuN
+PkAlVJUCNxcBwNrebo8bcD5Aw60FpOpbAcDExqwWkEU+QH5Oa08ujwHAqzDd
+t4gNPkBWNsYEArEBwNeMKnKF4DpARDoLhzb2AsB6EpDEYvg3QFgvrf/dHwTA
+lcENryBVNUCSFaxu+C0FwCKaozG/9jJA8OwH1IUgBsAmnFFMPt0wQHa1wC+G
+9wbAQI8v/jsRLkAib9aB+bIHwB857JO88SpA9BlJyt9SCMDqNdlZ/lsoQOq1
+GAk51wjAoIX2TwFQJkAIQ0U+BUAJwCfM0Xc=
+         "]], 0.10316159252784705`], 
+        ArrowBox[{{28.581722495806567`, -1.156260000694946}, {
+         24.15626001901027, -2.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{28.581722495806567`, -1.156260000694946}, {
+         28.156260020038452`, -2.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{28.581722495806567`, -1.156260000694946}, {
+         29.156260020472878`, -2.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{4.156260007119926, -2.156260000694946}, {
+         9.156260006091912, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{4.156260007119926, -2.156260000694946}, {
+         3.156260003303217, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{4.156260007119926, -2.156260000694946}, {
+         5.156260004621473, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{4.156260007119926, -2.156260000694946}, {
+         6.156260005677936, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{1.622637352115646, -5.968780002084838}, {
+         1.1562600006949424`, -6.968780002084838}}, 0.10316159252784705`], 
+        ArrowBox[{{1.622637352115646, -5.968780002084838}, {
+         2.1562600008723223`, -6.968780002084838}}, 0.10316159252784705`], 
+        ArrowBox[{{16.156260015756665`, -2.156260000694946}, {
+         9.156260006091912, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{16.156260015756665`, -2.156260000694946}, {
+         14.15626001483708, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{16.156260015756665`, -2.156260000694946}, {
+         15.156260015086936`, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{16.156260015756665`, -2.156260000694946}, {
+         16.15626001580609, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{16.156260015756665`, -2.156260000694946}, {
+         17.156260016185406`, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{16.156260015756665`, -2.156260000694946}, {
+         18.156260016437365`, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{16.156260015756665`, -2.156260000694946}, {
+         19.15626001693773, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{16.156260015756665`, -2.156260000694946}, {
+         20.156260017619452`, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{16.156260015756665`, -2.156260000694946}, {
+         21.1562600190909, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{13.1562600095316, -2.156260000694946}, {
+         9.156260006091912, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{13.1562600095316, -2.156260000694946}, {
+         10.15626001092798, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{13.1562600095316, -2.156260000694946}, {
+         12.156260013764388`, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{9.15626000869051, -2.156260000694946}, {
+         9.156260006091912, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{9.15626000869051, -2.156260000694946}, {
+         10.15626001092798, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{10.15626000877586, -2.156260000694946}, {
+         9.156260006091912, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{10.15626000877586, -2.156260000694946}, {
+         10.15626001092798, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{6.156260008268859, -2.156260000694946}, {
+         9.156260006091912, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{6.156260008268859, -2.156260000694946}, {
+         6.156260005677936, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{6.156260008268859, -2.156260000694946}, {
+         10.15626001092798, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{3.15626000607341, -2.156260000694946}, {
+         2.1562600025709457`, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{3.15626000607341, -2.156260000694946}, {
+         9.156260006091912, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{3.15626000607341, -2.156260000694946}, {
+         3.156260003303217, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{3.15626000607341, -2.156260000694946}, {
+         6.156260005677936, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{3.15626000607341, -2.156260000694946}, {
+         4.15626000415206, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{11.156260008955655`, -2.156260000694946}, {
+         9.156260006091912, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{11.156260008955655`, -2.156260000694946}, {
+         10.15626001092798, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{12.15626000915092, -2.156260000694946}, {
+         9.156260006091912, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{12.15626000915092, -2.156260000694946}, {
+         10.15626001092798, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{14.15626001006175, -2.156260000694946}, {
+         9.156260006091912, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{14.15626001006175, -2.156260000694946}, {
+         10.15626001092798, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{14.15626001006175, -2.156260000694946}, {
+         13.156260014351894`, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{7.156260008479947, -2.156260000694946}, {
+         9.156260006091912, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{7.156260008479947, -2.156260000694946}, {
+         6.156260005677936, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{7.156260008479947, -2.156260000694946}, {
+         10.15626001092798, -3.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{24.26656094464301, -1.156260000694946}, {
+         23.156260018492397`, -2.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{24.26656094464301, -1.156260000694946}, {
+         25.156260019279706`, -2.156260000694946}}, 0.10316159252784705`], 
+        ArrowBox[{{23.031273349277143`, -5.968780002084838}, {
+         23.031273349041157`, -6.968780002084838}}, 0.10316159252784705`]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{12.593766674408547, -5.468780002084838}, 
+            0.10316159252784705],
+           "\"Start Here\"",
+           TooltipStyle->"TextStyling"],
+          Annotation[#, "Start Here", "Tooltip"]& ], 
+         InsetBox["\<\"DepthsOfSarcasmV17\"\>", 
+          Offset[{2, 2}, {12.696928266936395, -5.3656184095569905}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{12.593766675504929, -6.468780002084838}, 
+            0.10316159252784705],
+           
+           "\"(text-style: &quot;superscript&quot;)[(align: \
+&quot;==&gt;&quot;)[(c) 2016 Sam Wilson Version 1.7.3] ] (display: \
+&quot;startup&quot;)(set: $goldtogo to 1000-$gold)Journey into... \
+(text-style: &quot;bold&quot;)[THE DEPTHS OF SARCASM] (either: &quot;Great\\n \
+     title.&quot;,&quot;A legitimate way to spend your time.&quot;,&quot;A \
+thrilling adventure.&quot;) You&#39;re on a quest to collect 1000 gold pieces \
+because you&#39;re really imaginative. The entrance of a cave in front of \
+you. Enter the cave-&gt;newroom\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n    \"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, 
+           "(text-style: &quot;superscript&quot;)[(align: \
+&quot;==&gt;&quot;)[(c) 2016 Sam Wilson Version 1.7.3] ] (display: \
+&quot;startup&quot;)(set: $goldtogo to 1000-$gold)Journey into... \
+(text-style: &quot;bold&quot;)[THE DEPTHS OF SARCASM] (either: &quot;Great\n  \
+    title.&quot;,&quot;A legitimate way to spend your time.&quot;,&quot;A \
+thrilling adventure.&quot;) You&#39;re on a quest to collect 1000 gold pieces \
+because you&#39;re really imaginative. The entrance of a cave in front of \
+you. Enter the cave-&gt;newroom\n\n\n\n\n\n\n\n\n\n    ", "Tooltip"]& ], 
+         InsetBox["\<\"start\"\>", 
+          Offset[{2, 2}, {12.696928268032776, -6.3656184095569905}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{12.593766675028503, -7.468780002084838}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             RowBox[{"\"KeyAbsent\"", ",", "\"Enter the cave->newroom\""}], 
+             "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Enter the cave->newroom"], "Tooltip"]& ], 
+         InsetBox["\<\"Enter the cave->newroom\"\>", 
+          Offset[{2, 2}, {12.69692826755635, -7.3656184095569905}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{2.1562600044401705, -2.156260000694946}, 
+            0.10316159252784705],
+           
+           "\"You enter a (either: &quot;dingy&quot;, &quot;dank&quot;, \
+&quot;miserable&quot;, &quot;poorly-lit&quot;, \
+&quot;gross&quot;,&quot;slimy&quot;,&quot;gloomy&quot;,&quot;depressing&quot;,\
+&quot;musty-smelling&quot;,&quot;fetid&quot;,&quot;reeking&quot;)\\n      \
+(either: &quot;chamber&quot;, &quot;cavern&quot;, &quot;room&quot;, \
+&quot;tunnel&quot;, &quot;nook&quot;, \
+&quot;vault&quot;,&quot;crypt&quot;,&quot;passage&quot;). (set: $coinflip to \
+(random: 1, 5))(if: $coinflip is 1)[(either:&quot;A monster leaps\\n      out \
+at you.&quot;,&quot;A monster drops down on you.&quot;,&quot;A monster crawls \
+out of the shadows.&quot;,&quot;You walk straight into a \
+monster.&quot;,&quot;Oh look. A monster. What a surprise.&quot;,&quot;And is \
+that a monster over there? Of\\n      course it is.&quot;) Fight the \
+monster-&gt;newmonster ](if: $coinflip is 2)[You find a treasure chest. \
+(either: &quot;Because everyone leaves treasure chests lying around.&quot;, \
+&quot;Like you do.&quot;, &quot;Great.&quot;) Open the chest-&gt;chest\\n     \
+ Continue exploring-&gt;newroom Go to the market-&gt;market ](if: \
+$coinflip&gt;2)[(either: &quot;This place is brimming with excitement.&quot;, \
+&quot;This place is just the best.&quot;, &quot;You can&#39;t get over how \
+awesome it is.&quot;,\\n      &quot;Fantastic.&quot;, &quot;Just \
+wow.&quot;,&quot;Lovely.&quot;,&quot;Epic.&quot;,&quot;You seriously consider \
+settling down here and picking out curtains.&quot;) Continue \
+exploring-&gt;newroom Go to the market-&gt;market ] (if: $coinflip&gt;1\\n    \
+  and $potions&gt;0)[ Drink a potion-&gt;drink a potion ]\\n\\n    \"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, 
+           "You enter a (either: &quot;dingy&quot;, &quot;dank&quot;, \
+&quot;miserable&quot;, &quot;poorly-lit&quot;, \
+&quot;gross&quot;,&quot;slimy&quot;,&quot;gloomy&quot;,&quot;depressing&quot;,\
+&quot;musty-smelling&quot;,&quot;fetid&quot;,&quot;reeking&quot;)\n      \
+(either: &quot;chamber&quot;, &quot;cavern&quot;, &quot;room&quot;, \
+&quot;tunnel&quot;, &quot;nook&quot;, \
+&quot;vault&quot;,&quot;crypt&quot;,&quot;passage&quot;). (set: $coinflip to \
+(random: 1, 5))(if: $coinflip is 1)[(either:&quot;A monster leaps\n      out \
+at you.&quot;,&quot;A monster drops down on you.&quot;,&quot;A monster crawls \
+out of the shadows.&quot;,&quot;You walk straight into a \
+monster.&quot;,&quot;Oh look. A monster. What a surprise.&quot;,&quot;And is \
+that a monster over there? Of\n      course it is.&quot;) Fight the \
+monster-&gt;newmonster ](if: $coinflip is 2)[You find a treasure chest. \
+(either: &quot;Because everyone leaves treasure chests lying around.&quot;, \
+&quot;Like you do.&quot;, &quot;Great.&quot;) Open the chest-&gt;chest\n      \
+Continue exploring-&gt;newroom Go to the market-&gt;market ](if: \
+$coinflip&gt;2)[(either: &quot;This place is brimming with excitement.&quot;, \
+&quot;This place is just the best.&quot;, &quot;You can&#39;t get over how \
+awesome it is.&quot;,\n      &quot;Fantastic.&quot;, &quot;Just \
+wow.&quot;,&quot;Lovely.&quot;,&quot;Epic.&quot;,&quot;You seriously consider \
+settling down here and picking out curtains.&quot;) Continue \
+exploring-&gt;newroom Go to the market-&gt;market ] (if: $coinflip&gt;1\n     \
+ and $potions&gt;0)[ Drink a potion-&gt;drink a potion ]\n\n    ", 
+           "Tooltip"]& ], 
+         InsetBox["\<\"newroom\"\>", 
+          Offset[{2, 2}, {2.2594215969680174, -2.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{2.1562600025709457, -3.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             
+             RowBox[{"\"KeyAbsent\"", ",", 
+               "\"Fight the monster->newmonster\""}], "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Fight the monster->newmonster"], 
+           "Tooltip"]& ], 
+         InsetBox["\<\"Fight the monster->newmonster\"\>", 
+          Offset[{2, 2}, {2.2594215950987926, -3.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{1.1562600006949424, -3.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             RowBox[{"\"KeyAbsent\"", ",", "\"Open the chest->chest\""}], 
+             "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Open the chest->chest"], "Tooltip"]& ], 
+         InsetBox["\<\"Open the chest->chest\"\>", 
+          Offset[{2, 2}, {1.2594215932227895, -3.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{9.156260006091912, -3.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             
+             RowBox[{"\"KeyAbsent\"", ",", 
+               "\"Continue exploring->newroom\""}], "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Continue exploring->newroom"], "Tooltip"]& ],
+          InsetBox["\<\"Continue exploring->newroom\"\>", 
+          Offset[{2, 2}, {9.25942159861976, -3.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{3.156260003303217, -3.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             RowBox[{"\"KeyAbsent\"", ",", "\"Go to the market->market\""}], 
+             "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Go to the market->market"], "Tooltip"]& ], 
+         InsetBox["\<\"Go to the market->market\"\>", 
+          Offset[{2, 2}, {3.2594215958310637, -3.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{5.156260004621473, -3.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             
+             RowBox[{"\"KeyAbsent\"", ",", 
+               "\"Drink a potion->drink a potion\""}], "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Drink a potion->drink a potion"], 
+           "Tooltip"]& ], 
+         InsetBox["\<\"Drink a potion->drink a potion\"\>", 
+          Offset[{2, 2}, {5.25942159714932, -3.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{5.156260008080352, -2.156260000694946}, 
+            0.10316159252784705],
+           
+           "\"(set: $potions to $potions-1)(if: $hp is \
+$maxhp)[(either:&quot;You were already at full health, \
+genius.&quot;,&quot;Yeah. You really needed to do that.&quot;,&quot;Oh boy, \
+what a great use of a potion.&quot;,&quot;Some people would consider that \
+a\\n      spectacular waste.&quot;,&quot;Drinking a potion when you&#39;re \
+already at full health? Well done.&quot;) ](if: $hp &lt; $maxhp)[(set: $hp to \
+it+10)You are healed by 10 hit points. ](if: $hp&gt;$maxhp)[(set: $hp to \
+$maxhp)You&#39;re at maximum\\n      health. ](if: $potions&gt;0)[ Drink \
+another potion-&gt;drink a potion ]Continue exploring-&gt;newroom\"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, 
+           "(set: $potions to $potions-1)(if: $hp is \
+$maxhp)[(either:&quot;You were already at full health, \
+genius.&quot;,&quot;Yeah. You really needed to do that.&quot;,&quot;Oh boy, \
+what a great use of a potion.&quot;,&quot;Some people would consider that a\n \
+     spectacular waste.&quot;,&quot;Drinking a potion when you&#39;re already \
+at full health? Well done.&quot;) ](if: $hp &lt; $maxhp)[(set: $hp to \
+it+10)You are healed by 10 hit points. ](if: $hp&gt;$maxhp)[(set: $hp to \
+$maxhp)You&#39;re at maximum\n      health. ](if: $potions&gt;0)[ Drink \
+another potion-&gt;drink a potion ]Continue exploring-&gt;newroom", 
+           "Tooltip"]& ], 
+         InsetBox["\<\"drink a potion\"\>", 
+          Offset[{2, 2}, {5.259421600608199, -2.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{7.156260007148177, -3.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             
+             RowBox[{"\"KeyAbsent\"", ",", 
+               "\"Drink another potion->drink a potion\""}], "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Drink another potion->drink a potion"], 
+           "Tooltip"]& ], 
+         InsetBox["\<\"Drink another potion->drink a potion\"\>", 
+          Offset[{2, 2}, {7.259421599676024, -3.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{18.743279143432297, -1.156260000694946}, 
+            0.10316159252784705],
+           
+           "\"(set: $attackpower to (random: $xp,$xp*5)+$sword)(set: \
+$monsterhealth to it-$attackpower)(if: $monsterhealth&lt;1)[(set: \
+$monsterhealth to 0)](either: \
+&quot;Thwack.&quot;,&quot;Crunch.&quot;,&quot;Flam.&quot;,&quot;Kapow.&quot;,&\
+quot;Kablooie.&quot;,&quot;Thump.&quot;,&quot;Bloof.&quot;,&quot;Paf.&quot;)\\\
+n      You hit the $monstername for $attackpower damage. The \
+$monstername&#39;s health is $monsterhealth. (if: $monsterhealth&gt;0)[It \
+attacks. Defend-&gt;defend Run away-&gt;runaway ](if: $bribeammount&lt;$gold \
+and $hp&gt;0 and $monsterhealth&gt;0)[\\n      Bribe-&gt;bribe ](if: \
+$monsterhealth&lt;1)[You won. (either: \
+&quot;Woo.&quot;,&quot;Whoopee.&quot;,&quot;Go you.&quot;,&quot;What a \
+champ.&quot;,&quot;Staggering.&quot;,&quot;Inspiring.&quot;,&quot;You&#39;re \
+amazing.&quot;,&quot;You probably\\n      deserve a \
+parade.&quot;,&quot;We&#39;re all so proud.&quot;) Loot the room-&gt;win ]\\n\
+\\n    \"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, 
+           "(set: $attackpower to (random: $xp,$xp*5)+$sword)(set: \
+$monsterhealth to it-$attackpower)(if: $monsterhealth&lt;1)[(set: \
+$monsterhealth to 0)](either: \
+&quot;Thwack.&quot;,&quot;Crunch.&quot;,&quot;Flam.&quot;,&quot;Kapow.&quot;,&\
+quot;Kablooie.&quot;,&quot;Thump.&quot;,&quot;Bloof.&quot;,&quot;Paf.&quot;)\n\
+      You hit the $monstername for $attackpower damage. The \
+$monstername&#39;s health is $monsterhealth. (if: $monsterhealth&gt;0)[It \
+attacks. Defend-&gt;defend Run away-&gt;runaway ](if: $bribeammount&lt;$gold \
+and $hp&gt;0 and $monsterhealth&gt;0)[\n      Bribe-&gt;bribe ](if: \
+$monsterhealth&lt;1)[You won. (either: \
+&quot;Woo.&quot;,&quot;Whoopee.&quot;,&quot;Go you.&quot;,&quot;What a \
+champ.&quot;,&quot;Staggering.&quot;,&quot;Inspiring.&quot;,&quot;You&#39;re \
+amazing.&quot;,&quot;You probably\n      deserve a \
+parade.&quot;,&quot;We&#39;re all so proud.&quot;) Loot the room-&gt;win ]\n\n\
+    ", "Tooltip"]& ], 
+         InsetBox["\<\"hit\"\>", 
+          Offset[{2, 2}, {18.846440735960144, -1.0530984081670989}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{17.156260016268824, -2.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             RowBox[{"\"KeyAbsent\"", ",", "\"Defend->defend\""}], "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Defend->defend"], "Tooltip"]& ], 
+         InsetBox["\<\"Defend->defend\"\>", Offset[{2, 2}, 
+          {17.25942160879667, -2.053098408167099}], ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{22.156260018050666, -2.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             RowBox[{"\"KeyAbsent\"", ",", "\"Run away->runaway\""}], "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Run away->runaway"], "Tooltip"]& ], 
+         InsetBox["\<\"Run away->runaway\"\>", 
+          Offset[{2, 2}, {22.259421610578514, -2.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{18.15626001656799, -2.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             RowBox[{"\"KeyAbsent\"", ",", "\"Bribe->bribe\""}], "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Bribe->bribe"], "Tooltip"]& ], 
+         InsetBox["\<\"Bribe->bribe\"\>", 
+          Offset[{2, 2}, {18.25942160909584, -2.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{19.156260016909876, -2.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             RowBox[{"\"KeyAbsent\"", ",", "\"Loot the room->win\""}], "]"}]],
+          
+          Annotation[#, 
+           Missing["KeyAbsent", "Loot the room->win"], "Tooltip"]& ], 
+         InsetBox["\<\"Loot the room->win\"\>", 
+          Offset[{2, 2}, {19.259421609437723, -2.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{30.156260020744078, -2.156260000694946}, 
+            0.10316159252784705],
+           
+           "\"(set: $gold to $gold-$bribeammount)The $monstername takes \
+$bribeammount gold coins from you and kicks you out the door. Because (print: \
+$monstername+&quot;s&quot;) need gold, I guess. Yeah, authentic. Continue \
+exploring-&gt;newroom \"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, 
+           "(set: $gold to $gold-$bribeammount)The $monstername takes \
+$bribeammount gold coins from you and kicks you out the door. Because (print: \
+$monstername+&quot;s&quot;) need gold, I guess. Yeah, authentic. Continue \
+exploring-&gt;newroom ", "Tooltip"]& ], 
+         InsetBox["\<\"bribe\"\>", 
+          Offset[{2, 2}, {30.259421613271925, -2.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{8.156260008861608, -2.156260000694946}, 
+            0.10316159252784705],
+           
+           "\"(set: $damage to (random: $monsterlevel, $monsterlevel*3))(set: \
+$hp to $hp-$damage)(either: &quot;Truely you are the hero that the world \
+needs.&quot;,&quot;So inspiring.&quot;,&quot;A picture of \
+bravery.&quot;,&quot;Lion-hearted. Really.&quot;,&quot;Gallant.&quot;)\\n     \
+ As you run away the $monstername hits you for $damage damage. (if: $hp &gt; \
+0)[ Continue exploring-&gt;newroom ] (if: $potions&gt;0 and $hp &gt; 0)[ \
+Drink a potion-&gt;drink a potion ] (if: $hp &lt; 1)[ You are so dead. Game \
+over-&gt;gameover\\n      ]\\n\\n    \"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, 
+           "(set: $damage to (random: $monsterlevel, $monsterlevel*3))(set: \
+$hp to $hp-$damage)(either: &quot;Truely you are the hero that the world \
+needs.&quot;,&quot;So inspiring.&quot;,&quot;A picture of \
+bravery.&quot;,&quot;Lion-hearted. Really.&quot;,&quot;Gallant.&quot;)\n      \
+As you run away the $monstername hits you for $damage damage. (if: $hp &gt; \
+0)[ Continue exploring-&gt;newroom ] (if: $potions&gt;0 and $hp &gt; 0)[ \
+Drink a potion-&gt;drink a potion ] (if: $hp &lt; 1)[ You are so dead. Game \
+over-&gt;gameover\n      ]\n\n    ", "Tooltip"]& ], 
+         InsetBox["\<\"runaway\"\>", 
+          Offset[{2, 2}, {8.259421601389455, -2.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{11.156260012476935, -3.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             RowBox[{"\"KeyAbsent\"", ",", "\"Game over->gameover\""}], "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Game over->gameover"], "Tooltip"]& ], 
+         InsetBox["\<\"Game over->gameover\"\>", 
+          Offset[{2, 2}, {11.259421605004782, -3.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{22.15626001848458, -1.156260000694946}, 
+            0.10316159252784705],
+           
+           "\"(set: $monsterid to (random: 1,10))(set: $monstername to \
+$monsterid of $monsterarray)(set: $monsterlevel to (random: $xp, $xp+2))(set: \
+$imonsterhealth to $monsterlevel*3)(set: $monsterhealth to \
+$imonsterhealth+7)(set: $bribeammount to $monsterlevel*10)You\\n      are \
+fighing a level $monsterlevel $monstername. (either: &quot;What an ugly \
+bastard.&quot;,&quot;It&#39;s quite the looker.&quot;,&quot;You can tell \
+you&#39;re going to be besties.&quot;,&quot;Sigh.&quot;,&quot;Let&#39;s get \
+this over with.&quot;,&quot;Oh\\n      joy.&quot;) It has $monsterhealth \
+health. Hit the monster-&gt;hit Run away-&gt;runaway (if: \
+$bribeammount&lt;$gold)[ Bribe the monster-&gt;bribe ](if: $potions&gt;0)[ \
+Drink a potion-&gt;battledrink ](if: $poisons&gt;0)[ Throw a\\n      \
+poison-&gt;battlepoison ]\\n    \"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, 
+           "(set: $monsterid to (random: 1,10))(set: $monstername to \
+$monsterid of $monsterarray)(set: $monsterlevel to (random: $xp, $xp+2))(set: \
+$imonsterhealth to $monsterlevel*3)(set: $monsterhealth to \
+$imonsterhealth+7)(set: $bribeammount to $monsterlevel*10)You\n      are \
+fighing a level $monsterlevel $monstername. (either: &quot;What an ugly \
+bastard.&quot;,&quot;It&#39;s quite the looker.&quot;,&quot;You can tell \
+you&#39;re going to be besties.&quot;,&quot;Sigh.&quot;,&quot;Let&#39;s get \
+this over with.&quot;,&quot;Oh\n      joy.&quot;) It has $monsterhealth \
+health. Hit the monster-&gt;hit Run away-&gt;runaway (if: \
+$bribeammount&lt;$gold)[ Bribe the monster-&gt;bribe ](if: $potions&gt;0)[ \
+Drink a potion-&gt;battledrink ](if: $poisons&gt;0)[ Throw a\n      \
+poison-&gt;battlepoison ]\n    ", "Tooltip"]& ], 
+         InsetBox["\<\"newmonster\"\>", 
+          Offset[{2, 2}, {22.259421611012428, -1.0530984081670989}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{23.156260018492397, -2.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             RowBox[{"\"KeyAbsent\"", ",", "\"Hit the monster->hit\""}], 
+             "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Hit the monster->hit"], "Tooltip"]& ], 
+         InsetBox["\<\"Hit the monster->hit\"\>", 
+          Offset[{2, 2}, {23.259421611020244, -2.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{20.156260017319376, -2.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             RowBox[{"\"KeyAbsent\"", ",", "\"Bribe the monster->bribe\""}], 
+             "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Bribe the monster->bribe"], "Tooltip"]& ], 
+         InsetBox["\<\"Bribe the monster->bribe\"\>", 
+          Offset[{2, 2}, {20.259421609847223, -2.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{24.15626001901027, -2.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             
+             RowBox[{"\"KeyAbsent\"", ",", 
+               "\"Drink a potion->battledrink\""}], "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Drink a potion->battledrink"], "Tooltip"]& ],
+          InsetBox["\<\"Drink a potion->battledrink\"\>", Offset[{2, 2}, 
+          {24.259421611538116, -2.053098408167099}], ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{21.156260017730126, -2.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             
+             RowBox[{"\"KeyAbsent\"", ",", 
+               "\"Throw a\\n      poison->battlepoison\""}], "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Throw a\n      poison->battlepoison"], 
+           "Tooltip"]& ], 
+         InsetBox["\<\"Throw a\\n      poison->battlepoison\"\>", 
+          Offset[{2, 2}, {21.259421610257974, -2.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{28.581722495806567, -1.156260000694946}, 
+            0.10316159252784705],
+           
+           "\"(set: $damage to (random: $monsterlevel, $monsterlevel*3))(set: \
+$damage to $damage-$shield)(if: $damage&lt;0)[(set: $damage to 0)](set: $hp \
+to $hp-$damage)(either: \
+&quot;Thwack.&quot;,&quot;Crunch.&quot;,&quot;Flam.&quot;,&quot;Kapow.&quot;,&\
+quot;Kablooie.&quot;,&quot;Thump.&quot;,&quot;Bloof.&quot;,&quot;Paf.&quot;)\\\
+n      The $monstername hits you for $damage damage. (if: $hp&lt;1)[ You are \
+so dead. Game over-&gt;gameover ](if: $hp&gt;0)[The $monstername has \
+$monsterhealth health. ](if: $hp&gt;0)[ Hit it again-&gt;hit Run \
+away-&gt;runaway ](if: $bribeammount&lt;$gold\\n      and $hp&gt;0)[ bribe \
+](if: $potions&gt;0 and $hp&gt;0)[ Drink a potion-&gt;battledrink ](if: \
+$poisons&gt;0 and $hp&gt;0)[ Throw a poison-&gt;battlepoison ]\\n    \"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, 
+           "(set: $damage to (random: $monsterlevel, $monsterlevel*3))(set: \
+$damage to $damage-$shield)(if: $damage&lt;0)[(set: $damage to 0)](set: $hp \
+to $hp-$damage)(either: \
+&quot;Thwack.&quot;,&quot;Crunch.&quot;,&quot;Flam.&quot;,&quot;Kapow.&quot;,&\
+quot;Kablooie.&quot;,&quot;Thump.&quot;,&quot;Bloof.&quot;,&quot;Paf.&quot;)\n\
+      The $monstername hits you for $damage damage. (if: $hp&lt;1)[ You are \
+so dead. Game over-&gt;gameover ](if: $hp&gt;0)[The $monstername has \
+$monsterhealth health. ](if: $hp&gt;0)[ Hit it again-&gt;hit Run \
+away-&gt;runaway ](if: $bribeammount&lt;$gold\n      and $hp&gt;0)[ bribe \
+](if: $potions&gt;0 and $hp&gt;0)[ Drink a potion-&gt;battledrink ](if: \
+$poisons&gt;0 and $hp&gt;0)[ Throw a poison-&gt;battlepoison ]\n    ", 
+           "Tooltip"]& ], 
+         InsetBox["\<\"defend\"\>", 
+          Offset[{2, 2}, {28.684884088334414, -1.0530984081670989}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{28.156260020038452, -2.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             RowBox[{"\"KeyAbsent\"", ",", "\"Hit it again->hit\""}], "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Hit it again->hit"], "Tooltip"]& ], 
+         InsetBox["\<\"Hit it again->hit\"\>", 
+          Offset[{2, 2}, {28.2594216125663, -2.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{29.156260020472878, -2.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             
+             RowBox[{"\"KeyAbsent\"", ",", 
+               "\"Throw a poison->battlepoison\""}], "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Throw a poison->battlepoison"], 
+           "Tooltip"]& ], 
+         InsetBox["\<\"Throw a poison->battlepoison\"\>", 
+          Offset[{2, 2}, {29.259421613000725, -2.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{4.156260007119926, -2.156260000694946}, 
+            0.10316159252784705],
+           
+           "\"You go up a level. (either: &quot;Because levels are real \
+things.&quot;,&quot;Don&#39;t break anything with your amazing new \
+powers.&quot;,&quot;Hail the conquering hero.&quot;,&quot;So, yay, \
+progress.&quot;,&quot;It looks like you needed it.&quot;)\\n      (set: \
+$cashammount to (random: $monsterlevel, $monsterlevel*10))(set: $gold to \
+$gold+$cashammount)(set: $xp to $xp+1)(set: $monsterkills to \
+it+1)(either:&quot;You found $cashammount gold coins in the dead \
+$monstername&#39;s pockets. A $monstername\\n      with pockets. \
+Yeah.&quot;,&quot;You pick up $cashammount gold coins that are scattered \
+across the floor.&quot;,&quot;You drag the $monstername&#39;s corpse to the \
+village taxidermist and collect a bounty of $cashammount gold \
+coins.&quot;,&quot;You\\n      find $cashammount gold coins on one of the \
+corpses scattered around the room.&quot;,&quot;You cut the $monstername&#39;s \
+body open and $cashammount gold coins fall out. What a believable thing to \
+happen.&quot;) (if: $gold&lt;1000)[ Continue exploring-&gt;newroom\\n      Go \
+to the market-&gt;market (if: $potions&gt;0)[ Drink a potion-&gt;drink a \
+potion ] ](if: $gold&gt;999)[ You know what that means? You just won the \
+game. Game Over-&gt;gameover ]\\n\\n    \"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, 
+           "You go up a level. (either: &quot;Because levels are real \
+things.&quot;,&quot;Don&#39;t break anything with your amazing new \
+powers.&quot;,&quot;Hail the conquering hero.&quot;,&quot;So, yay, \
+progress.&quot;,&quot;It looks like you needed it.&quot;)\n      (set: \
+$cashammount to (random: $monsterlevel, $monsterlevel*10))(set: $gold to \
+$gold+$cashammount)(set: $xp to $xp+1)(set: $monsterkills to \
+it+1)(either:&quot;You found $cashammount gold coins in the dead \
+$monstername&#39;s pockets. A $monstername\n      with pockets. \
+Yeah.&quot;,&quot;You pick up $cashammount gold coins that are scattered \
+across the floor.&quot;,&quot;You drag the $monstername&#39;s corpse to the \
+village taxidermist and collect a bounty of $cashammount gold \
+coins.&quot;,&quot;You\n      find $cashammount gold coins on one of the \
+corpses scattered around the room.&quot;,&quot;You cut the $monstername&#39;s \
+body open and $cashammount gold coins fall out. What a believable thing to \
+happen.&quot;) (if: $gold&lt;1000)[ Continue exploring-&gt;newroom\n      Go \
+to the market-&gt;market (if: $potions&gt;0)[ Drink a potion-&gt;drink a \
+potion ] ](if: $gold&gt;999)[ You know what that means? You just won the \
+game. Game Over-&gt;gameover ]\n\n    ", "Tooltip"]& ], 
+         InsetBox["\<\"win\"\>", 
+          Offset[{2, 2}, {4.259421599647773, -2.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{6.156260005677936, -3.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             RowBox[{"\"KeyAbsent\"", ",", "\"Game Over->gameover\""}], "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Game Over->gameover"], "Tooltip"]& ], 
+         InsetBox["\<\"Game Over->gameover\"\>", 
+          Offset[{2, 2}, {6.259421598205783, -3.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{1.622637352115646, -5.968780002084838}, 
+            0.10316159252784705],
+           
+           "\"\\n      (set: $potions to $potions-1)You are healed by 10 hit \
+points.\\n      (if: $hp is $maxhp)[But you were already at maximum health. \
+So that was a potion well-spent. Just so we&#39;re on the same page here:]\\n \
+     (set: $hp to it+10)\\n      (if: $hp&gt;=$maxhp)[(set: $hp to $maxhp) \
+You&#39;re at maximum health.]\\n  (if: $potions &gt; 0)[ Drink \
+another-&gt;battledrink ]\\n  Fight-&gt;defend\\n    \"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, 
+           "\n      (set: $potions to $potions-1)You are healed by 10 hit \
+points.\n      (if: $hp is $maxhp)[But you were already at maximum health. So \
+that was a potion well-spent. Just so we&#39;re on the same page here:]\n     \
+ (set: $hp to it+10)\n      (if: $hp&gt;=$maxhp)[(set: $hp to $maxhp) \
+You&#39;re at maximum health.]\n  (if: $potions &gt; 0)[ Drink \
+another-&gt;battledrink ]\n  Fight-&gt;defend\n    ", "Tooltip"]& ], 
+         InsetBox["\<\"battledrink\"\>", 
+          Offset[{2, 2}, {1.7257989446434931, -5.8656184095569905}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{1.1562600006949424, -6.968780002084838}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             RowBox[{"\"KeyAbsent\"", ",", "\"Drink another->battledrink\""}],
+              "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Drink another->battledrink"], "Tooltip"]& ], 
+         InsetBox["\<\"Drink another->battledrink\"\>", 
+          Offset[{2, 2}, {1.2594215932227895, -6.8656184095569905}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{2.1562600008723223, -6.968780002084838}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             RowBox[{"\"KeyAbsent\"", ",", "\"Fight->defend\""}], "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Fight->defend"], "Tooltip"]& ], 
+         InsetBox["\<\"Fight->defend\"\>", 
+          Offset[{2, 2}, {2.259421593400169, -6.8656184095569905}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{16.156260015756665, -2.156260000694946}, 
+            0.10316159252784705],
+           
+           "\"(if: $visitedmarket is false)[You head out of the caves and \
+back to the local village, which is a bustling metropolis called \
+&quot;Pigswill&quot;. The storekeeper greets you with a belch.(set: \
+$visitedmarket to true) ]You look at the wares on sale.(if:\\n      \
+$gold&lt;10)[ There&#39;s nothing you can afford.] (if: $potions&gt;0)[ Sell \
+a potion for 5 gold-&gt;sell potion ](if: $poisons&gt;0)[ Sell a poison for \
+10 gold-&gt;sell poison ](if: $gold&gt;24)[ Buy a cardboard shield for 25 \
+gold-&gt;buy\\n      shield ](if: $gold&gt;49)[ Buy a wooden sword for 50 \
+gold-&gt;buy sword ](if: $gold&gt;74)[ Buy a wooden shield for 75 \
+gold-&gt;buy shield2 ](if: $gold&gt;99)[ Buy a tin sword for 100 gold-&gt;buy \
+sword2 ](if: $gold&gt;9)[ Buy a\\n      potion for 10 gold-&gt;buy potion \
+](if: $gold&gt;19)[ Buy a poison for 20 gold-&gt;buy poison ]Continue \
+exploring-&gt;newroom\"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, 
+           "(if: $visitedmarket is false)[You head out of the caves and back \
+to the local village, which is a bustling metropolis called \
+&quot;Pigswill&quot;. The storekeeper greets you with a belch.(set: \
+$visitedmarket to true) ]You look at the wares on sale.(if:\n      \
+$gold&lt;10)[ There&#39;s nothing you can afford.] (if: $potions&gt;0)[ Sell \
+a potion for 5 gold-&gt;sell potion ](if: $poisons&gt;0)[ Sell a poison for \
+10 gold-&gt;sell poison ](if: $gold&gt;24)[ Buy a cardboard shield for 25 \
+gold-&gt;buy\n      shield ](if: $gold&gt;49)[ Buy a wooden sword for 50 \
+gold-&gt;buy sword ](if: $gold&gt;74)[ Buy a wooden shield for 75 \
+gold-&gt;buy shield2 ](if: $gold&gt;99)[ Buy a tin sword for 100 gold-&gt;buy \
+sword2 ](if: $gold&gt;9)[ Buy a\n      potion for 10 gold-&gt;buy potion \
+](if: $gold&gt;19)[ Buy a poison for 20 gold-&gt;buy poison ]Continue \
+exploring-&gt;newroom", "Tooltip"]& ], 
+         InsetBox["\<\"market\"\>", 
+          Offset[{2, 2}, {16.259421608284512, -2.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{14.15626001483708, -3.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             
+             RowBox[{"\"KeyAbsent\"", ",", 
+               "\"Sell a potion for 5 gold->sell potion\""}], "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Sell a potion for 5 gold->sell potion"], 
+           "Tooltip"]& ], 
+         InsetBox["\<\"Sell a potion for 5 gold->sell potion\"\>", 
+          Offset[{2, 2}, {14.259421607364928, -3.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{15.156260015086936, -3.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             
+             RowBox[{"\"KeyAbsent\"", ",", 
+               "\"Sell a poison for 10 gold->sell poison\""}], "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Sell a poison for 10 gold->sell poison"], 
+           "Tooltip"]& ], 
+         InsetBox["\<\"Sell a poison for 10 gold->sell poison\"\>", 
+          Offset[{2, 2}, {15.259421607614783, -3.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{16.15626001580609, -3.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             
+             RowBox[{"\"KeyAbsent\"", ",", 
+               "\"Buy a cardboard shield for 25 gold->buy\\n      shield\""}],
+              "]"}]],
+          Annotation[#, 
+           Missing[
+           "KeyAbsent", 
+            "Buy a cardboard shield for 25 gold->buy\n      shield"], 
+           "Tooltip"]& ], 
+         InsetBox["\<\"Buy a cardboard shield for 25 gold->buy\\n      shield\
+\"\>", Offset[{2, 2}, {16.259421608333938, -3.053098408167099}], ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{17.156260016185406, -3.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             
+             RowBox[{"\"KeyAbsent\"", ",", 
+               "\"Buy a wooden sword for 50 gold->buy sword\""}], "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Buy a wooden sword for 50 gold->buy sword"], 
+           "Tooltip"]& ], 
+         InsetBox["\<\"Buy a wooden sword for 50 gold->buy sword\"\>", 
+          Offset[{2, 2}, {17.259421608713254, -3.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{18.156260016437365, -3.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             
+             RowBox[{"\"KeyAbsent\"", ",", 
+               "\"Buy a wooden shield for 75 gold->buy shield2\""}], "]"}]],
+          Annotation[#, 
+           Missing[
+           "KeyAbsent", "Buy a wooden shield for 75 gold->buy shield2"], 
+           "Tooltip"]& ], 
+         InsetBox["\<\"Buy a wooden shield for 75 gold->buy shield2\"\>", 
+          Offset[{2, 2}, {18.259421608965212, -3.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{19.15626001693773, -3.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             
+             RowBox[{"\"KeyAbsent\"", ",", 
+               "\"Buy a tin sword for 100 gold->buy sword2\""}], "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Buy a tin sword for 100 gold->buy sword2"], 
+           "Tooltip"]& ], 
+         InsetBox["\<\"Buy a tin sword for 100 gold->buy sword2\"\>", 
+          Offset[{2, 2}, {19.259421609465576, -3.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{20.156260017619452, -3.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             
+             RowBox[{"\"KeyAbsent\"", ",", 
+               "\"Buy a\\n      potion for 10 gold->buy potion\""}], "]"}]],
+          Annotation[#, 
+           Missing[
+           "KeyAbsent", "Buy a\n      potion for 10 gold->buy potion"], 
+           "Tooltip"]& ], 
+         InsetBox["\<\"Buy a\\n      potion for 10 gold->buy potion\"\>", 
+          Offset[{2, 2}, {20.2594216101473, -3.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{21.1562600190909, -3.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             
+             RowBox[{"\"KeyAbsent\"", ",", 
+               "\"Buy a poison for 20 gold->buy poison\""}], "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Buy a poison for 20 gold->buy poison"], 
+           "Tooltip"]& ], 
+         InsetBox["\<\"Buy a poison for 20 gold->buy poison\"\>", 
+          Offset[{2, 2}, {21.259421611618748, -3.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{13.1562600095316, -2.156260000694946}, 
+            0.10316159252784705],
+           
+           "\"(set: $gold to it-10)(set: $potions to it+1)Magic potion. A \
+totally real thing. Continue shopping-&gt;market Drink the potion-&gt;drink a \
+potion Continue exploring-&gt;newroom\"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, 
+           "(set: $gold to it-10)(set: $potions to it+1)Magic potion. A \
+totally real thing. Continue shopping-&gt;market Drink the potion-&gt;drink a \
+potion Continue exploring-&gt;newroom", "Tooltip"]& ], 
+         InsetBox["\<\"buy potion\"\>", 
+          Offset[{2, 2}, {13.259421602059447, -2.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{10.15626001092798, -3.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             RowBox[{"\"KeyAbsent\"", ",", "\"Continue shopping->market\""}], 
+             "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Continue shopping->market"], "Tooltip"]& ], 
+         InsetBox["\<\"Continue shopping->market\"\>", 
+          Offset[{2, 2}, {10.259421603455827, -3.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{12.156260013764388, -3.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             
+             RowBox[{"\"KeyAbsent\"", ",", 
+               "\"Drink the potion->drink a potion\""}], "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Drink the potion->drink a potion"], 
+           "Tooltip"]& ], 
+         InsetBox["\<\"Drink the potion->drink a potion\"\>", Offset[{2, 2}, 
+          {12.259421606292236, -3.053098408167099}], ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{9.15626000869051, -2.156260000694946}, 
+            0.10316159252784705],
+           
+           "\"(set: $gold to it-25)(if: $shield is 0)[You pick up your new \
+cardboard shield. You&#39;re safe now. This game is as good as won.](if: \
+$shield is 5)[Yeah, you can never waste enough gold coins on identical \
+cardboard shields.](if: $shield is 10)[You\\n      had a wooden shield that \
+was capable of protecting you against double the damage, but no, whatever you \
+want. You toss your significantly better shield aside and take your new \
+cardboard shield.](set: $shield to 5) Continue shopping-&gt;market\\n      \
+Continue exploring-&gt;newroom\"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, 
+           "(set: $gold to it-25)(if: $shield is 0)[You pick up your new \
+cardboard shield. You&#39;re safe now. This game is as good as won.](if: \
+$shield is 5)[Yeah, you can never waste enough gold coins on identical \
+cardboard shields.](if: $shield is 10)[You\n      had a wooden shield that \
+was capable of protecting you against double the damage, but no, whatever you \
+want. You toss your significantly better shield aside and take your new \
+cardboard shield.](set: $shield to 5) Continue shopping-&gt;market\n      \
+Continue exploring-&gt;newroom", "Tooltip"]& ], 
+         InsetBox["\<\"buy shield\"\>", 
+          Offset[{2, 2}, {9.259421601218357, -2.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{10.15626000877586, -2.156260000694946}, 
+            0.10316159252784705],
+           
+           "\"(set: $gold to it-50)(if: $sword is 0)[Wood. The substance with \
+amazing slicing properties. Hence the well known expression &quot;As sharp as \
+wood.&quot;](if: $sword is 10)[You already have one of those, but fine. You \
+throw it away and take this one.\\n      Because clearly the old one \
+wasn&#39;t exactly as good in every way. This new one is one beautiful wooden \
+sword.](if: $sword is 20)[You... you had a better sword. You just threw it \
+away for this sword. Made of wood. Masterful. We&#39;re in awe.]\\n      \
+(set: $sword to 10)Continue shopping-&gt;market Continue \
+exploring-&gt;newroom\"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, 
+           "(set: $gold to it-50)(if: $sword is 0)[Wood. The substance with \
+amazing slicing properties. Hence the well known expression &quot;As sharp as \
+wood.&quot;](if: $sword is 10)[You already have one of those, but fine. You \
+throw it away and take this one.\n      Because clearly the old one \
+wasn&#39;t exactly as good in every way. This new one is one beautiful wooden \
+sword.](if: $sword is 20)[You... you had a better sword. You just threw it \
+away for this sword. Made of wood. Masterful. We&#39;re in awe.]\n      (set: \
+$sword to 10)Continue shopping-&gt;market Continue exploring-&gt;newroom", 
+           "Tooltip"]& ], 
+         InsetBox["\<\"buy sword\"\>", 
+          Offset[{2, 2}, {10.259421601303707, -2.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{6.156260008268859, -2.156260000694946}, 
+            0.10316159252784705],
+           
+           "\"(set: $gold to it+5)(set: $potions to it-1)(if: \
+$gold&lt;1000)[Five gold? (either: &quot;What a \
+rip-off.&quot;,&quot;You&#39;re a real entrepreneur.&quot;) Continue \
+shopping-&gt;market Continue exploring-&gt;newroom] (if: $gold&gt;999)[So\\n  \
+    you just won the game. By selling a potion. What a climax. Game \
+Over-&gt;gameover ]\\n\\n    \"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, 
+           "(set: $gold to it+5)(set: $potions to it-1)(if: \
+$gold&lt;1000)[Five gold? (either: &quot;What a \
+rip-off.&quot;,&quot;You&#39;re a real entrepreneur.&quot;) Continue \
+shopping-&gt;market Continue exploring-&gt;newroom] (if: $gold&gt;999)[So\n   \
+   you just won the game. By selling a potion. What a climax. Game \
+Over-&gt;gameover ]\n\n    ", "Tooltip"]& ], 
+         InsetBox["\<\"sell potion\"\>", 
+          Offset[{2, 2}, {6.259421600796706, -2.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{3.15626000607341, -2.156260000694946}, 
+            0.10316159252784705],
+           
+           "\"(set: $coinflip to (random: 1,4))(either:&quot;You pry open the \
+chest with your (if:$sword is 0)[stick.](if:$sword is 10)[wooden \
+sword.](if:$sword is 20)[tin sword.]&quot;,&quot;You open the chest with one \
+of the keys lying around. Yeah, any key can\\n      open any chest around \
+here. That&#39;s just basic security.&quot;) (if: $coinflip is 1)[A monster \
+leaps out. (either: &quot;It was hiding in there. Curled up real \
+small.&quot;,&quot;It&#39;s been hiding in there for a while. It&#39;s \
+obviously a\\n      busy creature with a lot going on in its \
+life.&quot;,&quot;Boo.&quot;,&quot;And you thought the day couldn&#39;t get \
+better.&quot;) Fight the monster-&gt;newmonster ](if: $coinflip &gt; 1)[(set: \
+$newgold to (random: $xp, $maxhp))(set: $gold\\n      to it+$newgold)(if: \
+$gold&lt;1000)[You find $newgold gold coins. (either:&quot;What a \
+bounty.&quot;,&quot;Whoop dee doo.&quot;,&quot;Go you.&quot;)] ] (if: \
+$coinflip &gt; 2 and $gold&lt;1000)[(set: $potions to it+1) And you also find \
+a potion. (either:&quot;So\\n      there&#39;s \
+that.&quot;,&quot;Yay.&quot;,&quot;Hurrah.&quot;) ](if: $coinflip &gt; 3 and \
+$gold&lt;1000)[(set: $poisons to it+1) And a poison. (either:&quot;Look at \
+you go.&quot;,&quot;You&#39;re on such a roll.&quot;) ](if: $coinflip&gt;1 \
+and $gold&lt;1000)[\\n      Continue exploring-&gt;newroom Go to the \
+market-&gt;market ](if: $gold&gt;999)[You have more than a thousand gold \
+coins. So you&#39;ve won. Game Over-&gt;gameover ] (if: $coinflip&gt;1 and \
+$potions&gt;0 and $gold&gt;999)[ Drink a potion-&gt;drink\\n      a potion \
+]\"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, 
+           "(set: $coinflip to (random: 1,4))(either:&quot;You pry open the \
+chest with your (if:$sword is 0)[stick.](if:$sword is 10)[wooden \
+sword.](if:$sword is 20)[tin sword.]&quot;,&quot;You open the chest with one \
+of the keys lying around. Yeah, any key can\n      open any chest around \
+here. That&#39;s just basic security.&quot;) (if: $coinflip is 1)[A monster \
+leaps out. (either: &quot;It was hiding in there. Curled up real \
+small.&quot;,&quot;It&#39;s been hiding in there for a while. It&#39;s \
+obviously a\n      busy creature with a lot going on in its \
+life.&quot;,&quot;Boo.&quot;,&quot;And you thought the day couldn&#39;t get \
+better.&quot;) Fight the monster-&gt;newmonster ](if: $coinflip &gt; 1)[(set: \
+$newgold to (random: $xp, $maxhp))(set: $gold\n      to it+$newgold)(if: \
+$gold&lt;1000)[You find $newgold gold coins. (either:&quot;What a \
+bounty.&quot;,&quot;Whoop dee doo.&quot;,&quot;Go you.&quot;)] ] (if: \
+$coinflip &gt; 2 and $gold&lt;1000)[(set: $potions to it+1) And you also find \
+a potion. (either:&quot;So\n      there&#39;s \
+that.&quot;,&quot;Yay.&quot;,&quot;Hurrah.&quot;) ](if: $coinflip &gt; 3 and \
+$gold&lt;1000)[(set: $poisons to it+1) And a poison. (either:&quot;Look at \
+you go.&quot;,&quot;You&#39;re on such a roll.&quot;) ](if: $coinflip&gt;1 \
+and $gold&lt;1000)[\n      Continue exploring-&gt;newroom Go to the \
+market-&gt;market ](if: $gold&gt;999)[You have more than a thousand gold \
+coins. So you&#39;ve won. Game Over-&gt;gameover ] (if: $coinflip&gt;1 and \
+$potions&gt;0 and $gold&gt;999)[ Drink a potion-&gt;drink\n      a potion ]", 
+           "Tooltip"]& ], 
+         InsetBox["\<\"chest\"\>", 
+          Offset[{2, 2}, {3.2594215986012567, -2.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{4.15626000415206, -3.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             
+             RowBox[{"\"KeyAbsent\"", ",", 
+               "\"Drink a potion->drink\\n      a potion\""}], "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Drink a potion->drink\n      a potion"], 
+           "Tooltip"]& ], 
+         InsetBox["\<\"Drink a potion->drink\\n      a potion\"\>", 
+          Offset[{2, 2}, {4.259421596679907, -3.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{11.156260008955655, -2.156260000694946}, 
+            0.10316159252784705],
+           
+           "\"(set: $gold to it-75)(if: $shield &lt; 10)[A wooden shield. \
+You&#39;re now completely and totally invulnerable, assuming that you \
+don&#39;t encounter fire, acid, arrows, swords, fast-moving rocks, clubs, \
+maces, magic bolts, rays of frost, enemies\\n      of any kind, or \
+woodworms.](if: $shield is 10)[You can never have enough of these. \
+Apparently.](set: $shield to 10) Continue shopping-&gt;market Continue \
+exploring-&gt;newroom\"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, 
+           "(set: $gold to it-75)(if: $shield &lt; 10)[A wooden shield. \
+You&#39;re now completely and totally invulnerable, assuming that you \
+don&#39;t encounter fire, acid, arrows, swords, fast-moving rocks, clubs, \
+maces, magic bolts, rays of frost, enemies\n      of any kind, or \
+woodworms.](if: $shield is 10)[You can never have enough of these. \
+Apparently.](set: $shield to 10) Continue shopping-&gt;market Continue \
+exploring-&gt;newroom", "Tooltip"]& ], 
+         InsetBox["\<\"buy shield2\"\>", 
+          Offset[{2, 2}, {11.259421601483503, -2.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{12.15626000915092, -2.156260000694946}, 
+            0.10316159252784705],
+           
+           "\"(set: $gold to it-100)(if: $sword &lt; 20)[Tin. A tin sword. \
+Worth every one of the hundred coins of actual gold that you&#39;ve just \
+given away for it.](if: $sword is 20)[Another identical tin sword. No, you go \
+ahead, buy it. You evidently know what\\n      you&#39;re doing.](set: $sword \
+to 20) Continue shopping-&gt;market Continue exploring-&gt;newroom\"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, 
+           "(set: $gold to it-100)(if: $sword &lt; 20)[Tin. A tin sword. \
+Worth every one of the hundred coins of actual gold that you&#39;ve just \
+given away for it.](if: $sword is 20)[Another identical tin sword. No, you go \
+ahead, buy it. You evidently know what\n      you&#39;re doing.](set: $sword \
+to 20) Continue shopping-&gt;market Continue exploring-&gt;newroom", 
+           "Tooltip"]& ], 
+         InsetBox["\<\"buy sword2\"\>", 
+          Offset[{2, 2}, {12.259421601678767, -2.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{14.15626001006175, -2.156260000694946}, 
+            0.10316159252784705],
+           
+           "\"(set: $gold to it-20)(set: $poisons to it+1)(if: $poisons is \
+1)[A deadly liquid that looks almost identical to all the other potions that \
+you&#39;re drinking. This will end well. ]You take a bottle of poison. \
+Continue shopping-&gt;market Drink\\n      the potion-&gt;drink a potion \
+Continue exploring-&gt;newroom\"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, 
+           "(set: $gold to it-20)(set: $poisons to it+1)(if: $poisons is 1)[A \
+deadly liquid that looks almost identical to all the other potions that \
+you&#39;re drinking. This will end well. ]You take a bottle of poison. \
+Continue shopping-&gt;market Drink\n      the potion-&gt;drink a potion \
+Continue exploring-&gt;newroom", "Tooltip"]& ], 
+         InsetBox["\<\"buy poison\"\>", 
+          Offset[{2, 2}, {14.259421602589597, -2.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{13.156260014351894, -3.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             
+             RowBox[{"\"KeyAbsent\"", ",", 
+               "\"Drink\\n      the potion->drink a potion\""}], "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Drink\n      the potion->drink a potion"], 
+           "Tooltip"]& ], 
+         InsetBox["\<\"Drink\\n      the potion->drink a potion\"\>", 
+          Offset[{2, 2}, {13.25942160687974, -3.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{7.156260008479947, -2.156260000694946}, 
+            0.10316159252784705],
+           
+           "\"(set: $gold to it+10)(set: $poisons to it-1)(if: \
+$gold&lt;1000)[(either: &quot;You sell it for half the price you normally buy \
+it for. Way to go.&quot;,&quot;Yeah, that probably wouldn&#39;t have been \
+useful in that in EVERY SINGLE BATTLE.&quot;)\\n      Continue \
+shopping-&gt;market Continue exploring-&gt;newroom ](if: $gold&gt;999)[You \
+just won the game by selling a poison. What a satisfying ending. Game \
+Over-&gt;gameover ]\"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, 
+           "(set: $gold to it+10)(set: $poisons to it-1)(if: \
+$gold&lt;1000)[(either: &quot;You sell it for half the price you normally buy \
+it for. Way to go.&quot;,&quot;Yeah, that probably wouldn&#39;t have been \
+useful in that in EVERY SINGLE BATTLE.&quot;)\n      Continue \
+shopping-&gt;market Continue exploring-&gt;newroom ](if: $gold&gt;999)[You \
+just won the game by selling a poison. What a satisfying ending. Game \
+Over-&gt;gameover ]", "Tooltip"]& ], 
+         InsetBox["\<\"sell poison\"\>", 
+          Offset[{2, 2}, {7.259421601007794, -2.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{24.26656094464301, -1.156260000694946}, 
+            0.10316159252784705],
+           
+           "\"Poison. The heroic way to win a fight. You throw a bottle at \
+the $monstername. (set: $coinflip to (random:1,2))(if: $coinflip is 1)[It \
+misses. Nice aim, jackass-&gt;hit ](if: $coinflip is 2)[(set: $monsterhealth \
+to it-10)It goes into its mouth.\\n      The monster is distracted. And \
+poisoned. Obviously. Hit the monster-&gt;hit ]\"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, 
+           "Poison. The heroic way to win a fight. You throw a bottle at the \
+$monstername. (set: $coinflip to (random:1,2))(if: $coinflip is 1)[It misses. \
+Nice aim, jackass-&gt;hit ](if: $coinflip is 2)[(set: $monsterhealth to \
+it-10)It goes into its mouth.\n      The monster is distracted. And poisoned. \
+Obviously. Hit the monster-&gt;hit ]", "Tooltip"]& ], 
+         InsetBox["\<\"battlepoison\"\>", 
+          Offset[{2, 2}, {24.36972253717086, -1.0530984081670989}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{25.156260019279706, -2.156260000694946}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             RowBox[{"\"KeyAbsent\"", ",", "\"Nice aim, jackass->hit\""}], 
+             "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Nice aim, jackass->hit"], "Tooltip"]& ], 
+         InsetBox["\<\"Nice aim, jackass->hit\"\>", 
+          Offset[{2, 2}, {25.259421611807554, -2.053098408167099}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{23.031273349277143, -5.968780002084838}, 
+            0.10316159252784705],
+           
+           "\"(text-style: &quot;bold&quot;)[THANK YOU FOR PLAYING THE DEPTHS \
+OF SARCASM (either:&quot;HAVE A WONDERFUL DAY&quot;,&quot;WHAT AN AMAZING \
+PERFORMANCE&quot;,&quot;YOU MUST BE SO PROUD&quot;,&quot;GREAT JOB ALL \
+ROUND&quot;,&quot;DON&#39;T FORGET TO\\n      TIP THE \
+MONSTERS&quot;,&quot;CLOSE THE DOOR ON YOUR WAY OUT&quot;,&quot;YOU WERE AN \
+AMAZING PLAYER&quot;)] You collected $gold gold coins and defeated \
+$monsterkills monsters. Play again-&gt;start\"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, 
+           "(text-style: &quot;bold&quot;)[THANK YOU FOR PLAYING THE DEPTHS \
+OF SARCASM (either:&quot;HAVE A WONDERFUL DAY&quot;,&quot;WHAT AN AMAZING \
+PERFORMANCE&quot;,&quot;YOU MUST BE SO PROUD&quot;,&quot;GREAT JOB ALL \
+ROUND&quot;,&quot;DON&#39;T FORGET TO\n      TIP THE \
+MONSTERS&quot;,&quot;CLOSE THE DOOR ON YOUR WAY OUT&quot;,&quot;YOU WERE AN \
+AMAZING PLAYER&quot;)] You collected $gold gold coins and defeated \
+$monsterkills monsters. Play again-&gt;start", "Tooltip"]& ], 
+         InsetBox["\<\"gameover\"\>", 
+          Offset[{2, 2}, {23.13443494180499, -5.8656184095569905}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          
+          TooltipBox[
+           DiskBox[{23.031273349041157, -6.968780002084838}, 
+            0.10316159252784705],
+           RowBox[{"Missing", "[", 
+             RowBox[{"\"KeyAbsent\"", ",", "\"Play again->start\""}], "]"}]],
+          Annotation[#, 
+           Missing["KeyAbsent", "Play again->start"], "Tooltip"]& ], 
+         InsetBox["\<\"Play again->start\"\>", 
+          Offset[{2, 2}, {23.134434941569005, -6.8656184095569905}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None,
+  ImageSize->{864.9609375, Automatic}]], "Output",
+ CellChangeTimes->{3.740160356885146*^9},
+ CellLabel->"Out[70]=",ExpressionUUID->"d47e4f2c-84c7-4b9a-a8f8-cc80cf2b3a7f"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"twGr3", ",", " ", "twAs3"}], "}"}], "=", 
+   RowBox[{
+   "twineImport", "[", "\"\<~/Documents/Twine/Stories/Other Story.html\>\"", 
+    "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.740160436803797*^9, 3.740160458352909*^9}},
+ CellLabel->"In[72]:=",ExpressionUUID->"a3d3f586-8d86-4b64-afbe-1e8a979c677a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["twGr3"], "Input",
+ CellChangeTimes->{{3.740160462937711*^9, 3.7401604643971767`*^9}},
+ CellLabel->"In[73]:=",ExpressionUUID->"d4650622-b51e-47c0-86e3-dbbf8ddeca55"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{
+      "Other Story", "Two", "Three", "four"}, {{{1, 2}, {2, 3}, {2, 4}}, 
+       Null}, {GraphLayout -> {
+        "LayeredDigraphEmbedding", "RootVertex" -> "Other Story"}, 
+       Properties -> {
+        "Two" -> {Tooltip -> "Go to passage Three\n\nThe other node four"}, 
+         "Three" -> {Tooltip -> "Here we are at Passage Three"}, 
+         "four" -> {Tooltip -> "Double-click this passage to edit it."}, 
+         "Other Story" -> {Tooltip -> "Start Here"}}, 
+       VertexLabels -> {"Name"}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+        ArrowBox[{{0., 2.}, {0., 1.}}, 0.02261146496815286], 
+        ArrowBox[{{0., 1.}, {-1., 0.}}, 0.02261146496815286], 
+        ArrowBox[{{0., 1.}, {0., 0.}}, 0.02261146496815286]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], {
+         TagBox[
+          TooltipBox[DiskBox[{0., 2.}, 0.02261146496815286],
+           "\"Start Here\"",
+           TooltipStyle->"TextStyling"],
+          Annotation[#, "Start Here", "Tooltip"]& ], 
+         InsetBox["\<\"Other Story\"\>", 
+          Offset[{2, 2}, {0.02261146496815286, 2.022611464968153}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          TooltipBox[DiskBox[{0., 1.}, 0.02261146496815286],
+           "\"Go to passage Three\\n\\nThe other node four\"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, "Go to passage Three\n\nThe other node four", 
+           "Tooltip"]& ], 
+         InsetBox["\<\"Two\"\>", 
+          Offset[{2, 2}, {0.02261146496815286, 1.0226114649681528}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          TooltipBox[DiskBox[{-1., 0.}, 0.02261146496815286],
+           "\"Here we are at Passage Three\"",
+           TooltipStyle->"TextStyling"],
+          Annotation[#, "Here we are at Passage Three", "Tooltip"]& ], 
+         InsetBox["\<\"Three\"\>", 
+          Offset[{2, 2}, {-0.9773885350318472, 0.02261146496815286}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         TagBox[
+          TooltipBox[DiskBox[{0., 0.}, 0.02261146496815286],
+           "\"Double-click this passage to edit it.\"",
+           TooltipStyle->"TextStyling"],
+          
+          Annotation[#, "Double-click this passage to edit it.", 
+           "Tooltip"]& ], 
+         InsetBox["\<\"four\"\>", 
+          Offset[{2, 2}, {0.02261146496815286, 0.02261146496815286}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Output",
+ CellChangeTimes->{3.7401604648221684`*^9},
+ CellLabel->"Out[73]=",ExpressionUUID->"9ede292b-34c3-4ddf-984f-2eddc7da6933"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"twineSummary", "[", "twAs3", "]"}]], "Input",
+ CellChangeTimes->{{3.740160471580989*^9, 3.7401604781150303`*^9}},
+ CellLabel->"In[74]:=",ExpressionUUID->"da1f3814-d208-4e04-8737-0d6d134a7700"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {InsetBox[
+     DynamicBox[ToBoxes[
+       Framed[Twine`activePassage$9022], TraditionalForm],
+      ImageSizeCache->{168., {9., 14.}}], {192., -189.}, {
+     Center, Center}, {360., 360.}], InsetBox[
+     FormBox[
+      GraphicsBox[
+       NamespaceBox["NetworkGraphics",
+        DynamicModuleBox[{Typeset`graph = HoldComplete[
+          Graph[{"Other Story", 
+            Button[
+            "Two", Twine`activePassage$9022 = 
+             "Go to passage Three\n\nThe other node four"], 
+            Button[
+            "Three", Twine`activePassage$9022 = 
+             "Here we are at Passage Three"], 
+            Button[
+            "four", Twine`activePassage$9022 = 
+             "Double-click this passage to edit it."]}, {{{1, 2}, {2, 3}, {2, 
+            4}}, Null}, {
+           GraphLayout -> {
+             "LayeredDigraphEmbedding", "RootVertex" -> "Other Story"}, 
+            VertexShapeFunction -> {"Name"}}]]}, 
+         TagBox[
+          GraphicsGroupBox[
+           GraphicsComplexBox[{{0., 2.}, {0., 1.}, {-1., 0.}, {0., 0.}}, {
+             {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+              ArrowBox[{1, 2}, 0.04522292993630572], 
+              ArrowBox[{2, 3}, 0.04522292993630572], 
+              ArrowBox[{2, 4}, 0.04522292993630572]}, 
+             {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+              InsetBox[
+               PaneBox["\<\"Other Story\"\>",
+                Alignment->Center,
+                ImageMargins->2], 1,
+               BaseStyle->"Graphics"], InsetBox[
+               PaneBox[
+                ButtonBox["\<\"Two\"\>",
+                 Appearance->Automatic,
+                 
+                 ButtonFunction:>(Twine`activePassage$9022 = 
+                  "Go to passage Three\n\nThe other node four"),
+                 Evaluator->Automatic,
+                 Method->"Preemptive"],
+                Alignment->Center,
+                ImageMargins->2], 2,
+               BaseStyle->"Graphics"], InsetBox[
+               PaneBox[
+                ButtonBox["\<\"Three\"\>",
+                 Appearance->Automatic,
+                 ButtonFunction:>(Twine`activePassage$9022 = 
+                  "Here we are at Passage Three"),
+                 Evaluator->Automatic,
+                 Method->"Preemptive"],
+                Alignment->Center,
+                ImageMargins->2], 3,
+               BaseStyle->"Graphics"], InsetBox[
+               PaneBox[
+                ButtonBox["\<\"four\"\>",
+                 Appearance->Automatic,
+                 
+                 ButtonFunction:>(Twine`activePassage$9022 = 
+                  "Double-click this passage to edit it."),
+                 Evaluator->Automatic,
+                 Method->"Preemptive"],
+                Alignment->Center,
+                ImageMargins->2], 4,
+               BaseStyle->"Graphics"]}}]],
+          MouseAppearanceTag["NetworkGraphics"]],
+         AllowKernelInitialization->False]],
+       DefaultBaseStyle->{
+        "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+         Hue[0.8, 1., 0.6]},
+       FormatType->TraditionalForm,
+       FrameTicks->None],
+      TraditionalForm], {576., -189.}, {Center, Center}, {360., 360.}]}, {}},
+  ContentSelectable->True,
+  PlotRangePadding->{6, 5}]], "Output",
+ CellChangeTimes->{3.7401604787018843`*^9},
+ CellLabel->"Out[74]=",ExpressionUUID->"4d010409-63b3-4d78-8ade-0e15f9cfbb07"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"twineSummary", "[", "twA", "]"}]], "Input",
+ CellChangeTimes->{{3.740160498603429*^9, 3.740160500630436*^9}},
+ CellLabel->"In[75]:=",ExpressionUUID->"eb8a2842-e80d-46ec-870e-4b4436f4caae"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {InsetBox[
+     DynamicBox[ToBoxes[
+       Framed[Twine`activePassage$9055], TraditionalForm],
+      ImageSizeCache->{106., {9., 14.}}], {192., -189.}, {
+     Center, Center}, {360., 360.}], InsetBox[
+     FormBox[
+      GraphicsBox[
+       NamespaceBox["NetworkGraphics",
+        DynamicModuleBox[{Typeset`graph = HoldComplete[
+          Graph[{"TwineBridge_Test", 
+            Button[
+            "First Passage", Twine`activePassage$9055 = 
+             "This is my first passage. Where can I go from here? How about \
+Left , or Right?"], 
+            Button[
+            "Left", Twine`activePassage$9055 = 
+             "From here, there are still other places to go. We can go Up or \
+Down"], 
+            Button[
+            "Right", Twine`activePassage$9055 = 
+             "From here, there are still other places to go. We can go Up or \
+Down"], 
+            Button[
+            "Up", Twine`activePassage$9055 = 
+             "Now that we are up why don't we get going?"], 
+            Button[
+            "Down", Twine`activePassage$9055 = 
+             "Now that we are down, why don't we get Up?"], 
+            Button[
+            "get going", Twine`activePassage$9055 = 
+             "Now that we are going, how about we do something"], 
+            Button[
+            "do something", Twine`activePassage$9055 = 
+             " Hi, I'm doing something, why don't you do something?"], 
+            Button[
+            "you do something", Twine`activePassage$9055 = 
+             " Go, Get out of here! "]}, {{{1, 2}, {2, 3}, {2, 4}, {3, 5}, {3,
+             6}, {4, 5}, {4, 6}, {5, 7}, {6, 5}, {7, 8}, {8, 9}}, Null}, {
+           GraphLayout -> {
+             "LayeredDigraphEmbedding", "RootVertex" -> "TwineBridge_Test"}, 
+            VertexShapeFunction -> {"Name"}}]]}, 
+         TagBox[GraphicsGroupBox[GraphicsComplexBox[CompressedData["
+1:eJxdkW9IU2EUxkfm3Ob13usmZSaC+WF9KAkxtBB3CP1UqUWQQwrnHyLRwhJB
+y4yQTBOXrQXOygShFEsRMrTBmZkaMl2ulGmaoSjOli11kUs07919B+7hXg4/
+znvO+57zRGZdPZu7SyQSqbZ/Lu5UOOzkUIGd6IkhPvkQn7zEh1kfFvmwU+WT
+JzLtrCdi4bwmpeigyYktlxyzLosCnl0ZZu4/+o3pzVTCtEEBn5VlVmXZClJd
+mYFdmQpw1VwwbpasYt+TxbTbkQoQ8wVreIsvkIM4o8M/o8OFKrsu0a6Tw1rf
+gdzv9j+4O/XtQmWyHD7Z+n80xv1FcxXtH7oSDIZ6TuvoicHg6ePGJa48MRha
++Xf9w2O1c/G1cyxEDBaGDxZuYPU9TiyMFcd2t7/fQNudw9sfC+MCp7mbU93N
+jPe8c5kT7e3Ht4unoVy4L5pvEOR9z7CZEwUW4b182X4KVoV53Jq6GGdRIAQI
+81Zw19tkECDswzOvzLuvGwPRF7eMUrAK+/TMJ/Xumz8+JIF0wY+2I8rjIZkS
+r1/EH8LEH8LEH8LEH8LEH8LEH8LEH8LEH8LEn6bOlla/hnxsv6yXM0C4BlPm
+E7+V2lkoLdpiYvY+xxLq8caUnhXybXhoxlBwNJkFre7cdJi6C8d7DFmSX4xw
+3oR5dIb2oZqBD46WkdcL/ch2F2ukQ7RQb8aRnp+2fKBBlr11JjTMio0Kk8to
+DIKByjrXZOwEii2nm3ImKIhMujuaapnBm3EW/z1iCmjz8rV3a7O4eSopavRE
+IEz2ntz3snceq5lX63qtDIr9Jr8WpCxiVLm0KschhdkH9T1UwxJ+bFCPJqil
+EJ5X/abihQNLcp9aI8YloNS2mceuL2Pc1JcaWbYE/gMdcJbb
+            "], {
+             {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[Medium], 
+              ArrowBox[{1, 2}, 0.10676328502415458`], 
+              ArrowBox[{2, 3}, 0.10676328502415458`], 
+              ArrowBox[{2, 4}, 0.10676328502415458`], 
+              ArrowBox[BezierCurveBox[{3, 12, 13, 14, 15, 16, 17, 18, 19, 20, 
+               21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36,
+                37, 5}], 0.10676328502415458`], 
+              ArrowBox[{3, 6}, 0.10676328502415458`], 
+              ArrowBox[BezierCurveBox[{4, 38, 39, 40, 41, 42, 43, 44, 45, 46, 
+               47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62,
+                63, 5}], 0.10676328502415458`], 
+              ArrowBox[{4, 6}, 0.10676328502415458`], 
+              ArrowBox[{5, 7}, 0.10676328502415458`], 
+              ArrowBox[{6, 5}, 0.10676328502415458`], 
+              ArrowBox[{7, 8}, 0.10676328502415458`], 
+              ArrowBox[{8, 9}, 0.10676328502415458`]}, 
+             {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], 
+              InsetBox[
+               PaneBox["\<\"TwineBridge_Test\"\>",
+                Alignment->Center,
+                ImageMargins->2], 1,
+               BaseStyle->"Graphics"], InsetBox[
+               PaneBox[
+                ButtonBox["\<\"First Passage\"\>",
+                 Appearance->Automatic,
+                 
+                 ButtonFunction:>(Twine`activePassage$9055 = 
+                  "This is my first passage. Where can I go from here? How \
+about Left , or Right?"),
+                 Evaluator->Automatic,
+                 Method->"Preemptive"],
+                Alignment->Center,
+                ImageMargins->2], 2,
+               BaseStyle->"Graphics"], InsetBox[
+               PaneBox[
+                ButtonBox["\<\"Left\"\>",
+                 Appearance->Automatic,
+                 
+                 ButtonFunction:>(Twine`activePassage$9055 = 
+                  "From here, there are still other places to go. We can go \
+Up or Down"),
+                 Evaluator->Automatic,
+                 Method->"Preemptive"],
+                Alignment->Center,
+                ImageMargins->2], 3,
+               BaseStyle->"Graphics"], InsetBox[
+               PaneBox[
+                ButtonBox["\<\"Right\"\>",
+                 Appearance->Automatic,
+                 
+                 ButtonFunction:>(Twine`activePassage$9055 = 
+                  "From here, there are still other places to go. We can go \
+Up or Down"),
+                 Evaluator->Automatic,
+                 Method->"Preemptive"],
+                Alignment->Center,
+                ImageMargins->2], 4,
+               BaseStyle->"Graphics"], InsetBox[
+               PaneBox[
+                ButtonBox["\<\"Up\"\>",
+                 Appearance->Automatic,
+                 
+                 ButtonFunction:>(Twine`activePassage$9055 = 
+                  "Now that we are up why don't we get going?"),
+                 Evaluator->Automatic,
+                 Method->"Preemptive"],
+                Alignment->Center,
+                ImageMargins->2], 5,
+               BaseStyle->"Graphics"], InsetBox[
+               PaneBox[
+                ButtonBox["\<\"Down\"\>",
+                 Appearance->Automatic,
+                 
+                 ButtonFunction:>(Twine`activePassage$9055 = 
+                  "Now that we are down, why don't we get Up?"),
+                 Evaluator->Automatic,
+                 Method->"Preemptive"],
+                Alignment->Center,
+                ImageMargins->2], 6,
+               BaseStyle->"Graphics"], InsetBox[
+               PaneBox[
+                ButtonBox["\<\"get going\"\>",
+                 Appearance->Automatic,
+                 
+                 ButtonFunction:>(Twine`activePassage$9055 = 
+                  "Now that we are going, how about we do something"),
+                 Evaluator->Automatic,
+                 Method->"Preemptive"],
+                Alignment->Center,
+                ImageMargins->2], 7,
+               BaseStyle->"Graphics"], InsetBox[
+               PaneBox[
+                ButtonBox["\<\"do something\"\>",
+                 Appearance->Automatic,
+                 
+                 ButtonFunction:>(Twine`activePassage$9055 = 
+                  " Hi, I'm doing something, why don't you do something?"),
+                 Evaluator->Automatic,
+                 Method->"Preemptive"],
+                Alignment->Center,
+                ImageMargins->2], 8,
+               BaseStyle->"Graphics"], InsetBox[
+               PaneBox[
+                ButtonBox["\<\"you do something\"\>",
+                 Appearance->Automatic,
+                 
+                 ButtonFunction:>(Twine`activePassage$9055 = 
+                  " Go, Get out of here! "),
+                 Evaluator->Automatic,
+                 Method->"Preemptive"],
+                Alignment->Center,
+                ImageMargins->2], 9,
+               BaseStyle->"Graphics"]}}]],
+          MouseAppearanceTag["NetworkGraphics"]],
+         AllowKernelInitialization->False]],
+       DefaultBaseStyle->{
+        "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> 
+         Hue[0.8, 1., 0.6]},
+       FormatType->TraditionalForm,
+       FrameTicks->None],
+      TraditionalForm], {576., -189.}, {Center, Center}, {360., 360.}]}, {}},
+  ContentSelectable->True,
+  ImageSize->{792.66015625, Automatic},
+  PlotRangePadding->{6, 5}]], "Output",
+ CellChangeTimes->{3.740160501343951*^9},
+ CellLabel->"Out[75]=",ExpressionUUID->"1229381e-f02e-4819-ad48-ba546339b23f"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1680, 956},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 7, \
+2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[583, 22, 170, 3, 54, "Subsection",ExpressionUUID->"63359b4f-495d-410d-9cdc-34265d4058d9"],
+Cell[756, 27, 178, 3, 35, "Text",ExpressionUUID->"be55f055-642c-4bb4-8230-8ac1c19e80d4"],
+Cell[CellGroupData[{
+Cell[959, 34, 413, 10, 30, "Input",ExpressionUUID->"1903ad13-bf6b-4012-b429-561dfd05474b"],
+Cell[1375, 46, 9725, 212, 320, "Output",ExpressionUUID->"63438266-933e-4454-8731-523b6be54c3b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11137, 263, 211, 3, 30, "Input",ExpressionUUID->"ec653ae5-0c34-4218-9811-50882649bb68"],
+Cell[11351, 268, 8366, 184, 590, "Output",ExpressionUUID->"5db959d1-046a-44b4-bc07-1ce633a500f7"]
+}, Open  ]],
+Cell[19732, 455, 379, 10, 30, "Input",ExpressionUUID->"ad08f259-16fe-46c8-83e1-56b5fc921001"],
+Cell[CellGroupData[{
+Cell[20136, 469, 177, 2, 30, "Input",ExpressionUUID->"57ae8dce-e0d2-431a-bc11-28e980bb0f35"],
+Cell[20316, 473, 94558, 1795, 212, "Output",ExpressionUUID->"d47e4f2c-84c7-4b9a-a8f8-cc80cf2b3a7f"]
+}, Open  ]],
+Cell[114889, 2271, 371, 9, 30, "Input",ExpressionUUID->"a3d3f586-8d86-4b64-afbe-1e8a979c677a"],
+Cell[CellGroupData[{
+Cell[115285, 2284, 178, 2, 30, "Input",ExpressionUUID->"d4650622-b51e-47c0-86e3-dbbf8ddeca55"],
+Cell[115466, 2288, 3065, 67, 449, "Output",ExpressionUUID->"9ede292b-34c3-4ddf-984f-2eddc7da6933"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[118568, 2360, 216, 3, 30, "Input",ExpressionUUID->"da1f3814-d208-4e04-8737-0d6d134a7700"],
+Cell[118787, 2365, 3433, 80, 205, "Output",ExpressionUUID->"4d010409-63b3-4d78-8ade-0e15f9cfbb07"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[122257, 2450, 212, 3, 30, "Input",ExpressionUUID->"eb8a2842-e80d-46ec-870e-4b4436f4caae"],
+Cell[122472, 2455, 8369, 184, 431, "Output",ExpressionUUID->"1229381e-f02e-4819-ad48-ba546339b23f"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
