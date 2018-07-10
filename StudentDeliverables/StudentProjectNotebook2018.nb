@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[    732998,      12759]
-NotebookOptionsPosition[    718992,      12515]
-NotebookOutlinePosition[    724112,      12634]
-CellTagsIndexPosition[    723892,      12625]
+NotebookDataLength[    680999,      11554]
+NotebookOptionsPosition[    669169,      11332]
+NotebookOutlinePosition[    674289,      11451]
+CellTagsIndexPosition[    674069,      11442]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -83,15 +83,15 @@ and macros that can change the state of variables or other story elements. \
 Graphs and Associations will be used to represent Twine Stories in the \
 Wolfram Language. The primary goal is importing the Twine Story HTML file \
 into the form of a Wolfram Language Graph and Association, and exporting an \
-Association form to the Twine HTML format.\
+Association form to the Twine HTML format.
+\
 \>", "TemplateEditableContent",
  CellFrameLabels->{{
     Cell["Goal of \nthe \nproject: ", "TemplateLabel"], None}, {None, None}},
  CellFrameLabelMargins->{{18, 0}, {0, 0}},
  CellChangeTimes->{
   3.736536691820487*^9, {3.740155118117497*^9, 3.7401551204584227`*^9}, 
-   3.7402293165598392`*^9, 
-   3.74022985403819*^9},ExpressionUUID->"c662dd0a-9849-40e8-bc89-\
+   3.7402293165598392`*^9},ExpressionUUID->"c662dd0a-9849-40e8-bc89-\
 a9f688107475"],
 
 Cell["\<\
@@ -6524,7 +6524,7 @@ Cell[BoxData[{
  GraphicsBox[{{}, {InsetBox[
      DynamicBox[ToBoxes[
        Framed[Twine`activePassage$23636], TraditionalForm],
-      ImageSizeCache->{158., {23., 28.}}], {192., -189.}, {
+      ImageSizeCache->{130., {23., 28.}}], {192., -189.}, {
      Center, Center}, {360., 360.}], InsetBox[
      FormBox[
       GraphicsBox[
@@ -11031,899 +11031,19 @@ Cell["Main Results in Detail", "Subsubsection",
 2d83590b38cd"],
 
 Cell[TextData[{
- StyleBox["|",
-  FontWeight->"Bold"],
- " ",
+ "| ",
  StyleBox["IMPORTER |\n",
   FontWeight->"Bold"],
  "\nImport of Twine Stories made using the Harlowe markup language. Harlowe \
 is the default markup language for the Twine Editor  (there are two others: \
 snowman and sugarcube).  On import, a Graph and Association form of the Twine \
 Story are created. Links that only exist as a result of a macro are not \
-supported yet."
-}], "Text",
- CellChangeTimes->{
-  3.740229652499137*^9, {3.740230024148685*^9, 3.7402300554399137`*^9}, {
-   3.740230088556706*^9, 3.7402301011557913`*^9}, {3.740230432924864*^9, 
-   3.7402304952741833`*^9}, {3.740230571086882*^9, 3.740230577294661*^9}, 
-   3.740230610146635*^9},ExpressionUUID->"6c70fb6a-c159-4104-beef-\
-1be6addd286c"],
-
-Cell[TextData[{
- StyleBox["| IMPORT HELPER FUNCTIONS |",
-  FontWeight->"Bold"],
- "\nTo keep function definitions lean I\[CloseCurlyQuote]ve created some \
-helper functions ( all except Riccardo\[CloseCurlyQuote]s parser).\n\n",
- StyleBox["|",
-  FontWeight->"Bold"],
- " ",
- StyleBox["RICCARDO's PARSER | \n",
-  FontWeight->"Bold"],
- "The parser takes a string of an html file and generates a nested XMLElement \
-structure from it."
-}], "Text",
- CellChangeTimes->{
-  3.740229652499137*^9, {3.740230024148685*^9, 3.7402300554399137`*^9}, {
-   3.740230088556706*^9, 3.7402301011557913`*^9}, {3.740230432924864*^9, 
-   3.7402304952741833`*^9}, {3.740230571086882*^9, 3.740230577294661*^9}, {
-   3.740230612859181*^9, 3.740230678788899*^9}, {3.740230741560781*^9, 
-   3.740230747128148*^9}, {3.740233870686611*^9, 3.740233882562893*^9}, {
-   3.740233959758273*^9, 3.740234018264563*^9}, {3.740234054205859*^9, 
-   3.740234054978211*^9}, {3.7402341396290617`*^9, 3.740234163835437*^9}, {
-   3.740235000885479*^9, 3.740235002174673*^9}, {3.740235206209457*^9, 
-   3.740235231468001*^9}},ExpressionUUID->"8977496f-fb98-4218-b889-\
-06c3b93d1f7b"],
-
-Cell[BoxData[{
- RowBox[{"Clear", "[", 
-  RowBox[{"parseAttrs", ",", " ", "parseXML"}], "]"}], "\n", 
- RowBox[{
-  RowBox[{
-   RowBox[{"$tag", " ", "=", 
-    RowBox[{
-     RowBox[{"(", 
-      RowBox[{"WordCharacter", "|", "\"\<-\>\""}], ")"}], ".."}]}], ";"}], 
-  "\n"}], "\n", 
- RowBox[{
-  RowBox[{
-   RowBox[{"parseAttrs", "[", "expr_String", "]"}], " ", ":=", " ", 
-   RowBox[{"Cases", "[", "\n", 
-    RowBox[{
-     RowBox[{"StringReplace", "[", "\n", 
-      RowBox[{"expr", ",", 
-       RowBox[{"{", "\n", 
-        RowBox[{
-         RowBox[{
-          RowBox[{
-           RowBox[{"k", ":", "$tag"}], "~~", "\"\<=\\\"\>\"", " ", "~~", " ", 
-           
-           RowBox[{"v", ":", 
-            RowBox[{"Shortest", "[", "___", "]"}]}], " ", "~~", " ", 
-           "\"\<\\\"\>\""}], " ", ":>", " ", 
-          RowBox[{"{", 
-           RowBox[{"k", " ", "->", " ", "v"}], "}"}]}], ",", "\n", 
-         RowBox[{
-          RowBox[{
-           RowBox[{"k", ":", "$tag"}], "~~", "\"\<='\>\"", " ", "~~", " ", 
-           RowBox[{"v", ":", 
-            RowBox[{"Shortest", "[", "___", "]"}]}], " ", "~~", " ", 
-           "\"\<'\>\""}], " ", ":>", " ", 
-          RowBox[{"{", 
-           RowBox[{"k", " ", "->", " ", "v"}], "}"}]}], ",", "\n", 
-         RowBox[{
-          RowBox[{
-           RowBox[{"k", ":", "$tag"}], "~~", "\"\<=\>\"", " ", "~~", " ", 
-           RowBox[{"v", ":", "$tag"}]}], " ", ":>", " ", 
-          RowBox[{"{", 
-           RowBox[{"k", " ", "->", " ", "v"}], "}"}]}], ",", "\n", 
-         RowBox[{
-          RowBox[{"k", ":", "$tag"}], " ", ":>", " ", 
-          RowBox[{"{", 
-           RowBox[{"k", " ", "->", " ", "\"\<\>\""}], "}"}]}]}], "\n", 
-        "}"}]}], "\n", "]"}], ",", "\n", "_Rule", ",", "\n", "All"}], "\n", 
-    "]"}]}], "\n"}], "\n", 
- RowBox[{
-  RowBox[{"parseXML", "[", "expr_String", "]"}], " ", ":=", " ", 
-  RowBox[{"Quiet", "[", "\n", 
-   RowBox[{
-    RowBox[{"List", " ", "@@", " ", 
-     RowBox[{"StringReplace", "[", "\n", 
-      RowBox[{"expr", ",", "\n", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"\"\<<\>\"", " ", "~~", " ", 
-           RowBox[{"tag", ":", "$tag"}], " ", "~~", " ", 
-           RowBox[{"attrs", ":", 
-            RowBox[{"Shortest", "[", "___", "]"}]}], " ", "~~", " ", 
-           "\"\<>\>\"", " ", "~~", " ", 
-           RowBox[{"body", ":", 
-            RowBox[{"Shortest", "[", "___", "]"}]}], " ", "~~", " ", 
-           "\"\<</\>\"", " ", "~~", " ", 
-           RowBox[{"tag", ":", "$tag"}], " ", "~~", " ", "\"\<>\>\""}], " ", ":>",
-           " ", 
-          RowBox[{"XMLElement", "[", 
-           RowBox[{"tag", ",", " ", 
-            RowBox[{"parseAttrs", " ", "@", " ", "attrs"}], ",", " ", 
-            RowBox[{"parseXML", "@", "body"}]}], "]"}]}], ",", "\n", 
-         RowBox[{
-          RowBox[{"\"\<<\>\"", " ", "~~", " ", 
-           RowBox[{"tag", ":", "$tag"}], " ", "~~", " ", 
-           RowBox[{"attrs", ":", 
-            RowBox[{"Shortest", "[", "___", "]"}]}], " ", "~~", " ", 
-           "\"\</>\>\""}], " ", ":>", " ", 
-          RowBox[{"XMLElement", "[", 
-           RowBox[{"tag", ",", " ", 
-            RowBox[{"parseAttrs", " ", "@", " ", "attrs"}], ",", " ", 
-            RowBox[{"{", "}"}]}], "]"}]}]}], "\n", "}"}]}], "\n", "]"}]}], 
-    ",", "\n", 
-    RowBox[{"StringExpression", "::", "cond"}]}], "\n", "]"}]}]}], "Input",Exp\
-ressionUUID->"c69c7669-98b7-46bc-a368-23be6a681765"],
-
-Cell[TextData[{
- StyleBox["\n|",
-  FontWeight->"Bold"],
- " ",
- StyleBox["GENERATE EDGES BETWEEN PASSAGES | \n",
-  FontWeight->"Bold"],
- "Takes in a passage name and a list of link names found in its respective \
-content and constructs a Directed Edge for each of them."
-}], "Text",
- CellChangeTimes->{{3.740230794186914*^9, 3.740230821319797*^9}, {
-  3.7402341905547867`*^9, 3.740234270917544*^9}, {3.740234326064561*^9, 
-  3.740234337085328*^9}},ExpressionUUID->"d1d82e6f-138d-4d6b-9791-\
-421ce05ab02c"],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"generateEdges", "[", 
-   RowBox[{"parentName_", ",", " ", "links_"}], "]"}], ":=", " ", 
-  RowBox[{"Thread", "[", 
-   RowBox[{"DirectedEdge", "[", 
-    RowBox[{"parentName", ",", " ", "links"}], "]"}], "]"}]}]], "Input",
- CellChangeTimes->{{3.74023080055133*^9, 
-  3.740230831508478*^9}},ExpressionUUID->"40c7c0ac-a928-4aa0-9c4a-\
-b42e5a61465e"],
-
-Cell[TextData[{
- StyleBox["\n|",
-  FontWeight->"Bold"],
- " ",
- StyleBox["EXTRACT LINKS FROM PASSAGE CONTENT | \n",
-  FontWeight->"Bold"],
- "Takes in passage content and returns all the links found in it. This is \
-used as the second argument to the ",
- StyleBox["generateEdges ", "Input"],
- "function."
-}], "Text",
- CellChangeTimes->{{3.740230794186914*^9, 3.740230821319797*^9}, 
-   3.74023085266405*^9, {3.7402342883193693`*^9, 
-   3.740234330810377*^9}},ExpressionUUID->"f0cd4e1d-2b1e-4ea1-882e-\
-6a4210863b60"],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"extractLinks", "[", "passageContent_", "]"}], ":=", "\n", "\t", 
-  RowBox[{"StringReplace", "[", "\n", "\t\t", 
-   RowBox[{
-    RowBox[{"DeleteCases", "[", "\n", "\t\t\t", 
-     RowBox[{
-      RowBox[{"StringCases", "[", 
-       RowBox[{"passageContent", ",", 
-        RowBox[{"{", "\n", "\t\t\t\t", 
-         RowBox[{
-          RowBox[{
-           RowBox[{
-            RowBox[{"\"\<[[\>\"", "~~", 
-             RowBox[{"ShortestMatch", "[", "linkName___", "]"}], "~~", 
-             "\"\<]]\>\""}], " ", "/;", " ", 
-            RowBox[{"!", 
-             RowBox[{"StringContainsQ", "[", 
-              RowBox[{"linkName", ",", " ", 
-               RowBox[{
-               "\"\<->\>\"", " ", "|", " ", "\"\<<-\>\"", " ", "|", " ", 
-                "\"\<|\>\""}]}], "]"}]}]}], ":>", " ", "linkName"}], ",", 
-          "\n", "\t\t\t\t", 
-          RowBox[{
-           RowBox[{"ShortestMatch", "[", 
-            RowBox[{"\"\<[[\>\"", "~~", "__", "~~", 
-             RowBox[{"ShortestMatch", "[", 
-              RowBox[{"\"\<->\>\"", "~~", "linkName__"}], "]"}], "~~", 
-             "\"\<]]\>\""}], "]"}], " ", ":>", " ", "linkName"}], ",", "\n", 
-          "\t\t\t\t", 
-          RowBox[{
-           RowBox[{"ShortestMatch", "[", 
-            RowBox[{"\"\<[[\>\"", "~~", "__", "~~", 
-             RowBox[{"ShortestMatch", "[", 
-              RowBox[{"\"\<|\>\"", "~~", "linkName__"}], "]"}], "~~", 
-             "\"\<]]\>\""}], "]"}], " ", ":>", " ", "linkName"}], ",", "\n", 
-          "\t\t\t\t", 
-          RowBox[{
-           RowBox[{"ShortestMatch", "[", 
-            RowBox[{"\"\<[[\>\"", "~~", 
-             RowBox[{"ShortestMatch", "[", 
-              RowBox[{"linkName__", " ", "~~", " ", "\"\<<-\>\""}], "]"}], "~~",
-              "__", "~~", "\"\<]]\>\""}], "]"}], " ", ":>", " ", 
-           "linkName"}]}], "\n", "\t\t\t\t", "}"}]}], "]"}], ",", "\n", 
-      "\t\t", 
-      RowBox[{"{", "}"}]}], "]"}], ",", " ", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"\"\<&quot;\>\"", " ", "->", " ", "\"\<\\\"\>\""}], ",", " ", 
-      RowBox[{"\"\<&gt;\>\"", "->", " ", "\"\<>\>\""}], ",", " ", 
-      RowBox[{"\"\<&lt;\>\"", " ", "->", " ", "\"\<<\>\""}], ",", " ", 
-      RowBox[{"\"\<&#39;\>\"", "->", " ", "\"\<'\>\""}], ",", " ", 
-      RowBox[{"\"\<&amp;\>\"", " ", "->", " ", "\"\<&\>\""}], ",", " ", 
-      RowBox[{"\"\<&nbsp;\>\"", " ", "->", " ", "WhitespaceCharacter"}]}], 
-     "}"}]}], "]"}]}]], "Input",
- CellChangeTimes->{{3.74023080055133*^9, 3.740230858312471*^9}, 
-   3.740234358590694*^9},ExpressionUUID->"be0f8502-a17c-4db1-84e1-\
-c014d061cd6d"],
-
-Cell[TextData[{
- StyleBox["\n|",
-  FontWeight->"Bold"],
- " ",
- StyleBox["EXTRACT STORY DATA FROM IMPORTED STRING | \n",
-  FontWeight->"Bold"],
- "Extracts storydata from file at specified path."
-}], "Text",
- CellChangeTimes->{{3.740230794186914*^9, 3.740230821319797*^9}, 
-   3.74023085266405*^9, {3.7402342883193693`*^9, 3.740234330810377*^9}, {
-   3.7402343685789843`*^9, 
-   3.740234407227243*^9}},ExpressionUUID->"36d11703-dfb8-4d51-ae5c-\
-3f6c554a1dee"],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"extractStoryData", "[", "filePath_String", "]"}], ":=", 
-  RowBox[{"Module", "[", 
-   RowBox[{
-    RowBox[{"{", 
-     RowBox[{"fileAsString", ",", " ", "fileSansHeader"}], "}"}], ",", "\n", 
-    "\t", 
-    RowBox[{"(*", " ", 
-     RowBox[{"IMPORT", " ", "FILE", " ", "AS", " ", "STRING"}], " ", "*)"}], 
-    "\n", "\t", 
-    RowBox[{
-     RowBox[{"fileAsString", " ", "=", " ", 
-      RowBox[{"Import", "[", 
-       RowBox[{"filePath", ",", " ", "\"\<String\>\""}], "]"}]}], ";", "\n", 
-     "\t", 
-     RowBox[{"(*", " ", 
-      RowBox[{"GET", " ", "STORY", " ", "DATA"}], " ", "*)"}], "\n", "\t", 
-     RowBox[{"fileSansHeader", " ", "=", " ", 
-      RowBox[{"StringCases", "[", 
-       RowBox[{"fileAsString", ",", " ", 
-        RowBox[{
-         RowBox[{"htmlHeader___", "~~", " ", 
-          RowBox[{"important", ":", 
-           RowBox[{"(", 
-            RowBox[{
-            "\"\<<tw-storydata\>\"", "~~", " ", "___", " ", "~~", " ", 
-             "\"\<</tw-storydata>\>\""}], ")"}]}], "~~", "___", " ", "~~", 
-          "EndOfString"}], ":>", " ", "important"}]}], "]"}]}], ";", "\n", 
-     "\t", 
-     RowBox[{"(*", " ", 
-      RowBox[{
-      "IF", " ", "ABOVE", " ", "RESULT", " ", "IS", " ", "A", " ", "LIST", 
-       " ", "REMOVE", " ", "BRACES"}], "*)"}], "\n", "\t", 
-     RowBox[{"If", "[", 
-      RowBox[{
-       RowBox[{"ListQ", "[", "fileSansHeader", "]"}], ",", " ", 
-       RowBox[{"fileSansHeader", " ", "/.", 
-        RowBox[{
-         RowBox[{"{", "fileStringed_", "}"}], " ", ":>", " ", 
-         "fileStringed"}]}], ",", " ", "fileSansHeader"}], " ", "]"}]}]}], 
-   "\n", "]"}]}]], "Input",
- CellChangeTimes->{{3.74023080055133*^9, 3.740230858312471*^9}, 
-   3.740234358590694*^9, {3.740234463960855*^9, 3.740234467745023*^9}, 
-   3.740234506281703*^9},ExpressionUUID->"d4d094ad-1215-4bce-8b9c-\
-f0658c1e5f54"],
-
-Cell[TextData[{
- StyleBox["\n|",
-  FontWeight->"Bold"],
- " ",
- StyleBox["GENERATE ASSOCIATION FORM OF STORY | \n",
-  FontWeight->"Bold"],
- "Creates an association between passages and content for tooltips. Link \
-syntax is also removed from passage content."
-}], "Text",
- CellChangeTimes->{{3.740230794186914*^9, 3.740230821319797*^9}, 
-   3.74023085266405*^9, {3.7402342883193693`*^9, 3.740234330810377*^9}, {
-   3.7402343685789843`*^9, 3.740234407227243*^9}, 3.740234533785276*^9, {
-   3.740234567184787*^9, 
-   3.740234604871909*^9}},ExpressionUUID->"cba6657d-caec-4a7b-9446-\
-d475b1659672"],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"generateStoryAssoc", "[", 
-   RowBox[{"passages_", ",", " ", "root_"}], "]"}], ":=", " ", 
-  RowBox[{"Module", "[", 
-   RowBox[{
-    RowBox[{"{", "passageContentThread", "}"}], ",", "\n", "\t", "\n", "\t", 
-    RowBox[{
-     RowBox[{"passageContentThread", "=", " ", "\n", "\t\t", 
-      RowBox[{"AssociationThread", "[", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"Transpose", "[", "passages", "]"}], "[", 
-         RowBox[{"[", "1", "]"}], "]"}], " ", "->", " ", 
-        RowBox[{"StringReplace", "[", 
-         RowBox[{
-          RowBox[{
-           RowBox[{"Transpose", "[", "passages", "]"}], "[", 
-           RowBox[{"[", "2", "]"}], "]"}], ",", "\n", "\t\t\t", 
-          RowBox[{"{", "\n", "\t\t\t\t", 
-           RowBox[{
-            RowBox[{
-             RowBox[{
-              RowBox[{"\"\<[[\>\"", "~~", 
-               RowBox[{"ShortestMatch", "[", "linkName___", "]"}], "~~", 
-               "\"\<]]\>\""}], " ", "/;", " ", 
-              RowBox[{"!", 
-               RowBox[{"StringContainsQ", "[", 
-                RowBox[{"linkName", ",", " ", 
-                 RowBox[{
-                 "\"\<->\>\"", " ", "|", " ", "\"\<<-\>\"", " ", "|", " ", 
-                  "\"\<|\>\""}]}], "]"}]}]}], ":>", "linkName"}], ",", "\n", 
-            "\t\t\t\t", 
-            RowBox[{
-             RowBox[{"ShortestMatch", "[", 
-              RowBox[{"\"\<[[\>\"", "~~", "hiddenName__", "~~", 
-               RowBox[{"ShortestMatch", "[", 
-                RowBox[{"\"\<->\>\"", "~~", "__"}], "]"}], "~~", 
-               "\"\<]]\>\""}], "]"}], " ", ":>", " ", "hiddenName"}], ",", 
-            "\n", "\t\t\t\t", 
-            RowBox[{
-             RowBox[{"ShortestMatch", "[", 
-              RowBox[{"\"\<[[\>\"", "~~", "hiddenName__", "~~", 
-               RowBox[{"ShortestMatch", "[", 
-                RowBox[{"\"\<|\>\"", "~~", "__"}], "]"}], "~~", 
-               "\"\<]]\>\""}], "]"}], " ", ":>", " ", "hiddenName"}], ",", 
-            "\n", "\t\t\t\t", 
-            RowBox[{
-             RowBox[{"ShortestMatch", "[", 
-              RowBox[{"\"\<[[\>\"", "~~", 
-               RowBox[{"ShortestMatch", "[", 
-                RowBox[{"__", " ", "~~", " ", "\"\<<-\>\""}], "]"}], "~~", 
-               "hiddenName__", "~~", "\"\<]]\>\""}], "]"}], " ", ":>", " ", 
-             "hiddenName"}]}], "\n", "\t\t\t", "}"}]}], "]"}]}], "]"}]}], ";",
-      "\n", "\t", "\n", "\t", 
-     RowBox[{"AssociateTo", "[", 
-      RowBox[{"passageContentThread", ",", " ", 
-       RowBox[{"root", " ", "->", " ", "\"\<Start Here\>\""}]}], "]"}], 
-     ";"}]}], "\n", "\n", "]"}]}]], "Input",
- CellChangeTimes->{{3.74023080055133*^9, 3.740230858312471*^9}, 
-   3.740234358590694*^9, {3.740234463960855*^9, 3.740234467745023*^9}, {
-   3.740234506281703*^9, 3.740234540990597*^9}, {3.7402346092424097`*^9, 
-   3.740234609756654*^9}, 3.740234655031671*^9, {3.7402357712102947`*^9, 
-   3.740235773632722*^9}},ExpressionUUID->"34017348-93ae-4f97-9421-\
-620d149f7449"],
-
-Cell[TextData[{
- StyleBox["\n|",
-  FontWeight->"Bold"],
- " ",
- StyleBox["GENREATE GRAPH WITH TOOLTIP VERTICES | \n",
-  FontWeight->"Bold"],
- "Generates a graph with tooltips for each vertex."
-}], "Text",
- CellChangeTimes->{{3.740230794186914*^9, 3.740230821319797*^9}, 
-   3.74023085266405*^9, {3.7402342883193693`*^9, 3.740234330810377*^9}, {
-   3.7402343685789843`*^9, 3.740234407227243*^9}, 3.740234533785276*^9, {
-   3.740234567184787*^9, 3.740234604871909*^9}, 3.740234670142264*^9, {
-   3.740234721295299*^9, 3.740234728175239*^9}, {3.740234892746234*^9, 
-   3.740234894663637*^9}, 
-   3.7402354003317013`*^9},ExpressionUUID->"beef5c5b-2954-44bc-9d0f-\
-d8461e88588d"],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"generateTooltipGraph", "[", 
-   RowBox[{"rootName_", ",", " ", "passages_", ",", " ", "assoc_"}], "]"}], ":=", 
-  RowBox[{"Module", "[", 
-   RowBox[{
-    RowBox[{"{", 
-     RowBox[{"edges", ",", " ", "alledges", ",", " ", "g", ",", " ", "v"}], 
-     "}"}], ",", "\[IndentingNewLine]", 
-    RowBox[{"(*", " ", 
-     RowBox[{"GENERATE", " ", "PASSAGE", " ", "EDGES"}], "*)"}], "\n", "\t", 
-    RowBox[{
-     RowBox[{"edges", " ", "=", " ", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"generateEdges", "[", 
-         RowBox[{
-          RowBox[{"#", "[", 
-           RowBox[{"[", "1", "]"}], "]"}], ",", " ", 
-          RowBox[{"extractLinks", "[", 
-           RowBox[{"#", "[", 
-            RowBox[{"[", "2", "]"}], "]"}], "]"}]}], "]"}], "&"}], "/@", 
-       "passages"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"(*", " ", 
-      RowBox[{"ADD", " ", "ROOT", " ", "TO", " ", "EDGES"}], " ", "*)"}], 
-     "\n", "\t", 
-     RowBox[{"alledges", " ", "=", " ", 
-      RowBox[{"Flatten", "[", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{"rootName", " ", "\[DirectedEdge]", " ", 
-           RowBox[{
-            RowBox[{"First", "[", "passages", "]"}], "[", 
-            RowBox[{"[", "1", "]"}], "]"}]}], "}"}], ",", 
-         RowBox[{"DeleteCases", "[", 
-          RowBox[{"edges", ",", " ", 
-           RowBox[{"{", "}"}]}], "]"}]}], "}"}], "]"}]}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{"(*", " ", 
-      RowBox[{
-      "GENERATE", " ", "GRAPH", " ", "FROM", " ", "ALL", " ", "EDGES"}], 
-      "*)"}], "\n", "\t", 
-     RowBox[{"g", " ", "=", " ", 
-      RowBox[{"Graph", "[", "alledges", "]"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"(*", " ", 
-      RowBox[{
-      "ADD", " ", "TOOLTIPS", " ", "TO", " ", "GRAPH", " ", "VERTICES"}], " ",
-       "*)"}], "\n", "\t", 
-     RowBox[{"v", " ", "=", 
-      RowBox[{"Table", "[", 
-       RowBox[{
-        RowBox[{"Tooltip", "[", 
-         RowBox[{
-          RowBox[{
-           RowBox[{"VertexList", "[", "g", "]"}], "[", 
-           RowBox[{"[", "i", "]"}], "]"}], ",", " ", 
-          RowBox[{"assoc", "[", 
-           RowBox[{
-            RowBox[{"VertexList", "[", "g", "]"}], "[", 
-            RowBox[{"[", "i", "]"}], "]"}], "]"}]}], "]"}], ",", " ", 
-        RowBox[{"{", 
-         RowBox[{"i", ",", " ", "1", ",", " ", 
-          RowBox[{"Length", "[", 
-           RowBox[{"VertexList", "[", "g", "]"}], "]"}]}], "}"}]}], "]"}]}], 
-     ";", "\[IndentingNewLine]", 
-     RowBox[{"(*", " ", 
-      RowBox[{
-      "CREATE", " ", "GRAPH", " ", "FROM", " ", "TOOLTIP", " ", "VETICES", 
-       " ", "AND", " ", "ALL", " ", "EDGES"}], "*)"}], "\n", "\t", 
-     RowBox[{"Graph", "[", 
-      RowBox[{"v", ",", " ", "alledges", ",", " ", 
-       RowBox[{"VertexLabels", "->", "\"\<Name\>\""}], ",", 
-       RowBox[{"GraphLayout", " ", "->", 
-        RowBox[{"{", 
-         RowBox[{"\"\<LayeredDigraphEmbedding\>\"", ",", " ", 
-          RowBox[{"\"\<RootVertex\>\"", "->", "rootName"}]}], "}"}]}]}], 
-      "]"}]}]}], "\n", "]"}]}]], "Input",
- CellChangeTimes->{{3.74023080055133*^9, 3.740230858312471*^9}, 
-   3.740234358590694*^9, {3.740234463960855*^9, 3.740234467745023*^9}, {
-   3.740234506281703*^9, 3.740234540990597*^9}, {3.7402346092424097`*^9, 
-   3.740234609756654*^9}, {3.740234655031671*^9, 3.7402346760794363`*^9}, {
-   3.740234783750895*^9, 3.74023479052035*^9}, {3.740235435359001*^9, 
-   3.740235581288636*^9}},ExpressionUUID->"6fae785d-773d-470a-8938-\
-ccf93bcfe700"],
-
-Cell[TextData[{
- StyleBox["| IMPORT FUNCTION |\n",
-  FontWeight->"Bold"],
- "Imports a Twine Project and generates a Tooltip Graph and Association from \
-it."
-}], "Text",
- CellChangeTimes->{{3.740230220248364*^9, 3.740230228889789*^9}, {
-  3.7402349033018723`*^9, 
-  3.740234931866776*^9}},ExpressionUUID->"8434bd1a-b282-4d62-8232-\
-2d15bba18101"],
-
-Cell[BoxData[{
- RowBox[{"Clear", "[", "twineImport", "]"}], "\n", 
- RowBox[{
-  RowBox[{"twineImport", "[", "absoluteFilePath_String", "]"}], ":=", " ", 
-  RowBox[{"Module", "[", 
-   RowBox[{
-    RowBox[{"{", 
-     RowBox[{
-     "file", ",", "xmlObject", ",", " ", "rootNode", ",", "rootNodeName", ",",
-       " ", "passages", ",", "storyAssociation", ",", "completeGraph", ",", 
-      "assocForm"}], "}"}], ",", "\n", "\t", 
-    RowBox[{"(*", " ", 
-     RowBox[{
-     "EXTRACT", " ", "STORY", " ", "DATA", " ", "FROM", " ", "HTML", " ", 
-      "FILE"}], " ", "*)"}], "\n", "\t", 
-    RowBox[{
-     RowBox[{"file", " ", "=", " ", 
-      RowBox[{"extractStoryData", "[", "absoluteFilePath", "]"}]}], ";", "\n",
-      "\t", 
-     RowBox[{"(*", " ", 
-      RowBox[{"PARSE", " ", "EXTRACTED", " ", "DATA", " ", "WITH", " ", 
-       RowBox[{"RICCARDO", "'"}], "S", " ", "PARSER"}], "*)"}], "\n", "\t", 
-     RowBox[{"xmlObject", " ", "=", " ", 
-      RowBox[{"parseXML", "[", "file", "]"}]}], ";", "\n", "\t", 
-     RowBox[{"(*", " ", 
-      RowBox[{"GRAB", " ", "THE", " ", "ROOT", " ", "NODE"}], "*)"}], 
-     RowBox[{"rootNode", " ", "=", " ", 
-      RowBox[{"Cases", "[", 
-       RowBox[{"xmlObject", ",", " ", 
-        RowBox[{"XMLElement", "[", 
-         RowBox[{"\"\<tw-storydata\>\"", ",", " ", 
-          RowBox[{"{", 
-           RowBox[{
-            RowBox[{"Rule", "[", 
-             RowBox[{"\"\<name\>\"", ",", " ", "_"}], "]"}], ",", "___"}], 
-           "}"}], ",", " ", "_"}], "]"}]}], "]"}]}], ";", "\n", "     ", 
-     RowBox[{"(*", " ", 
-      RowBox[{"GRAB", " ", "THE", " ", "ROOT", " ", "NODE", " ", "NAME"}], 
-      " ", "*)"}], 
-     RowBox[{"rootNodeName", " ", "=", 
-      RowBox[{
-       RowBox[{"Cases", "[", 
-        RowBox[{"xmlObject", ",", " ", 
-         RowBox[{
-          RowBox[{"XMLElement", "[", 
-           RowBox[{"\"\<tw-storydata\>\"", ",", " ", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"Rule", "[", 
-               RowBox[{"\"\<name\>\"", ",", " ", "name_"}], "]"}], ",", 
-              "___"}], "}"}], ",", " ", "_"}], "]"}], ":>", " ", "name"}]}], 
-        "]"}], "/.", 
-       RowBox[{
-        RowBox[{"{", "storytitle_", "}"}], ":>", " ", "storytitle"}]}]}], ";",
-      "\n", "\[IndentingNewLine]", 
-     RowBox[{"(*", " ", 
-      RowBox[{"GRAB", " ", "ALL", " ", "PASSAGES"}], " ", "*)"}], 
-     RowBox[{"passages", " ", "=", " ", 
-      RowBox[{"Cases", "[", 
-       RowBox[{"rootNode", ",", " ", 
-        RowBox[{
-         RowBox[{"XMLElement", "[", 
-          RowBox[{"\"\<tw-passagedata\>\"", ",", " ", 
-           RowBox[{"{", 
-            RowBox[{"___", ",", 
-             RowBox[{"Rule", "[", 
-              RowBox[{"\"\<name\>\"", ",", " ", "name_"}], "]"}], ",", 
-             "___"}], "}"}], ",", " ", "content_"}], "]"}], ":>", " ", 
-         RowBox[{"{", 
-          RowBox[{"name", ",", "content"}], "}"}]}], ",", " ", 
-        RowBox[{"{", 
-         RowBox[{"0", ",", " ", "Infinity"}], "}"}]}], "]"}]}], ";", "\n", 
-     "\t", "\[IndentingNewLine]", 
-     RowBox[{"(*", " ", 
-      RowBox[{
-      "GENERATE", " ", "ASSOCIATION", " ", "FOR", " ", "TOOLTIP", " ", 
-       "GRAPH", " ", "GENERATION"}], " ", "*)"}], "\n", "\t", 
-     RowBox[{"storyAssociation", " ", "=", " ", 
-      RowBox[{"generateStoryAssoc", "[", 
-       RowBox[{"passages", ",", " ", "rootNodeName"}], "]"}]}], ";", "\n", 
-     "     ", 
-     RowBox[{"(*", " ", 
-      RowBox[{"GENERATE", " ", "TOOLTIP", " ", "GRAPH"}], "*)"}], "\n", "\t", 
-     
-     RowBox[{"completeGraph", " ", "=", " ", 
-      RowBox[{"generateTooltipGraph", "[", 
-       RowBox[{
-       "rootNodeName", ",", " ", "passages", ",", "storyAssociation"}], 
-       "]"}]}], ";", "\n", "      ", 
-     RowBox[{"(*", " ", 
-      RowBox[{"GENERATE", " ", "ASSOC", " ", "FORM"}], "*)"}], "\n", "\t", 
-     RowBox[{"assocForm", " ", "=", " ", 
-      RowBox[{"Block", "[", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{"passageContentWithLinks", ",", "completeAssociation"}], 
-         "}"}], ",", "\n", "\t\t", 
-        RowBox[{"(*", 
-         RowBox[{
-         "Create", " ", "Assocation", " ", "between", " ", "passage", " ", 
-          "and", " ", "content"}], "*)"}], "\n", "\t\t", 
-        RowBox[{
-         RowBox[{"passageContentWithLinks", "=", " ", 
-          RowBox[{"AssociationThread", "[", 
-           RowBox[{
-            RowBox[{
-             RowBox[{"Transpose", "[", "passages", "]"}], "[", 
-             RowBox[{"[", "1", "]"}], "]"}], " ", "->", " ", 
-            RowBox[{
-             RowBox[{"Transpose", "[", "passages", "]"}], "[", 
-             RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}], ";", "\n", "\t\t", 
-         RowBox[{"(*", 
-          RowBox[{"Root", " ", "Node", " ", "Association"}], "*)"}], "\n", 
-         "\t\t", 
-         RowBox[{"completeAssociation", " ", "=", " ", 
-          RowBox[{"<|", 
-           RowBox[{
-           "rootNodeName", " ", "->", " ", "passageContentWithLinks"}], 
-           "|>"}]}]}]}], "]"}]}], ";", "\n", 
-     RowBox[{"{", 
-      RowBox[{"completeGraph", ",", " ", "assocForm"}], "}"}]}]}], "\n", 
-   "]"}]}]}], "Input",
- CellChangeTimes->{{3.740234776308847*^9, 3.740234777446192*^9}, {
-  3.740235599227415*^9, 3.7402357535590153`*^9}, {3.74023581099652*^9, 
-  3.740235898696281*^9}},ExpressionUUID->"3892f854-8f07-424b-b3a7-\
-d2c08f7a97cf"],
-
-Cell[TextData[{
- "\n",
+supported yet.\n\n",
  StyleBox["| EXPORTER |",
   FontWeight->"Bold"],
- "\nThe exporter takes an Association form of a story and exports it as an \
+ "\n\nThe exporter takes an Association form of a story and exports it as an \
 HTML Fragment to a specified directory that can then be imported into Twine. \
-"
-}], "Text",
- CellChangeTimes->{
-  3.740229652499137*^9, {3.740230024148685*^9, 3.740230052142745*^9}, 
-   3.7402302750486727`*^9, 
-   3.740234975454104*^9},ExpressionUUID->"a2b58478-26e7-49ca-8d0c-\
-7532596d8a52"],
-
-Cell[BoxData[{
- RowBox[{"Clear", "[", "twineExport", "]"}], "\n", 
- RowBox[{
-  RowBox[{"twineExport", "[", 
-   RowBox[{"associationForm_Association", ",", " ", "exportPathToFile_"}], 
-   "]"}], ":=", 
-  RowBox[{"Module", "[", 
-   RowBox[{
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"storyAssoc", " ", "=", " ", "associationForm"}], ",", 
-      "twGraphVertices", ",", "twGraphPoints", ",", "sTemplateHeader", ",", 
-      "assocLength", ",", "passageAssoc", ",", "passages", ",", " ", 
-      "stringOfStory"}], "}"}], ",", "\n", 
-    RowBox[{"(*", " ", 
-     RowBox[{
-     "GRAB", " ", "VERTEX", " ", "COORDINATES", " ", "FROM", " ", "GRAPH"}], 
-     " ", "*)"}], "\n", 
-    RowBox[{
-     RowBox[{"twGraphVertices", " ", "=", " ", 
-      RowBox[{"GraphEmbedding", "[", 
-       RowBox[{"twineSummary", "[", 
-        RowBox[{"storyAssoc", ",", " ", "\"\<Graph\>\""}], "]"}], "]"}]}], 
-     ";", "\n", 
-     RowBox[{"(*", " ", 
-      RowBox[{
-      "RESCALE", " ", "COORDINATES", " ", "FOR", " ", "PASSAGE", " ", 
-       "POSITIONS"}], " ", "*)"}], "\n", 
-     RowBox[{"twGraphPoints", " ", "=", " ", 
-      RowBox[{"Reverse", "[", 
-       RowBox[{"Rescale", "[", 
-        RowBox[{
-         RowBox[{"Rescale", "[", "twGraphVertices", "]"}], ",", 
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", " ", 
-         RowBox[{"{", 
-          RowBox[{"0", ",", " ", "250"}], "}"}]}], "]"}], "]"}]}], ";", "\n", 
-     
-     RowBox[{"(*", " ", 
-      RowBox[{"TWINE", " ", "STORY", " ", "HEADER"}], " ", "*)"}], "\n", 
-     RowBox[{"sTemplateHeader", " ", "=", " ", 
-      RowBox[{
-       RowBox[{
-       "StringTemplate", "[", 
-        "\"\<\n<tw-storydata name=\\\"`storyTitle`\\\" startnode=\\\"1\\\" \
-creator=\\\"Twine\\\" creator-version=\\\"2.2.1\\\" zoom=\\\"1\\\" \
-format=\\\"Harlowe\\\" format-version=\\\"2.1.0\\\" options=\\\"\\\" hidden>\n\
-\n  <style role=\\\"stylesheet\\\" id=\\\"twine-user-stylesheet\\\" \
-type=\\\"text/twine-css\\\">\n  </style>\n  <script role=\\\"script\\\" id=\\\
-\"twine-user-script\\\" type=\\\"text/twine-javascript\\\">\n  </script>\n\
-\>\"", "]"}], "[", 
-       RowBox[{"<|", 
-        RowBox[{"\"\<storyTitle\>\"", " ", "->", " ", 
-         RowBox[{"First", "[", 
-          RowBox[{"Keys", "[", "storyAssoc", "]"}], "]"}]}], "|>"}], "]"}]}], 
-     ";", "\n", 
-     RowBox[{"(*", " ", 
-      RowBox[{"PASSAGE", " ", "ASSOCIATION"}], " ", "*)"}], "\n", 
-     RowBox[{"passageAssoc", " ", "=", " ", 
-      RowBox[{"First", "[", 
-       RowBox[{"Values", "[", "storyAssoc", "]"}], "]"}]}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{"(*", " ", 
-      RowBox[{"PASSAGE", " ", "ASSOCIATION", " ", "LENGTH"}], " ", "*)"}], 
-     "\n", 
-     RowBox[{"assocLength", " ", "=", " ", 
-      RowBox[{"Length", "[", "passageAssoc", "]"}]}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{"(*", " ", 
-      RowBox[{
-      "GENERATE", " ", "LIST", " ", "OF", " ", "PASSAGE", " ", "DATA"}], 
-      "*)"}], "\n", 
-     RowBox[{"passages", " ", "=", " ", 
-      RowBox[{"Table", "[", "\n", 
-       RowBox[{
-        RowBox[{
-         RowBox[{
-         "StringTemplate", "[", 
-          "\"\<<tw-passagedata pid=\\\"`pid`\\\" \nname=\\\"`passagename`\\\" \
-\ntags=\\\"\\\"\nposition=\\\"`xPos`,`yPos`\\\"\nsize=\\\"100,100\\\"\n\
->`content`</tw-passagedata>\>\"", "]"}], "[", 
-         RowBox[{"<|", 
-          RowBox[{
-           RowBox[{"\"\<pid\>\"", "->", " ", "index"}], ",", 
-           RowBox[{"\"\<passagename\>\"", " ", "->", " ", 
-            RowBox[{
-             RowBox[{"Keys", "[", "passageAssoc", "]"}], "[", 
-             RowBox[{"[", "index", "]"}], "]"}]}], ",", " ", 
-           RowBox[{"\"\<content\>\"", " ", "->", " ", 
-            RowBox[{
-             RowBox[{"Values", "[", "passageAssoc", "]"}], "[", 
-             RowBox[{"[", "index", "]"}], "]"}]}], ",", " ", 
-           RowBox[{"\"\<xPos\>\"", " ", "->", " ", 
-            RowBox[{
-             RowBox[{"twGraphPoints", "[", 
-              RowBox[{"[", "index", "]"}], "]"}], "[", 
-             RowBox[{"[", "1", "]"}], "]"}]}], ",", " ", 
-           RowBox[{"\"\<yPos\>\"", " ", "->", " ", 
-            RowBox[{
-             RowBox[{"twGraphPoints", "[", 
-              RowBox[{"[", "index", "]"}], "]"}], "[", 
-             RowBox[{"[", "2", "]"}], "]"}]}]}], " ", "|>"}], "]"}], ",", " ", 
-        RowBox[{"{", 
-         RowBox[{"index", ",", " ", "1", ",", "assocLength", ",", "1"}], 
-         "}"}]}], "]"}]}], ";", "\n", 
-     RowBox[{"stringOfStory", "=", " ", 
-      RowBox[{"StringJoin", "[", 
-       RowBox[{"{", 
-        RowBox[{
-        "sTemplateHeader", ",", " ", "passages", ",", " ", 
-         "\"\<</tw-storydata>\>\""}], "}"}], "]"}]}], ";", "\n", 
-     RowBox[{"Export", "[", 
-      RowBox[{
-       RowBox[{"exportPathToFile", " ", "<>", "\"\<.html\>\""}], ",", 
-       "stringOfStory", " ", ",", " ", "\"\<HTMLFragment\>\""}], "]"}]}]}], 
-   "\n", "]"}]}]}], "Input",
- CellChangeTimes->{{3.740235939121591*^9, 3.7402359983858643`*^9}, {
-  3.740236044754691*^9, 
-  3.740236110080027*^9}},ExpressionUUID->"853bd017-bdaa-4d27-b45e-\
-bf3b7b495d87"],
-
-Cell[TextData[{
- StyleBox["\n| SUMMARIZER HELPER FUNCTION |\n",
-  FontWeight->"Bold"],
- "The ",
- StyleBox["cleanPassages", "Input"],
- "  function takes the passage association and removes markdown and link \
-syntax"
-}], "Text",
- CellChangeTimes->{
-  3.740229652499137*^9, {3.740230024148685*^9, 3.740230052142745*^9}, {
-   3.740230285725875*^9, 3.740230321380438*^9}, {3.7402350162564898`*^9, 
-   3.740235132394417*^9}, 
-   3.740236127883409*^9},ExpressionUUID->"8baf85bd-15c7-4ecd-9a41-\
-502440b75eb5"],
-
-Cell[BoxData[{
- RowBox[{"Clear", "[", "cleanPassages", "]"}], "\n", 
- RowBox[{
-  RowBox[{"cleanPassages", "[", "passageAssoc_", "]"}], ":=", " ", 
-  RowBox[{"Module", "[", 
-   RowBox[{
-    RowBox[{"{", 
-     RowBox[{
-     "markdownReplacements", ",", "psgContent", ",", "psgContentNoLinks", ",",
-       "psgContentMarkdownReplaced"}], " ", "}"}], ",", " ", 
-    "\[IndentingNewLine]", 
-    RowBox[{"(*", " ", 
-     RowBox[{"DEFINE", " ", "MARKDOWN", " ", "SYNTAX", " ", "REPLACEMENTS"}], 
-     "*)"}], "\n", "\t", 
-    RowBox[{
-     RowBox[{"markdownReplacements", " ", "=", " ", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"\"\<&quot;\>\"", " ", "->", " ", "\"\<\\\"\>\""}], ",", " ", 
-        
-        RowBox[{"\"\<&gt;\>\"", "->", " ", "\"\<>\>\""}], ",", " ", 
-        RowBox[{"\"\<&lt;\>\"", " ", "->", " ", "\"\<<\>\""}], ",", " ", 
-        RowBox[{"\"\<&#39;\>\"", "->", " ", "\"\<'\>\""}]}], "}"}]}], ";", 
-     "\n", "\t", 
-     RowBox[{"(*", " ", 
-      RowBox[{
-      "REPLACE", " ", "MARKDOWN", " ", "SYNTAX", " ", "AND", " ", "CHARACTER",
-        " ", "CODES"}], "*)"}], 
-     RowBox[{"psgContent", " ", "=", " ", 
-      RowBox[{"Table", "[", 
-       RowBox[{
-        RowBox[{"generateEdges", "[", 
-         RowBox[{
-          RowBox[{
-           RowBox[{"Flatten", "[", 
-            RowBox[{"Keys", "[", 
-             RowBox[{"Values", "[", "passageAssoc", "]"}], "]"}], "]"}], "[", 
-           
-           RowBox[{"[", "index", "]"}], "]"}], ",", 
-          RowBox[{
-           RowBox[{"Flatten", "[", 
-            RowBox[{"Values", "[", 
-             RowBox[{"Values", "[", "passageAssoc", "]"}], "]"}], "]"}], "[", 
-           
-           RowBox[{"[", "index", "]"}], "]"}]}], "]"}], ",", " ", 
-        RowBox[{"{", 
-         RowBox[{"index", ",", " ", "1", ",", " ", 
-          RowBox[{"Length", "[", 
-           RowBox[{
-            RowBox[{"Values", "[", "passageAssoc", "]"}], "/.", 
-            RowBox[{
-             RowBox[{"{", "assc_", "}"}], ":>", " ", "assc"}]}], "]"}], ",", 
-          "1"}], "}"}]}], "]"}]}], ";", "\n", "\t", 
-     RowBox[{"psgContentNoLinks", " ", "=", " ", 
-      RowBox[{"(", 
-       RowBox[{"psgContent", " ", "/.", " ", 
-        RowBox[{
-         RowBox[{"DirectedEdge", "[", 
-          RowBox[{"id_", ",", "content_"}], "]"}], ":>", " ", 
-         RowBox[{"DirectedEdge", "[", 
-          RowBox[{"id", ",", " ", 
-           RowBox[{"StringReplace", "[", 
-            RowBox[{"content", ",", " ", "\n", "\t\t", 
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{
-                RowBox[{
-                 RowBox[{"\"\<[[\>\"", "~~", 
-                  RowBox[{"ShortestMatch", "[", "linkName___", "]"}], "~~", 
-                  "\"\<]]\>\""}], " ", "/;", " ", 
-                 RowBox[{"!", 
-                  RowBox[{"StringContainsQ", "[", 
-                   RowBox[{"linkName", ",", " ", 
-                    RowBox[{
-                    "\"\<->\>\"", " ", "|", " ", "\"\<<-\>\"", " ", "|", " ", 
-                    "\"\<|\>\""}]}], "]"}]}]}], ":>", "linkName"}], ",", "\n",
-                "\t\t\t", 
-               RowBox[{
-                RowBox[{"ShortestMatch", "[", 
-                 RowBox[{"\"\<[[\>\"", "~~", "hiddenName__", "~~", 
-                  RowBox[{"ShortestMatch", "[", 
-                   RowBox[{"\"\<->\>\"", "~~", "__"}], "]"}], "~~", 
-                  "\"\<]]\>\""}], "]"}], " ", ":>", " ", "hiddenName"}], ",", 
-               "\n", "\t\t\t", 
-               RowBox[{
-                RowBox[{"ShortestMatch", "[", 
-                 RowBox[{"\"\<[[\>\"", "~~", "hiddenName__", "~~", 
-                  RowBox[{"ShortestMatch", "[", 
-                   RowBox[{"\"\<|\>\"", "~~", "__"}], "]"}], "~~", 
-                  "\"\<]]\>\""}], "]"}], " ", ":>", " ", "hiddenName"}], ",", 
-               "\n", "\t\t\t", 
-               RowBox[{
-                RowBox[{"ShortestMatch", "[", 
-                 RowBox[{"\"\<[[\>\"", "~~", 
-                  RowBox[{"ShortestMatch", "[", 
-                   RowBox[{"__", " ", "~~", " ", "\"\<<-\>\""}], "]"}], "~~", 
-                  "hiddenName__", "~~", "\"\<]]\>\""}], "]"}], " ", ":>", " ",
-                 "hiddenName"}], ",", "\n", "\t\t\t", 
-               RowBox[{"\"\<&quot;\>\"", " ", "->", " ", "\"\<\\\"\>\""}], 
-               ",", " ", 
-               RowBox[{"\"\<&gt;\>\"", "->", " ", "\"\<>\>\""}], ",", " ", 
-               RowBox[{"\"\<&lt;\>\"", " ", "->", " ", "\"\<<\>\""}], ",", 
-               " ", 
-               RowBox[{"\"\<&#39;\>\"", "->", " ", "\"\<'\>\""}], ",", " ", 
-               RowBox[{"\"\<&nbsp;\>\"", " ", "->", " ", "\"\< \>\""}], ",", 
-               RowBox[{"\"\<&amp;\>\"", " ", "->", " ", "\"\<&\>\""}]}], "\n",
-               "\t\t\t", "}"}]}], "\n", "\t", "\n", "\t", "]"}]}], "]"}]}]}], 
-       ")"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"(*", " ", 
-      RowBox[{
-      "RETURN", " ", "DIRECTED", " ", "EDGE", " ", "CLEANED", " ", 
-       "CONTENT"}], "*)"}], "\n", "\t", 
-     RowBox[{"psgContentMarkdownReplaced", " ", "=", " ", 
-      RowBox[{"(", 
-       RowBox[{"psgContentNoLinks", " ", "/.", " ", 
-        RowBox[{
-         RowBox[{"DirectedEdge", "[", 
-          RowBox[{"id_", ",", "content_"}], "]"}], ":>", " ", 
-         RowBox[{"DirectedEdge", "[", 
-          RowBox[{"id", ",", " ", 
-           RowBox[{"StringReplace", "[", 
-            RowBox[{"content", ",", " ", "markdownReplacements"}], "]"}]}], 
-          "]"}]}]}], ")"}]}]}]}], "\n", "]"}]}]}], "Input",
- CellChangeTimes->{{3.740230332903418*^9, 3.7402303332229958`*^9}, {
-  3.7402361477946043`*^9, 
-  3.7402362349864883`*^9}},ExpressionUUID->"1b929ff6-a6d1-487d-ade8-\
-2164ecf59bee"],
-
-Cell[TextData[{
+\n\n",
  StyleBox["| SUMMARIZER |",
   FontWeight->"Bold"],
  "\n\nThe summarizer has three functions; ",
@@ -11932,8 +11052,7 @@ Cell[TextData[{
   FontSlant->"Italic"],
  " which returns a ",
  StyleBox["GraphicsRow", "Input"],
- " containing the Graph with Button vertices and a simple passage display.  \
-",
+ " containing the Graph with Button vertices and a simple passage display  ",
  StyleBox["Graph",
   FontWeight->"Bold",
   FontSlant->"Italic"],
@@ -11951,308 +11070,8 @@ Cell[TextData[{
  "."
 }], "Text",
  CellChangeTimes->{
-  3.740229652499137*^9, {3.740230024148685*^9, 3.740230052142745*^9}, 
-   3.740230285725875*^9, 
-   3.740235161817483*^9},ExpressionUUID->"84ed1a05-5ba8-46b3-9b8e-\
-7e46b76d699d"],
-
-Cell[BoxData[{
- RowBox[{"Clear", "[", "twineSummary", "]"}], "\n", 
- RowBox[{
-  RowBox[{"twineSummary", "[", 
-   RowBox[{"userAssoc_", ",", " ", 
-    RowBox[{"outputForm_:", "\"\<Summary\>\""}]}], "]"}], ":=", " ", 
-  RowBox[{"Module", "[", 
-   RowBox[{
-    RowBox[{"{", 
-     RowBox[{
-     "firstEdge", ",", " ", "passageEdges", ",", "cleanedPassages", ",", 
-      "buttonList", ",", "buttonGraph"}], "}"}], ",", "\n", "\t", 
-    RowBox[{"(*", " ", 
-     RowBox[{
-     "INITIALIZE", " ", "ACTIVE", " ", "PASSAGE", " ", "TO", " ", "STORY", 
-      " ", "TITLE"}], " ", "*)"}], "\n", "\t", 
-    RowBox[{"Module", "[", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"activePassage", " ", "=", " ", 
-         RowBox[{"First", "[", 
-          RowBox[{"Keys", "[", "userAssoc", "]"}], "]"}]}], ",", " ", 
-        RowBox[{"psgKeys", " ", "=", " ", 
-         RowBox[{"Flatten", "[", 
-          RowBox[{"Keys", "[", 
-           RowBox[{"Values", "[", "userAssoc", "]"}], "]"}], "]"}]}]}], "}"}],
-       ",", "\n", "\n", "\t", 
-      RowBox[{"(*", " ", 
-       RowBox[{"CREATE", " ", "THE", " ", "FIRST", " ", "EDGE"}], " ", "*)"}],
-       "\n", "\t", 
-      RowBox[{
-       RowBox[{"firstEdge", " ", "=", " ", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"First", "[", 
-           RowBox[{"Keys", "[", "userAssoc", "]"}], "]"}], "\[DirectedEdge]", 
-          " ", 
-          RowBox[{
-           RowBox[{"Flatten", "[", 
-            RowBox[{"Keys", "[", 
-             RowBox[{"Values", "[", "userAssoc", "]"}], "]"}], "]"}], "[", 
-           RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], ";", "\n", "\n", "\t", 
-       RowBox[{"(*", " ", 
-        RowBox[{"GENERATE", " ", "PASSAGE", " ", "EDGES"}], " ", "*)"}], "\n",
-        "\t", 
-       RowBox[{"passageEdges", " ", "=", " ", 
-        RowBox[{"Flatten", "@", 
-         RowBox[{"DeleteCases", "[", 
-          RowBox[{
-           RowBox[{"Table", "[", 
-            RowBox[{
-             RowBox[{"generateEdges", "[", 
-              RowBox[{
-               RowBox[{"psgKeys", "[", 
-                RowBox[{"[", "index", "]"}], "]"}], ",", " ", 
-               RowBox[{"extractLinks", "[", 
-                RowBox[{
-                 RowBox[{"Flatten", "[", 
-                  RowBox[{"Values", "[", 
-                   RowBox[{"Values", "[", "userAssoc", "]"}], "]"}], "]"}], 
-                 "[", 
-                 RowBox[{"[", "index", "]"}], "]"}], "]"}]}], "]"}], ",", " ", 
-             RowBox[{"{", 
-              RowBox[{"index", ",", " ", "1", ",", " ", 
-               RowBox[{"Length", "[", 
-                RowBox[{
-                 RowBox[{"Values", "[", "userAssoc", "]"}], "/.", 
-                 RowBox[{
-                  RowBox[{"{", "assc_", "}"}], ":>", " ", "assc"}]}], "]"}], 
-               ",", "1"}], "}"}]}], "]"}], ",", " ", 
-           RowBox[{"{", "}"}]}], "]"}]}]}], ";", "\n", "\n", "\t", 
-       RowBox[{"(*", " ", 
-        RowBox[{"CLEAN", " ", "PASSAGE", " ", "CONTENT"}], " ", "*)"}], "\n", 
-       "\t", 
-       RowBox[{"cleanedPassages", " ", "=", " ", 
-        RowBox[{"cleanPassages", "[", "userAssoc", "]"}]}], ";", "\n", "\n", 
-       "\t", 
-       RowBox[{"(*", " ", 
-        RowBox[{"GENERATE", " ", "LIST", " ", "OF", " ", "BUTTONS"}], " ", 
-        "*)"}], "\n", "\t", 
-       RowBox[{"buttonList", " ", "=", " ", 
-        RowBox[{"cleanedPassages", "/.", " ", 
-         RowBox[{
-          RowBox[{"DirectedEdge", "[", 
-           RowBox[{"name_", ",", " ", "content_"}], "]"}], " ", ":>", " ", 
-          RowBox[{"Button", "[", 
-           RowBox[{"name", ",", " ", 
-            RowBox[{"activePassage", " ", "=", " ", "content"}]}], 
-           "]"}]}]}]}], ";", "\n", "\n", "\t", 
-       RowBox[{"(*", " ", 
-        RowBox[{
-        "REPLACE", " ", "VERTICES", " ", "OF", " ", "THE", " ", "GRAPH", " ", 
-         "WITH", " ", "BUTTONS", " ", "FROM", " ", "BUTTONLIST"}], " ", 
-        "*)"}], "\n", "\t", 
-       RowBox[{"buttonGraph", " ", "=", " ", "\n", "\t\t", 
-        RowBox[{"VertexReplace", "[", "\n", "\t\t\t", 
-         RowBox[{
-          RowBox[{"Graph", "[", 
-           RowBox[{
-            RowBox[{"Flatten", "[", 
-             RowBox[{"firstEdge", "~", "Join", "~", "passageEdges"}], "]"}], 
-            ",", "\n", "\t\t\t", 
-            RowBox[{"VertexShapeFunction", "->", "\"\<Name\>\""}], ",", "\n", 
-            "\t\t\t", 
-            RowBox[{"GraphLayout", "->", 
-             RowBox[{"{", 
-              RowBox[{"\"\<LayeredDigraphEmbedding\>\"", ",", 
-               RowBox[{"\"\<RootVertex\>\"", "->", 
-                RowBox[{"First", "[", 
-                 RowBox[{"Keys", "[", "userAssoc", "]"}], "]"}]}]}], 
-              "}"}]}]}], "]"}], ",", " ", 
-          RowBox[{"Table", "[", 
-           RowBox[{
-            RowBox[{
-             RowBox[{"psgKeys", "[", 
-              RowBox[{"[", "i", "]"}], "]"}], " ", "->", " ", 
-             RowBox[{"buttonList", "[", 
-              RowBox[{"[", "i", "]"}], "]"}]}], ",", " ", 
-            RowBox[{"{", 
-             RowBox[{"i", ",", " ", 
-              RowBox[{"Length", "[", "psgKeys", "]"}]}], "}"}]}], "]"}]}], 
-         "]"}]}], ";", "\n", 
-       RowBox[{"(*", "\n", "\t", 
-        RowBox[{"Summary", " ", "\[Implies]", " ", 
-         RowBox[{
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{"ACTIVEPASSAGE", ",", " ", "BUTTONGRAPH"}], "}"}], " ", 
-           "\n", "\t", "Graph"}], "   ", "\[Implies]", " ", 
-          RowBox[{
-           RowBox[{"BUTTONGRAPH", "\n", "\t", "Export"}], "  ", "\[Implies]", 
-           " ", 
-           RowBox[{
-           "EXPORTS", " ", "TO", " ", "TwineStories", " ", "FOLDER", " ", 
-            "IN", " ", "CURRENT", " ", "DIRECTORY"}]}]}]}], "\n", "*)"}], 
-       "\n", "\n", "\t", 
-       RowBox[{"Switch", "[", 
-        RowBox[{
-        "outputForm", ",", "\n", "\t\t", "\"\<Summary\>\"", ",", " ", 
-         RowBox[{"GraphicsRow", "[", 
-          RowBox[{"{", 
-           RowBox[{
-            RowBox[{"Dynamic", "[", 
-             RowBox[{"Framed", "[", "activePassage", "]"}], "]"}], " ", ",", 
-            " ", "buttonGraph"}], "}"}], "]"}], ",", "\n", "\t\t", 
-         "\"\<Graph\>\"", ",", " ", "buttonGraph", ",", "\n", "\t\t", 
-         "\"\<Export\>\"", ",", "\n", "\t\t\t", 
-         RowBox[{
-          RowBox[{"If", "[", 
-           RowBox[{
-            RowBox[{"DirectoryQ", "[", 
-             RowBox[{"FileNameJoin", "[", 
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"NotebookDirectory", "[", "]"}], ",", " ", 
-                "\"\<TwineStories\>\""}], "}"}], "]"}], "]"}], ",", "\n", 
-            "\t\t\t\t", 
-            RowBox[{"Block", "[", 
-             RowBox[{
-              RowBox[{"{", "twineFolder", "}"}], ",", "\n", "\t\t\t\t\t", 
-              RowBox[{
-               RowBox[{"twineFolder", " ", "=", " ", 
-                RowBox[{"FileNameJoin", "[", 
-                 RowBox[{"{", 
-                  RowBox[{
-                   RowBox[{"NotebookDirectory", "[", "]"}], ",", " ", 
-                   "\"\<TwineStories\>\""}], "}"}], "]"}]}], ";", "\n", 
-               "\t\t\t\t\t", 
-               RowBox[{"twineExport", "[", 
-                RowBox[{"userAssoc", ",", " ", 
-                 RowBox[{
-                 "twineFolder", " ", "<>", " ", "\"\</\>\"", "<>", " ", 
-                  RowBox[{"ToString", "[", 
-                   RowBox[{"First", "[", 
-                    RowBox[{"Keys", "[", "userAssoc", "]"}], "]"}], "]"}]}]}],
-                 "]"}]}]}], "\n", "\t\t\t\t", "]"}], ",", "\n", "\t\t\t\t", 
-            RowBox[{"Block", "[", 
-             RowBox[{
-              RowBox[{"{", "twineFolder", "}"}], ",", "\n", "\t\t\t\t\t", 
-              RowBox[{
-               RowBox[{"twineFolder", " ", "=", " ", 
-                RowBox[{"FileNameJoin", "[", 
-                 RowBox[{"{", 
-                  RowBox[{
-                   RowBox[{"NotebookDirectory", "[", "]"}], ",", " ", 
-                   "\"\<TwineStories\>\""}], "}"}], "]"}]}], ";", "\n", 
-               "\t\t\t\t\t", 
-               RowBox[{"CreateDirectory", "[", "twineFolder", "]"}], ";", 
-               "\n", "\t\t\t\t\t", 
-               RowBox[{"twineExport", "[", 
-                RowBox[{"userAssoc", ",", " ", 
-                 RowBox[{
-                 "twineFolder", " ", "<>", " ", "\"\</\>\"", "<>", " ", 
-                  RowBox[{"ToString", "[", 
-                   RowBox[{"First", "[", 
-                    RowBox[{"Keys", "[", "userAssoc", "]"}], "]"}], "]"}]}]}],
-                 "]"}]}]}], "\n", "\t\t\t\t", "]"}]}], "\n", "\t\t\t", "]"}], 
-          ";"}]}], "\n", "\t\t", "]"}]}]}], "\n", "]"}]}], "]"}]}]}], "Input",\
-
- CellChangeTimes->{{3.7402362672402*^9, 
-  3.7402364238146267`*^9}},ExpressionUUID->"84451530-6b0b-41be-b5ab-\
-a776ff5c1117"],
-
-Cell[TextData[{
- StyleBox["| MACRO HANDLING |",
-  FontWeight->"Bold"],
- "\n\nMacros are commands that can modify story data and metadata. I\
-\[CloseCurlyQuote]ve thought about a few ways to make that happen. One way, \
-which would be useful is to use GrammarRules, but it is linked to \
-CloudDeploy. What I\[CloseCurlyQuote]ve decided to do is construct a pseudo \
-grammar. \n\nIt takes in an association of the form ",
- StyleBox["<| \[OpenCurlyDoubleQuote]command\[CloseCurlyDoubleQuote] \[Rule] \
-cmd, \[OpenCurlyDoubleQuote]data\[CloseCurlyDoubleQuote] \[Rule] dt |>", 
-  "Input"],
- ". \nSome examples:\n\nThe ",
- StyleBox["set",
-  FontSlant->"Italic"],
- " command sets a variable to a value\n",
- StyleBox["<| \[OpenCurlyDoubleQuote]command\[CloseCurlyDoubleQuote] \[Rule] \
-\[OpenCurlyDoubleQuote]set\[CloseCurlyDoubleQuote], \
-\[OpenCurlyDoubleQuote]data\[CloseCurlyDoubleQuote] \[Rule] <| \
-\[OpenCurlyDoubleQuote]Variable\[CloseCurlyDoubleQuote] \[Rule] \
-\[OpenCurlyDoubleQuote]my-var\[CloseCurlyDoubleQuote], \
-\[OpenCurlyDoubleQuote]Value\[CloseCurlyDoubleQuote] \[Rule] \
-\[OpenCurlyDoubleQuote]my-val\[CloseCurlyDoubleQuote] |> |>", "Input"],
- "\n\nThe ",
- StyleBox["if",
-  FontSlant->"Italic"],
- " command returns the value of key \[OpenCurlyDoubleQuote]T\
-\[CloseCurlyDoubleQuote] if condition is true and the value of key \
-\[OpenCurlyDoubleQuote]E\[CloseCurlyDoubleQuote] if false.\n",
- StyleBox["<|\[CloseCurlyDoubleQuote]command\[CloseCurlyDoubleQuote]\[Rule]\
-\[CloseCurlyDoubleQuote]if\[CloseCurlyDoubleQuote], \
-\[OpenCurlyDoubleQuote]data\[CloseCurlyDoubleQuote]\[Rule] <|\
-\[CloseCurlyDoubleQuote]ConditionExpression\[CloseCurlyDoubleQuote]\[Rule] \
-condition, \[OpenCurlyDoubleQuote]T\[CloseCurlyDoubleQuote]\[Rule] \
-\[OpenCurlyDoubleQuote]True\[CloseCurlyDoubleQuote], \[OpenCurlyDoubleQuote]E\
-\[CloseCurlyDoubleQuote] \[Rule] \[OpenCurlyDoubleQuote]False\
-\[CloseCurlyDoubleQuote] |>|>", "Input"],
- "\n\nThe ",
- StyleBox["either",
-  FontSlant->"Italic"],
- " command returns a random value from the list whose key is \
-\[OpenCurlyDoubleQuote]data\[CloseCurlyDoubleQuote].\n",
- StyleBox["<|\[CloseCurlyDoubleQuote]command\[CloseCurlyDoubleQuote]\[Rule]\
-\[CloseCurlyDoubleQuote]either\[CloseCurlyDoubleQuote], \
-\[OpenCurlyDoubleQuote]data\[CloseCurlyDoubleQuote]\[Rule] {a,b,c,d,e,f,g}|>",
-   "Input"],
- "\n\nHere\[CloseCurlyQuote]s the function:"
-}], "Text",
- CellChangeTimes->{
-  3.740229652499137*^9, {3.740230024148685*^9, 3.740230052142745*^9}, 
-   3.740230285725875*^9, 3.740235161817483*^9, {3.7402367495056868`*^9, 
-   3.740236885611829*^9}, {3.740236930549507*^9, 
-   3.7402372099674273`*^9}},ExpressionUUID->"ecdd9157-dae9-4009-9dc9-\
-d9c8b29030ff"],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"macroGrammar2", "[", "macroAssoc_Association", "]"}], ":=", 
-  RowBox[{"Module", "[", 
-   RowBox[{
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"command", " ", "=", " ", 
-       RowBox[{"macroAssoc", "[", "\"\<command\>\"", "]"}]}], ",", " ", 
-      RowBox[{"data", "=", 
-       RowBox[{"macroAssoc", "[", "\"\<data\>\"", "]"}]}]}], "}"}], ",", 
-    "\[IndentingNewLine]", 
-    RowBox[{"Switch", "[", 
-     RowBox[{"command", ",", "\[IndentingNewLine]", "\"\<set\>\"", ",", 
-      RowBox[{"ToExpression", "[", 
-       RowBox[{
-        RowBox[{"ToString", "@", 
-         RowBox[{"data", "[", "\"\<Variable\>\"", "]"}]}], "<>", "\"\<=\>\"", 
-        "<>", " ", 
-        RowBox[{"ToString", "@", 
-         RowBox[{"data", "[", "\"\<Value\>\"", "]"}]}]}], "]"}], " ", ",", 
-      "\[IndentingNewLine]", "\"\<if\>\"", ",", 
-      RowBox[{"If", "[", 
-       RowBox[{
-        RowBox[{"data", "[", "\"\<ConditionExpression\>\"", "]"}], ",", " ", 
-        RowBox[{"data", "[", "\"\<T\>\"", "]"}], ",", " ", 
-        RowBox[{"data", "[", "\"\<E\>\"", "]"}]}], "]"}], ",", " ", 
-      RowBox[{"(*", "IF", "*)"}], "\[IndentingNewLine]", "\"\<print\>\"", ",", 
-      RowBox[{"Print", "[", "data", "]"}], ",", " ", 
-      RowBox[{"(*", "PRINT", "*)"}], "\[IndentingNewLine]", "\"\<either\>\"", 
-      ",", 
-      RowBox[{"RandomChoice", "[", "data", "]"}]}], " ", 
-     RowBox[{"(*", 
-      RowBox[{"RANDOM", " ", "Choice"}], "*)"}], "\[IndentingNewLine]", 
-     "]"}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
- CellChangeTimes->{{3.740236939338129*^9, 3.740236940686378*^9}, {
-  3.740237373214184*^9, 
-  3.740237378307528*^9}},ExpressionUUID->"d7551b3b-5d1b-4a60-bc19-\
-e614e3bd0a4b"]
+  3.740229652499137*^9},ExpressionUUID->"6c70fb6a-c159-4104-beef-\
+1be6addd286c"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -12282,43 +11101,42 @@ e616df451654"],
 
 Cell[TextData[{
  "In may I Took a Digital Humanities course where I was introduced to \
-software called Twine. Twine is a browser based app for creating interactive \
-stories and text-based games. A Twine story can be thought of as a website. \
-Where each webpage is a passage and the story is a network of these passages. \
- I thought it might be useful as an algorithm development mind mapping tool, \
-so I suggested it as a project idea.\n\nThe project description given to me \
-was to create an Import/Export system between Twine and the Wolfram Language. \
-And have the Wolfram Language representation to be a graph. I have that \
-functionality, though, I\[CloseCurlyQuote]ve also included the Association \
-Form which was a little easire for me to think about and work with. A Twine \
-project comes in the form of an html file.  \n\nThe first thing I thought to \
-do was understand the structure of Twine Stories. At first I only implemented \
-simple links\n\nThe part of the HTML file that is of interest is whatever is \
-wrapped in the tw-storydata tags.\n\nOne of the first things I tried was html \
-import. The Twine Files I had on hand were not valid HTML according to W3. \
-Basically, there was no html metadata (doctype etc..)So There were issues on \
-Import. I tried importring as XML, beacuse I\[CloseCurlyQuote]ve dealt with \
-that strcuture before, but this did not work either, presumably because there \
-was no XML metadata. I then tried XMLObject, which worked to a degree. There \
-was a nesting issue where an extraneous body tag was introduced on import and \
-it separated my content. Riccardo quickly wrote a parser to generate the \
-correct structure. I imported the html file as a string and then ran it \
-through the Riccardo\[CloseCurlyQuote]s xml Parser. The next step was to \
-generate the graph.\n\n\nFirst : Figure out the structure of the Twine Story:\
-\n\tI found that there was a particular and simple structure representing the \
-story.\n\t\t- <tw-storydata> <tw-passagedata></tw-passaagedata> \[Ellipsis] \
-</tw-storydata>\n\t\tThe builtin parser was having troube parsing the Twine \
-HTML file correctly, Riccardo wrote a parser that nested the elements \
-correctly. From there I was able to pick apart the neccessary elements and \
-generate a graph and association from the story.\n\nAnother thing I did was \
-implement an exporter and summarizer. The summarizer takes in the association \
-form and can show a button graph with a dynamic passage viewer that changes \
-by button clicks, or just the graph, or just Export the file. The summarizer \
-exports to the TwineStories folder in the Notebook Directory\n\nThe \
-twinExport function allows one to specify directly / explicitly where to save \
-the files via a path string.\n\nThese are the basic results. I will look \
-through my project files and notes that I wrote and add them to the Project \
-notebook. I started attempting implementation of macros.",
+software called Twine. Twine is browser based software for creating \
+Interactive Stories and text-based games. ATwine story can be thought of as a \
+website. Where each webpage is a passage and the story is a network of these \
+passages. TI had the Idea that it might be interesting to create some sort of \
+Twine Interface with thh Wolfram Langauge.\n\nThe project description given \
+to me was to create an Import/Export system between Twine and the Wolfram \
+Language. And have the Wolfram Language representation to be a graph.  A \
+Twine project comes in the form of an html file.  \n\nThe first thing I \
+thought to do was understand the structure of Twine Stories. How is the HTML \
+data laid out.\n\nThe part of the HTML file that is of interest is whatever \
+is wrapped in the tw-storydata tags.\n\nOne of the first things I tried was \
+html import. The Twine Files I had on hand were not valid HTML according to \
+W3. Basically, there was no html metadata (doctype etc..)So There were issues \
+on Import. I tried importring as XML, beacuse I\[CloseCurlyQuote]ve dealt \
+with that strcuture before, but this did not work either, presumably because \
+there was no XML metadata. I then tried XMLObject, which worked to a degree. \
+There was a nesting issue where an extraneous body tag was introduced on \
+import and it separated my content. Riccardo quickly wrote a parser to \
+generate the correct structure. I imported the html file as a string and then \
+ran it through the Riccardo\[CloseCurlyQuote]s xml Parser. The next step was \
+to generate the graph.\n\n\nFirst : Figure out the structure of the Twine \
+Story:\n\tI found that there was a particular and simple structure \
+representing the story.\n\t\t- <tw-storydata> \
+<tw-passagedata></tw-passaagedata> \[Ellipsis] </tw-storydata>\n\t\tThe \
+builtin parser was having troube parsing the Twine HTML file correctly, \
+Riccardo wrote a parser that nested the elements correctly. From there I was \
+able to pick apart the neccessary elements and generate a graph and \
+association from the story.\n\nAnother thing I did was implement an exporter \
+and summarizer. The summarizer takes in the association form and can show a \
+button graph with a dynamic passage viewer that changes by button clicks, or \
+just the graph, or just Export the file. The summarizer exports to the \
+TwineStories folder in the Notebook Directory\n\nThe twinExport function \
+allows one to specify directly / explicitly where to save the files via a \
+path string.\n\nThese are the basic results. I will look through my project \
+files and notes that I wrote and add them to the Project notebook. I started \
+attempting implementation of macros.",
  StyleBox["\n\n",
   FontWeight->"Bold"],
  "Do I Need the Intermediate File\[LongDash]Twine saves intermediate files to \
@@ -12336,8 +11154,7 @@ Harlowe. It has special synatx for defining links and macros. Macros are \
 particular funcitons that can operate on data. "
 }], "Text",
  CellChangeTimes->{
-  3.740229700828639*^9, {3.740236489112504*^9, 
-   3.740236726916637*^9}},ExpressionUUID->"17960414-3c93-4a48-bdf6-\
+  3.740229700828639*^9},ExpressionUUID->"17960414-3c93-4a48-bdf6-\
 3c4fda3ece20"]
 }, Open  ]],
 
@@ -12529,7 +11346,7 @@ NotebookEventActions:>{
        "LastModified", Deployed -> True, Background -> 
        Lighter[Gray, 0.5]]]]},
 WindowSize->{812, 752},
-WindowMargins->{{27, Automatic}, {Automatic, 53}},
+WindowMargins->{{76, Automatic}, {Automatic, 85}},
 WindowFrameElements->{"CloseBox"},
 DockedCells->Cell[
  "Wolfram Summer School 2018", FontFamily -> "Source Sans Pro", FontSize -> 
@@ -12615,20 +11432,20 @@ CellTagsIndex->{
   Cell[1948, 61, 234, 5, 67, "TemplateSectionHeaders",ExpressionUUID->"e3c11918-b62c-4e4f-bc19-a4aa32cba637",
    CellTags->"PosterContent"]},
  "PresentationContent"->{
-  Cell[90150, 1560, 252, 6, 67, "TemplateSectionHeaders",ExpressionUUID->"8e028c0c-7cb5-4cea-9aaf-57044e03e425",
+  Cell[90126, 1560, 252, 6, 67, "TemplateSectionHeaders",ExpressionUUID->"8e028c0c-7cb5-4cea-9aaf-57044e03e425",
    CellTags->"PresentationContent"]},
  "ProjectNotes"->{
-  Cell[656873, 11018, 231, 5, 67, "TemplateSectionHeaders",ExpressionUUID->"d0702cda-4649-4987-a5e2-607be4aa4f6e",
+  Cell[656849, 11018, 231, 5, 67, "TemplateSectionHeaders",ExpressionUUID->"d0702cda-4649-4987-a5e2-607be4aa4f6e",
    CellTags->"ProjectNotes"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"AuthorInfo", 723070, 12607},
- {"LastModified", 723227, 12610},
- {"PosterContent", 723385, 12613},
- {"PresentationContent", 723553, 12616},
- {"ProjectNotes", 723723, 12619}
+ {"AuthorInfo", 673247, 11424},
+ {"LastModified", 673404, 11427},
+ {"PosterContent", 673562, 11430},
+ {"PresentationContent", 673730, 11433},
+ {"ProjectNotes", 673900, 11436}
  }
 *)
 (*NotebookFileOutline
@@ -12646,111 +11463,89 @@ Cell[CellGroupData[{
 Cell[1948, 61, 234, 5, 67, "TemplateSectionHeaders",ExpressionUUID->"e3c11918-b62c-4e4f-bc19-a4aa32cba637",
  CellTags->"PosterContent"],
 Cell[2185, 68, 372, 7, 49, "TemplateEditableContent",ExpressionUUID->"16215b85-c481-4f11-8175-b0652d7bbfad"],
-Cell[2560, 77, 968, 17, 163, "TemplateEditableContent",ExpressionUUID->"c662dd0a-9849-40e8-bc89-a9f688107475"],
-Cell[3531, 96, 331, 8, 60, "TemplateInstructions",ExpressionUUID->"ec924e65-f9fc-4678-8fe3-95cd292f053c"],
-Cell[3865, 106, 82101, 1352, 337, "TemplateEditableContent",ExpressionUUID->"32f16ef4-646e-45ed-a15a-a912cfc9ecd6"],
-Cell[85969, 1460, 924, 16, 163, "TemplateEditableContent",ExpressionUUID->"ba2205bf-d701-4ef5-aa12-c7a7f1002441"],
-Cell[86896, 1478, 1043, 18, 186, "TemplateEditableContent",ExpressionUUID->"e44105f6-e95a-4d28-9e4d-8a40b3d4e596"],
-Cell[87942, 1498, 99, 1, 19, "Input",ExpressionUUID->"4a721f19-623c-47ad-bb58-c6de867557f0",
+Cell[2560, 77, 944, 17, 186, "TemplateEditableContent",ExpressionUUID->"c662dd0a-9849-40e8-bc89-a9f688107475"],
+Cell[3507, 96, 331, 8, 60, "TemplateInstructions",ExpressionUUID->"ec924e65-f9fc-4678-8fe3-95cd292f053c"],
+Cell[3841, 106, 82101, 1352, 337, "TemplateEditableContent",ExpressionUUID->"32f16ef4-646e-45ed-a15a-a912cfc9ecd6"],
+Cell[85945, 1460, 924, 16, 163, "TemplateEditableContent",ExpressionUUID->"ba2205bf-d701-4ef5-aa12-c7a7f1002441"],
+Cell[86872, 1478, 1043, 18, 186, "TemplateEditableContent",ExpressionUUID->"e44105f6-e95a-4d28-9e4d-8a40b3d4e596"],
+Cell[87918, 1498, 99, 1, 19, "Input",ExpressionUUID->"4a721f19-623c-47ad-bb58-c6de867557f0",
  CellOpen->False],
-Cell[88044, 1501, 2069, 54, 38, "TemplateDivider",ExpressionUUID->"3dd6c29c-0c7c-4de9-8e57-c12593f67d71"]
+Cell[88020, 1501, 2069, 54, 38, "TemplateDivider",ExpressionUUID->"3dd6c29c-0c7c-4de9-8e57-c12593f67d71"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[90150, 1560, 252, 6, 67, "TemplateSectionHeaders",ExpressionUUID->"8e028c0c-7cb5-4cea-9aaf-57044e03e425",
+Cell[90126, 1560, 252, 6, 67, "TemplateSectionHeaders",ExpressionUUID->"8e028c0c-7cb5-4cea-9aaf-57044e03e425",
  CellTags->"PresentationContent"],
-Cell[90405, 1568, 1395, 29, 90, "TemplateInstructions",ExpressionUUID->"a415c0fc-f692-474a-a3a1-95fb4df9ef20"],
+Cell[90381, 1568, 1395, 29, 90, "TemplateInstructions",ExpressionUUID->"a415c0fc-f692-474a-a3a1-95fb4df9ef20"],
 Cell[CellGroupData[{
-Cell[91825, 1601, 168, 3, 45, "TemplateEditableHeader",ExpressionUUID->"a82eb68b-c55f-495d-ac5a-d97167784e73"],
-Cell[91996, 1606, 263104, 4320, 325, "TemplateEditableInput",ExpressionUUID->"b9b7d44f-a863-4d63-8148-4e68a6f302a3"],
-Cell[355103, 5928, 297, 8, 55, "TemplateEditableInput",ExpressionUUID->"a8727166-8c7d-447c-92e3-347d96513249"],
-Cell[355403, 5938, 3220, 72, 275, "TemplateEditableInput",ExpressionUUID->"4630131f-3777-48d4-8ce6-da8b45e24267"],
-Cell[358626, 6012, 28917, 481, 225, "TemplateEditableInput",ExpressionUUID->"342659b1-7445-4749-9813-4c8cda9a1001"]
+Cell[91801, 1601, 168, 3, 45, "TemplateEditableHeader",ExpressionUUID->"a82eb68b-c55f-495d-ac5a-d97167784e73"],
+Cell[91972, 1606, 263104, 4320, 325, "TemplateEditableInput",ExpressionUUID->"b9b7d44f-a863-4d63-8148-4e68a6f302a3"],
+Cell[355079, 5928, 297, 8, 55, "TemplateEditableInput",ExpressionUUID->"a8727166-8c7d-447c-92e3-347d96513249"],
+Cell[355379, 5938, 3220, 72, 275, "TemplateEditableInput",ExpressionUUID->"4630131f-3777-48d4-8ce6-da8b45e24267"],
+Cell[358602, 6012, 28917, 481, 225, "TemplateEditableInput",ExpressionUUID->"342659b1-7445-4749-9813-4c8cda9a1001"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[387580, 6498, 167, 3, 45, "TemplateEditableHeader",ExpressionUUID->"d81a2f92-5f84-4614-aee9-dcb6b7eeac79"],
-Cell[387750, 6503, 4446, 104, 390, "TemplateEditableInput",ExpressionUUID->"20197eb1-0a2c-4e3a-a068-01939f0a01f0"],
-Cell[392199, 6609, 740, 19, 141, "TemplateEditableContent",ExpressionUUID->"39ccd552-a059-42cc-8c2f-c8ea1f33cafb"]
+Cell[387556, 6498, 167, 3, 45, "TemplateEditableHeader",ExpressionUUID->"d81a2f92-5f84-4614-aee9-dcb6b7eeac79"],
+Cell[387726, 6503, 4446, 104, 390, "TemplateEditableInput",ExpressionUUID->"20197eb1-0a2c-4e3a-a068-01939f0a01f0"],
+Cell[392175, 6609, 740, 19, 141, "TemplateEditableContent",ExpressionUUID->"39ccd552-a059-42cc-8c2f-c8ea1f33cafb"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[392976, 6633, 166, 3, 45, "TemplateEditableHeader",ExpressionUUID->"1389d305-f1bf-4dee-bcdb-cf90b91f8296"],
-Cell[393145, 6638, 409, 10, 78, "TemplateEditableContent",ExpressionUUID->"9277cd24-e02e-4454-9e3c-121c48c1b236"]
+Cell[392952, 6633, 166, 3, 45, "TemplateEditableHeader",ExpressionUUID->"1389d305-f1bf-4dee-bcdb-cf90b91f8296"],
+Cell[393121, 6638, 409, 10, 78, "TemplateEditableContent",ExpressionUUID->"9277cd24-e02e-4454-9e3c-121c48c1b236"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[393591, 6653, 175, 3, 45, "TemplateEditableHeader",ExpressionUUID->"73e0538b-652f-4cea-af15-9f5f293b2518"],
-Cell[393769, 6658, 259831, 4273, 257, "TemplateEditableInput",ExpressionUUID->"052a33fe-bf9b-4017-8263-8b404aed1792"],
-Cell[653603, 10933, 99, 1, 19, "Input",ExpressionUUID->"5ddaca3b-16c4-4ddd-a510-a603177f7695",
+Cell[393567, 6653, 175, 3, 45, "TemplateEditableHeader",ExpressionUUID->"73e0538b-652f-4cea-af15-9f5f293b2518"],
+Cell[393745, 6658, 259831, 4273, 257, "TemplateEditableInput",ExpressionUUID->"052a33fe-bf9b-4017-8263-8b404aed1792"],
+Cell[653579, 10933, 99, 1, 19, "Input",ExpressionUUID->"5ddaca3b-16c4-4ddd-a510-a603177f7695",
  CellOpen->False],
-Cell[653705, 10936, 3119, 76, 38, "TemplateDivider",ExpressionUUID->"01c4256e-42d0-42b4-b6a6-4fa4583bf2f0"]
+Cell[653681, 10936, 3119, 76, 38, "TemplateDivider",ExpressionUUID->"01c4256e-42d0-42b4-b6a6-4fa4583bf2f0"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[656873, 11018, 231, 5, 67, "TemplateSectionHeaders",ExpressionUUID->"d0702cda-4649-4987-a5e2-607be4aa4f6e",
+Cell[656849, 11018, 231, 5, 67, "TemplateSectionHeaders",ExpressionUUID->"d0702cda-4649-4987-a5e2-607be4aa4f6e",
  CellTags->"ProjectNotes"],
 Cell[CellGroupData[{
-Cell[657129, 11027, 151, 3, 45, "Subsubsection",ExpressionUUID->"c1b785be-a60a-40fe-b1f1-2d83590b38cd"],
-Cell[657283, 11032, 772, 17, 127, "Text",ExpressionUUID->"6c70fb6a-c159-4104-beef-1be6addd286c"],
-Cell[658058, 11051, 1136, 23, 127, "Text",ExpressionUUID->"8977496f-fb98-4218-b889-06c3b93d1f7b"],
-Cell[659197, 11076, 3418, 84, 577, "Input",ExpressionUUID->"c69c7669-98b7-46bc-a368-23be6a681765"],
-Cell[662618, 11162, 504, 12, 104, "Text",ExpressionUUID->"d1d82e6f-138d-4d6b-9791-421ce05ab02c"],
-Cell[663125, 11176, 380, 9, 30, "Input",ExpressionUUID->"40c7c0ac-a928-4aa0-9c4a-b42e5a61465e"],
-Cell[663508, 11187, 514, 14, 104, "Text",ExpressionUUID->"f0cd4e1d-2b1e-4ea1-882e-6a4210863b60"],
-Cell[664025, 11203, 2604, 57, 346, "Input",ExpressionUUID->"be0f8502-a17c-4db1-84e1-c014d061cd6d"],
-Cell[666632, 11262, 457, 12, 81, "Text",ExpressionUUID->"36d11703-dfb8-4d51-ae5c-3f6c554a1dee"],
-Cell[667092, 11276, 1870, 45, 241, "Input",ExpressionUUID->"d4d094ad-1215-4bce-8b9c-f0658c1e5f54"],
-Cell[668965, 11323, 594, 14, 104, "Text",ExpressionUUID->"cba6657d-caec-4a7b-9446-d475b1659672"],
-Cell[669562, 11339, 2994, 64, 451, "Input",ExpressionUUID->"34017348-93ae-4f97-9421-620d149f7449"],
-Cell[672559, 11405, 673, 15, 81, "Text",ExpressionUUID->"beef5c5b-2954-44bc-9d0f-d8461e88588d"],
-Cell[673235, 11422, 3520, 84, 304, "Input",ExpressionUUID->"6fae785d-773d-470a-8938-ccf93bcfe700"],
-Cell[676758, 11508, 346, 9, 58, "Text",ExpressionUUID->"8434bd1a-b282-4d62-8232-2d15bba18101"],
-Cell[677107, 11519, 5336, 125, 724, "Input",ExpressionUUID->"3892f854-8f07-424b-b3a7-d2c08f7a97cf"],
-Cell[682446, 11646, 443, 12, 104, "Text",ExpressionUUID->"a2b58478-26e7-49ca-8d0c-7532596d8a52"],
-Cell[682892, 11660, 5112, 120, 829, "Input",ExpressionUUID->"853bd017-bdaa-4d27-b45e-bf3b7b495d87"],
-Cell[688007, 11782, 503, 13, 81, "Text",ExpressionUUID->"8baf85bd-15c7-4ecd-9a41-502440b75eb5"],
-Cell[688513, 11797, 5672, 126, 703, "Input",ExpressionUUID->"1b929ff6-a6d1-487d-ade8-2164ecf59bee"],
-Cell[694188, 11925, 908, 31, 127, "Text",ExpressionUUID->"84ed1a05-5ba8-46b3-9b8e-7e46b76d699d"],
-Cell[695099, 11958, 8772, 202, 1291, "Input",ExpressionUUID->"84451530-6b0b-41be-b5ab-a776ff5c1117"],
-Cell[703874, 12162, 2686, 52, 460, "Text",ExpressionUUID->"ecdd9157-dae9-4009-9dc9-d9c8b29030ff"],
-Cell[706563, 12216, 1710, 38, 199, "Input",ExpressionUUID->"d7551b3b-5d1b-4a60-bc19-e614e3bd0a4b"]
+Cell[657105, 11027, 151, 3, 45, "Subsubsection",ExpressionUUID->"c1b785be-a60a-40fe-b1f1-2d83590b38cd"],
+Cell[657259, 11032, 1408, 41, 380, "Text",ExpressionUUID->"6c70fb6a-c159-4104-beef-1be6addd286c"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[708310, 12259, 131, 3, 45, "Subsubsection",ExpressionUUID->"6ebeefbd-4857-42fb-a308-27aaa279c47f"],
-Cell[708444, 12264, 364, 7, 35, "Text",ExpressionUUID->"14e3781a-a52e-4548-bf74-c0aba980dad1"]
+Cell[658704, 11078, 131, 3, 45, "Subsubsection",ExpressionUUID->"6ebeefbd-4857-42fb-a308-27aaa279c47f"],
+Cell[658838, 11083, 364, 7, 35, "Text",ExpressionUUID->"14e3781a-a52e-4548-bf74-c0aba980dad1"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[708845, 12276, 182, 4, 45, "Subsubsection",ExpressionUUID->"ba68b18e-0118-4694-9cc8-e616df451654"],
-Cell[709030, 12282, 4119, 58, 1323, "Text",ExpressionUUID->"17960414-3c93-4a48-bdf6-3c4fda3ece20"]
+Cell[659239, 11095, 182, 4, 45, "Subsubsection",ExpressionUUID->"ba68b18e-0118-4694-9cc8-e616df451654"],
+Cell[659424, 11101, 3902, 56, 1277, "Text",ExpressionUUID->"17960414-3c93-4a48-bdf6-3c4fda3ece20"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[713186, 12345, 148, 3, 45, "Subsubsection",ExpressionUUID->"405e0fe7-2022-4d50-b275-5f85c6659f37"],
-Cell[713337, 12350, 988, 21, 288, "Text",ExpressionUUID->"0b4b32a5-39d1-4b5b-81f9-354d8caf0d5b"]
+Cell[663363, 11162, 148, 3, 45, "Subsubsection",ExpressionUUID->"405e0fe7-2022-4d50-b275-5f85c6659f37"],
+Cell[663514, 11167, 988, 21, 288, "Text",ExpressionUUID->"0b4b32a5-39d1-4b5b-81f9-354d8caf0d5b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[714362, 12376, 156, 3, 45, "Subsubsection",ExpressionUUID->"8d03133e-d036-4673-985c-415dd5ec88bb"],
-Cell[714521, 12381, 401, 10, 32, "Item",ExpressionUUID->"c3debd62-41ac-469a-964f-2863c1f83b40"]
+Cell[664539, 11193, 156, 3, 45, "Subsubsection",ExpressionUUID->"8d03133e-d036-4673-985c-415dd5ec88bb"],
+Cell[664698, 11198, 401, 10, 32, "Item",ExpressionUUID->"c3debd62-41ac-469a-964f-2863c1f83b40"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[714959, 12396, 168, 3, 45, "Subsubsection",ExpressionUUID->"9afe7952-52cb-49e5-812a-edf95df8c363"],
-Cell[715130, 12401, 1125, 21, 311, "Text",ExpressionUUID->"b1103321-c940-4f2c-b52e-8fd884a64d49"]
+Cell[665136, 11213, 168, 3, 45, "Subsubsection",ExpressionUUID->"9afe7952-52cb-49e5-812a-edf95df8c363"],
+Cell[665307, 11218, 1125, 21, 311, "Text",ExpressionUUID->"b1103321-c940-4f2c-b52e-8fd884a64d49"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[716292, 12427, 159, 3, 45, "Subsubsection",ExpressionUUID->"19b709dc-5a9b-4a0e-8d93-1058844be4dd"],
+Cell[666469, 11244, 159, 3, 45, "Subsubsection",ExpressionUUID->"19b709dc-5a9b-4a0e-8d93-1058844be4dd"],
 Cell[CellGroupData[{
-Cell[716476, 12434, 328, 7, 32, "Item",ExpressionUUID->"bd80c183-eb48-4570-884f-6782e1c8a651"],
-Cell[716807, 12443, 341, 7, 32, "Item",ExpressionUUID->"56de80df-daf7-48c5-a0a2-39e2b1148005"],
-Cell[717151, 12452, 314, 7, 32, "Item",ExpressionUUID->"ec73aa81-aecc-4bed-bf58-56e00156e9a7"]
+Cell[666653, 11251, 328, 7, 32, "Item",ExpressionUUID->"bd80c183-eb48-4570-884f-6782e1c8a651"],
+Cell[666984, 11260, 341, 7, 32, "Item",ExpressionUUID->"56de80df-daf7-48c5-a0a2-39e2b1148005"],
+Cell[667328, 11269, 314, 7, 32, "Item",ExpressionUUID->"ec73aa81-aecc-4bed-bf58-56e00156e9a7"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[717514, 12465, 132, 2, 45, "Subsubsection",ExpressionUUID->"6668b03b-4180-4966-b673-b20f85cb5927"],
-Cell[717649, 12469, 219, 4, 35, "Text",ExpressionUUID->"a5e5e177-980c-46c4-8f4b-7804400a13ff"],
+Cell[667691, 11282, 132, 2, 45, "Subsubsection",ExpressionUUID->"6668b03b-4180-4966-b673-b20f85cb5927"],
+Cell[667826, 11286, 219, 4, 35, "Text",ExpressionUUID->"a5e5e177-980c-46c4-8f4b-7804400a13ff"],
 Cell[CellGroupData[{
-Cell[717893, 12477, 147, 3, 32, "Item",ExpressionUUID->"080790a7-811c-4b80-b1d6-0d09c692ba75"],
-Cell[718043, 12482, 147, 3, 32, "Item",ExpressionUUID->"221e43cf-731e-4f99-bad5-5ae87254a5b7"],
-Cell[718193, 12487, 148, 3, 32, "Item",ExpressionUUID->"a0570b36-022c-45f3-b574-651b8550f5e5"],
-Cell[718344, 12492, 151, 3, 32, "Item",ExpressionUUID->"0d2045c7-8632-404e-a338-4f9fce871af1"],
-Cell[718498, 12497, 148, 3, 32, "Item",ExpressionUUID->"68f97dca-2bf8-42b7-aae2-b695de3fe5bb"],
-Cell[718649, 12502, 147, 3, 32, "Item",ExpressionUUID->"5855b1d3-f3f6-433a-9ca6-b1c088153a9e"],
-Cell[718799, 12507, 153, 3, 32, "Item",ExpressionUUID->"991b4cd4-c7f8-4167-abd7-b04419847751"]
+Cell[668070, 11294, 147, 3, 32, "Item",ExpressionUUID->"080790a7-811c-4b80-b1d6-0d09c692ba75"],
+Cell[668220, 11299, 147, 3, 32, "Item",ExpressionUUID->"221e43cf-731e-4f99-bad5-5ae87254a5b7"],
+Cell[668370, 11304, 148, 3, 32, "Item",ExpressionUUID->"a0570b36-022c-45f3-b574-651b8550f5e5"],
+Cell[668521, 11309, 151, 3, 32, "Item",ExpressionUUID->"0d2045c7-8632-404e-a338-4f9fce871af1"],
+Cell[668675, 11314, 148, 3, 32, "Item",ExpressionUUID->"68f97dca-2bf8-42b7-aae2-b695de3fe5bb"],
+Cell[668826, 11319, 147, 3, 32, "Item",ExpressionUUID->"5855b1d3-f3f6-433a-9ca6-b1c088153a9e"],
+Cell[668976, 11324, 153, 3, 32, "Item",ExpressionUUID->"991b4cd4-c7f8-4167-abd7-b04419847751"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]

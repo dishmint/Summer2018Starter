@@ -94,7 +94,14 @@ generateStoryAssoc[passages_, root_]:= Module[{passageContentThread},
 
 ]
 
-generateTooltipGraph
+(* GENREATE GRAPH WITH TOOLTIP VERTICES *)
+generateTooltipGraph[rootName_, passages_, assoc_]:=Module[{edges, alledges, g, v},
+	edges = generateEdges[#[[1]], extractLinks[#[[2]]]]&/@passages;
+	alledges = Flatten[{{rootName \[DirectedEdge] First[passages][[1]]},DeleteCases[edges, {}]}];
+	g = Graph[alledges];
+	v =Table[Tooltip[VertexList[g][[i]], assoc[VertexList[g][[i]]]], {i, 1, Length[VertexList[g]]}];
+	Graph[v, alledges, VertexLabels->"Name",GraphLayout ->{"LayeredDigraphEmbedding", "RootVertex"->rootName}]
+]
 
 End[]
 
@@ -102,7 +109,7 @@ End[]
 
 
 Clear[twineImport]
-twineImport[absoluteFilePath_String]:= Module[{file,xmlObject, rootNode,rootNodeName, passages,storyAssociation,assocForm,edges,alledges,completeGraph, g, v},
+twineImport[absoluteFilePath_String]:= Module[{file,xmlObject, rootNode,rootNodeName, passages,storyAssociation,completeGraph,assocForm},
 	
 	file = extractStoryData[absoluteFilePath];
 
@@ -113,12 +120,8 @@ twineImport[absoluteFilePath_String]:= Module[{file,xmlObject, rootNode,rootNode
 	
 	storyAssociation = generateStoryAssoc[passages, rootNodeName];
 	
-	edges =generateEdges[#[[1]], extractLinks[#[[2]]]]&/@passages;
-	alledges= Flatten[{{rootNodeName \[DirectedEdge] First[passages][[1]]},DeleteCases[edges, {}]}];
-	g =Graph[alledges];
-	v =Table[Tooltip[VertexList[g][[i]], storyAssociation[VertexList[g][[i]]]], {i, 1, Length[VertexList[g]]}];
-	completeGraph = Graph[v, alledges, VertexLabels->"Name",GraphLayout ->{"LayeredDigraphEmbedding", "RootVertex"->rootNodeName}];
-
+	completeGraph = generateTooltipGraph[rootNodeName, passages, storyAssociation];
+	
 	assocForm = Block[{passageContentWithLinks,completeAssociation},
 		(*Create Assocation between passage and content*)
 		passageContentWithLinks= AssociationThread[Transpose[passages][[1]] -> Transpose[passages][[2]]];
@@ -137,9 +140,9 @@ Clear[twineExport]
 twineExport[associationForm_Association, exportPathToFile_]:=Module[{storyAssoc = associationForm,twGraphVertices,twGraphPoints,sTemplateHeader,assocLength,passageAssoc,passages, stringOfStory},
 (*Grab Vertex Points for Passage Positions*)
 twGraphVertices = GraphEmbedding[twineSummary[storyAssoc, "Graph"]];
-(*Echo[twGraphVertices, "Graph Vertices "];*)
+
 twGraphPoints = Reverse[Rescale[Rescale[twGraphVertices],{-1,1}, {0, 250}]];
-(*Echo[twGraphPoints, "Graph Points for Twine "];*)
+
 sTemplateHeader = StringTemplate["
 <tw-storydata name=\"`storyTitle`\" startnode=\"1\" creator=\"Twine\" creator-version=\"2.2.1\" zoom=\"1\" format=\"Harlowe\" format-version=\"2.1.0\" options=\"\" hidden>
 
@@ -147,8 +150,8 @@ sTemplateHeader = StringTemplate["
   </style>
   <script role=\"script\" id=\"twine-user-script\" type=\"text/twine-javascript\">
   </script>
-"
-][<|"storyTitle" -> First[Keys[storyAssoc]]|>];
+"][<|"storyTitle" -> First[Keys[storyAssoc]]|>];
+
 passageAssoc = First[Values[storyAssoc]];
 assocLength = Length[passageAssoc];
 passages = Table[
@@ -161,7 +164,8 @@ size=\"100,100\"
 stringOfStory= StringJoin[{sTemplateHeader, passages, "</tw-storydata>"}];
 Export[exportPathToFile <>".html",stringOfStory , "HTMLFragment"]
 ]
-twineExport::usage = "twineExport[<| key1 \[Rule] val1 ... |>, path/to/file] Exports WL Twine Representation to the specified path";
+twineExport::usage = "twineExport[\!\(\*
+StyleBox[\"assoc\",\nFontSlant->\"Italic\"]\), path/to/file] Exports WL Twine Representation to the specified path";
 
 
 (* ::Subsubsection::Closed:: *)
@@ -174,12 +178,12 @@ cleanPassages[passageAssoc_]:= Module[{markdownReplacements,psgContent,psgConten
 	markdownReplacements = {"&quot;" -> "\"", "&gt;"-> ">", "&lt;" -> "<", "&#39;"-> "'"};
 	psgContent = Table[generateEdges[Flatten[Keys[Values[passageAssoc]]][[index]],Flatten[Values[Values[passageAssoc]]][[index]]], {index, 1, Length[Values[passageAssoc]/.{assc_}:> assc],1}];
 	psgContentNoLinks = (psgContent /. DirectedEdge[id_,content_]:> DirectedEdge[id, StringReplace[content, 
-	{"[["~~ShortestMatch[linkName___]~~"]]" /; !StringContainsQ[linkName, "->" | "<-" | "|"]:>linkName,
-		ShortestMatch["[["~~hiddenName__~~ShortestMatch["->"~~__]~~"]]"] :> hiddenName,
-		ShortestMatch["[["~~hiddenName__~~ShortestMatch["|"~~__]~~"]]"] :> hiddenName,
-		ShortestMatch["[["~~ShortestMatch[__ ~~ "<-"]~~hiddenName__~~"]]"] :> hiddenName,
-		"&quot;" -> "\"", "&gt;"-> ">", "&lt;" -> "<", "&#39;"-> "'", "&nbsp;" -> " ","&amp;" -> "&"
-		}
+		{"[["~~ShortestMatch[linkName___]~~"]]" /; !StringContainsQ[linkName, "->" | "<-" | "|"]:>linkName,
+			ShortestMatch["[["~~hiddenName__~~ShortestMatch["->"~~__]~~"]]"] :> hiddenName,
+			ShortestMatch["[["~~hiddenName__~~ShortestMatch["|"~~__]~~"]]"] :> hiddenName,
+			ShortestMatch["[["~~ShortestMatch[__ ~~ "<-"]~~hiddenName__~~"]]"] :> hiddenName,
+			"&quot;" -> "\"", "&gt;"-> ">", "&lt;" -> "<", "&#39;"-> "'", "&nbsp;" -> " ","&amp;" -> "&"
+			}
 	
 	]]);
 	psgContentMarkdownReplaced = (psgContentNoLinks /. DirectedEdge[id_,content_]:> DirectedEdge[id, StringReplace[content, markdownReplacements]])
@@ -259,3 +263,37 @@ StyleBox[\" \",\nFontSlant->\"Italic\"]\)there";
 
 
 EndPackage[]
+
+
+(* ::Subsubsection:: *)
+(*Macro Grammar ( NOT IMPLEMENTED YET)*)
+
+
+(*macroGrammar2[commandAssoc_Association]:=Module[{command = commandAssoc["command"], data=commandAssoc["data"]},
+Switch[command,
+"set",ToExpression[ToString@data["Variable"]<>"="<> ToString@data["Value"]] ,
+"if",If[data["ConditionExpression"], data["T"], data["E"]], (*IF*)
+"print",Print[data], (*PRINT*)
+"either",RandomChoice[data] (*RANDOM Choice*)
+]
+]
+
+EXAMPLES \[LongDash]\[LongDash]\[LongDash]
+
+
+macroGrammar2[<|"command" \[Rule] "set", "data" \[Rule] <|"Variable" \[Rule] Symbol["$testVar"] , "Value" \[Rule] 10|>|>]
+
+macroGrammar2[<|"command" \[Rule] "print", "data" \[Rule] "Hello World"|>]
+
+macroGrammar2[<|"command" \[Rule] "either", "data" \[Rule]RandomInteger[10,10]|>]
+
+macroGrammar2[<|"command" \[Rule] "print", "data" \[Rule]RandomInteger[10,10]|>]
+
+macroGrammar2[<|"command" \[Rule] "if", "data" \[Rule]<|"ConditionExpression" \[Rule] (1 > 0), "T" \[Rule] "Is True", "E" \[Rule] "Is False"|>|>]
+
+macroGrammar2[<|"command" \[Rule] "if", "data" \[Rule]<|"ConditionExpression" \[Rule] (-1 > 0), "T" \[Rule] "Is True", "E" \[Rule]"Is False" |>|>]
+
+
+
+
+*)
