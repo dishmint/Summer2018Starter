@@ -7,11 +7,11 @@
 BeginPackage["Twine`"]
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Generate Graph and Association from Twine Project*)
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Importer*)
 
 
@@ -47,9 +47,12 @@ StringExpression::cond
 End[]
 
 
-Clear[generateEdges]
 Begin["`Private`"]
+(* GENERATE EDGES BETWEEN PASSAGES*)
+Clear[generateEdges]
 generateEdges[parentName_, links_]:= Thread[DirectedEdge[parentName, links]]
+
+(* EXTRACT LINKS FROM PASSAGE CONTENT*)
 Clear[extractLinks]
 extractLinks[passageContent_]:=
 	StringReplace[
@@ -61,19 +64,21 @@ extractLinks[passageContent_]:=
 				ShortestMatch["[["~~ShortestMatch[linkName__ ~~ "<-"]~~__~~"]]"] :> linkName
 				}],
 		{}], {"&quot;" -> "\"", "&gt;"-> ">", "&lt;" -> "<", "&#39;"-> "'", "&amp;" -> "&", "&nbsp;" -> WhitespaceCharacter}]
-End[]
 
+(* EXTRACT STORY DATA FROM IMPORTED STRING *)
+Clear[extractStoryData]
+extractStoryData[filePath_String]:=Module[{fileAsString, fileSansHeader},
+	(* IMPORT FILE AS STRING *)
+	fileAsString = Import[filePath, "String"];
+	(* GET STORY DATA *)
+	fileSansHeader = StringCases[fileAsString, htmlHeader___~~ important:("<tw-storydata"~~ ___ ~~ "</tw-storydata>")~~___ ~~EndOfString:> important];
+	(* IF ABOVE RESULT IS A LIST REMOVE BRACES*)
+	If[ListQ[fileSansHeader], fileSansHeader /.{fileStringed_} :> fileStringed, fileSansHeader ]
+]
 
-Clear[twineImport]
-twineImport[absoluteFilePath_String]:= Module[{fileAsString,fileSansHeader,file,xmlObject, rootNode,rootNodeName, passages,passageContentThread,passageAssociation,psgAssocCleaned,assocForm,edges,alledges,completeGraph, g, v},
-	fileAsString = Import[absoluteFilePath, "String"];
-	fileSansHeader = StringCases[fileAsString, htmlHeader___~~ important:("<tw-storydata"~~ ___ ~~ "</tw-storydata>")~~___ ~~EndOfString:> important](*/.{fileString_}\[Rule]fileString*);
-	file = If[ListQ[fileSansHeader], fileSansHeader /.{fileString_} -> fileString, fileSansHeader ];
-
-	xmlObject = parseXML[file];
-	rootNode = Cases[xmlObject, XMLElement["tw-storydata", {Rule["name", name_],___}, _]];
-	rootNodeName =Cases[xmlObject, XMLElement["tw-storydata", {Rule["name", name_],___}, _]:> name]/.{storytitle_}->storytitle;
-	passages = Cases[rootNode, XMLElement["tw-passagedata", {___,Rule["name", name_],___}, content_]:> {name,content}, {0, Infinity}];
+(* GENERATE ASSOCIATION FORM OF STORY*)
+Clear[generateStoryAssoc]
+generateStoryAssoc[passages_, root_]:= Module[{passageContentThread},
 	
 	(*Create Assocation between passage and content for tooltips and remove the link syntax*)
 	passageContentThread= 
@@ -85,12 +90,33 @@ twineImport[absoluteFilePath_String]:= Module[{fileAsString,fileSansHeader,file,
 				ShortestMatch["[["~~ShortestMatch[__ ~~ "<-"]~~hiddenName__~~"]]"] :> hiddenName
 			}]];
 	
-	passageAssociation =AssociateTo[passageContentThread, rootNodeName -> "Start Here"];
+	AssociateTo[passageContentThread, root -> "Start Here"];
+
+]
+
+generateTooltipGraph
+
+End[]
+
+
+
+
+Clear[twineImport]
+twineImport[absoluteFilePath_String]:= Module[{file,xmlObject, rootNode,rootNodeName, passages,storyAssociation,assocForm,edges,alledges,completeGraph, g, v},
+	
+	file = extractStoryData[absoluteFilePath];
+
+	xmlObject = parseXML[file];
+	rootNode = Cases[xmlObject, XMLElement["tw-storydata", {Rule["name", _],___}, _]];
+	rootNodeName =Cases[xmlObject, XMLElement["tw-storydata", {Rule["name", name_],___}, _]:> name]/.{storytitle_}:> storytitle;
+	passages = Cases[rootNode, XMLElement["tw-passagedata", {___,Rule["name", name_],___}, content_]:> {name,content}, {0, Infinity}];
+	
+	storyAssociation = generateStoryAssoc[passages, rootNodeName];
 	
 	edges =generateEdges[#[[1]], extractLinks[#[[2]]]]&/@passages;
 	alledges= Flatten[{{rootNodeName \[DirectedEdge] First[passages][[1]]},DeleteCases[edges, {}]}];
 	g =Graph[alledges];
-	v =Table[Tooltip[VertexList[g][[i]], passageAssociation[VertexList[g][[i]]]], {i, 1, Length[VertexList[g]]}];
+	v =Table[Tooltip[VertexList[g][[i]], storyAssociation[VertexList[g][[i]]]], {i, 1, Length[VertexList[g]]}];
 	completeGraph = Graph[v, alledges, VertexLabels->"Name",GraphLayout ->{"LayeredDigraphEmbedding", "RootVertex"->rootNodeName}];
 
 	assocForm = Block[{passageContentWithLinks,completeAssociation},
@@ -138,7 +164,7 @@ Export[exportPathToFile <>".html",stringOfStory , "HTMLFragment"]
 twineExport::usage = "twineExport[<| key1 \[Rule] val1 ... |>, path/to/file] Exports WL Twine Representation to the specified path";
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Summarizer (Graph, Graph + Passage Display, Export)*)
 
 
@@ -208,9 +234,28 @@ twineSummary[userAssoc_, outputForm_:"Summary"]:= Module[{firstEdge, passageEdge
 			];
 		]
 ]]
-twineSummary::usage = "twineSummary[<| key1 \[Rule] val1 ... |>, \"Export\"] Exports WL Twine Representation to the TwineStories folder in the Current Notebook Directory";
-twineSummary::usage = "twineSummary[<| key1 \[Rule] val1 ... |>, \"Graph\"] Generates Twine Graph";
-twineSummary::usage = "twineSummary[<| key1 \[Rule] val1 ... |>] Displays the Twine Passages and the Graph";
+twineSummary::usage = "twineSummary[\!\(\*
+StyleBox[\"twAssoc\",\nFontSlant->\"Italic\"]\), \!\(\*
+StyleBox[\"opt\",\nFontSlant->\"Italic\"]\)] 
+	With no \!\(\*
+StyleBox[\"opt\",\nFontSlant->\"Italic\"]\)\!\(\*
+StyleBox[\":\",\nFontSlant->\"Italic\"]\)\!\(\*
+StyleBox[\" \",\nFontSlant->\"Italic\"]\)a GraphicsRow of active passage and button graph is displayed
+	With \!\(\*
+StyleBox[\"opt\",\nFontSlant->\"Italic\"]\)\!\(\*
+StyleBox[\" \",\nFontSlant->\"Italic\"]\)\!\(\*
+StyleBox[\"Graph\",\nFontWeight->\"Bold\",\nFontSlant->\"Italic\"]\)\!\(\*
+StyleBox[\":\",\nFontWeight->\"Plain\",\nFontSlant->\"Italic\"]\)\!\(\*
+StyleBox[\" \",\nFontSlant->\"Italic\"]\)the button graph is returned
+	With \!\(\*
+StyleBox[\"opt\",\nFontSlant->\"Italic\"]\)\!\(\*
+StyleBox[\" \",\nFontSlant->\"Italic\"]\)\!\(\*
+StyleBox[\"Export\",\nFontWeight->\"Bold\",\nFontSlant->\"Italic\"]\)\!\(\*
+StyleBox[\":\",\nFontWeight->\"Plain\",\nFontSlant->\"Italic\"]\)\!\(\*
+StyleBox[\" \",\nFontSlant->\"Italic\"]\)TwineStories folder is created in the Current Notebook Directory and saves Twine HTML form \*
+StyleBox[\(of\!\(\*
+StyleBox[\"twAssoc\",\nFontSlant->\"Italic\"]\)\)]\!\(\*
+StyleBox[\" \",\nFontSlant->\"Italic\"]\)there";
 
 
 EndPackage[]
