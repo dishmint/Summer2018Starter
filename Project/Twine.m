@@ -109,7 +109,7 @@ End[]
 
 
 Clear[twineImport]
-twineImport[absoluteFilePath_String]:= Module[{file,xmlObject, rootNode,rootNodeName, passages,storyAssociation,completeGraph,assocForm},
+twineImport[absoluteFilePath_String]:= Module[{file, xmlObject, rootNode,rootNodeName, passages,storyAssociation,completeGraph,assocForm},
 	
 	file = extractStoryData[absoluteFilePath];
 
@@ -265,7 +265,7 @@ StyleBox[\" \",\nFontSlant->\"Italic\"]\)there";
 EndPackage[]
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Macro Grammar ( NOT IMPLEMENTED YET)*)
 
 

@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[    732998,      12759]
-NotebookOptionsPosition[    718992,      12515]
-NotebookOutlinePosition[    724112,      12634]
-CellTagsIndexPosition[    723892,      12625]
+NotebookDataLength[    734891,      12799]
+NotebookOptionsPosition[    720751,      12552]
+NotebookOutlinePosition[    726004,      12674]
+CellTagsIndexPosition[    725784,      12665]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -11266,12 +11266,12 @@ Cell[TextData[{
  " ",
  StyleBox["EXTRACT STORY DATA FROM IMPORTED STRING | \n",
   FontWeight->"Bold"],
- "Extracts storydata from file at specified path."
+ "Extracts story data from a file at specified path."
 }], "Text",
  CellChangeTimes->{{3.740230794186914*^9, 3.740230821319797*^9}, 
    3.74023085266405*^9, {3.7402342883193693`*^9, 3.740234330810377*^9}, {
-   3.7402343685789843`*^9, 
-   3.740234407227243*^9}},ExpressionUUID->"36d11703-dfb8-4d51-ae5c-\
+   3.7402343685789843`*^9, 3.740234407227243*^9}, {3.740238848204549*^9, 
+   3.740238852722516*^9}},ExpressionUUID->"36d11703-dfb8-4d51-ae5c-\
 3f6c554a1dee"],
 
 Cell[BoxData[
@@ -12281,63 +12281,95 @@ Cell["Notes", "Subsubsection",
 e616df451654"],
 
 Cell[TextData[{
- "In may I Took a Digital Humanities course where I was introduced to \
+ "In May I Took a Digital Humanities course where I was introduced to \
 software called Twine. Twine is a browser based app for creating interactive \
-stories and text-based games. A Twine story can be thought of as a website. \
-Where each webpage is a passage and the story is a network of these passages. \
- I thought it might be useful as an algorithm development mind mapping tool, \
-so I suggested it as a project idea.\n\nThe project description given to me \
-was to create an Import/Export system between Twine and the Wolfram Language. \
-And have the Wolfram Language representation to be a graph. I have that \
-functionality, though, I\[CloseCurlyQuote]ve also included the Association \
-Form which was a little easire for me to think about and work with. A Twine \
-project comes in the form of an html file.  \n\nThe first thing I thought to \
-do was understand the structure of Twine Stories. At first I only implemented \
-simple links\n\nThe part of the HTML file that is of interest is whatever is \
-wrapped in the tw-storydata tags.\n\nOne of the first things I tried was html \
-import. The Twine Files I had on hand were not valid HTML according to W3. \
-Basically, there was no html metadata (doctype etc..)So There were issues on \
-Import. I tried importring as XML, beacuse I\[CloseCurlyQuote]ve dealt with \
-that strcuture before, but this did not work either, presumably because there \
-was no XML metadata. I then tried XMLObject, which worked to a degree. There \
-was a nesting issue where an extraneous body tag was introduced on import and \
-it separated my content. Riccardo quickly wrote a parser to generate the \
-correct structure. I imported the html file as a string and then ran it \
-through the Riccardo\[CloseCurlyQuote]s xml Parser. The next step was to \
-generate the graph.\n\n\nFirst : Figure out the structure of the Twine Story:\
-\n\tI found that there was a particular and simple structure representing the \
-story.\n\t\t- <tw-storydata> <tw-passagedata></tw-passaagedata> \[Ellipsis] \
-</tw-storydata>\n\t\tThe builtin parser was having troube parsing the Twine \
-HTML file correctly, Riccardo wrote a parser that nested the elements \
-correctly. From there I was able to pick apart the neccessary elements and \
-generate a graph and association from the story.\n\nAnother thing I did was \
-implement an exporter and summarizer. The summarizer takes in the association \
-form and can show a button graph with a dynamic passage viewer that changes \
-by button clicks, or just the graph, or just Export the file. The summarizer \
-exports to the TwineStories folder in the Notebook Directory\n\nThe \
-twinExport function allows one to specify directly / explicitly where to save \
-the files via a path string.\n\nThese are the basic results. I will look \
-through my project files and notes that I wrote and add them to the Project \
-notebook. I started attempting implementation of macros.",
- StyleBox["\n\n",
-  FontWeight->"Bold"],
- "Do I Need the Intermediate File\[LongDash]Twine saves intermediate files to \
-the browser\[CloseCurlyQuote]s local storage, can\[CloseCurlyQuote]t access \
-this\nExploration\[LongDash]Twine stories are about exploration. Do we want \
-the Graph representation in WL to be explorable?\nIf yes, it won\
-\[CloseCurlyQuote]t be like the exploration in Twine itself. It will be a \
-computable exploration. Look at Graph functions for some insight.\n\n\[Dash]\t\
-Just focus on Harlowe markup support (which is the default markup language \
-for Twine)\n\nInitially, the Exported HTML did not work in Twine because I \
-neglected the metadata of tw-storydata and tw-passagedata tags. After I \
-hardcoded the metadata Exports worked. The question with this is how to keep \
-the metadata up to date.\n\n\n\n\nwine makes use of a markup language called \
-Harlowe. It has special synatx for defining links and macros. Macros are \
-particular funcitons that can operate on data. "
+stories and text-based games. A Twine story can be thought of as a website \
+where each webpage is a passage and the story is a network of these passages. \
+In fact, Twine Projects are saved as HTML files.  I thought it might be \
+useful as an algorithm development mind mapping tool, so I suggested it as a \
+project idea.\n\nThe project description given to me was to create an \
+Import/Export system between Twine and the Wolfram Language. Where the \
+Wolfram Language representation would be a graph. I\[CloseCurlyQuote]ve \
+implemented both Graph and Association representations.\n\nThe browser \
+version of Twine stores intermediate files in local storage which is not \
+accessible. The only file we have access to is the published HTML. The import \
+procedure then is to parse the HTML and follow with conversion to a Graph and \
+Association.\n\n The main data of a Twine Story has relatively simple \
+structure. It looks like this:\n \n <tw-storydata>\n\t<tw-passagedata>\n \t \t\
+PASSAGE CONTENT\n \t \t</tw-passagedata>\n \t<tw-passagedata>\n \t \tPASSAGE \
+CONTENT\n\t \t </tw-passagedata> \n \t \[Ellipsis] \n</tw-storydata>\n \nSome \
+published Twine Projects have extra HTML, CSS and other data. This data is \
+not needed for my implementation, (nor is it required to import a file into \
+Twine).  All we need is whatever is within the <tw-storydata> tags.\n\nI \
+first tried importing Twine files with the HTML format spec. Though there \
+were import issues. Presumably it is because the files are technically \
+invalid HTML.  Since the ",
+ StyleBox["structure was simi",
+  IgnoreSpellCheck->True],
+ "lar to XML, I tried importing the file as XML, but this did not work \
+either, probably because there was no XML metadata. I then tried XMLObject, \
+which worked to a degree. There was a nesting issue where an extraneous body \
+tag was introduced on import and it separated my content. Riccardo quickly \
+wrote a parser to generate the correct structure. From there I was able to \
+enter the heat of the project. \n\nWith the story data in XML form I could \
+start generating the Graph and Association representation.  I used ",
+ StyleBox["Cases", "Input"],
+ " with ",
+ StyleBox["XMLElement", "Input"],
+ " patterns to extract the story data, story title and passages.\n\nThe Graph \
+that comes out of the import function has tooltips on the Vertices so that \
+one can hover over the nodes and see what the content is. It is a quick way \
+to see what the story looks like. To implement this I used an association to \
+help generate the tooltips. This is broken into two functions. One for the \
+association and one for the graph generation. Then I generate the output \
+Association. The Import function outputs a list of the Tooltip Graph and the \
+output Association.\n\nAnother thing I did was implement an exporter and \
+summarizer. The twineExport function allows one to specify directly  where to \
+save the files via a path string. Initially, the Exported HTML did not work \
+in Twine because I neglected the attributes of tw-storydata and \
+tw-passagedata tags. After I added them the Exports worked. \n\nThe \
+summarizer takes in the association form and can show a button graph with an \
+active passage display, or output just the button graph, or just Export the \
+file. The summarizer exports to the TwineStories folder in the Notebook \
+Directory.\n\nI also started looking into macro implementation. The Macros \
+are commands that can modify story elements. I wanted to implement a Grammar \
+using ",
+ StyleBox["GrammarRules", "Input"],
+ ", but it requires ",
+ StyleBox["CloudDeploy", "Input"],
+ ". What I\[CloseCurlyQuote]ve done instead is define a function called ",
+ StyleBox["macrogrammar", "Input"],
+ " which takes in an association of the form ",
+ StyleBox["<| \[OpenCurlyDoubleQuote]command\[CloseCurlyDoubleQuote] \
+\[Rule]cmd, \[OpenCurlyDoubleQuote]data\[CloseCurlyDoubleQuote] \[Rule] d |> \
+", "Input"],
+ "and evaluates the command ",
+ StyleBox["cmd ",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ "with data ",
+ StyleBox["d",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ "."
 }], "Text",
  CellChangeTimes->{
-  3.740229700828639*^9, {3.740236489112504*^9, 
-   3.740236726916637*^9}},ExpressionUUID->"17960414-3c93-4a48-bdf6-\
+  3.740229700828639*^9, {3.740236489112504*^9, 3.740236726916637*^9}, {
+   3.740238897828105*^9, 3.740238917167667*^9}, {3.740239045648549*^9, 
+   3.740239256078583*^9}, {3.740239453250287*^9, 3.7402394916280413`*^9}, {
+   3.7402395237705507`*^9, 3.740239561078154*^9}, {3.7402396023504047`*^9, 
+   3.7402399019140472`*^9}, {3.740240011661611*^9, 3.74024016536415*^9}, {
+   3.740240204937537*^9, 3.740240466433757*^9}, {3.740240505299684*^9, 
+   3.740240536395114*^9}, {3.740240576968644*^9, 3.740240896637055*^9}, {
+   3.740240928728878*^9, 3.740240944060697*^9}, {3.740240975033615*^9, 
+   3.740241190346078*^9}, {3.740241294069274*^9, 3.74024131187265*^9}, {
+   3.740241436182947*^9, 3.740241437472745*^9}, {3.740241489441957*^9, 
+   3.740241490286265*^9}, 3.740241520776178*^9, {3.7402415618222723`*^9, 
+   3.740241578074852*^9}, {3.740241690554763*^9, 3.7402418312424717`*^9}, {
+   3.740241900595134*^9, 3.740241977639558*^9}, {3.7402420415245457`*^9, 
+   3.7402420867338657`*^9}, {3.740242134696795*^9, 3.740242402780487*^9}, {
+   3.740242433874696*^9, 
+   3.740242563670835*^9}},ExpressionUUID->"17960414-3c93-4a48-bdf6-\
 3c4fda3ece20"]
 }, Open  ]],
 
@@ -12349,26 +12381,28 @@ Cell["Conclusions in Detail", "Subsubsection",
 5f85c6659f37"],
 
 Cell["\<\
-It is relatively easy to work with HTML. It may have been a bug that nested \
-the tags improperly. Riccardo\[CloseCurlyQuote]s code fixed that problem so I \
-could import the html correctly.  
-I learned how to represent Twine\[CloseCurlyQuote]s particular HTML structure \
-in Association and Graph forms. I learned how to extract and replace String \
-Patterns. I learned how to Generate Graphs and replace their vertices with \
-buttons.
+I\[CloseCurlyQuote]ve achieved a reasonable foundation for an Import/Export \
+system between Twine and the Wolfram Language. 
+One can Import a Valid Twine project and get a graph of all the links ( not \
+in a macro). So at least all passages with \[OpenCurlyDoubleQuote]narrative\
+\[CloseCurlyDoubleQuote] content are supported. I was able to generate a \
+graph and association form of the story which is a slight extension of the \
+original goal of the project.
 
-There was a lot of Extraction from Data Structures, Replacing and Isolating \
-String Patterns
-
-How well did I succeed in the original goal?
+I gained  some skills in String Patterning as well. I had some issues \
+isolating all the Link syntaxes, but was able to refine my patterns to \
+isolate the cases I needed to extract.
 
 I now have the framework to build a comprehensive Twine Import/Export system. \
 I can build upon my simple import to include support for macros, and \
 eventually user-scripts. I can build upon my simple export to include support \
-for proper Passage Positioning for the Twine editor.\
+for proper Passage Positioning for the Twine editor. Perhaps, too, I can \
+enhance the Summary function so one can actually play a Twine story or game.\
 \>", "Text",
  CellChangeTimes->{
-  3.740229710740291*^9},ExpressionUUID->"0b4b32a5-39d1-4b5b-81f9-\
+  3.740229710740291*^9, {3.7402420911200933`*^9, 3.7402420949529543`*^9}, 
+   3.7402421272574873`*^9, {3.740242580671071*^9, 
+   3.740243067955545*^9}},ExpressionUUID->"0b4b32a5-39d1-4b5b-81f9-\
 354d8caf0d5b"]
 }, Open  ]],
 
@@ -12400,26 +12434,29 @@ Cell["Future Directions", "Subsubsection",
 edf95df8c363"],
 
 Cell["\<\
- If all goes well, Machine generated stories generated by the Wolfram \
-Language can be exported as twine stories and uploaded to the internet, (or \
-perhaps any graph). Whether the Graph in WL can be explored in a Twine-Like \
-way via the notebook, is yet to be determined.
 The Harlowe markup language has support for macros: commands that can change \
 story elements (appearance, flow, state etc.). Among other types, there are \
 conditional, printing, data and output macros. Some macros include Links to \
 other passages, which I can\[CloseCurlyQuote]t support yet as they are \
-effectively hidden from my parser. The next step is to gradually implement \
-these macros and continually increase the number of stories I am testing on. \
-For each parsing or macro error in a story, I can implement a fix.
+effectively hidden from my parser. In addition to this, I need to come up \
+with a good Passage Positioning scheme for Import to Twine, at the moment I\
+\[CloseCurlyQuote]m just scaling the vertices.
 
-Working with opensource software \[LongDash] this means I\[CloseCurlyQuote]m \
-going to have to maintain this functionality as the Harlowe markup language \
-changes
+The next step is to gradually implement these macros and continually increase \
+the number of stories I am testing on. For each parsing or macro error in a \
+story, I can implement a fix.
 
-Passage Position on Export\
+Another possible direction is exporting Wolfram Language based machine \
+generated stories.
+
+Aside from that, the Harlowe markup language is opensource and actively \
+developed \[LongDash] which implies maintenance and updating of functionality \
+as the language changes.\
 \>", "Text",
  CellChangeTimes->{
-  3.740229750269668*^9},ExpressionUUID->"b1103321-c940-4f2c-b52e-\
+  3.740229750269668*^9, {3.74024307854193*^9, 3.740243087409397*^9}, {
+   3.740243120362887*^9, 
+   3.740243552621347*^9}},ExpressionUUID->"b1103321-c940-4f2c-b52e-\
 8fd884a64d49"]
 }, Open  ]],
 
@@ -12529,13 +12566,16 @@ NotebookEventActions:>{
        "LastModified", Deployed -> True, Background -> 
        Lighter[Gray, 0.5]]]]},
 WindowSize->{812, 752},
-WindowMargins->{{27, Automatic}, {Automatic, 53}},
+WindowMargins->{{16, Automatic}, {92, Automatic}},
 WindowFrameElements->{"CloseBox"},
 DockedCells->Cell[
  "Wolfram Summer School 2018", FontFamily -> "Source Sans Pro", FontSize -> 
   42, FontVariations -> {"CapsType" -> "AllCaps"}, 
   RGBColor[0.25098039215686274`, 0.25098039215686274`, 0.25098039215686274`], 
   Background -> RGBColor[1., 0.807843137254902, 0.2549019607843137]],
+SpellingDictionaries->{"CorrectWords"->{
+ "diarization", "<tw-passage", "passagedata", "tw", "storydata", 
+  "structure. It look"}},
 FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 7, \
 2018)",
 StyleDefinitions->Notebook[{
@@ -12624,11 +12664,11 @@ CellTagsIndex->{
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"AuthorInfo", 723070, 12607},
- {"LastModified", 723227, 12610},
- {"PosterContent", 723385, 12613},
- {"PresentationContent", 723553, 12616},
- {"ProjectNotes", 723723, 12619}
+ {"AuthorInfo", 724962, 12647},
+ {"LastModified", 725119, 12650},
+ {"PosterContent", 725277, 12653},
+ {"PresentationContent", 725445, 12656},
+ {"ProjectNotes", 725615, 12659}
  }
 *)
 (*NotebookFileOutline
@@ -12695,62 +12735,62 @@ Cell[662618, 11162, 504, 12, 104, "Text",ExpressionUUID->"d1d82e6f-138d-4d6b-979
 Cell[663125, 11176, 380, 9, 30, "Input",ExpressionUUID->"40c7c0ac-a928-4aa0-9c4a-b42e5a61465e"],
 Cell[663508, 11187, 514, 14, 104, "Text",ExpressionUUID->"f0cd4e1d-2b1e-4ea1-882e-6a4210863b60"],
 Cell[664025, 11203, 2604, 57, 346, "Input",ExpressionUUID->"be0f8502-a17c-4db1-84e1-c014d061cd6d"],
-Cell[666632, 11262, 457, 12, 81, "Text",ExpressionUUID->"36d11703-dfb8-4d51-ae5c-3f6c554a1dee"],
-Cell[667092, 11276, 1870, 45, 241, "Input",ExpressionUUID->"d4d094ad-1215-4bce-8b9c-f0658c1e5f54"],
-Cell[668965, 11323, 594, 14, 104, "Text",ExpressionUUID->"cba6657d-caec-4a7b-9446-d475b1659672"],
-Cell[669562, 11339, 2994, 64, 451, "Input",ExpressionUUID->"34017348-93ae-4f97-9421-620d149f7449"],
-Cell[672559, 11405, 673, 15, 81, "Text",ExpressionUUID->"beef5c5b-2954-44bc-9d0f-d8461e88588d"],
-Cell[673235, 11422, 3520, 84, 304, "Input",ExpressionUUID->"6fae785d-773d-470a-8938-ccf93bcfe700"],
-Cell[676758, 11508, 346, 9, 58, "Text",ExpressionUUID->"8434bd1a-b282-4d62-8232-2d15bba18101"],
-Cell[677107, 11519, 5336, 125, 724, "Input",ExpressionUUID->"3892f854-8f07-424b-b3a7-d2c08f7a97cf"],
-Cell[682446, 11646, 443, 12, 104, "Text",ExpressionUUID->"a2b58478-26e7-49ca-8d0c-7532596d8a52"],
-Cell[682892, 11660, 5112, 120, 829, "Input",ExpressionUUID->"853bd017-bdaa-4d27-b45e-bf3b7b495d87"],
-Cell[688007, 11782, 503, 13, 81, "Text",ExpressionUUID->"8baf85bd-15c7-4ecd-9a41-502440b75eb5"],
-Cell[688513, 11797, 5672, 126, 703, "Input",ExpressionUUID->"1b929ff6-a6d1-487d-ade8-2164ecf59bee"],
-Cell[694188, 11925, 908, 31, 127, "Text",ExpressionUUID->"84ed1a05-5ba8-46b3-9b8e-7e46b76d699d"],
-Cell[695099, 11958, 8772, 202, 1291, "Input",ExpressionUUID->"84451530-6b0b-41be-b5ab-a776ff5c1117"],
-Cell[703874, 12162, 2686, 52, 460, "Text",ExpressionUUID->"ecdd9157-dae9-4009-9dc9-d9c8b29030ff"],
-Cell[706563, 12216, 1710, 38, 199, "Input",ExpressionUUID->"d7551b3b-5d1b-4a60-bc19-e614e3bd0a4b"]
+Cell[666632, 11262, 506, 12, 81, "Text",ExpressionUUID->"36d11703-dfb8-4d51-ae5c-3f6c554a1dee"],
+Cell[667141, 11276, 1870, 45, 241, "Input",ExpressionUUID->"d4d094ad-1215-4bce-8b9c-f0658c1e5f54"],
+Cell[669014, 11323, 594, 14, 104, "Text",ExpressionUUID->"cba6657d-caec-4a7b-9446-d475b1659672"],
+Cell[669611, 11339, 2994, 64, 451, "Input",ExpressionUUID->"34017348-93ae-4f97-9421-620d149f7449"],
+Cell[672608, 11405, 673, 15, 81, "Text",ExpressionUUID->"beef5c5b-2954-44bc-9d0f-d8461e88588d"],
+Cell[673284, 11422, 3520, 84, 304, "Input",ExpressionUUID->"6fae785d-773d-470a-8938-ccf93bcfe700"],
+Cell[676807, 11508, 346, 9, 58, "Text",ExpressionUUID->"8434bd1a-b282-4d62-8232-2d15bba18101"],
+Cell[677156, 11519, 5336, 125, 724, "Input",ExpressionUUID->"3892f854-8f07-424b-b3a7-d2c08f7a97cf"],
+Cell[682495, 11646, 443, 12, 104, "Text",ExpressionUUID->"a2b58478-26e7-49ca-8d0c-7532596d8a52"],
+Cell[682941, 11660, 5112, 120, 829, "Input",ExpressionUUID->"853bd017-bdaa-4d27-b45e-bf3b7b495d87"],
+Cell[688056, 11782, 503, 13, 81, "Text",ExpressionUUID->"8baf85bd-15c7-4ecd-9a41-502440b75eb5"],
+Cell[688562, 11797, 5672, 126, 703, "Input",ExpressionUUID->"1b929ff6-a6d1-487d-ade8-2164ecf59bee"],
+Cell[694237, 11925, 908, 31, 127, "Text",ExpressionUUID->"84ed1a05-5ba8-46b3-9b8e-7e46b76d699d"],
+Cell[695148, 11958, 8772, 202, 1291, "Input",ExpressionUUID->"84451530-6b0b-41be-b5ab-a776ff5c1117"],
+Cell[703923, 12162, 2686, 52, 460, "Text",ExpressionUUID->"ecdd9157-dae9-4009-9dc9-d9c8b29030ff"],
+Cell[706612, 12216, 1710, 38, 199, "Input",ExpressionUUID->"d7551b3b-5d1b-4a60-bc19-e614e3bd0a4b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[708310, 12259, 131, 3, 45, "Subsubsection",ExpressionUUID->"6ebeefbd-4857-42fb-a308-27aaa279c47f"],
-Cell[708444, 12264, 364, 7, 35, "Text",ExpressionUUID->"14e3781a-a52e-4548-bf74-c0aba980dad1"]
+Cell[708359, 12259, 131, 3, 45, "Subsubsection",ExpressionUUID->"6ebeefbd-4857-42fb-a308-27aaa279c47f"],
+Cell[708493, 12264, 364, 7, 35, "Text",ExpressionUUID->"14e3781a-a52e-4548-bf74-c0aba980dad1"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[708845, 12276, 182, 4, 45, "Subsubsection",ExpressionUUID->"ba68b18e-0118-4694-9cc8-e616df451654"],
-Cell[709030, 12282, 4119, 58, 1323, "Text",ExpressionUUID->"17960414-3c93-4a48-bdf6-3c4fda3ece20"]
+Cell[708894, 12276, 182, 4, 45, "Subsubsection",ExpressionUUID->"ba68b18e-0118-4694-9cc8-e616df451654"],
+Cell[709079, 12282, 5463, 90, 1369, "Text",ExpressionUUID->"17960414-3c93-4a48-bdf6-3c4fda3ece20"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[713186, 12345, 148, 3, 45, "Subsubsection",ExpressionUUID->"405e0fe7-2022-4d50-b275-5f85c6659f37"],
-Cell[713337, 12350, 988, 21, 288, "Text",ExpressionUUID->"0b4b32a5-39d1-4b5b-81f9-354d8caf0d5b"]
+Cell[714579, 12377, 148, 3, 45, "Subsubsection",ExpressionUUID->"405e0fe7-2022-4d50-b275-5f85c6659f37"],
+Cell[714730, 12382, 1285, 23, 288, "Text",ExpressionUUID->"0b4b32a5-39d1-4b5b-81f9-354d8caf0d5b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[714362, 12376, 156, 3, 45, "Subsubsection",ExpressionUUID->"8d03133e-d036-4673-985c-415dd5ec88bb"],
-Cell[714521, 12381, 401, 10, 32, "Item",ExpressionUUID->"c3debd62-41ac-469a-964f-2863c1f83b40"]
+Cell[716052, 12410, 156, 3, 45, "Subsubsection",ExpressionUUID->"8d03133e-d036-4673-985c-415dd5ec88bb"],
+Cell[716211, 12415, 401, 10, 32, "Item",ExpressionUUID->"c3debd62-41ac-469a-964f-2863c1f83b40"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[714959, 12396, 168, 3, 45, "Subsubsection",ExpressionUUID->"9afe7952-52cb-49e5-812a-edf95df8c363"],
-Cell[715130, 12401, 1125, 21, 311, "Text",ExpressionUUID->"b1103321-c940-4f2c-b52e-8fd884a64d49"]
+Cell[716649, 12430, 168, 3, 45, "Subsubsection",ExpressionUUID->"9afe7952-52cb-49e5-812a-edf95df8c363"],
+Cell[716820, 12435, 1194, 24, 311, "Text",ExpressionUUID->"b1103321-c940-4f2c-b52e-8fd884a64d49"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[716292, 12427, 159, 3, 45, "Subsubsection",ExpressionUUID->"19b709dc-5a9b-4a0e-8d93-1058844be4dd"],
+Cell[718051, 12464, 159, 3, 45, "Subsubsection",ExpressionUUID->"19b709dc-5a9b-4a0e-8d93-1058844be4dd"],
 Cell[CellGroupData[{
-Cell[716476, 12434, 328, 7, 32, "Item",ExpressionUUID->"bd80c183-eb48-4570-884f-6782e1c8a651"],
-Cell[716807, 12443, 341, 7, 32, "Item",ExpressionUUID->"56de80df-daf7-48c5-a0a2-39e2b1148005"],
-Cell[717151, 12452, 314, 7, 32, "Item",ExpressionUUID->"ec73aa81-aecc-4bed-bf58-56e00156e9a7"]
+Cell[718235, 12471, 328, 7, 32, "Item",ExpressionUUID->"bd80c183-eb48-4570-884f-6782e1c8a651"],
+Cell[718566, 12480, 341, 7, 32, "Item",ExpressionUUID->"56de80df-daf7-48c5-a0a2-39e2b1148005"],
+Cell[718910, 12489, 314, 7, 32, "Item",ExpressionUUID->"ec73aa81-aecc-4bed-bf58-56e00156e9a7"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[717514, 12465, 132, 2, 45, "Subsubsection",ExpressionUUID->"6668b03b-4180-4966-b673-b20f85cb5927"],
-Cell[717649, 12469, 219, 4, 35, "Text",ExpressionUUID->"a5e5e177-980c-46c4-8f4b-7804400a13ff"],
+Cell[719273, 12502, 132, 2, 45, "Subsubsection",ExpressionUUID->"6668b03b-4180-4966-b673-b20f85cb5927"],
+Cell[719408, 12506, 219, 4, 35, "Text",ExpressionUUID->"a5e5e177-980c-46c4-8f4b-7804400a13ff"],
 Cell[CellGroupData[{
-Cell[717893, 12477, 147, 3, 32, "Item",ExpressionUUID->"080790a7-811c-4b80-b1d6-0d09c692ba75"],
-Cell[718043, 12482, 147, 3, 32, "Item",ExpressionUUID->"221e43cf-731e-4f99-bad5-5ae87254a5b7"],
-Cell[718193, 12487, 148, 3, 32, "Item",ExpressionUUID->"a0570b36-022c-45f3-b574-651b8550f5e5"],
-Cell[718344, 12492, 151, 3, 32, "Item",ExpressionUUID->"0d2045c7-8632-404e-a338-4f9fce871af1"],
-Cell[718498, 12497, 148, 3, 32, "Item",ExpressionUUID->"68f97dca-2bf8-42b7-aae2-b695de3fe5bb"],
-Cell[718649, 12502, 147, 3, 32, "Item",ExpressionUUID->"5855b1d3-f3f6-433a-9ca6-b1c088153a9e"],
-Cell[718799, 12507, 153, 3, 32, "Item",ExpressionUUID->"991b4cd4-c7f8-4167-abd7-b04419847751"]
+Cell[719652, 12514, 147, 3, 32, "Item",ExpressionUUID->"080790a7-811c-4b80-b1d6-0d09c692ba75"],
+Cell[719802, 12519, 147, 3, 32, "Item",ExpressionUUID->"221e43cf-731e-4f99-bad5-5ae87254a5b7"],
+Cell[719952, 12524, 148, 3, 32, "Item",ExpressionUUID->"a0570b36-022c-45f3-b574-651b8550f5e5"],
+Cell[720103, 12529, 151, 3, 32, "Item",ExpressionUUID->"0d2045c7-8632-404e-a338-4f9fce871af1"],
+Cell[720257, 12534, 148, 3, 32, "Item",ExpressionUUID->"68f97dca-2bf8-42b7-aae2-b695de3fe5bb"],
+Cell[720408, 12539, 147, 3, 32, "Item",ExpressionUUID->"5855b1d3-f3f6-433a-9ca6-b1c088153a9e"],
+Cell[720558, 12544, 153, 3, 32, "Item",ExpressionUUID->"991b4cd4-c7f8-4167-abd7-b04419847751"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
