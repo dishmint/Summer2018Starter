@@ -90,12 +90,11 @@ generateStoryAssoc[passages_, root_]:= Module[{passageContentThread},
 				ShortestMatch["[["~~ShortestMatch[__ ~~ "<-"]~~hiddenName__~~"]]"] :> hiddenName
 			}]];
 	
-	AssociateTo[passageContentThread, root -> "Start Here"];
-
+	AssociateTo[passageContentThread, root -> "Start Here"]
 ]
 
 (* GENREATE GRAPH WITH TOOLTIP VERTICES *)
-generateTooltipGraph[rootName_, passages_, assoc_]:=Module[{edges, alledges, g, v},
+generateTooltipGraph[rootName_, passages_, assoc_Association]:=Module[{edges, alledges, g, v},
 	edges = generateEdges[#[[1]], extractLinks[#[[2]]]]&/@passages;
 	alledges = Flatten[{{rootName \[DirectedEdge] First[passages][[1]]},DeleteCases[edges, {}]}];
 	g = Graph[alledges];
@@ -119,7 +118,6 @@ twineImport[absoluteFilePath_String]:= Module[{file, xmlObject, rootNode,rootNod
 	passages = Cases[rootNode, XMLElement["tw-passagedata", {___,Rule["name", name_],___}, content_]:> {name,content}, {0, Infinity}];
 	
 	storyAssociation = generateStoryAssoc[passages, rootNodeName];
-	
 	completeGraph = generateTooltipGraph[rootNodeName, passages, storyAssociation];
 	
 	assocForm = Block[{passageContentWithLinks,completeAssociation},
