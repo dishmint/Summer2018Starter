@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[    726329,      12689]
-NotebookOptionsPosition[    712158,      12442]
-NotebookOutlinePosition[    717444,      12564]
-CellTagsIndexPosition[    717224,      12555]
+NotebookDataLength[    726521,      12691]
+NotebookOptionsPosition[    712351,      12444]
+NotebookOutlinePosition[    717636,      12566]
+CellTagsIndexPosition[    717416,      12557]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -6351,7 +6351,7 @@ Mission Manager at Each Milestone", "Tooltip"]& ],
       "InsetString"]}}},
   FormatType->TraditionalForm,
   FrameTicks->None,
-  ImageSize->{402.42125398907183`, Automatic}]], "TemplateEditableInput",
+  ImageSize->{482.09703523907183`, Automatic}]], "TemplateEditableInput",
  ShowCellBracket->True,
  CellMargins->{{65, 20}, {10, 10}},
  CellChangeTimes->{
@@ -12324,12 +12324,13 @@ other passages, which I can\[CloseCurlyQuote]t support yet as they are \
 effectively hidden from my parser. In addition to this, I need to come up \
 with a good Passage Positioning scheme for Import to Twine, at the moment I\
 \[CloseCurlyQuote]m just scaling the vertices. The other thing to do on the \
-WOlfram Language side is better placement of the Vertex Labels. An option is \
-to use Callouts instead.
+Wolfram Language side is better placement of the Vertex Labels. An option is \
+to use Callouts instead. A nice thing to do as well would be to  format the \
+tooltip text, right now they\[CloseCurlyQuote]re kind of a slog of text. 
 
-The next step is to gradually implement these macros and continually increase \
-the number of stories I am testing on. For each parsing or macro error in a \
-story, I can implement a fix.
+The more pressing next step is to gradually implement these macros and \
+continually increase the number of stories I am testing on. For each parsing \
+or macro error in a story, I can implement a fix.
 
 Another possible direction is exporting Wolfram Language based machine \
 generated stories.
@@ -12345,8 +12346,9 @@ as the language changes.\
  CellChangeTimes->{
   3.740229750269668*^9, {3.74024307854193*^9, 3.740243087409397*^9}, {
    3.740243120362887*^9, 3.740243552621347*^9}, {3.740244674650683*^9, 
-   3.740244718943953*^9}, {3.740248578378031*^9, 
-   3.740248642982345*^9}},ExpressionUUID->"b1103321-c940-4f2c-b52e-\
+   3.740244718943953*^9}, {3.740248578378031*^9, 3.740248642982345*^9}, {
+   3.7402600993018312`*^9, 
+   3.740260220532185*^9}},ExpressionUUID->"b1103321-c940-4f2c-b52e-\
 8fd884a64d49"]
 }, Open  ]],
 
@@ -12456,7 +12458,7 @@ NotebookEventActions:>{
        "LastModified", Deployed -> True, Background -> 
        Lighter[Gray, 0.5]]]]},
 WindowSize->{812, 752},
-WindowMargins->{{227, Automatic}, {90, Automatic}},
+WindowMargins->{{15, Automatic}, {Automatic, 54}},
 WindowFrameElements->{"CloseBox"},
 DockedCells->Cell[
  "Wolfram Summer School 2018", FontFamily -> "Source Sans Pro", FontSize -> 
@@ -12535,12 +12537,12 @@ StyleDefinitions->Notebook[{
 (* Internal cache information *)
 (*CellTagsOutline
 CellTagsIndex->{
- "LastModified"->{
-  Cell[400, 13, 226, 5, 52, "TemplateInstructions",ExpressionUUID->"bab6e587-4d02-494c-9518-a100752b2c9f",
-   CellTags->"LastModified"]},
  "AuthorInfo"->{
   Cell[651, 22, 218, 5, 67, "TemplateSectionHeaders",ExpressionUUID->"47541fce-e5a1-4793-b8e1-e1340b437ca6",
    CellTags->"AuthorInfo"]},
+ "LastModified"->{
+  Cell[400, 13, 226, 5, 52, "TemplateInstructions",ExpressionUUID->"bab6e587-4d02-494c-9518-a100752b2c9f",
+   CellTags->"LastModified"]},
  "PosterContent"->{
   Cell[1952, 62, 234, 5, 67, "TemplateSectionHeaders",ExpressionUUID->"e3c11918-b62c-4e4f-bc19-a4aa32cba637",
    CellTags->"PosterContent"]},
@@ -12554,11 +12556,11 @@ CellTagsIndex->{
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"LastModified", 716404, 12537},
- {"AuthorInfo", 716559, 12540},
- {"PosterContent", 716717, 12543},
- {"PresentationContent", 716885, 12546},
- {"ProjectNotes", 717055, 12549}
+ {"AuthorInfo", 716594, 12539},
+ {"LastModified", 716751, 12542},
+ {"PosterContent", 716909, 12545},
+ {"PresentationContent", 717077, 12548},
+ {"ProjectNotes", 717247, 12551}
  }
 *)
 (*NotebookFileOutline
@@ -12593,7 +12595,7 @@ Cell[CellGroupData[{
 Cell[91878, 1603, 168, 3, 45, "TemplateEditableHeader",ExpressionUUID->"a82eb68b-c55f-495d-ac5a-d97167784e73"],
 Cell[92049, 1608, 263104, 4320, 325, "TemplateEditableInput",ExpressionUUID->"b9b7d44f-a863-4d63-8148-4e68a6f302a3"],
 Cell[355156, 5930, 321, 8, 55, "TemplateEditableInput",ExpressionUUID->"a8727166-8c7d-447c-92e3-347d96513249"],
-Cell[355480, 5940, 22463, 419, 574, "TemplateEditableInput",ExpressionUUID->"4630131f-3777-48d4-8ce6-da8b45e24267"],
+Cell[355480, 5940, 22463, 419, 714, "TemplateEditableInput",ExpressionUUID->"4630131f-3777-48d4-8ce6-da8b45e24267"],
 Cell[377946, 6361, 504, 14, 55, "TemplateEditableInput",ExpressionUUID->"342659b1-7445-4749-9813-4c8cda9a1001"]
 }, Open  ]],
 Cell[CellGroupData[{
@@ -12660,27 +12662,27 @@ Cell[707199, 12298, 401, 10, 32, "Item",ExpressionUUID->"c3debd62-41ac-469a-964f
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[707637, 12313, 168, 3, 45, "Subsubsection",ExpressionUUID->"9afe7952-52cb-49e5-812a-edf95df8c363"],
-Cell[707808, 12318, 1613, 31, 403, "Text",ExpressionUUID->"b1103321-c940-4f2c-b52e-8fd884a64d49"]
+Cell[707808, 12318, 1806, 33, 426, "Text",ExpressionUUID->"b1103321-c940-4f2c-b52e-8fd884a64d49"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[709458, 12354, 159, 3, 45, "Subsubsection",ExpressionUUID->"19b709dc-5a9b-4a0e-8d93-1058844be4dd"],
+Cell[709651, 12356, 159, 3, 45, "Subsubsection",ExpressionUUID->"19b709dc-5a9b-4a0e-8d93-1058844be4dd"],
 Cell[CellGroupData[{
-Cell[709642, 12361, 328, 7, 32, "Item",ExpressionUUID->"bd80c183-eb48-4570-884f-6782e1c8a651"],
-Cell[709973, 12370, 341, 7, 32, "Item",ExpressionUUID->"56de80df-daf7-48c5-a0a2-39e2b1148005"],
-Cell[710317, 12379, 314, 7, 32, "Item",ExpressionUUID->"ec73aa81-aecc-4bed-bf58-56e00156e9a7"]
+Cell[709835, 12363, 328, 7, 32, "Item",ExpressionUUID->"bd80c183-eb48-4570-884f-6782e1c8a651"],
+Cell[710166, 12372, 341, 7, 32, "Item",ExpressionUUID->"56de80df-daf7-48c5-a0a2-39e2b1148005"],
+Cell[710510, 12381, 314, 7, 32, "Item",ExpressionUUID->"ec73aa81-aecc-4bed-bf58-56e00156e9a7"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[710680, 12392, 132, 2, 45, "Subsubsection",ExpressionUUID->"6668b03b-4180-4966-b673-b20f85cb5927"],
-Cell[710815, 12396, 219, 4, 35, "Text",ExpressionUUID->"a5e5e177-980c-46c4-8f4b-7804400a13ff"],
+Cell[710873, 12394, 132, 2, 45, "Subsubsection",ExpressionUUID->"6668b03b-4180-4966-b673-b20f85cb5927"],
+Cell[711008, 12398, 219, 4, 35, "Text",ExpressionUUID->"a5e5e177-980c-46c4-8f4b-7804400a13ff"],
 Cell[CellGroupData[{
-Cell[711059, 12404, 147, 3, 32, "Item",ExpressionUUID->"080790a7-811c-4b80-b1d6-0d09c692ba75"],
-Cell[711209, 12409, 147, 3, 32, "Item",ExpressionUUID->"221e43cf-731e-4f99-bad5-5ae87254a5b7"],
-Cell[711359, 12414, 148, 3, 32, "Item",ExpressionUUID->"a0570b36-022c-45f3-b574-651b8550f5e5"],
-Cell[711510, 12419, 151, 3, 32, "Item",ExpressionUUID->"0d2045c7-8632-404e-a338-4f9fce871af1"],
-Cell[711664, 12424, 148, 3, 32, "Item",ExpressionUUID->"68f97dca-2bf8-42b7-aae2-b695de3fe5bb"],
-Cell[711815, 12429, 147, 3, 32, "Item",ExpressionUUID->"5855b1d3-f3f6-433a-9ca6-b1c088153a9e"],
-Cell[711965, 12434, 153, 3, 32, "Item",ExpressionUUID->"991b4cd4-c7f8-4167-abd7-b04419847751"]
+Cell[711252, 12406, 147, 3, 32, "Item",ExpressionUUID->"080790a7-811c-4b80-b1d6-0d09c692ba75"],
+Cell[711402, 12411, 147, 3, 32, "Item",ExpressionUUID->"221e43cf-731e-4f99-bad5-5ae87254a5b7"],
+Cell[711552, 12416, 148, 3, 32, "Item",ExpressionUUID->"a0570b36-022c-45f3-b574-651b8550f5e5"],
+Cell[711703, 12421, 151, 3, 32, "Item",ExpressionUUID->"0d2045c7-8632-404e-a338-4f9fce871af1"],
+Cell[711857, 12426, 148, 3, 32, "Item",ExpressionUUID->"68f97dca-2bf8-42b7-aae2-b695de3fe5bb"],
+Cell[712008, 12431, 147, 3, 32, "Item",ExpressionUUID->"5855b1d3-f3f6-433a-9ca6-b1c088153a9e"],
+Cell[712158, 12436, 153, 3, 32, "Item",ExpressionUUID->"991b4cd4-c7f8-4167-abd7-b04419847751"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
