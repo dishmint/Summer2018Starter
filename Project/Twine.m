@@ -11,7 +11,7 @@ BeginPackage["Twine`"]
 (*Generate Graph and Association from Twine Project*)
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Importer*)
 
 
@@ -263,35 +263,37 @@ StyleBox[\" \",\nFontSlant->\"Italic\"]\)there";
 EndPackage[]
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Macro Grammar ( NOT IMPLEMENTED YET)*)
 
 
-(*macroGrammar2[commandAssoc_Association]:=Module[{command = commandAssoc["command"], data=commandAssoc["data"]},
-Switch[command,
-"set",ToExpression[ToString@data["Variable"]<>"="<> ToString@data["Value"]] ,
-"if",If[data["ConditionExpression"], data["T"], data["E"]], (*IF*)
-"print",Print[data], (*PRINT*)
-"either",RandomChoice[data] (*RANDOM Choice*)
+<|"commnd" -> "set", "data" -> <|"Variable"-> "$gold" "Value" -> 20|> |>
+
+macroGrammar2[commandAssoc_Association]:=Module[{command = commandAssoc["command"], data=commandAssoc["data"]},
+	Switch[command,
+		"set",ToExpression[ToString@data["Variable"]<>"="<> ToString@data["Value"]] ,
+		"if",If[data["ConditionExpression"], data["T"], data["E"]], (*IF*)
+		"print",Print[data], (*PRINT*)
+		"either",RandomChoice[data] (*RANDOM Choice*)
 ]
 ]
 
 EXAMPLES \[LongDash]\[LongDash]\[LongDash]
 
 
-macroGrammar2[<|"command" \[Rule] "set", "data" \[Rule] <|"Variable" \[Rule] Symbol["$testVar"] , "Value" \[Rule] 10|>|>]
+macroGrammar2[<|"command" -> "set", "data" -> <|"Variable" -> Symbol["$testVar"] , "Value" -> 10|>|>]
 
-macroGrammar2[<|"command" \[Rule] "print", "data" \[Rule] "Hello World"|>]
+macroGrammar2[<|"command" -> "print", "data" -> "Hello World"|>]
 
-macroGrammar2[<|"command" \[Rule] "either", "data" \[Rule]RandomInteger[10,10]|>]
+macroGrammar2[<|"command" -> "either", "data" ->RandomInteger[10,10]|>]
 
-macroGrammar2[<|"command" \[Rule] "print", "data" \[Rule]RandomInteger[10,10]|>]
+macroGrammar2[<|"command" -> "print", "data" ->RandomInteger[10,10]|>]
 
-macroGrammar2[<|"command" \[Rule] "if", "data" \[Rule]<|"ConditionExpression" \[Rule] (1 > 0), "T" \[Rule] "Is True", "E" \[Rule] "Is False"|>|>]
+macroGrammar2[<|"command" -> "if", "data" -><|"ConditionExpression" -> (1 > 0), "T" -> "Is True", "E" -> "Is False"|>|>]
 
-macroGrammar2[<|"command" \[Rule] "if", "data" \[Rule]<|"ConditionExpression" \[Rule] (-1 > 0), "T" \[Rule] "Is True", "E" \[Rule]"Is False" |>|>]
-
-
+macroGrammar2[<|"command" -> "if", "data" -><|"ConditionExpression" -> (-1 > 0), "T" -> "Is True", "E" ->"Is False" |>|>]
 
 
-*)
+
+
+
