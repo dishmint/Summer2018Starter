@@ -267,7 +267,7 @@ EndPackage[]
 (*Macro Grammar ( NOT IMPLEMENTED YET)*)
 
 
-<|"commnd" -> "set", "data" -> <|"Variable"-> "$gold" "Value" -> 20|> |>
+(* EXAMPLE INPUT: <|"commnd" -> "set", "data" -> <|"Variable"-> "$gold" "Value" -> 20|> |>*)
 
 macroGrammar2[commandAssoc_Association]:=Module[{command = commandAssoc["command"], data=commandAssoc["data"]},
 	Switch[command,
