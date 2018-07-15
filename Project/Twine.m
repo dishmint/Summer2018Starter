@@ -278,10 +278,10 @@ macroGrammar2[commandAssoc_Association]:=Module[{command = commandAssoc["command
 ]
 ]
 
-EXAMPLES \[LongDash]\[LongDash]\[LongDash]
+(* EXAMPLE USAGE *)
 
 
-macroGrammar2[<|"command" -> "set", "data" -> <|"Variable" -> Symbol["$testVar"] , "Value" -> 10|>|>]
+(*macroGrammar2[<|"command" -> "set", "data" -> <|"Variable" -> Symbol["$testVar"] , "Value" -> 10|>|>]
 
 macroGrammar2[<|"command" -> "print", "data" -> "Hello World"|>]
 
@@ -291,7 +291,7 @@ macroGrammar2[<|"command" -> "print", "data" ->RandomInteger[10,10]|>]
 
 macroGrammar2[<|"command" -> "if", "data" -><|"ConditionExpression" -> (1 > 0), "T" -> "Is True", "E" -> "Is False"|>|>]
 
-macroGrammar2[<|"command" -> "if", "data" -><|"ConditionExpression" -> (-1 > 0), "T" -> "Is True", "E" ->"Is False" |>|>]
+macroGrammar2[<|"command" -> "if", "data" -><|"ConditionExpression" -> (-1 > 0), "T" -> "Is True", "E" ->"Is False" |>|>]*)
 
 
 
